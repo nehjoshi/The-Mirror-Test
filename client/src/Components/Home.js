@@ -1,7 +1,9 @@
-import React, {useEffect, useRef} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Bg from "../Images/bg.jpg";
 import { makeStyles, Grid } from "@material-ui/core";
-import gsap, {Power2} from 'gsap';
+import gsap, { Power2 } from "gsap";
+import axios from "axios";
+import history, { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   wrapper: {
@@ -14,7 +16,7 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    overflow: 'hidden'
+    overflow: "hidden",
   },
   box: {
     height: "550px",
@@ -24,21 +26,21 @@ const useStyles = makeStyles(() => ({
     boxShadow: "0 0 7px  #7a7a7a",
     color: "#333333",
     padding: "10px 10px",
-    position: 'relative'
+    position: "relative",
   },
   heading: {
     fontSize: "2rem",
     textAlign: "center",
     marginTop: "50px",
     marginBottom: "50px",
-    position: 'relative',
-    top: '20px',
+    position: "relative",
+    top: "20px",
     opacity: 0,
   },
   label: {
     margin: "0 auto",
-    position: 'relative',
-    top: '20px',
+    position: "relative",
+    top: "20px",
     opacity: 0,
     width: "fit-content",
   },
@@ -76,21 +78,24 @@ const useStyles = makeStyles(() => ({
     margin: "0 auto",
     textTransform: "uppercase",
     opacity: 0,
-    position: 'relative',
-    top: '30px',
-    top: '-20px',
+    position: "relative",
+    top: "30px",
+    top: "-20px",
+    transition: "all 0.2s ease",
     "&:hover": {
       cursor: "pointer",
       backgroundColor: "#e6b635",
-      width: '83%',
-      transitionDuration: '0.2s'
+      width: "83%",
     },
   },
   skip: {
     position: "absolute",
     bottom: "15px",
     right: "20px",
-    fontSize: '1.2rem'
+    fontSize: "1.2rem",
+    "&:hover": {
+      cursor: "pointer",
+    },
   },
 }));
 
@@ -100,43 +105,77 @@ const Home = () => {
   const labelRef = useRef(null);
   const buttonRef = useRef(null);
   const inputRef = useRef(null);
+  const history = useHistory();
 
-    useEffect(() => {
-        gsap.to(headingRef.current, {
-            opacity: 1,
-            top: 0,
-            ease: Power2.easeIn,
-            duration: 0.2
-        })
-        gsap.to(labelRef.current, {
-            opacity: 1,
-            top: 0,
-            ease: Power2.easeIn,
-            duration: 0.2,
-            delay: 0.2
-        })
-        gsap.to(inputRef.current, {
-            opacity: 1,
-            top: 0,
-            ease: Power2.easeIn,
-            duration: 0.2,
-            delay: 0.6
-        })
-        gsap.to(buttonRef.current, {
-            opacity: 1,
-            top: 50,
-            ease: Power2.easeIn,
-            duration: 0.2,
-            delay: 0.8
-        })
-    }, [])
+  const [name, setName] = useState("");
+
+  const handleChange = (e) => {
+    setName(e.target.value);
+  };
+  const handleSubmit = (noName) => {
+    if (noName) {
+      axios.post("http://localhost:5000/auth", { name: "User" })
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        history.push("/instructions");
+      });
+    } else {
+      axios.post("http://localhost:5000/auth", { name: name })
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        history.push("/instructions");
+      });
+    }
+  };
+
+  useEffect(() => {
+    gsap.to(headingRef.current, {
+      opacity: 1,
+      top: 0,
+      ease: Power2.easeIn,
+      duration: 0.2,
+    });
+    gsap.to(labelRef.current, {
+      opacity: 1,
+      top: 0,
+      ease: Power2.easeIn,
+      duration: 0.2,
+      delay: 0.2,
+    });
+    gsap.to(inputRef.current, {
+      opacity: 1,
+      top: 0,
+      ease: Power2.easeIn,
+      duration: 0.2,
+      delay: 0.6,
+    });
+    gsap.to(buttonRef.current, {
+      opacity: 1,
+      top: 50,
+      ease: Power2.easeIn,
+      duration: 0.2,
+      delay: 0.8,
+    });
+  }, []);
 
   return (
     <Grid container className={classes.wrapper}>
       <Grid item className={classes.box}>
-        <h2 className={classes.heading} ref={headingRef}>Welcome to the questionaire</h2>
-        <p className={classes.label} ref={labelRef}>Please enter your name to continue</p>
-        <div style={{ width: "100%", position: "relative", top: "30px", opacity: 0 }} ref={inputRef}>
+        <h2 className={classes.heading} ref={headingRef}>
+          Welcome to the questionaire
+        </h2>
+        <p className={classes.label} ref={labelRef}>
+          Please enter your name to continue
+        </p>
+        <div
+          style={{
+            width: "100%",
+            position: "relative",
+            top: "30px",
+            opacity: 0,
+          }}
+          ref={inputRef}
+        >
           <i
             className="fas fa-user"
             style={{ position: "absolute", top: "17px", left: "40px" }}
@@ -147,10 +186,19 @@ const Home = () => {
             className={classes.input}
             placeholder="Name"
             autoComplete="off"
+            onChange={handleChange}
           />
         </div>
-        <div className={classes.button} ref={buttonRef}>Next</div>
-        <p className={classes.skip}>Skip</p>
+        <div
+          className={classes.button}
+          ref={buttonRef}
+          onClick={() => handleSubmit(false)}
+        >
+          Next
+        </div>
+        <p className={classes.skip} onClick={() => handleSubmit(true)}>
+          Skip
+        </p>
       </Grid>
     </Grid>
   );
