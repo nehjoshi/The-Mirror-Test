@@ -113,7 +113,7 @@ const Home = () => {
     setName(e.target.value);
   };
   const handleSubmit = (noName) => {
-    if (noName) {
+    if (noName || name==="") {
       axios.post("http://localhost:5000/auth", { name: "User" })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
@@ -140,21 +140,21 @@ const Home = () => {
       top: 0,
       ease: Power2.easeIn,
       duration: 0.2,
-      delay: 0.2,
+      delay: 0.1,
     });
     gsap.to(inputRef.current, {
       opacity: 1,
       top: 0,
       ease: Power2.easeIn,
       duration: 0.2,
-      delay: 0.6,
+      delay: 0.1,
     });
     gsap.to(buttonRef.current, {
       opacity: 1,
       top: 50,
       ease: Power2.easeIn,
       duration: 0.2,
-      delay: 0.8,
+      delay: 0.1,
     });
   }, []);
 
