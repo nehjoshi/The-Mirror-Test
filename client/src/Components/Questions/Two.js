@@ -39,21 +39,26 @@ const Two = () => {
   });
 
   const handleRes = (ans) => {
-    axios
-      .post("http://localhost:5000/quiz", { qnumber: 1, ans: ans })
+    const data = {ans: ans}
+    axios.post("http://localhost:5000/quiz", data,
+        {
+          headers: {
+            "x-access-token": localStorage.getItem("token"),
+          }
+        })
       .then((response) => {
+  
         if (response.data.success === true) {
-            gsap.to(mainRef.current, {
-                left: -1000,
-                top: 50,
-                duration: 0.5,
-                opacity: 0,
-                ease: Power2.easeOut
-              });
-              setTimeout(() => {
-                history.push("/question3");
-              }, 1000)
-          
+          gsap.to(mainRef.current, {
+            left: -1000,
+            top: 50,
+            duration: 0.5,
+            opacity: 0,
+            ease: Power2.easeOut,
+          });
+          setTimeout(() => {
+            history.push("/question3");
+          }, 1000);
         }
       })
       .catch((e) => {

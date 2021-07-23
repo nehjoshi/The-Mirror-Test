@@ -3,7 +3,6 @@ const app = express();
 const dotenv = require('dotenv');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
-let result = 0;
 corsOptions = {
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST']
@@ -31,27 +30,33 @@ const verifyToken = async (req, res, next) => {
 
 app.post('/auth', async (req, res) => {
     const {name} = req.body;
-    console.log(name);
-    const token = await jwt.sign({name: name}, process.env.SECRET_KEY, {
+    const token = await jwt.sign({name: name, result: 0}, process.env.SECRET_KEY, {
         expiresIn: 10800,
     });
-    console.log(token);
     return res.json({sucess: true, token: token});
 });
 app.get('/verify', verifyToken, (req, res) => {
     
 });
-app.post('/quiz', (req, res) => {
-    const {qnumber, ans} = req.body;
-    console.log('received!');
-    if (ans===1){
-        result += 1;
-        console.log(result)
-        return res.json({success: true});
+app.post('/quiz', async (req, res) => {
+    const {ans} = req.body;
+    const token = req.headers["x-access-token"];
+    try {
+        const user = await jwt.verify(token, process.env.SECRET_KEY);
+        let result = user.result;
+        if (ans===1){
+            result += 1;
+            console.log(result);
+            return res.json({success: true});
+        }
+        else {
+            return res.json({success: true});
+        }
+    } catch(e){
+        console.log(e);
     }
-    else {
-        return res.json({success: true});
-    }
+
+
 });
 
 app.listen(port, () => {

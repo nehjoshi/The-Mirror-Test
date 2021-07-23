@@ -26,7 +26,6 @@ const One = () => {
               left: 0,
               top: 0,
               opacity: 1,
-              
             });
           }, 2000);
         } else {
@@ -39,27 +38,33 @@ const One = () => {
   });
 
   const handleRes = (ans) => {
-    axios.post('http://localhost:5000/quiz', {qnumber: 1, ans: ans})
-    .then(response => {
-        if (response.data.success===true){
+    const data = {ans: ans}
+    console.log("hello");
+    axios.post("http://localhost:5000/quiz", data,
+        {
+          headers: {
+            "x-access-token": localStorage.getItem("token"),
+          }
+        })
+      .then((response) => {
+  
+        if (response.data.success === true) {
           gsap.to(mainRef.current, {
             left: -1000,
             top: 50,
             duration: 0.5,
             opacity: 0,
-            ease: Power2.easeOut
+            ease: Power2.easeOut,
           });
           setTimeout(() => {
-            history.push('/question2');
-          }, 1000)
-          
+            history.push("/question2");
+          }, 1000);
         }
-      
-    })
-    .catch(e => {
-      console.log(e);
-    })
-  }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
   const classes = useStyles();
 
@@ -68,7 +73,7 @@ const One = () => {
       loading
     </Grid>
   ) : (
-    <Grid container className={classes.wrapper} >
+    <Grid container className={classes.wrapper}>
       <Grid className={classes.box} ref={mainRef}>
         <h1 className={classes.heading}>Question 1</h1>
         <p className={classes.text}>
@@ -87,8 +92,12 @@ const One = () => {
           </b>
         </p>
         <div className={classes.buttonWrapper}>
-            <div className={classes.button} onClick={() => handleRes(1)}>Yes</div>
-            <div className={classes.button} onClick={() => handleRes(0)}>No</div>
+          <div className={classes.button} onClick={() => handleRes(1)}>
+            Yes
+          </div>
+          <div className={classes.button} onClick={() => handleRes(0)}>
+            No
+          </div>
         </div>
       </Grid>
     </Grid>
