@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Three = () => {
+const Four = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const mainRef = useRef(null);
@@ -58,7 +58,7 @@ const Three = () => {
             ease: Power2.easeOut,
           });
           setTimeout(() => {
-            history.push("/question4");
+            history.push("/question5");
           }, 1000);
         }
       })
@@ -75,10 +75,10 @@ const Three = () => {
   ) : (
     <Grid container className={classes.wrapper}>
       <Grid className={classes.box} ref={mainRef}>
-        <h1 className={classes.heading}>Question 3</h1>
+        <h1 className={classes.heading}>Question 4</h1>
         <p className={classes.text}>
-        Did an adult or person at least 5 years older than you ever…  <br />
-          <b>Touch or fondle you or have you touch their body in a sexual way? </b>
+        Did you often feel that ...  <br />
+          <b>No one in your family loved you or thought you were important or special? </b>
         </p>
         <p
           className={classes.text}
@@ -88,7 +88,7 @@ const Three = () => {
         </p>
         <p className={classes.text} style={{ marginTop: "0px" }}>
           <b>
-          Try to or actually have oral, anal, or vaginal sex with you? 
+          Your family didn’t look out for each other, feel close to each other, or support each other?
           </b>
         </p>
         <div className={classes.buttonWrapper}>
@@ -99,4 +99,4 @@ const Three = () => {
     </Grid>
   );
 };
-export default Three;
+export default Four;

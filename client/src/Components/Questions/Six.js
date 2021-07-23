@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Three = () => {
+const Six = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const mainRef = useRef(null);
@@ -58,7 +58,7 @@ const Three = () => {
             ease: Power2.easeOut,
           });
           setTimeout(() => {
-            history.push("/question4");
+            history.push("/question7");
           }, 1000);
         }
       })
@@ -75,22 +75,12 @@ const Three = () => {
   ) : (
     <Grid container className={classes.wrapper}>
       <Grid className={classes.box} ref={mainRef}>
-        <h1 className={classes.heading}>Question 3</h1>
-        <p className={classes.text}>
-        Did an adult or person at least 5 years older than you ever…  <br />
-          <b>Touch or fondle you or have you touch their body in a sexual way? </b>
+        <h1 className={classes.heading}>Question 6</h1>
+        <p className={classes.text} style={{marginTop: '30px'}}>
+        Were your parents <b>ever</b> separated or divorced?
         </p>
-        <p
-          className={classes.text}
-          style={{ textAlign: "center", marginTop: "0px" }}
-        >
-          or
-        </p>
-        <p className={classes.text} style={{ marginTop: "0px" }}>
-          <b>
-          Try to or actually have oral, anal, or vaginal sex with you? 
-          </b>
-        </p>
+
+
         <div className={classes.buttonWrapper}>
             <div className={classes.button} onClick={() => handleRes(1)}>Yes</div>
             <div className={classes.button} onClick={() => handleRes(0)}>No</div>
@@ -99,4 +89,4 @@ const Three = () => {
     </Grid>
   );
 };
-export default Three;
+export default Six;

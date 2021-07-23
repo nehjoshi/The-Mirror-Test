@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Three = () => {
+const Seven = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const mainRef = useRef(null);
@@ -58,7 +58,7 @@ const Three = () => {
             ease: Power2.easeOut,
           });
           setTimeout(() => {
-            history.push("/question4");
+            history.push("/question8");
           }, 1000);
         }
       })
@@ -75,10 +75,10 @@ const Three = () => {
   ) : (
     <Grid container className={classes.wrapper}>
       <Grid className={classes.box} ref={mainRef}>
-        <h1 className={classes.heading}>Question 3</h1>
+        <h1 className={classes.heading}>Question 7</h1>
         <p className={classes.text}>
-        Did an adult or person at least 5 years older than you ever…  <br />
-          <b>Touch or fondle you or have you touch their body in a sexual way? </b>
+        Was your mother or stepmother:  <br />
+          <b>Often pushed, grabbed, slapped, or had something thrown at her? </b>
         </p>
         <p
           className={classes.text}
@@ -88,7 +88,18 @@ const Three = () => {
         </p>
         <p className={classes.text} style={{ marginTop: "0px" }}>
           <b>
-          Try to or actually have oral, anal, or vaginal sex with you? 
+          Sometimes or often kicked, bitten, hit with a fist, or hit with something hard?
+          </b>
+        </p>
+        <p
+          className={classes.text}
+          style={{ textAlign: "center", marginTop: "0px" }}
+        >
+          or
+        </p>
+        <p className={classes.text} style={{ marginTop: "0px" }}>
+          <b>
+          Ever repeatedly hit over at least a few minutes or threatened with a gun or knife?
           </b>
         </p>
         <div className={classes.buttonWrapper}>
@@ -99,4 +110,4 @@ const Three = () => {
     </Grid>
   );
 };
-export default Three;
+export default Seven;
