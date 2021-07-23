@@ -38,7 +38,7 @@ app.post('/auth', async (req, res) => {
     console.log(token);
     return res.json({sucess: true, token: token});
 });
-app.get('/intro', verifyToken, (req, res) => {
+app.get('/verify', verifyToken, (req, res) => {
     
 });
 

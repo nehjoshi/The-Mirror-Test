@@ -3,7 +3,7 @@ import Bg from "../Images/bg.jpg";
 import { makeStyles, Grid } from "@material-ui/core";
 import gsap, { Power2 } from "gsap";
 import axios from "axios";
-import history, { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   wrapper: {
@@ -74,12 +74,10 @@ const useStyles = makeStyles(() => ({
     height: "40px",
     borderRadius: "30px",
     width: "80%",
-    position: "relative",
     margin: "0 auto",
     textTransform: "uppercase",
     opacity: 0,
     position: "relative",
-    top: "30px",
     top: "-20px",
     transition: "all 0.2s ease",
     "&:hover": {
