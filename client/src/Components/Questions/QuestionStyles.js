@@ -23,6 +23,9 @@ export const useStyles = makeStyles(() => ({
         color: "#333333",
         padding: "10px 10px",
         position: "relative",
+        left: '1000px',
+        top: '50px',
+        opacity: 0
       },
       heading: {
         borderBottom: "1px solid #b8b894",

@@ -1,14 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import axios from "axios";
-import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const One = () => {
+const Three = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
-  const mainRef = useRef(null);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
@@ -19,16 +18,9 @@ const One = () => {
       })
       .then((res) => {
         if (res.data.auth === true) {
-          setTimeout(() => {
-            setLoading(false);
-            gsap.to(mainRef.current, {
-              duration: 0.5,
-              left: 0,
-              top: 0,
-              opacity: 1,
-              
-            });
-          }, 2000);
+            setTimeout(() => {
+                setLoading(false);
+              }, 2000);
         } else {
           history.push("/");
         }
@@ -42,17 +34,7 @@ const One = () => {
     axios.post('http://localhost:5000/quiz', {qnumber: 1, ans: ans})
     .then(response => {
         if (response.data.success===true){
-          gsap.to(mainRef.current, {
-            left: -1000,
-            top: 50,
-            duration: 0.5,
-            opacity: 0,
-            ease: Power2.easeOut
-          });
-          setTimeout(() => {
-            history.push('/question2');
-          }, 1000)
-          
+          history.push('/question3');
         }
       
     })
@@ -62,18 +44,17 @@ const One = () => {
   }
 
   const classes = useStyles();
-
   return loading ? (
     <Grid container className={classes.wrapper}>
       loading
     </Grid>
   ) : (
-    <Grid container className={classes.wrapper} >
-      <Grid className={classes.box} ref={mainRef}>
-        <h1 className={classes.heading}>Question 1</h1>
+    <Grid container className={classes.wrapper}>
+      <Grid className={classes.box}>
+        <h1 className={classes.heading}>Question 3</h1>
         <p className={classes.text}>
-          Did a parent or other adult in the household often … <br />
-          <b>Swear at you, insult you, put you down, or humiliate you?</b>
+        Did an adult or person at least 5 years older than you ever…  <br />
+          <b>Touch or fondle you or have you touch their body in a sexual way? </b>
         </p>
         <p
           className={classes.text}
@@ -83,7 +64,7 @@ const One = () => {
         </p>
         <p className={classes.text} style={{ marginTop: "0px" }}>
           <b>
-            Act in a way that made you afraid that you might be physically hurt?
+          Try to or actually have oral, anal, or vaginal sex with you? 
           </b>
         </p>
         <div className={classes.buttonWrapper}>
@@ -94,4 +75,4 @@ const One = () => {
     </Grid>
   );
 };
-export default One;
+export default Three;

@@ -3,7 +3,7 @@ const app = express();
 const dotenv = require('dotenv');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
-
+let result = 0;
 corsOptions = {
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST']
@@ -41,8 +41,18 @@ app.post('/auth', async (req, res) => {
 app.get('/verify', verifyToken, (req, res) => {
     
 });
-
-
+app.post('/quiz', (req, res) => {
+    const {qnumber, ans} = req.body;
+    console.log('received!');
+    if (ans===1){
+        result += 1;
+        console.log(result)
+        return res.json({success: true});
+    }
+    else {
+        return res.json({success: true});
+    }
+});
 
 app.listen(port, () => {
     console.log('Server is up and running!');

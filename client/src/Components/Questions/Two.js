@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Grid } from "@material-ui/core";
 import axios from "axios";
-import { gsap, Power2 } from "gsap";
+import { gsap, Power2 } from "gsap/";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const One = () => {
+const Two = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const mainRef = useRef(null);
@@ -39,41 +39,40 @@ const One = () => {
   });
 
   const handleRes = (ans) => {
-    axios.post('http://localhost:5000/quiz', {qnumber: 1, ans: ans})
-    .then(response => {
-        if (response.data.success===true){
-          gsap.to(mainRef.current, {
-            left: -1000,
-            top: 50,
-            duration: 0.5,
-            opacity: 0,
-            ease: Power2.easeOut
-          });
-          setTimeout(() => {
-            history.push('/question2');
-          }, 1000)
+    axios
+      .post("http://localhost:5000/quiz", { qnumber: 1, ans: ans })
+      .then((response) => {
+        if (response.data.success === true) {
+            gsap.to(mainRef.current, {
+                left: -1000,
+                top: 50,
+                duration: 0.5,
+                opacity: 0,
+                ease: Power2.easeOut
+              });
+              setTimeout(() => {
+                history.push("/question3");
+              }, 1000)
           
         }
-      
-    })
-    .catch(e => {
-      console.log(e);
-    })
-  }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
   const classes = useStyles();
-
   return loading ? (
     <Grid container className={classes.wrapper}>
       loading
     </Grid>
   ) : (
-    <Grid container className={classes.wrapper} >
+    <Grid container className={classes.wrapper}>
       <Grid className={classes.box} ref={mainRef}>
-        <h1 className={classes.heading}>Question 1</h1>
+        <h1 className={classes.heading}>Question 2</h1>
         <p className={classes.text}>
           Did a parent or other adult in the household often … <br />
-          <b>Swear at you, insult you, put you down, or humiliate you?</b>
+          <b>Push, grab, slap, or throw something at you?</b>
         </p>
         <p
           className={classes.text}
@@ -82,16 +81,18 @@ const One = () => {
           or
         </p>
         <p className={classes.text} style={{ marginTop: "0px" }}>
-          <b>
-            Act in a way that made you afraid that you might be physically hurt?
-          </b>
+          <b>Ever hit you so hard that you had marks or were injured?</b>
         </p>
         <div className={classes.buttonWrapper}>
-            <div className={classes.button} onClick={() => handleRes(1)}>Yes</div>
-            <div className={classes.button} onClick={() => handleRes(0)}>No</div>
+          <div className={classes.button} onClick={() => handleRes(1)}>
+            Yes
+          </div>
+          <div className={classes.button} onClick={() => handleRes(0)}>
+            No
+          </div>
         </div>
       </Grid>
     </Grid>
   );
 };
-export default One;
+export default Two;
