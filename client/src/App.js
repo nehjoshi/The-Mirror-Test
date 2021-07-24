@@ -13,6 +13,7 @@ import Seven from "./Components/Questions/Seven.js";
 import Eight from "./Components/Questions/Eight.js";
 import Nine from "./Components/Questions/Nine.js";
 import Ten from "./Components/Questions/Ten.js";
+import Results from "./Components/Results.js";
 
 const App = () => {
 
@@ -32,6 +33,7 @@ const App = () => {
         <Route exact path='/question8' component={Eight} />
         <Route exact path='/question9' component={Nine} />
         <Route exact path='/question10' component={Ten} />
+        <Route exact path='/results' component={Results} />
       </Switch>
     </Router>
   );

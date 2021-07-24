@@ -58,7 +58,7 @@ const One = () => {
           });
           setTimeout(() => {
             history.push("/question2");
-          }, 1000);
+          }, 750);
         }
       })
       .catch((e) => {

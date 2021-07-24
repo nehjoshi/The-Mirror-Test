@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Bg from "../Images/bg.jpg";
 import { makeStyles, Grid } from "@material-ui/core";
 import axios from "axios";
-import {useHistory} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   wrapper: {
@@ -38,11 +38,11 @@ const useStyles = makeStyles(() => ({
     borderBottom: "1px solid #b8b894",
   },
   link: {
-    textDecoration: 'underline',
-    color: '#333333',
-    '&:hover': {
-      color: 'blue'
-    }, 
+    textDecoration: "underline",
+    color: "#333333",
+    "&:hover": {
+      color: "blue",
+    },
   },
   button: {
     display: "flex",
@@ -53,7 +53,7 @@ const useStyles = makeStyles(() => ({
     height: "40px",
     borderRadius: "30px",
     width: "80%",
-    
+
     margin: "25px auto",
     textTransform: "uppercase",
     transition: "all 0.2s ease",
@@ -81,7 +81,7 @@ const Intro = () => {
         if (res.data.auth === true) {
           setLoading(false);
         } else {
-          history.push('/');
+          history.push("/");
         }
       })
       .catch((e) => {
@@ -90,8 +90,8 @@ const Intro = () => {
   });
 
   const Next = () => {
-    history.push('/question1');
-  }
+    history.push("/question1");
+  };
 
   return loading ? (
     <Grid container className={classes.wrapper}>
@@ -117,12 +117,18 @@ const Intro = () => {
         <p className={classes.text}>
           We respect your privacy regarding sensitive issues. Hence, we do not
           store your name or your responses anywhere. You can visit the source
-          code <a href="https://github.com/nehjoshi/Self-Growth-Questionaire" className={classes.link} target="_blank" rel="noreferrer">here</a>.
+          code{" "}
+          <a
+            href="https://github.com/nehjoshi/Self-Growth-Questionaire"
+            className={classes.link}
+            target="_blank"
+            rel="noreferrer"
+          >
+            here
+          </a>
+          .
         </p>
-        <div
-          className={classes.button}
-          onClick={() => Next()}
-        >
+        <div className={classes.button} onClick={() => Next()}>
           Start
         </div>
       </Grid>

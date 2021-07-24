@@ -58,8 +58,8 @@ const Ten = () => {
             ease: Power2.easeOut,
           });
           setTimeout(() => {
-            history.push("/question8");
-          }, 1000);
+            history.push("/results");
+          }, 750);
         }
       })
       .catch((e) => {

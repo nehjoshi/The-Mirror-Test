@@ -1,0 +1,120 @@
+import React, { useEffect, useState, useRef } from "react";
+import { Grid } from "@material-ui/core";
+import axios from "axios";
+import { gsap, Power2 } from "gsap";
+import { useHistory } from "react-router-dom";
+import { useStyles } from "./Questions/QuestionStyles.js"; //We can just use the same question styles for the wrapper
+
+const Results = () => {
+  const classes = useStyles();
+  const [loading, setLoading] = useState(true);
+  const history = useHistory();
+  const loadingRef1 = useRef(null);
+  const loadingRef2 = useRef(null);
+  const loadingRef3 = useRef(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    axios
+      .get("http://localhost:5000/verify", {
+        headers: {
+          "x-access-token": token,
+        },
+      })
+      .then((res) => {
+        if (res.data.auth === true) {
+          console.log("true?");
+          gsap.to(loadingRef1.current, {
+            top: -50,
+            position: "relative",
+            opacity: 0,
+            ease: Power2.easeIn,
+            delay: 0.5,
+            display: "none",
+            duration: 0.2,
+          });
+          gsap.to(loadingRef2.current, {
+            top: 0,
+            opacity: 1,
+            display: "block",
+            duration: 0.2,
+            delay: 0.7,
+          });
+          gsap.to(loadingRef2.current, {
+            top: -50,
+            opacity: 0,
+            duration: 0.2,
+            delay: 2.7,
+            display: "none",
+            ease: Power2.easeIn,
+          });
+          gsap.to(loadingRef3.current, {
+            top: 0,
+            opacity: 1,
+            duration: 0.2,
+            delay: 2.9,
+            display: "block",
+            ease: Power2.easeIn,
+          });
+
+          gsap.to(loadingRef3.current, {
+            top: -50,
+            opacity: 0,
+            duration: 0.2,
+            display: "none",
+            delay: 5,
+            ease: Power2.easeIn,
+          });
+          setTimeout(() => {setLoading(false)}, 6000)
+        } else {
+          history.push("/");
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  });
+
+  return loading ? (
+    <Grid container className={classes.wrapper}>
+      <div ref={loadingRef1}>Loading...</div>
+      <p
+        ref={loadingRef2}
+        style={{
+          display: "none",
+          opacity: 0,
+          position: "relative",
+          top: "50px",
+        }}
+      >
+        Consolidating Results...
+      </p>
+      <p
+        ref={loadingRef3}
+        style={{
+          display: "none",
+          opacity: 0,
+          position: "relative",
+          top: "50px",
+        }}
+      >
+        Finishing Up...
+      </p>
+    </Grid>
+  ) : (
+    <Grid container className={classes.wrapper}>
+      <Grid item className={classes.box} style={{opacity: 1, top: 0, left: 0}}>
+        <h1 className={classes.heading}>Disclaimer</h1>
+        <p className={classes.text}>
+          This questionaire aims to give you a better insight about your own
+          life, your personality and your wellbeing. The questions have been
+          through extensive research and have been carefully framed to make the
+          best out of clients. Try to be honest with your answers, as that will
+          ensure more accurate results.
+        </p>
+
+      </Grid>
+    </Grid>
+  );
+};
+export default Results;

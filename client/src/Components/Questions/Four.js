@@ -59,7 +59,7 @@ const Four = () => {
           });
           setTimeout(() => {
             history.push("/question5");
-          }, 1000);
+          }, 750);
         }
       })
       .catch((e) => {
