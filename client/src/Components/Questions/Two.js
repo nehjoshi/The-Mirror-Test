@@ -39,7 +39,7 @@ const Two = () => {
   });
 
   const handleRes = (ans) => {
-    const data = {ans: ans}
+    const data = {ans: ans, result: parseInt(localStorage.getItem("result"))}
     axios.post("http://localhost:5000/quiz", data,
         {
           headers: {
@@ -49,9 +49,9 @@ const Two = () => {
       .then((response) => {
   
         if (response.data.success === true) {
+          localStorage.setItem("result", response.data.result);
           gsap.to(mainRef.current, {
             left: -1000,
-            top: 50,
             duration: 0.5,
             opacity: 0,
             ease: Power2.easeOut,

@@ -24,7 +24,6 @@ export const useStyles = makeStyles(() => ({
         padding: "10px 10px",
         position: "relative",
         left: '1000px',
-        top: '50px',
         opacity: 0
       },
       heading: {

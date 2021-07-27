@@ -11,6 +11,11 @@ const One = () => {
   const mainRef = useRef(null);
   useEffect(() => {
     const token = localStorage.getItem("token");
+    window.history.forward();
+    function noBack() {
+        window.history.forward();
+    }
+        
     axios
       .get("http://localhost:5000/verify", {
         headers: {
@@ -38,8 +43,7 @@ const One = () => {
   });
 
   const handleRes = (ans) => {
-    const data = {ans: ans}
-    console.log("hello");
+    const data = {ans: ans, result: 0}
     axios.post("http://localhost:5000/quiz", data,
         {
           headers: {
@@ -49,9 +53,10 @@ const One = () => {
       .then((response) => {
   
         if (response.data.success === true) {
+          localStorage.setItem("result", response.data.result);
           gsap.to(mainRef.current, {
             left: -1000,
-            top: 50,
+            
             duration: 0.5,
             opacity: 0,
             ease: Power2.easeOut,
