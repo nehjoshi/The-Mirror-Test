@@ -90,7 +90,7 @@ const Intro2 = () => {
     });
 
     const Next = () => {
-        history.push("/quiz1/question1");
+        history.push("/quiz2/question1");
     };
 
     return loading ? (

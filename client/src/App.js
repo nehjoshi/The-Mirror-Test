@@ -17,6 +17,9 @@ import Results from "./Components/Results.js";
 import Intro2 from "./Components/Intro2.js";
 import Quiz2One from "./Components/Questions/Quiz2/One.js";
 import Quiz2Two from "./Components/Questions/Quiz2/Two.js";
+import Quiz2Three from "./Components/Questions/Quiz2/Three.js";
+import Quiz2Four from "./Components/Questions/Quiz2/Four.js";
+import Quiz2Five from "./Components/Questions/Quiz2/Five.js";
 
 const App = () => {
 
@@ -39,6 +42,9 @@ const App = () => {
         <Route exact path='/quiz1/question10' component={Ten} />
         <Route exact path='/quiz2/question1' component={Quiz2One} />
         <Route exact path='/quiz2/question2' component={Quiz2Two} />
+        <Route exact path='/quiz2/question3' component={Quiz2Three} />
+        <Route exact path='/quiz2/question4' component={Quiz2Four} />
+        <Route exact path='/quiz2/question5' component={Quiz2Five} />
         <Route exact path='/results' component={Results} />
       </Switch>
     </Router>

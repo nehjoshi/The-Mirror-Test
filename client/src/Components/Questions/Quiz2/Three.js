@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz2Two = () => {
+const Quiz2Three = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const mainRef = useRef(null);
@@ -44,7 +44,7 @@ const Quiz2Two = () => {
         const result3 = parseInt(localStorage.getItem("result3"));
         const result4 = parseInt(localStorage.getItem("result4"));
         const result = { result1, result2, result3, result4 }
-        const data = { ans, result, type: 2 }
+        const data = { ans, result, type: 3 }
         axios.post("/quiz2", data)
             .then((response) => {
                 if (response.data.success === true) {
@@ -60,7 +60,7 @@ const Quiz2Two = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/quiz2/question3");
+                        history.push("/quiz2/question4");
                     }, 750);
                 }
             })
@@ -77,10 +77,10 @@ const Quiz2Two = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 2</h1>
+                <h1 className={classes.heading}>Question 3</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                I chronically second-guess myself and sometimes wish I had said
-something differently.
+                It is easier for me to think things through than to express myself
+emotionally.
                 </p>
                 <div className={classes.buttonWrapper}>
                     <div className={classes.button} onClick={() => handleRes(3)}>Strongly Agree</div>
@@ -94,4 +94,4 @@ something differently.
         </Grid>
     );
 };
-export default Quiz2Two;
+export default Quiz2Three;
