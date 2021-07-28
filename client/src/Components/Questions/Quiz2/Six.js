@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz2Five = () => {
+const Quiz2Six = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const mainRef = useRef(null);
@@ -44,7 +44,7 @@ const Quiz2Five = () => {
         const result3 = parseInt(localStorage.getItem("result3"));
         const result4 = parseInt(localStorage.getItem("result4"));
         const result = { result1, result2, result3, result4 }
-        const data = { ans, result, type: 1 }
+        const data = { ans, result, type: 2 }
         axios.post("/quiz2", data)
             .then((response) => {
                 if (response.data.success === true) {
@@ -60,7 +60,7 @@ const Quiz2Five = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/quiz2/question6");
+                        history.push("/quiz2/question7");
                     }, 750);
                 }
             })
@@ -77,10 +77,10 @@ const Quiz2Five = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 5</h1>
+                <h1 className={classes.heading}>Question 6</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                I actively protect my partner from others and from harm and attempt to
-maintain safety in our relationship.
+                I am always yearning for something or someone that I feel I cannot have
+and rarely feeling satisfied.
                 </p>
                 <div className={classes.buttonWrapper}>
                     <div className={classes.button} onClick={() => handleRes(3)}>Strongly Agree</div>
@@ -94,4 +94,4 @@ maintain safety in our relationship.
         </Grid>
     );
 };
-export default Quiz2Five;
+export default Quiz2Six;

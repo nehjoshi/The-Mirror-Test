@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz2Five = () => {
+const Quiz2Nine = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const mainRef = useRef(null);
@@ -60,7 +60,7 @@ const Quiz2Five = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/quiz2/question6");
+                        history.push("/quiz2/question10");
                     }, 750);
                 }
             })
@@ -77,10 +77,10 @@ const Quiz2Five = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 5</h1>
+                <h1 className={classes.heading}>Question 9</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                I actively protect my partner from others and from harm and attempt to
-maintain safety in our relationship.
+                If my partner and I hit a glitch, it is relatively easy for me to apologize,
+brainstorm a win-win solution, or repair the misattunement or disharmony.
                 </p>
                 <div className={classes.buttonWrapper}>
                     <div className={classes.button} onClick={() => handleRes(3)}>Strongly Agree</div>
@@ -94,4 +94,4 @@ maintain safety in our relationship.
         </Grid>
     );
 };
-export default Quiz2Five;
+export default Quiz2Nine;

@@ -20,6 +20,11 @@ import Quiz2Two from "./Components/Questions/Quiz2/Two.js";
 import Quiz2Three from "./Components/Questions/Quiz2/Three.js";
 import Quiz2Four from "./Components/Questions/Quiz2/Four.js";
 import Quiz2Five from "./Components/Questions/Quiz2/Five.js";
+import Quiz2Six from "./Components/Questions/Quiz2/Six.js";
+import Quiz2Seven from "./Components/Questions/Quiz2/Seven.js";
+import Quiz2Eight from "./Components/Questions/Quiz2/Eight.js";
+import Quiz2Nine from "./Components/Questions/Quiz2/Nine.js";
+import Quiz2Ten from "./Components/Questions/Quiz2/Ten.js";
 
 const App = () => {
 
@@ -45,6 +50,11 @@ const App = () => {
         <Route exact path='/quiz2/question3' component={Quiz2Three} />
         <Route exact path='/quiz2/question4' component={Quiz2Four} />
         <Route exact path='/quiz2/question5' component={Quiz2Five} />
+        <Route exact path='/quiz2/question6' component={Quiz2Six} />
+        <Route exact path='/quiz2/question7' component={Quiz2Seven} />
+        <Route exact path='/quiz2/question8' component={Quiz2Eight} />
+        <Route exact path='/quiz2/question9' component={Quiz2Nine} />
+        <Route exact path='/quiz2/question10' component={Quiz2Ten} />
         <Route exact path='/results' component={Results} />
       </Switch>
     </Router>
