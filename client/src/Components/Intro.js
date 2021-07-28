@@ -72,7 +72,7 @@ const Intro = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:5000/verify", {
+      .get(" /verify", {
         headers: {
           "x-access-token": token,
         },
@@ -90,7 +90,7 @@ const Intro = () => {
   });
 
   const Next = () => {
-    history.push("/question1");
+    history.push("/quiz1/question1");
   };
 
   return loading ? (

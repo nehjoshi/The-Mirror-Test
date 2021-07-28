@@ -1,35 +1,38 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Grid } from "@material-ui/core";
 import axios from "axios";
 import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Nine = () => {
+const One = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const mainRef = useRef(null);
-
   useEffect(() => {
     const token = localStorage.getItem("token");
+    window.history.forward();
+    function noBack() {
+        window.history.forward();
+    }
+        
     axios
-      .get("http://localhost:5000/verify", {
+      .get(" /verify", {
         headers: {
           "x-access-token": token,
         },
       })
       .then((res) => {
         if (res.data.auth === true) {
-            setTimeout(() => {
-                setLoading(false);
-                gsap.to(mainRef.current, {
-                  duration: 0.5,
-                  left: 0,
-                  top: 0,
-                  opacity: 1,
-                  
-                });
-              }, 2000);
+          setTimeout(() => {
+            setLoading(false);
+            gsap.to(mainRef.current, {
+              duration: 0.5,
+              left: 0,
+              top: 0,
+              opacity: 1,
+            });
+          }, 2000);
         } else {
           history.push("/");
         }
@@ -40,8 +43,8 @@ const Nine = () => {
   });
 
   const handleRes = (ans) => {
-    const data = {ans: ans, result: parseInt(localStorage.getItem("result"))}
-    axios.post("http://localhost:5000/quiz", data,
+    const data = {ans: ans, result: 0}
+    axios.post(" /quiz1", data,
         {
           headers: {
             "x-access-token": localStorage.getItem("token"),
@@ -59,7 +62,7 @@ const Nine = () => {
             ease: Power2.easeOut,
           });
           setTimeout(() => {
-            history.push("/question10");
+            history.push("/quiz1/question2");
           }, 750);
         }
       })
@@ -69,6 +72,7 @@ const Nine = () => {
   };
 
   const classes = useStyles();
+
   return loading ? (
     <Grid container className={classes.wrapper}>
       loading
@@ -76,17 +80,32 @@ const Nine = () => {
   ) : (
     <Grid container className={classes.wrapper}>
       <Grid className={classes.box} ref={mainRef}>
-        <h1 className={classes.heading}>Question 9</h1>
-        <p className={classes.text} style={{marginTop: '30px'}}>
-        Was a household member depressed or mentally ill or did a household member attempt suicide?
+        <h1 className={classes.heading}>Question 1</h1>
+        <p className={classes.text}>
+          Did a parent or other adult in the household often … <br />
+          <b>Swear at you, insult you, put you down, or humiliate you?</b>
         </p>
-
+        <p
+          className={classes.text}
+          style={{ textAlign: "center", marginTop: "0px" }}
+        >
+          or
+        </p>
+        <p className={classes.text} style={{ marginTop: "0px" }}>
+          <b>
+            Act in a way that made you afraid that you might be physically hurt?
+          </b>
+        </p>
         <div className={classes.buttonWrapper}>
-            <div className={classes.button} onClick={() => handleRes(1)}>Yes</div>
-            <div className={classes.button} onClick={() => handleRes(0)}>No</div>
+          <div className={classes.button} onClick={() => handleRes(1)}>
+            Yes
+          </div>
+          <div className={classes.button} onClick={() => handleRes(0)}>
+            No
+          </div>
         </div>
       </Grid>
     </Grid>
   );
 };
-export default Nine;
+export default One;

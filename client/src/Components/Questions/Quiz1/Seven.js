@@ -1,38 +1,35 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Grid } from "@material-ui/core";
 import axios from "axios";
 import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const One = () => {
+const Seven = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const mainRef = useRef(null);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
-    window.history.forward();
-    function noBack() {
-        window.history.forward();
-    }
-        
     axios
-      .get("http://localhost:5000/verify", {
+      .get(" /verify", {
         headers: {
           "x-access-token": token,
         },
       })
       .then((res) => {
         if (res.data.auth === true) {
-          setTimeout(() => {
-            setLoading(false);
-            gsap.to(mainRef.current, {
-              duration: 0.5,
-              left: 0,
-              top: 0,
-              opacity: 1,
-            });
-          }, 2000);
+            setTimeout(() => {
+                setLoading(false);
+                gsap.to(mainRef.current, {
+                  duration: 0.5,
+                  left: 0,
+                  top: 0,
+                  opacity: 1,
+                  
+                });
+              }, 2000);
         } else {
           history.push("/");
         }
@@ -43,8 +40,8 @@ const One = () => {
   });
 
   const handleRes = (ans) => {
-    const data = {ans: ans, result: 0}
-    axios.post("http://localhost:5000/quiz", data,
+    const data = {ans: ans, result: parseInt(localStorage.getItem("result"))}
+    axios.post(" /quiz1", data,
         {
           headers: {
             "x-access-token": localStorage.getItem("token"),
@@ -62,7 +59,7 @@ const One = () => {
             ease: Power2.easeOut,
           });
           setTimeout(() => {
-            history.push("/question2");
+            history.push("/quiz1/question8");
           }, 750);
         }
       })
@@ -72,7 +69,6 @@ const One = () => {
   };
 
   const classes = useStyles();
-
   return loading ? (
     <Grid container className={classes.wrapper}>
       loading
@@ -80,10 +76,10 @@ const One = () => {
   ) : (
     <Grid container className={classes.wrapper}>
       <Grid className={classes.box} ref={mainRef}>
-        <h1 className={classes.heading}>Question 1</h1>
+        <h1 className={classes.heading}>Question 7</h1>
         <p className={classes.text}>
-          Did a parent or other adult in the household often … <br />
-          <b>Swear at you, insult you, put you down, or humiliate you?</b>
+        Was your mother or stepmother:  <br />
+          <b>Often pushed, grabbed, slapped, or had something thrown at her? </b>
         </p>
         <p
           className={classes.text}
@@ -93,19 +89,26 @@ const One = () => {
         </p>
         <p className={classes.text} style={{ marginTop: "0px" }}>
           <b>
-            Act in a way that made you afraid that you might be physically hurt?
+          Sometimes or often kicked, bitten, hit with a fist, or hit with something hard?
+          </b>
+        </p>
+        <p
+          className={classes.text}
+          style={{ textAlign: "center", marginTop: "0px" }}
+        >
+          or
+        </p>
+        <p className={classes.text} style={{ marginTop: "0px" }}>
+          <b>
+          Ever repeatedly hit over at least a few minutes or threatened with a gun or knife?
           </b>
         </p>
         <div className={classes.buttonWrapper}>
-          <div className={classes.button} onClick={() => handleRes(1)}>
-            Yes
-          </div>
-          <div className={classes.button} onClick={() => handleRes(0)}>
-            No
-          </div>
+            <div className={classes.button} onClick={() => handleRes(1)}>Yes</div>
+            <div className={classes.button} onClick={() => handleRes(0)}>No</div>
         </div>
       </Grid>
     </Grid>
   );
 };
-export default One;
+export default Seven;

@@ -3,7 +3,7 @@ import { Grid } from "@material-ui/core";
 import axios from "axios";
 import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
-import { useStyles } from "./Questions/QuestionStyles.js"; //We can just use the same question styles for the wrapper
+import { useStyles } from "./Questions/Quiz1/QuestionStyles.js"; //We can just use the same question styles for the wrapper
 
 const Results = () => {
   const classes = useStyles();
@@ -17,7 +17,7 @@ const Results = () => {
     const token = localStorage.getItem("token");
     
     axios
-      .get("http://localhost:5000/verify", {
+      .get("/verify", {
         headers: {
           "x-access-token": token,
         },
@@ -106,13 +106,9 @@ const Results = () => {
   ) : (
     <Grid container className={classes.wrapper}>
       <Grid item className={classes.box} style={{opacity: 1, top: 0, left: 0}}>
-        <h1 className={classes.heading}>{result}</h1>
+        <h1 className={classes.heading}>Results</h1>
         <p className={classes.text}>
-          This questionaire aims to give you a better insight about your own
-          life, your personality and your wellbeing. The questions have been
-          through extensive research and have been carefully framed to make the
-          best out of clients. Try to be honest with your answers, as that will
-          ensure more accurate results.
+          Your ACE score is {result}
         </p>
 
       </Grid>

@@ -1,5 +1,5 @@
 import {makeStyles} from '@material-ui/core';
-import Bg from "../../Images/bg.jpg";
+import Bg from "../../../Images/bg.jpg";
 
 export const useStyles = makeStyles(() => ({
     wrapper: {

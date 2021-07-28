@@ -3,17 +3,20 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Components/Home.js';
 import "./App.css";
 import  Intro  from "./Components/Intro.js";
-import One from "./Components/Questions/One.js";
-import Two from "./Components/Questions/Two.js";
-import Three from "./Components/Questions/Three.js";
-import Four from "./Components/Questions/Four.js";
-import Five from "./Components/Questions/Five.js";
-import Six from "./Components/Questions/Six.js";
-import Seven from "./Components/Questions/Seven.js";
-import Eight from "./Components/Questions/Eight.js";
-import Nine from "./Components/Questions/Nine.js";
-import Ten from "./Components/Questions/Ten.js";
+import One from "./Components/Questions/Quiz1/One.js";
+import Two from "./Components/Questions/Quiz1/Two.js";
+import Three from "./Components/Questions/Quiz1/Three.js";
+import Four from "./Components/Questions/Quiz1/Four.js";
+import Five from "./Components/Questions/Quiz1/Five.js";
+import Six from "./Components/Questions/Quiz1/Six.js";
+import Seven from "./Components/Questions/Quiz1/Seven.js";
+import Eight from "./Components/Questions/Quiz1/Eight.js";
+import Nine from "./Components/Questions/Quiz1/Nine.js";
+import Ten from "./Components/Questions/Quiz1/Ten.js";
 import Results from "./Components/Results.js";
+import Intro2 from "./Components/Intro2.js";
+import Quiz2One from "./Components/Questions/Quiz2/One.js";
+import Quiz2Two from "./Components/Questions/Quiz2/Two.js";
 
 const App = () => {
 
@@ -23,16 +26,19 @@ const App = () => {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/instructions' component={Intro} />
-        <Route exact path='/question1' component={One} />
-        <Route exact path='/question2' component={Two} />
-        <Route exact path='/question3' component={Three} />
-        <Route exact path='/question4' component={Four} />
-        <Route exact path='/question5' component={Five} />
-        <Route exact path='/question6' component={Six} />
-        <Route exact path='/question7' component={Seven} />
-        <Route exact path='/question8' component={Eight} />
-        <Route exact path='/question9' component={Nine} />
-        <Route exact path='/question10' component={Ten} />
+        <Route exact path='/instructions2' component={Intro2} />
+        <Route exact path='/quiz1/question1' component={One} />
+        <Route exact path='/quiz1/question2' component={Two} />
+        <Route exact path='/quiz1/question3' component={Three} />
+        <Route exact path='/quiz1/question4' component={Four} />
+        <Route exact path='/quiz1/question5' component={Five} />
+        <Route exact path='/quiz1/question6' component={Six} />
+        <Route exact path='/quiz1/question7' component={Seven} />
+        <Route exact path='/quiz1/question8' component={Eight} />
+        <Route exact path='/quiz1/question9' component={Nine} />
+        <Route exact path='/quiz1/question10' component={Ten} />
+        <Route exact path='/quiz2/question1' component={Quiz2One} />
+        <Route exact path='/quiz2/question2' component={Quiz2Two} />
         <Route exact path='/results' component={Results} />
       </Switch>
     </Router>

@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Eight = () => {
+const Ten = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const mainRef = useRef(null);
@@ -13,7 +13,7 @@ const Eight = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:5000/verify", {
+      .get(" /verify", {
         headers: {
           "x-access-token": token,
         },
@@ -41,7 +41,7 @@ const Eight = () => {
 
   const handleRes = (ans) => {
     const data = {ans: ans, result: parseInt(localStorage.getItem("result"))}
-    axios.post("http://localhost:5000/quiz", data,
+    axios.post(" /quiz1", data,
         {
           headers: {
             "x-access-token": localStorage.getItem("token"),
@@ -59,7 +59,7 @@ const Eight = () => {
             ease: Power2.easeOut,
           });
           setTimeout(() => {
-            history.push("/question9");
+            history.push("/instructions2");
           }, 750);
         }
       })
@@ -76,9 +76,9 @@ const Eight = () => {
   ) : (
     <Grid container className={classes.wrapper}>
       <Grid className={classes.box} ref={mainRef}>
-        <h1 className={classes.heading}>Question 8</h1>
+        <h1 className={classes.heading}>Question 10</h1>
         <p className={classes.text} style={{marginTop: '30px'}}>
-        Did you live with anyone who was a problem drinker or alcoholic or who used street drugs?
+        Did a household member go to prison?
         </p>
 
         <div className={classes.buttonWrapper}>
@@ -89,4 +89,4 @@ const Eight = () => {
     </Grid>
   );
 };
-export default Eight;
+export default Ten;

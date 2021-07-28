@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Four = () => {
+const Six = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const mainRef = useRef(null);
@@ -13,7 +13,7 @@ const Four = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:5000/verify", {
+      .get(" /verify", {
         headers: {
           "x-access-token": token,
         },
@@ -41,7 +41,7 @@ const Four = () => {
 
   const handleRes = (ans) => {
     const data = {ans: ans, result: parseInt(localStorage.getItem("result"))}
-    axios.post("http://localhost:5000/quiz", data,
+    axios.post(" /quiz1", data,
         {
           headers: {
             "x-access-token": localStorage.getItem("token"),
@@ -59,7 +59,7 @@ const Four = () => {
             ease: Power2.easeOut,
           });
           setTimeout(() => {
-            history.push("/question5");
+            history.push("/quiz1/question7");
           }, 750);
         }
       })
@@ -76,22 +76,12 @@ const Four = () => {
   ) : (
     <Grid container className={classes.wrapper}>
       <Grid className={classes.box} ref={mainRef}>
-        <h1 className={classes.heading}>Question 4</h1>
-        <p className={classes.text}>
-        Did you often feel that ...  <br />
-          <b>No one in your family loved you or thought you were important or special? </b>
+        <h1 className={classes.heading}>Question 6</h1>
+        <p className={classes.text} style={{marginTop: '30px'}}>
+        Were your parents <b>ever</b> separated or divorced?
         </p>
-        <p
-          className={classes.text}
-          style={{ textAlign: "center", marginTop: "0px" }}
-        >
-          or
-        </p>
-        <p className={classes.text} style={{ marginTop: "0px" }}>
-          <b>
-          Your family didn’t look out for each other, feel close to each other, or support each other?
-          </b>
-        </p>
+
+
         <div className={classes.buttonWrapper}>
             <div className={classes.button} onClick={() => handleRes(1)}>Yes</div>
             <div className={classes.button} onClick={() => handleRes(0)}>No</div>
@@ -100,4 +90,4 @@ const Four = () => {
     </Grid>
   );
 };
-export default Four;
+export default Six;

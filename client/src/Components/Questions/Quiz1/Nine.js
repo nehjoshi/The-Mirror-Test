@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Seven = () => {
+const Nine = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const mainRef = useRef(null);
@@ -13,7 +13,7 @@ const Seven = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:5000/verify", {
+      .get(" /verify", {
         headers: {
           "x-access-token": token,
         },
@@ -41,7 +41,7 @@ const Seven = () => {
 
   const handleRes = (ans) => {
     const data = {ans: ans, result: parseInt(localStorage.getItem("result"))}
-    axios.post("http://localhost:5000/quiz", data,
+    axios.post(" /quiz1", data,
         {
           headers: {
             "x-access-token": localStorage.getItem("token"),
@@ -59,7 +59,7 @@ const Seven = () => {
             ease: Power2.easeOut,
           });
           setTimeout(() => {
-            history.push("/question8");
+            history.push("/quiz1/question10");
           }, 750);
         }
       })
@@ -76,33 +76,11 @@ const Seven = () => {
   ) : (
     <Grid container className={classes.wrapper}>
       <Grid className={classes.box} ref={mainRef}>
-        <h1 className={classes.heading}>Question 7</h1>
-        <p className={classes.text}>
-        Was your mother or stepmother:  <br />
-          <b>Often pushed, grabbed, slapped, or had something thrown at her? </b>
+        <h1 className={classes.heading}>Question 9</h1>
+        <p className={classes.text} style={{marginTop: '30px'}}>
+        Was a household member depressed or mentally ill or did a household member attempt suicide?
         </p>
-        <p
-          className={classes.text}
-          style={{ textAlign: "center", marginTop: "0px" }}
-        >
-          or
-        </p>
-        <p className={classes.text} style={{ marginTop: "0px" }}>
-          <b>
-          Sometimes or often kicked, bitten, hit with a fist, or hit with something hard?
-          </b>
-        </p>
-        <p
-          className={classes.text}
-          style={{ textAlign: "center", marginTop: "0px" }}
-        >
-          or
-        </p>
-        <p className={classes.text} style={{ marginTop: "0px" }}>
-          <b>
-          Ever repeatedly hit over at least a few minutes or threatened with a gun or knife?
-          </b>
-        </p>
+
         <div className={classes.buttonWrapper}>
             <div className={classes.button} onClick={() => handleRes(1)}>Yes</div>
             <div className={classes.button} onClick={() => handleRes(0)}>No</div>
@@ -111,4 +89,4 @@ const Seven = () => {
     </Grid>
   );
 };
-export default Seven;
+export default Nine;

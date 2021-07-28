@@ -13,7 +13,7 @@ const Five = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:5000/verify", {
+      .get(" /verify", {
         headers: {
           "x-access-token": token,
         },
@@ -41,7 +41,7 @@ const Five = () => {
 
   const handleRes = (ans) => {
     const data = {ans: ans, result: parseInt(localStorage.getItem("result"))}
-    axios.post("http://localhost:5000/quiz", data,
+    axios.post(" /quiz1", data,
         {
           headers: {
             "x-access-token": localStorage.getItem("token"),
@@ -59,7 +59,7 @@ const Five = () => {
             ease: Power2.easeOut,
           });
           setTimeout(() => {
-            history.push("/question6");
+            history.push("/quiz1/question6");
           }, 750);
         }
       })

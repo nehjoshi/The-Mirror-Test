@@ -112,13 +112,13 @@ const Home = () => {
   };
   const handleSubmit = (noName) => {
     if (noName || name==="") {
-      axios.post("http://localhost:5000/auth", { name: "User" })
+      axios.post("/auth", { name: "User" })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         history.push("/instructions");
       });
     } else {
-      axios.post("http://localhost:5000/auth", { name: name })
+      axios.post("/auth", { name: name })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         history.push("/instructions");

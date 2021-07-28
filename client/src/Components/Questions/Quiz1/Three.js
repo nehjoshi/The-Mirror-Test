@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Six = () => {
+const Three = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const mainRef = useRef(null);
@@ -13,7 +13,7 @@ const Six = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:5000/verify", {
+      .get(" /verify", {
         headers: {
           "x-access-token": token,
         },
@@ -41,7 +41,7 @@ const Six = () => {
 
   const handleRes = (ans) => {
     const data = {ans: ans, result: parseInt(localStorage.getItem("result"))}
-    axios.post("http://localhost:5000/quiz", data,
+    axios.post(" /quiz1", data,
         {
           headers: {
             "x-access-token": localStorage.getItem("token"),
@@ -59,7 +59,7 @@ const Six = () => {
             ease: Power2.easeOut,
           });
           setTimeout(() => {
-            history.push("/question7");
+            history.push("/quiz1/question4");
           }, 750);
         }
       })
@@ -76,12 +76,22 @@ const Six = () => {
   ) : (
     <Grid container className={classes.wrapper}>
       <Grid className={classes.box} ref={mainRef}>
-        <h1 className={classes.heading}>Question 6</h1>
-        <p className={classes.text} style={{marginTop: '30px'}}>
-        Were your parents <b>ever</b> separated or divorced?
+        <h1 className={classes.heading}>Question 3</h1>
+        <p className={classes.text}>
+        Did an adult or person at least 5 years older than you ever…  <br />
+          <b>Touch or fondle you or have you touch their body in a sexual way? </b>
         </p>
-
-
+        <p
+          className={classes.text}
+          style={{ textAlign: "center", marginTop: "0px" }}
+        >
+          or
+        </p>
+        <p className={classes.text} style={{ marginTop: "0px" }}>
+          <b>
+          Try to or actually have oral, anal, or vaginal sex with you? 
+          </b>
+        </p>
         <div className={classes.buttonWrapper}>
             <div className={classes.button} onClick={() => handleRes(1)}>Yes</div>
             <div className={classes.button} onClick={() => handleRes(0)}>No</div>
@@ -90,4 +100,4 @@ const Six = () => {
     </Grid>
   );
 };
-export default Six;
+export default Three;

@@ -3,12 +3,16 @@ const app = express();
 const dotenv = require("dotenv");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
+const Quiz1 = require("./routes/Quiz1.js");
+const Quiz2 = require("./routes/Quiz2.js");
 corsOptions = {
   origin: "http://localhost:3000",
   methods: ["GET", "POST"],
 };
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use('/', Quiz1);
+app.use('/', Quiz2);
 dotenv.config();
 port = process.env.PORT || 5000;
 
@@ -39,26 +43,6 @@ app.post("/auth", async (req, res) => {
   return res.json({ sucess: true, token: token });
 });
 app.get("/verify", verifyToken, (req, res) => {});
-app.post("/quiz", async (req, res) => {
-  let { ans, result } = req.body;
-  try {
-    
-    if (ans==="submit"){
-      console.log('submit')
-      return res.json({result: result});
-    }
-
-    if (ans === 1) {
-      result += 1;
-      console.log(result);
-      return res.json({ success: true, result: result });
-    } else {
-      return res.json({ success: true, result: result });
-    }
-  } catch (e) {
-    console.log(e);
-  }
-});
 
 app.listen(port, () => {
   console.log("Server is up and running!");
