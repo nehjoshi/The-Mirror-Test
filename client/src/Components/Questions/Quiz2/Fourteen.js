@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz2Ten = () => {
+const Quiz2Fourteen = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const mainRef = useRef(null);
@@ -60,7 +60,7 @@ const Quiz2Ten = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/quiz2/question11");
+                        history.push("/quiz2/question15");
                     }, 750);
                 }
             })
@@ -77,11 +77,9 @@ const Quiz2Ten = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 10</h1>
+                <h1 className={classes.heading}>Question 14</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                It is difficult for me to be alone. If alone, I feel stressed, abandoned, hurt,
-and/or angry.
-                </p>
+                Over-focusing on others, I tend to lose myself in relationships.                </p>
                 <div className={classes.buttonWrapper}>
                     <div className={classes.button} onClick={() => handleRes(3)}>Strongly Agree</div>
                     <div className={classes.button} onClick={() => handleRes(2)}>Mostly Agree</div>
@@ -94,4 +92,4 @@ and/or angry.
         </Grid>
     );
 };
-export default Quiz2Ten;
+export default Quiz2Fourteen;

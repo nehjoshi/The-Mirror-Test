@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz2Ten = () => {
+const Quiz2Eleven = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const mainRef = useRef(null);
@@ -44,7 +44,7 @@ const Quiz2Ten = () => {
         const result3 = parseInt(localStorage.getItem("result3"));
         const result4 = parseInt(localStorage.getItem("result4"));
         const result = { result1, result2, result3, result4 }
-        const data = { ans, result, type: 2 }
+        const data = { ans, result, type: 3 }
         axios.post("/quiz2", data)
             .then((response) => {
                 if (response.data.success === true) {
@@ -60,7 +60,7 @@ const Quiz2Ten = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/quiz2/question11");
+                        history.push("/quiz2/question12");
                     }, 750);
                 }
             })
@@ -77,10 +77,10 @@ const Quiz2Ten = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 10</h1>
+                <h1 className={classes.heading}>Question 11</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                It is difficult for me to be alone. If alone, I feel stressed, abandoned, hurt,
-and/or angry.
+                When my partner arrives home or approaches me, I feel
+inexplicably stressed – especially when he or she wants to connect.
                 </p>
                 <div className={classes.buttonWrapper}>
                     <div className={classes.button} onClick={() => handleRes(3)}>Strongly Agree</div>
@@ -94,4 +94,4 @@ and/or angry.
         </Grid>
     );
 };
-export default Quiz2Ten;
+export default Quiz2Eleven;

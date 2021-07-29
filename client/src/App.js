@@ -25,6 +25,16 @@ import Quiz2Seven from "./Components/Questions/Quiz2/Seven.js";
 import Quiz2Eight from "./Components/Questions/Quiz2/Eight.js";
 import Quiz2Nine from "./Components/Questions/Quiz2/Nine.js";
 import Quiz2Ten from "./Components/Questions/Quiz2/Ten.js";
+import Quiz2Eleven from "./Components/Questions/Quiz2/Eleven.js";
+import Quiz2Twelve from "./Components/Questions/Quiz2/Twelve.js";
+import Quiz2Thirteen from "./Components/Questions/Quiz2/Thirteen.js";
+import Quiz2Fourteen from "./Components/Questions/Quiz2/Fourteen.js";
+import Quiz2Fifteen from "./Components/Questions/Quiz2/Fifteen.js";
+import Quiz2Sixteen from "./Components/Questions/Quiz2/Sixteen.js";
+import Quiz2Seventeen from "./Components/Questions/Quiz2/Seventeen.js";
+import Quiz2Eighteen from "./Components/Questions/Quiz2/Eighteen.js";
+import Quiz2Nineteen from "./Components/Questions/Quiz2/Nineteen.js";
+import Quiz2Twenty from "./Components/Questions/Quiz2/Twenty.js";
 
 const App = () => {
 
@@ -55,6 +65,16 @@ const App = () => {
         <Route exact path='/quiz2/question8' component={Quiz2Eight} />
         <Route exact path='/quiz2/question9' component={Quiz2Nine} />
         <Route exact path='/quiz2/question10' component={Quiz2Ten} />
+        <Route exact path='/quiz2/question11' component={Quiz2Eleven} />
+        <Route exact path='/quiz2/question12' component={Quiz2Twelve} />
+        <Route exact path='/quiz2/question13' component={Quiz2Thirteen} />
+        <Route exact path='/quiz2/question14' component={Quiz2Fourteen} />
+        <Route exact path='/quiz2/question15' component={Quiz2Fifteen} />
+        <Route exact path='/quiz2/question16' component={Quiz2Sixteen} />
+        <Route exact path='/quiz2/question17' component={Quiz2Seventeen} />
+        <Route exact path='/quiz2/question18' component={Quiz2Eighteen} /> 
+        <Route exact path='/quiz2/question19' component={Quiz2Nineteen} />
+        <Route exact path='/quiz2/question20' component={Quiz2Twenty} />
         <Route exact path='/results' component={Results} />
       </Switch>
     </Router>
