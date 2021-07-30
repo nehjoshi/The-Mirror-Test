@@ -29,7 +29,7 @@ const Ten = () => {
                   opacity: 1,
                   
                 });
-              }, 2000);
+              }, 750);
         } else {
           history.push("/");
         }
@@ -60,7 +60,7 @@ const Ten = () => {
           });
           setTimeout(() => {
             history.push("/instructions2");
-          }, 750);
+          }, 250);
         }
       })
       .catch((e) => {

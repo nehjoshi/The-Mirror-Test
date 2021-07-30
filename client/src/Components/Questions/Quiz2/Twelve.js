@@ -28,7 +28,7 @@ const Quiz2Twelve = () => {
                             opacity: 1,
 
                         });
-                    }, 2000);
+                    }, 750);
                 } else {
                     history.push("/");
                 }
@@ -61,7 +61,7 @@ const Quiz2Twelve = () => {
                     });
                     setTimeout(() => {
                         history.push("/quiz2/question13");
-                    }, 750);
+                    }, 250);
                 }
             })
             .catch((e) => {

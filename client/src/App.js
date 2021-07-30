@@ -35,6 +35,16 @@ import Quiz2Seventeen from "./Components/Questions/Quiz2/Seventeen.js";
 import Quiz2Eighteen from "./Components/Questions/Quiz2/Eighteen.js";
 import Quiz2Nineteen from "./Components/Questions/Quiz2/Nineteen.js";
 import Quiz2Twenty from "./Components/Questions/Quiz2/Twenty.js";
+import Quiz2TwentyOne from "./Components/Questions/Quiz2/TwentyOne.js";
+import Quiz2TwentyTwo from "./Components/Questions/Quiz2/TwentyTwo.js";
+import Quiz2TwentyThree from "./Components/Questions/Quiz2/TwentyThree.js";
+import Quiz2TwentyFour from "./Components/Questions/Quiz2/TwentyFour.js";
+import Quiz2TwentyFive from "./Components/Questions/Quiz2/TwentyFive.js";
+import Quiz2TwentySix from "./Components/Questions/Quiz2/TwentySix.js";
+import Quiz2TwentySeven from "./Components/Questions/Quiz2/TwentySeven.js";
+import Quiz2TwentyEight from "./Components/Questions/Quiz2/TwentyEight.js";
+import Quiz2TwentyNine from "./Components/Questions/Quiz2/TwentyNine.js";
+import Quiz2Thirty from "./Components/Questions/Quiz2/Thirty.js";
 
 const App = () => {
 
@@ -75,6 +85,16 @@ const App = () => {
         <Route exact path='/quiz2/question18' component={Quiz2Eighteen} /> 
         <Route exact path='/quiz2/question19' component={Quiz2Nineteen} />
         <Route exact path='/quiz2/question20' component={Quiz2Twenty} />
+        <Route exact path='/quiz2/question21' component={Quiz2TwentyOne} />
+        <Route exact path='/quiz2/question22' component={Quiz2TwentyTwo} />
+        <Route exact path='/quiz2/question23' component={Quiz2TwentyThree} />
+        <Route exact path='/quiz2/question24' component={Quiz2TwentyFour} />
+        <Route exact path='/quiz2/question25' component={Quiz2TwentyFive} />
+        <Route exact path='/quiz2/question26' component={Quiz2TwentySix} />
+        <Route exact path='/quiz2/question27' component={Quiz2TwentySeven} />
+        <Route exact path='/quiz2/question28' component={Quiz2TwentyEight} />
+        <Route exact path='/quiz2/question29' component={Quiz2TwentyNine} />
+        <Route exact path='/quiz2/question30' component={Quiz2Thirty} />
         <Route exact path='/results' component={Results} />
       </Switch>
     </Router>

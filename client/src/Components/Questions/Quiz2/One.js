@@ -29,7 +29,7 @@ const Quiz2One = () => {
                             opacity: 1,
 
                         });
-                    }, 2000);
+                    }, 750);
                 } else {
                     history.push("/");
                 }
@@ -58,7 +58,7 @@ const Quiz2One = () => {
                     });
                     setTimeout(() => {
                         history.push("/quiz2/question2");
-                    }, 750);
+                    }, 250);
                 }
             })
             .catch((e) => {

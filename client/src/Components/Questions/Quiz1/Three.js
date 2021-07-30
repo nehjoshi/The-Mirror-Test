@@ -29,7 +29,7 @@ const Three = () => {
                   opacity: 1,
                   
                 });
-              }, 2000);
+              }, 750);
         } else {
           history.push("/");
         }
@@ -60,7 +60,7 @@ const Three = () => {
           });
           setTimeout(() => {
             history.push("/quiz1/question4");
-          }, 750);
+          }, 250);
         }
       })
       .catch((e) => {

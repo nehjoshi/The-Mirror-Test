@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz2Fifteen = () => {
+const Quiz2TwentyFive = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const mainRef = useRef(null);
@@ -44,7 +44,7 @@ const Quiz2Fifteen = () => {
         const result3 = parseInt(localStorage.getItem("result3"));
         const result4 = parseInt(localStorage.getItem("result4"));
         const result = { result1, result2, result3, result4 }
-        const data = { ans, result, type: 3 }
+        const data = { ans, result, type: 1 }
         axios.post("/quiz2", data)
             .then((response) => {
                 if (response.data.success === true) {
@@ -60,7 +60,7 @@ const Quiz2Fifteen = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/quiz2/question16");
+                        history.push("/quiz2/question26");
                     }, 250);
                 }
             })
@@ -77,9 +77,9 @@ const Quiz2Fifteen = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 15</h1>
+                <h1 className={classes.heading}>Question 25</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                I usually prefer relationships with things or animals instead of people.                </p>
+                I can keep secrets, protect my partner’s privacy, and respect boundaries.           </p>
                 <div className={classes.buttonWrapper}>
                     <div className={classes.button} onClick={() => handleRes(3)}>Strongly Agree</div>
                     <div className={classes.button} onClick={() => handleRes(2)}>Mostly Agree</div>
@@ -92,4 +92,4 @@ const Quiz2Fifteen = () => {
         </Grid>
     );
 };
-export default Quiz2Fifteen;
+export default Quiz2TwentyFive;

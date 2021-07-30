@@ -28,7 +28,7 @@ const Quiz2Six = () => {
                             opacity: 1,
 
                         });
-                    }, 2000);
+                    }, 750);
                 } else {
                     history.push("/");
                 }
@@ -61,7 +61,7 @@ const Quiz2Six = () => {
                     });
                     setTimeout(() => {
                         history.push("/quiz2/question7");
-                    }, 750);
+                    }, 250);
                 }
             })
             .catch((e) => {

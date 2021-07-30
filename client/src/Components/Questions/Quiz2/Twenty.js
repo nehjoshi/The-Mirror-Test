@@ -28,7 +28,7 @@ const Quiz2Twenty = () => {
                             opacity: 1,
 
                         });
-                    }, 2000);
+                    }, 750);
                 } else {
                     history.push("/");
                 }
@@ -60,8 +60,8 @@ const Quiz2Twenty = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        // history.push("/quiz2/question20");
-                    }, 750);
+                        history.push("/quiz2/question21");
+                    }, 250);
                 }
             })
             .catch((e) => {

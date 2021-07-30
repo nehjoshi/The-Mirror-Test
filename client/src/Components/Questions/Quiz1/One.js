@@ -32,7 +32,7 @@ const One = () => {
               top: 0,
               opacity: 1,
             });
-          }, 2000);
+          }, 750);
         } else {
           history.push("/");
         }
@@ -63,7 +63,7 @@ const One = () => {
           });
           setTimeout(() => {
             history.push("/quiz1/question2");
-          }, 750);
+          }, 250);
         }
       })
       .catch((e) => {

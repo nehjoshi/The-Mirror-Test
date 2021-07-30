@@ -29,7 +29,7 @@ const Nine = () => {
                   opacity: 1,
                   
                 });
-              }, 2000);
+              }, 750);
         } else {
           history.push("/");
         }
@@ -60,7 +60,7 @@ const Nine = () => {
           });
           setTimeout(() => {
             history.push("/quiz1/question10");
-          }, 750);
+          }, 250);
         }
       })
       .catch((e) => {

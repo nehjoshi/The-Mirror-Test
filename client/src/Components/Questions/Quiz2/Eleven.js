@@ -28,7 +28,7 @@ const Quiz2Eleven = () => {
                             opacity: 1,
 
                         });
-                    }, 2000);
+                    }, 750);
                 } else {
                     history.push("/");
                 }
@@ -61,7 +61,7 @@ const Quiz2Eleven = () => {
                     });
                     setTimeout(() => {
                         history.push("/quiz2/question12");
-                    }, 750);
+                    }, 250);
                 }
             })
             .catch((e) => {

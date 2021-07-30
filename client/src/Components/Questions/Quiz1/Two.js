@@ -28,7 +28,7 @@ const Two = () => {
               opacity: 1,
               
             });
-          }, 2000);
+          }, 750);
         } else {
           history.push("/");
         }
@@ -58,7 +58,7 @@ const Two = () => {
           });
           setTimeout(() => {
             history.push("/quiz1/question3");
-          }, 750);
+          }, 250);
         }
       })
       .catch((e) => {

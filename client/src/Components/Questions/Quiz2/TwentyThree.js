@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz2Fifteen = () => {
+const Quiz2TwentyThree = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const mainRef = useRef(null);
@@ -60,7 +60,7 @@ const Quiz2Fifteen = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/quiz2/question16");
+                        history.push("/quiz2/question24");
                     }, 250);
                 }
             })
@@ -77,9 +77,9 @@ const Quiz2Fifteen = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 15</h1>
+                <h1 className={classes.heading}>Question 23</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                I usually prefer relationships with things or animals instead of people.                </p>
+                Sometimes I prefer casual sex instead of a committed relationship.            </p>
                 <div className={classes.buttonWrapper}>
                     <div className={classes.button} onClick={() => handleRes(3)}>Strongly Agree</div>
                     <div className={classes.button} onClick={() => handleRes(2)}>Mostly Agree</div>
@@ -92,4 +92,4 @@ const Quiz2Fifteen = () => {
         </Grid>
     );
 };
-export default Quiz2Fifteen;
+export default Quiz2TwentyThree;
