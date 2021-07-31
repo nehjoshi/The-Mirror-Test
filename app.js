@@ -5,6 +5,9 @@ const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const Quiz1 = require("./routes/Quiz1.js");
 const Quiz2 = require("./routes/Quiz2.js");
+const corsOptions = {
+  'Access-Control-Allow-Origin': '*',
+}
 
 app.use(cors());
 app.use(express.json());
