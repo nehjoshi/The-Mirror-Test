@@ -1,7 +1,6 @@
 {
   "name": "self-growth-questionaire",
   "version": "0.1.0",
-  "proxy": "https://self-growth-questionaire.herokuapp.com/",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.2",

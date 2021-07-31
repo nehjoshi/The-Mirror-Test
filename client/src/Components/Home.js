@@ -112,7 +112,7 @@ const Home = () => {
   };
   const handleSubmit = (noName) => {
     if (noName || name==="") {
-      axios.post("https://self-growth-questionasasaire.herokuapp.com/auth", { name: "User" })
+      axios.post("https://self-growth-questionaire.herokuapp.com/auth", { name: "User" })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         history.push("/instructions");
