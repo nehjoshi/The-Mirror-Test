@@ -6,7 +6,8 @@ const jwt = require("jsonwebtoken");
 const Quiz1 = require("./routes/Quiz1.js");
 const Quiz2 = require("./routes/Quiz2.js");
 const corsOptions = {
-  'Access-Control-Allow-Origin': '*',
+  origin: "http://localhost:3000",
+  methods: ["GET", "POST"]
 }
 
 app.use(cors(corsOptions));
