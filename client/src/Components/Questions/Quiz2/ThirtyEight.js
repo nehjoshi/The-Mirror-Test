@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz2Thirty = () => {
+const Quiz2ThirtyEight = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const mainRef = useRef(null);
@@ -60,7 +60,7 @@ const Quiz2Thirty = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/quiz2/question31");
+                        history.push("/quiz2/question39");
                     }, 250);
                 }
             })
@@ -77,9 +77,11 @@ const Quiz2Thirty = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 30</h1>
+                <h1 className={classes.heading}>Question 38</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                I often tend to “merge” or lose myself in my partner and feel what they feel, or want what they want.           </p>
+                When I give more than I get, I often resent this and harbor a grudge.
+It is often difficult to receive love from my partner when they express it.
+           </p>
                 <div className={classes.buttonWrapper}>
                     <div className={classes.button} onClick={() => handleRes(3)}>Strongly Agree</div>
                     <div className={classes.button} onClick={() => handleRes(2)}>Mostly Agree</div>
@@ -92,4 +94,4 @@ const Quiz2Thirty = () => {
         </Grid>
     );
 };
-export default Quiz2Thirty;
+export default Quiz2ThirtyEight;

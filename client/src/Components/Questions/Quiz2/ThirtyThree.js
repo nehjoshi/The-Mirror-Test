@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz2Thirty = () => {
+const Quiz2ThirtyThree = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const mainRef = useRef(null);
@@ -44,7 +44,7 @@ const Quiz2Thirty = () => {
         const result3 = parseInt(localStorage.getItem("result3"));
         const result4 = parseInt(localStorage.getItem("result4"));
         const result = { result1, result2, result3, result4 }
-        const data = { ans, result, type: 2 }
+        const data = { ans, result, type: 1 }
         axios.post("/quiz2", data)
             .then((response) => {
                 if (response.data.success === true) {
@@ -60,7 +60,7 @@ const Quiz2Thirty = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/quiz2/question31");
+                        history.push("/quiz2/question34");
                     }, 250);
                 }
             })
@@ -77,9 +77,9 @@ const Quiz2Thirty = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 30</h1>
+                <h1 className={classes.heading}>Question 33</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                I often tend to “merge” or lose myself in my partner and feel what they feel, or want what they want.           </p>
+                    I attempt to discover and meet the needs of my partner whenever possible and I feel comfortable expressing my own needs.           </p>
                 <div className={classes.buttonWrapper}>
                     <div className={classes.button} onClick={() => handleRes(3)}>Strongly Agree</div>
                     <div className={classes.button} onClick={() => handleRes(2)}>Mostly Agree</div>
@@ -92,4 +92,4 @@ const Quiz2Thirty = () => {
         </Grid>
     );
 };
-export default Quiz2Thirty;
+export default Quiz2ThirtyThree

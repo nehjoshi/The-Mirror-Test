@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz2Thirty = () => {
+const Quiz2ThirtyFour = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const mainRef = useRef(null);
@@ -60,7 +60,7 @@ const Quiz2Thirty = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/quiz2/question31");
+                        history.push("/quiz2/question35");
                     }, 250);
                 }
             })
@@ -77,9 +77,9 @@ const Quiz2Thirty = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 30</h1>
+                <h1 className={classes.heading}>Question 34</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                I often tend to “merge” or lose myself in my partner and feel what they feel, or want what they want.           </p>
+                At the same time as I feel a deep wish to be close with my partner, I also have a paralyzing fear of losing the relationship.</p>
                 <div className={classes.buttonWrapper}>
                     <div className={classes.button} onClick={() => handleRes(3)}>Strongly Agree</div>
                     <div className={classes.button} onClick={() => handleRes(2)}>Mostly Agree</div>
@@ -92,4 +92,4 @@ const Quiz2Thirty = () => {
         </Grid>
     );
 };
-export default Quiz2Thirty;
+export default Quiz2ThirtyFour;
