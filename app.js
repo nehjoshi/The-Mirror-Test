@@ -7,7 +7,7 @@ const Quiz1 = require("./routes/Quiz1.js");
 const Quiz2 = require("./routes/Quiz2.js");
 
 app.use(cors({
-  origin: 'https://self-growth-questionaire.netlify.app/'
+  origin: 'https://self-growth-questionaire.netlify.app'
 }));
 
 app.use(express.json());
