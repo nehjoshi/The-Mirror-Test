@@ -9,7 +9,7 @@ const corsOptions = {
   'Access-Control-Allow-Origin': '*',
 }
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/', Quiz1);
 app.use('/', Quiz2);
