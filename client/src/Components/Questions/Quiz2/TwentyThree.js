@@ -44,7 +44,7 @@ const Quiz2TwentyThree = () => {
         const result3 = parseInt(localStorage.getItem("result3"));
         const result4 = parseInt(localStorage.getItem("result4"));
         const result = { result1, result2, result3, result4 }
-        const data = { ans, result, type: 3 }
+        const data = { ans, result, type: 3, done: false }
         axios.post("/quiz2", data)
             .then((response) => {
                 if (response.data.success === true) {

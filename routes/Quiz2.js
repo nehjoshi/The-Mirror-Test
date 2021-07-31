@@ -2,10 +2,12 @@ const express = require("express");
 const Quiz2 = express.Router();
 
 Quiz2.post("/quiz2", async (req, res) => {
-    let { ans, result, type } = req.body;       //Type will represent the type of personality:
-    if (ans === "submit") {                     //1: Secure; 2: Anxious; 3: Avoidant; 4: Disoranized
-        console.log('submit')                   //Result will be an array containing the four results for each type
-        return res.json({ result: result });
+    let { ans, result, type, done } = req.body;       //Type will represent the type of personality:
+    if (done === true) {                     //1: Secure; 2: Anxious; 3: Avoidant; 4: Disoranized
+        console.log('submit');
+        result.result4 += ans;
+        const finalResult = Math.max(result.result1, result.result2, result.result3, result.result4);
+        return res.json({ success: true, result: finalResult });
     }
     else {          
         switch(type){

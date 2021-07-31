@@ -44,15 +44,16 @@ const Quiz2Fourty = () => {
         const result3 = parseInt(localStorage.getItem("result3"));
         const result4 = parseInt(localStorage.getItem("result4"));
         const result = { result1, result2, result3, result4 }
-        const data = { ans, result, type: 4 }
+        const data = { ans, result, type: 4, done: true }
         axios.post("/quiz2", data)
             .then((response) => {
                 if (response.data.success === true) {
-                    const { result1, result2, result3, result4 } = response.data.result;
-                    localStorage.setItem("result1", result1);
-                    localStorage.setItem("result2", result2);
-                    localStorage.setItem("result3", result3);
-                    localStorage.setItem("result4", result4);
+                    const { result } = response.data;
+                    localStorage.removeItem("result1");
+                    localStorage.removeItem("result2");
+                    localStorage.removeItem("result3");
+                    localStorage.removeItem("result4");
+                    localStorage.setItem("result2", result);
                     gsap.to(mainRef.current, {
                         left: -1000,
                         duration: 0.5,
