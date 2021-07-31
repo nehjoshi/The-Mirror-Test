@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const Quiz1 = require("./routes/Quiz1.js");
 const Quiz2 = require("./routes/Quiz2.js");
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://self-growth-questionaire.netlify.app/",
   methods: ["GET", "POST"]
 }
 
