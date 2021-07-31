@@ -112,13 +112,13 @@ const Home = () => {
   };
   const handleSubmit = (noName) => {
     if (noName || name==="") {
-      axios.post("/auth", { name: "User" })
+      axios.post("https://self-growth-questionaire.herokuapp.com/auth", { name: "User" })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         history.push("/instructions");
       });
     } else {
-      axios.post("/auth", { name: name })
+      axios.post("https://self-growth-questionaire.herokuapp.com/auth", { name: name })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         history.push("/instructions");
@@ -154,7 +154,6 @@ const Home = () => {
       duration: 0.2,
       delay: 0.1,
     });
-    localStorage.clear();
   }, []);
 
   return (

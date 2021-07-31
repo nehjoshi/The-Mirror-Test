@@ -5,11 +5,8 @@ const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const Quiz1 = require("./routes/Quiz1.js");
 const Quiz2 = require("./routes/Quiz2.js");
-corsOptions = {
-  origin: "http://localhost:3000",
-  methods: ["GET", "POST"],
-};
-app.use(cors(corsOptions));
+
+app.use(cors());
 app.use(express.json());
 app.use('/', Quiz1);
 app.use('/', Quiz2);
