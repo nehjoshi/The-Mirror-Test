@@ -73,7 +73,7 @@ const Quiz2TwentyFive = () => {
   const classes = useStyles(theme);;
     return loading ? (
         <Grid container className={classes.wrapper}>
-            loading
+            Loading...
         </Grid>
     ) : (
         <Grid container className={classes.wrapper}>

@@ -96,7 +96,7 @@ const Intro2 = () => {
 
     return loading ? (
         <Grid container className={classes.wrapper}>
-            loading
+            Loading...
         </Grid>
     ) : (
         <Grid container className={classes.wrapper}>
