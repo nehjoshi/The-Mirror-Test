@@ -1,5 +1,5 @@
 # Self-Growth-Questionnaire
-## A questionaire for gaining a deeper understanding about yourself, your insecurities and your personality
+## A questionnaire for gaining a deeper understanding about yourself, your insecurities and your personality
 This is a full-stack project, soon to be hosted on a custom domain, aimed to provide a series of five questionnaires, for people to better understand their personality
 and their views.
 
