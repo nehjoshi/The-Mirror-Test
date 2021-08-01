@@ -12,8 +12,8 @@ const One = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     window.history.forward();
-    axios
-      .get(" /verify", {
+ axios
+            .get("https://self-growth-questionaire.herokuapp.com/verify", {
         headers: {
           "x-access-token": token,
         },
