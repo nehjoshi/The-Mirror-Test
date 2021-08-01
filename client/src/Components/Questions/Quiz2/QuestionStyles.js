@@ -57,6 +57,9 @@ export const useStyles = makeStyles((theme) => ({
         margin: "25px auto",
         textTransform: "uppercase",
         transition: "all 0.2s ease",
+        [theme.breakpoints.down("sm")]: {
+          fontSize: '0.8rem'
+        },
         "&:hover": {
           cursor: "pointer",
           backgroundColor: "#e6b635",
