@@ -96,9 +96,9 @@ const Intro = () => {
   };
 
   return loading ? (
-    <Grid container className={classes.wrapper}>
-      loading
-    </Grid>
+        <Grid container className={classes.wrapper}>
+            Loading...
+        </Grid>
   ) : (
     <Grid container className={classes.wrapper}>
       <Grid item className={classes.box}>

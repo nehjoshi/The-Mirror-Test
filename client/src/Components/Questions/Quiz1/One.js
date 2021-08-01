@@ -70,9 +70,9 @@ const One = () => {
   const classes = useStyles(theme);
 
   return loading ? (
-    <Grid container className={classes.wrapper}>
-      loading
-    </Grid>
+        <Grid container className={classes.wrapper}>
+            Loading...
+        </Grid>
   ) : (
     <Grid container className={classes.wrapper}>
       <Grid className={classes.box} ref={mainRef}>
