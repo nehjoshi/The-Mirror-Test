@@ -6,19 +6,15 @@ const jwt = require("jsonwebtoken");
 const Quiz1 = require("./routes/Quiz1.js");
 const Quiz2 = require("./routes/Quiz2.js");
 
-
+app.use(cors({
+  origin: '*'
+}));
 app.use(express.json());
 app.use('/', Quiz1);
 app.use('/', Quiz2);
 dotenv.config();
 port = process.env.PORT || 5000;
 
-app.options('/auth', function (req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader('Access-Control-Allow-Methods', '*');
-  res.setHeader("Access-Control-Allow-Headers", "*");
-  res.end();
-});
 
 app.post("/auth", async (req, res) => {
   const { name } = req.body;
