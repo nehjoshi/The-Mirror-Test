@@ -13,26 +13,6 @@ app.use('/', Quiz2);
 dotenv.config();
 port = process.env.PORT || 5000;
 
-
-
-const verifyToken = async (req, res, next) => {
-  const token = req.headers["x-access-token"];
-
-  if (!token) return res.json({ message: "No token!" });
-  else {
-    try {
-      const verify = await jwt.verify(token, process.env.SECRET_KEY);
-      res.json({ message: "success!", auth: true });
-      next();
-    } catch (e) {
-      return res.json({ message: "Some error!", error: e });
-    }
-  }
-};
-app.get('/', (req, res) => {
-  res.send("Hello");
-})
-
 app.options('/auth', function (req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader('Access-Control-Allow-Methods', '*');
@@ -51,6 +31,21 @@ app.post("/auth", async (req, res) => {
   );
   return res.json({ sucess: true, token: token });
 });
+
+const verifyToken = async (req, res, next) => {
+  const token = req.headers["x-access-token"];
+
+  if (!token) return res.json({ message: "No token!" });
+  else {
+    try {
+      const verify = await jwt.verify(token, process.env.SECRET_KEY);
+      res.json({ message: "success!", auth: true });
+      next();
+    } catch (e) {
+      return res.json({ message: "Some error!", error: e });
+    }
+  }
+};
 
 app.get("/verify", verifyToken, (req, res) => {});
 
