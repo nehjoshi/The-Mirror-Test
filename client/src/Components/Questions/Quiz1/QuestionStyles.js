@@ -1,7 +1,7 @@
 import {makeStyles} from '@material-ui/core';
 import Bg from "../../../Images/bg.jpg";
 
-export const useStyles = makeStyles(() => ({
+export const useStyles = makeStyles((theme) => ({
     wrapper: {
         width: "100%",
         height: "100vh",
@@ -24,7 +24,10 @@ export const useStyles = makeStyles(() => ({
         padding: "10px 10px",
         position: "relative",
         left: '1000px',
-        opacity: 0
+        opacity: 0,
+        [theme.breakpoints.down("sm")]: {
+          width: '90%'
+        }
       },
       heading: {
         borderBottom: "1px solid #b8b894",

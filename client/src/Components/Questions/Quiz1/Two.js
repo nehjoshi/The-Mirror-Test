@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, useTheme } from "@material-ui/core";
 import axios from "axios";
 import { gsap, Power2 } from "gsap/";
 import { useHistory } from "react-router-dom";
@@ -11,8 +11,8 @@ const Two = () => {
   const mainRef = useRef(null);
   useEffect(() => {
     const token = localStorage.getItem("token");
- axios
-            .get("https://self-growth-questionaire.herokuapp.com/verify", {
+    axios
+      .get("https://self-growth-questionaire.herokuapp.com/verify", {
         headers: {
           "x-access-token": token,
         },
@@ -26,7 +26,7 @@ const Two = () => {
               left: 0,
               top: 0,
               opacity: 1,
-              
+
             });
           }, 750);
         } else {
@@ -39,15 +39,15 @@ const Two = () => {
   });
 
   const handleRes = (ans) => {
-    const data = {ans: ans, result: parseInt(localStorage.getItem("result"))}
+    const data = { ans: ans, result: parseInt(localStorage.getItem("result")) }
     axios.post("https://self-growth-questionaire.herokuapp.com/quiz1", data,
-        {
-          headers: {
-            "x-access-token": localStorage.getItem("token"),
-          }
-        })
+      {
+        headers: {
+          "x-access-token": localStorage.getItem("token"),
+        }
+      })
       .then((response) => {
-  
+
         if (response.data.success === true) {
           localStorage.setItem("result", response.data.result);
           gsap.to(mainRef.current, {
@@ -66,7 +66,8 @@ const Two = () => {
       });
   };
 
-  const classes = useStyles();
+  const theme = useTheme();
+  const classes = useStyles(theme);
   return loading ? (
     <Grid container className={classes.wrapper}>
       loading

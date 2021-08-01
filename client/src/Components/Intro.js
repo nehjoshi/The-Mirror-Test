@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Bg from "../Images/bg.jpg";
-import { makeStyles, Grid } from "@material-ui/core";
+import { makeStyles, Grid, useTheme } from "@material-ui/core";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
@@ -66,7 +66,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Intro = () => {
-  const classes = useStyles();
+  const theme = useTheme();
+  const classes = useStyles(theme);;
   const [loading, setLoading] = useState(true);
   const url = "https://self-growth-questionaire.herokuapp.com";
   const history = useHistory();

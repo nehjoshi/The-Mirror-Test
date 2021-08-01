@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, useTheme } from "@material-ui/core";
 import axios from "axios";
 import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
@@ -69,7 +69,8 @@ const Quiz2Four = () => {
             });
     };
 
-    const classes = useStyles();
+    const theme = useTheme();
+  const classes = useStyles(theme);;
     return loading ? (
         <Grid container className={classes.wrapper}>
             loading

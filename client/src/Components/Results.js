@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, useTheme } from "@material-ui/core";
 import axios from "axios";
 import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./Questions/Quiz1/QuestionStyles.js"; //We can just use the same question styles for the wrapper
 
 const Results = () => {
-  const classes = useStyles();
+  const theme = useTheme();
+  const classes = useStyles(theme);;
   const [loading, setLoading] = useState(true);
   const history = useHistory();
   const loadingRef1 = useRef(null);
