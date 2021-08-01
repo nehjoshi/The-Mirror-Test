@@ -68,11 +68,12 @@ const useStyles = makeStyles(() => ({
 const Intro = () => {
   const classes = useStyles();
   const [loading, setLoading] = useState(true);
+  const url = "https://self-growth-questionaire.herokuapp.com";
   const history = useHistory();
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(" /verify", {
+      .get(`${url}/verify`, {
         headers: {
           "x-access-token": token,
         },

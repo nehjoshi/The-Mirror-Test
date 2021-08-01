@@ -40,7 +40,7 @@ const One = () => {
 
   const handleRes = (ans) => {
     const data = {ans: ans, result: 0}
-    axios.post(" /quiz1", data,
+    axios.post("https://self-growth-questionaire.herokuapp.com/quiz1", data,
         {
           headers: {
             "x-access-token": localStorage.getItem("token"),
