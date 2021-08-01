@@ -6,9 +6,6 @@ const jwt = require("jsonwebtoken");
 const Quiz1 = require("./routes/Quiz1.js");
 const Quiz2 = require("./routes/Quiz2.js");
 
-app.use(cors({
-  origin: 'https://self-growth-questionaire.netlify.app'
-}));
 
 app.use(express.json());
 app.use('/', Quiz1);
@@ -16,6 +13,15 @@ app.use('/', Quiz2);
 dotenv.config();
 port = process.env.PORT || 5000;
 
+app.use(function (req, res, next) {
+
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+
+  next();
+})
 
 
 const verifyToken = async (req, res, next) => {
