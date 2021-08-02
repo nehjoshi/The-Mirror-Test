@@ -4,6 +4,7 @@ import { makeStyles, Grid } from "@material-ui/core";
 import gsap, { Power2 } from "gsap";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import Loader from "./Loader";
 
 const useStyles = makeStyles(() => ({
   wrapper: {
@@ -107,23 +108,25 @@ const Home = () => {
   const url = "https://self-growth-questionaire.herokuapp.com";
 
   const [name, setName] = useState("");
+  const [loader, setLoader] = useState(false);
 
   const handleChange = (e) => {
     setName(e.target.value);
   };
   const handleSubmit = (noName) => {
-    if (noName || name==="") {
+    setLoader(true);
+    if (noName || name === "") {
       axios.post(`${url}/auth`, { name: "User" })
-      .then((res) => {
-        localStorage.setItem("token", res.data.token);
-        history.push("/instructions");
-      });
+        .then((res) => {
+          localStorage.setItem("token", res.data.token);
+          history.push("/instructions");
+        });
     } else {
       axios.post(`${url}/auth`, { name: name })
-      .then((res) => {
-        localStorage.setItem("token", res.data.token);
-        history.push("/instructions");
-      });
+        .then((res) => {
+          localStorage.setItem("token", res.data.token);
+          history.push("/instructions");
+        });
     }
   };
 
@@ -189,16 +192,20 @@ const Home = () => {
             onChange={handleChange}
           />
         </div>
-        <div
-          className={classes.button}
-          ref={buttonRef}
-          onClick={() => handleSubmit(false)}
-        >
-          Next
-        </div>
-        <p className={classes.skip} onClick={() => handleSubmit(true)}>
-          Skip
-        </p>
+        {!loader ?
+          <div
+            className={classes.button}
+            ref={buttonRef}
+            onClick={() => handleSubmit(false)}
+          >
+            Next
+          </div>
+          : <Loader />
+        }
+        {!loader ?
+          <p className={classes.skip} onClick={() => handleSubmit(true)}>
+            Skip
+          </p> : null}
       </Grid>
     </Grid>
   );
