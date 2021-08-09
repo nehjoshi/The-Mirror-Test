@@ -5,10 +5,11 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz2Fourty = () => {
+const Quiz3_2 = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const mainRef = useRef(null);
+
     useEffect(() => {
         const token = localStorage.getItem("token");
         axios
@@ -38,22 +39,25 @@ const Quiz2Fourty = () => {
             });
     });
 
-    const handleRes = (ans) => {
-        const result1 = parseInt(localStorage.getItem("result1"));
-        const result2 = parseInt(localStorage.getItem("result2"));
-        const result3 = parseInt(localStorage.getItem("result3"));
-        const result4 = parseInt(localStorage.getItem("result4"));
-        const result = { result1, result2, result3, result4 }
-        const data = { ans, result, type: 4, done: true }
-        axios.post("https://self-growth-questionaire.herokuapp.com/quiz2", data)
+    const handleRes = (type, ans) => {
+        const pmb = localStorage.getItem('pmb');
+        const pvb = localStorage.getItem('pvb');
+        const psb = localStorage.getItem('psb');
+        const pmg = localStorage.getItem('pmg');
+        const pvg = localStorage.getItem('pvg');
+        const psg = localStorage.getItem('psg');
+        const result = { pmb, pvb, psb, pmg, pvg, psg }
+        const data = {type, value: ans, result, done: false}
+        axios.post("http://localhost:5000/quiz3", data)
             .then((response) => {
                 if (response.data.success === true) {
-                    const { result } = response.data;
-                    localStorage.removeItem("result1");
-                    localStorage.removeItem("result2");
-                    localStorage.removeItem("result3");
-                    localStorage.removeItem("result4");
-                    localStorage.setItem("result2", result);
+                    const { pmb, pvb, psb, pmg, pvg, psg } = response.data.result;
+                    localStorage.setItem("pmb", pmb);
+                    localStorage.setItem("pvb", pvb);
+                    localStorage.setItem("psb", psb);
+                    localStorage.setItem("pmg", pmg);
+                    localStorage.setItem("pvg", pvg);
+                    localStorage.setItem("psg", psg);
                     gsap.to(mainRef.current, {
                         left: -1000,
                         duration: 0.5,
@@ -61,7 +65,7 @@ const Quiz2Fourty = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/instructions3");
+                        history.push("/quiz3/question2");
                     }, 250);
                 }
             })
@@ -79,19 +83,17 @@ const Quiz2Fourty = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 40</h1>
+                <h1 className={classes.heading}>Question 2</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                Because I am easily confused or disoriented, especially when stressed, it is important for my partner to keep arrangements simple and clear.           </p>
+                    You and your spouse (boyfriend/girlfriend) make up after a fight.
+                </p>
                 <div className={classes.buttonWrapper}>
-                    <div className={classes.button} onClick={() => handleRes(3)}>Strongly Agree</div>
-                    <div className={classes.button} onClick={() => handleRes(2)}>Mostly Agree</div>
+                    <div className={classes.button} onClick={() => handleRes('pmg', 0)}>A. I kept a close watch on everyone's work.</div>
+                    <div className={classes.button} onClick={() => handleRes('pmg', 1)}>B. Everyone devoted a lot of time and energy to it.</div>
                 </div>
-                <div className={classes.buttonWrapper}>
-                    <div className={classes.button} onClick={() => handleRes(1)}>Sometimes Agree</div>
-                    <div className={classes.button} onClick={() => handleRes(0)}>Disagree</div>
-                </div>
+
             </Grid>
         </Grid>
     );
 };
-export default Quiz2Fourty;
+export default Quiz3_2;

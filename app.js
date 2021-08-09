@@ -6,11 +6,12 @@ app.use(cors());
 const jwt = require("jsonwebtoken");
 const Quiz1 = require("./routes/Quiz1.js");
 const Quiz2 = require("./routes/Quiz2.js");
-
+const Quiz3 = require("./routes/Quiz3.js");
 
 app.use(express.json());
 app.use('/', Quiz1);
 app.use('/', Quiz2);
+app.use('/', Quiz3);
 dotenv.config();
 port = process.env.PORT || 5000;
 
