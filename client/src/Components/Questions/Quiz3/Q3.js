@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz3_2 = () => {
+const Quiz3_3 = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const mainRef = useRef(null);
@@ -46,6 +46,7 @@ const Quiz3_2 = () => {
         const pmg = localStorage.getItem('pmg');
         const pvg = localStorage.getItem('pvg');
         const psg = localStorage.getItem('psg');
+        console.log("Hello");
         const result = { pmb, pvb, psb, pmg, pvg, psg }
         const data = {type, value: ans, result, done: false}
         axios.post("http://localhost:5000/quiz3", data)
@@ -58,6 +59,7 @@ const Quiz3_2 = () => {
                     localStorage.setItem("pmg", pmg);
                     localStorage.setItem("pvg", pvg);
                     localStorage.setItem("psg", psg);
+                    console.log(response);
                     gsap.to(mainRef.current, {
                         left: -1000,
                         duration: 0.5,
@@ -65,7 +67,8 @@ const Quiz3_2 = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/quiz3/question3");
+                        console.log("Everything good!");
+                        history.push("/quiz3/question4");
                     }, 250);
                 }
             })
@@ -83,17 +86,18 @@ const Quiz3_2 = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 2</h1>
+                <h1 className={classes.heading}>Question 3</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                    You and your spouse (boyfriend/girlfriend) make up after a fight.
+                    You get lost driving to a friend's house.
                 </p>
                 <div className={classes.buttonWrapper}>
-                    <div className={classes.button} onClick={() => handleRes('pmg', 0)}>A. I forgave him/her.</div>
-                    <div className={classes.button} onClick={() => handleRes('pmg', 1)}>B. I'm usually forgiving.</div>
+                    
+                    <div className={classes.button} onClick={() => handleRes('psb', 1)}>A. I missed a turn.</div>
+                    <div className={classes.button} onClick={() => handleRes('psb', 0)}>B. My friend gave me bad directions.</div>
                 </div>
 
             </Grid>
         </Grid>
     );
 };
-export default Quiz3_2;
+export default Quiz3_3;

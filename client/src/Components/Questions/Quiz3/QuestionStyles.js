@@ -47,14 +47,14 @@ export const useStyles = makeStyles((theme) => ({
       },
       button: {
         display: "flex",
-        padding: '0px 10px',
         alignItems: "center",
         backgroundColor: "#ffcb3b",
         color: "black",
-        height: "45px",
+        height: "fit-content",
         borderRadius: "4px",
         width: "90%",
         margin: "25px auto",
+        padding: '10px 10px',
         transition: "all 0.2s ease",
         [theme.breakpoints.down("sm")]: {
           fontSize: '0.8rem'

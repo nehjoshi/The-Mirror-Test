@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz3_2 = () => {
+const Quiz3_4 = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const mainRef = useRef(null);
@@ -65,7 +65,7 @@ const Quiz3_2 = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/quiz3/question3");
+                        history.push("/quiz3/question4");
                     }, 250);
                 }
             })
@@ -83,17 +83,17 @@ const Quiz3_2 = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 2</h1>
+                <h1 className={classes.heading}>Question 4</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                    You and your spouse (boyfriend/girlfriend) make up after a fight.
+                    Your spouse (boyfriend/girlfriend) surprises you with a gift.
                 </p>
                 <div className={classes.buttonWrapper}>
-                    <div className={classes.button} onClick={() => handleRes('pmg', 0)}>A. I forgave him/her.</div>
-                    <div className={classes.button} onClick={() => handleRes('pmg', 1)}>B. I'm usually forgiving.</div>
+                    <div className={classes.button} onClick={() => handleRes('psg', 0)}>A. He/she just got a raise at work.</div>
+                    <div className={classes.button} onClick={() => handleRes('psg', 1)}>B. I took him/her out to a special dinner the night before.</div>
                 </div>
 
             </Grid>
         </Grid>
     );
 };
-export default Quiz3_2;
+export default Quiz3_4;

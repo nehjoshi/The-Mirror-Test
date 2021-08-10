@@ -17,7 +17,7 @@ Quiz3.post('/quiz3', async (req, res) => {
             case 'pvb':
                 result.pvb += value;
                 return res.json({ success: true, result: result });
-            case 'pmb':
+            case 'psb':
                 result.psb += value;
                 return res.json({ success: true, result: result });
             case 'pmg':

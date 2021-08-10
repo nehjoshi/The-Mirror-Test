@@ -58,6 +58,8 @@ import Quiz2Fourty from "./Components/Questions/Quiz2/Fourty.js";
 import Intro3 from './Components/Intro3.js';
 import Quiz3_1 from "./Components/Questions/Quiz3/Q1.js";
 import Quiz3_2 from "./Components/Questions/Quiz3/Q2.js";
+import Quiz3_3 from "./Components/Questions/Quiz3/Q3.js";
+import Quiz3_4 from "./Components/Questions/Quiz3/Q4.js";
 
 const App = () => {
 
@@ -121,6 +123,8 @@ const App = () => {
         <Route exact path='/quiz2/question40' component={Quiz2Fourty} />
         <Route exact path='/quiz3/question1' component={Quiz3_1} />
         <Route exact path='/quiz3/question2' component={Quiz3_2} />
+        <Route exact path='/quiz3/question3' component={Quiz3_3} />
+        <Route exact path='/quiz3/question4' component={Quiz3_4} />
         <Route exact path='/results' component={Results} />
       </Switch>
     </Router>
