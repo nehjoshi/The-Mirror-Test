@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz3_4 = () => {
+const Quiz3_5 = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const mainRef = useRef(null);
@@ -65,7 +65,7 @@ const Quiz3_4 = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/quiz3/question5");
+                        history.push("/quiz3/question6");
                     }, 250);
                 }
             })
@@ -83,17 +83,17 @@ const Quiz3_4 = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 4</h1>
+                <h1 className={classes.heading}>Question 5</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                    Your spouse (boyfriend/girlfriend) surprises you with a gift.
+                    You forgot your spouse's (boyfriend's/girlfriend's) birthday.
                 </p>
                 <div className={classes.buttonWrapper}>
-                    <div className={classes.button} onClick={() => handleRes('psg', 0)}>A. He/she just got a raise at work.</div>
-                    <div className={classes.button} onClick={() => handleRes('psg', 1)}>B. I took him/her out to a special dinner the night before.</div>
+                    <div className={classes.button} onClick={() => handleRes('pmb', 1)}>A. I'm not good at remembering birthdays.</div>
+                    <div className={classes.button} onClick={() => handleRes('pmb', 0)}>B. I was preoccupied with other things.</div>
                 </div>
 
             </Grid>
         </Grid>
     );
 };
-export default Quiz3_4;
+export default Quiz3_5;
