@@ -66,6 +66,9 @@ import Quiz3_7 from "./Components/Questions/Quiz3/Q7.js";
 import Quiz3_8 from "./Components/Questions/Quiz3/Q8.js";
 import Quiz3_9 from "./Components/Questions/Quiz3/Q9.js";
 import Quiz3_10 from "./Components/Questions/Quiz3/Q10.js";
+import Quiz3_11 from "./Components/Questions/Quiz3/Q11.js";
+import Quiz3_12 from "./Components/Questions/Quiz3/Q12.js";
+import Quiz3_13 from "./Components/Questions/Quiz3/Q13.js";
 
 const App = () => {
 
@@ -137,6 +140,9 @@ const App = () => {
         <Route exact path='/quiz3/question8' component={Quiz3_8} />
         <Route exact path='/quiz3/question9' component={Quiz3_9} />
         <Route exact path='/quiz3/question10' component={Quiz3_10} />
+        <Route exact path='/quiz3/question11' component={Quiz3_11} />
+        <Route exact path='/quiz3/question12' component={Quiz3_12} />
+        <Route exact path='/quiz3/question13' component={Quiz3_13} />
         <Route exact path='/results' component={Results} />
       </Switch>
     </Router>
