@@ -76,6 +76,17 @@ import Quiz3_17 from "./Components/Questions/Quiz3/Q17.js";
 import Quiz3_18 from "./Components/Questions/Quiz3/Q18.js";
 import Quiz3_19 from "./Components/Questions/Quiz3/Q19.js";
 import Quiz3_20 from "./Components/Questions/Quiz3/Q20.js";
+import Quiz3_21 from "./Components/Questions/Quiz3/Q21.js";
+import Quiz3_22 from "./Components/Questions/Quiz3/Q22.js";
+import Quiz3_23 from "./Components/Questions/Quiz3/Q23.js";
+import Quiz3_24 from "./Components/Questions/Quiz3/Q24.js";
+import Quiz3_25 from "./Components/Questions/Quiz3/Q25.js";
+import Quiz3_26 from "./Components/Questions/Quiz3/Q26.js";
+import Quiz3_27 from "./Components/Questions/Quiz3/Q27.js";
+import Quiz3_28 from "./Components/Questions/Quiz3/Q28.js";
+import Quiz3_29 from "./Components/Questions/Quiz3/Q29.js";
+import Quiz3_30 from "./Components/Questions/Quiz3/Q30.js";
+
 
 const App = () => {
 
@@ -157,6 +168,16 @@ const App = () => {
         <Route exact path='/quiz3/question18' component={Quiz3_18} />
         <Route exact path='/quiz3/question19' component={Quiz3_19} />
         <Route exact path='/quiz3/question20' component={Quiz3_20} />
+        <Route exact path='/quiz3/question21' component={Quiz3_21} />
+        <Route exact path='/quiz3/question22' component={Quiz3_22} />
+        <Route exact path='/quiz3/question23' component={Quiz3_23} />
+        <Route exact path='/quiz3/question24' component={Quiz3_24} />
+        <Route exact path='/quiz3/question25' component={Quiz3_25} />
+        <Route exact path='/quiz3/question26' component={Quiz3_26} />
+        <Route exact path='/quiz3/question27' component={Quiz3_27} />
+        <Route exact path='/quiz3/question28' component={Quiz3_28} />
+        <Route exact path='/quiz3/question29' component={Quiz3_29} />
+        <Route exact path='/quiz3/question30' component={Quiz3_30} />
         <Route exact path='/results' component={Results} />
       </Switch>
     </Router>
