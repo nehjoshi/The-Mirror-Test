@@ -86,6 +86,25 @@ import Quiz3_27 from "./Components/Questions/Quiz3/Q27.js";
 import Quiz3_28 from "./Components/Questions/Quiz3/Q28.js";
 import Quiz3_29 from "./Components/Questions/Quiz3/Q29.js";
 import Quiz3_30 from "./Components/Questions/Quiz3/Q30.js";
+import Quiz3_31 from "./Components/Questions/Quiz3/Q31.js";
+import Quiz3_32 from "./Components/Questions/Quiz3/Q32.js";
+import Quiz3_33 from "./Components/Questions/Quiz3/Q33.js";
+import Quiz3_34 from "./Components/Questions/Quiz3/Q34.js";
+import Quiz3_35 from "./Components/Questions/Quiz3/Q35.js";
+import Quiz3_36 from "./Components/Questions/Quiz3/Q36.js";
+import Quiz3_37 from "./Components/Questions/Quiz3/Q37.js";
+import Quiz3_38 from "./Components/Questions/Quiz3/Q38.js";
+import Quiz3_39 from "./Components/Questions/Quiz3/Q39.js";
+import Quiz3_40 from "./Components/Questions/Quiz3/Q40.js";
+import Quiz3_41 from "./Components/Questions/Quiz3/Q41.js";
+import Quiz3_42 from "./Components/Questions/Quiz3/Q42.js";
+import Quiz3_43 from "./Components/Questions/Quiz3/Q43.js";
+import Quiz3_44 from "./Components/Questions/Quiz3/Q44.js";
+import Quiz3_45 from "./Components/Questions/Quiz3/Q45.js";
+import Quiz3_46 from "./Components/Questions/Quiz3/Q46.js";
+import Quiz3_47 from "./Components/Questions/Quiz3/Q47.js";
+import Quiz3_48 from "./Components/Questions/Quiz3/Q48.js";
+
 
 
 const App = () => {
@@ -178,6 +197,24 @@ const App = () => {
         <Route exact path='/quiz3/question28' component={Quiz3_28} />
         <Route exact path='/quiz3/question29' component={Quiz3_29} />
         <Route exact path='/quiz3/question30' component={Quiz3_30} />
+        <Route exact path='/quiz3/question31' component={Quiz3_31} />
+        <Route exact path='/quiz3/question32' component={Quiz3_32} />
+        <Route exact path='/quiz3/question33' component={Quiz3_33} />
+        <Route exact path='/quiz3/question34' component={Quiz3_34} />
+        <Route exact path='/quiz3/question35' component={Quiz3_35} />
+        <Route exact path='/quiz3/question36' component={Quiz3_36} />
+        <Route exact path='/quiz3/question37' component={Quiz3_37} />
+        <Route exact path='/quiz3/question38' component={Quiz3_38} />
+        <Route exact path='/quiz3/question39' component={Quiz3_39} />
+        <Route exact path='/quiz3/question40' component={Quiz3_40} />
+        <Route exact path='/quiz3/question41' component={Quiz3_41} />
+        <Route exact path='/quiz3/question42' component={Quiz3_42} />
+        <Route exact path='/quiz3/question43' component={Quiz3_43} />
+        <Route exact path='/quiz3/question44' component={Quiz3_44} />
+        <Route exact path='/quiz3/question45' component={Quiz3_45} />
+        <Route exact path='/quiz3/question46' component={Quiz3_46} />
+        <Route exact path='/quiz3/question47' component={Quiz3_47} />
+        <Route exact path='/quiz3/question48' component={Quiz3_48} />
         <Route exact path='/results' component={Results} />
       </Switch>
     </Router>

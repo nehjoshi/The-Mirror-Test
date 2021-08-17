@@ -9,7 +9,6 @@ Quiz3.post('/quiz3', async (req, res) => {
         console.log('Done!');
     }
     else {
-        console.log('hello')
         switch (type) {
             case 'pmb':
                 result.pmb += value;
