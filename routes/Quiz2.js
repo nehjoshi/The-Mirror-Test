@@ -6,8 +6,19 @@ Quiz2.post("/quiz2", async (req, res) => {
     if (done === true) {                     //1: Secure; 2: Anxious; 3: Avoidant; 4: Disoranized
         console.log('submit');
         result.result4 += ans;
-        const finalResult = Math.max(result.result1, result.result2, result.result3, result.result4);
-        return res.json({ success: true, result: finalResult });
+        const {result1, result2, result3, result4} = result;
+        if (result1 > result2 && result1>result3 && result1>result4){
+            return res.json({ success: true, result: 1 });
+        }
+        else if (result2 > result1 && result2>result3 && result2>result4){
+            return res.json({ success: true, result: 2 });
+        }
+        else if (result3 > result1 && result3>result2 && result3>result4){
+            return res.json({ success: true, result: 3 });
+        }
+        else if (result4 > result1 && result4>result3 && result4>result3){
+            return res.json({ success: true, result: 4 });
+        }
     }
     else {          
         switch(type){
