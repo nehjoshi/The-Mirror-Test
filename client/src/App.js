@@ -104,6 +104,23 @@ import Quiz3_45 from "./Components/Questions/Quiz3/Q45.js";
 import Quiz3_46 from "./Components/Questions/Quiz3/Q46.js";
 import Quiz3_47 from "./Components/Questions/Quiz3/Q47.js";
 import Quiz3_48 from "./Components/Questions/Quiz3/Q48.js";
+import Intro4 from "./Components/Intro4.js";
+import Quiz4_1 from "./Components/Questions/Quiz4/Q1.js";
+import Quiz4_2 from "./Components/Questions/Quiz4/Q2.js";
+import Quiz4_3 from "./Components/Questions/Quiz4/Q3.js";
+import Quiz4_4 from "./Components/Questions/Quiz4/Q4.js";
+import Quiz4_5 from "./Components/Questions/Quiz4/Q5.js";
+import Quiz4_6 from "./Components/Questions/Quiz4/Q6.js";
+import Quiz4_7 from "./Components/Questions/Quiz4/Q7.js";
+import Quiz4_8 from "./Components/Questions/Quiz4/Q8.js";
+import Quiz4_9 from "./Components/Questions/Quiz4/Q9.js";
+import Quiz4_10 from "./Components/Questions/Quiz4/Q10.js";
+import Quiz4_11 from "./Components/Questions/Quiz4/Q11.js";
+import Quiz4_12 from "./Components/Questions/Quiz4/Q12.js";
+import Quiz4_13 from "./Components/Questions/Quiz4/Q13.js";
+import Quiz4_14 from "./Components/Questions/Quiz4/Q14.js";
+import Quiz4_15 from "./Components/Questions/Quiz4/Q15.js";
+
 
 
 
@@ -117,6 +134,7 @@ const App = () => {
         <Route exact path='/instructions' component={Intro} />
         <Route exact path='/instructions2' component={Intro2} />
         <Route exact path='/instructions3' component={Intro3} />
+        <Route exact path='/instructions4' component={Intro4} />
         <Route exact path='/quiz1/question1' component={One} />
         <Route exact path='/quiz1/question2' component={Two} />
         <Route exact path='/quiz1/question3' component={Three} />
@@ -215,6 +233,21 @@ const App = () => {
         <Route exact path='/quiz3/question46' component={Quiz3_46} />
         <Route exact path='/quiz3/question47' component={Quiz3_47} />
         <Route exact path='/quiz3/question48' component={Quiz3_48} />
+        <Route exact path='/quiz4/question1' component={Quiz4_1} />
+        <Route exact path='/quiz4/question2' component={Quiz4_2} />
+        <Route exact path='/quiz4/question3' component={Quiz4_3} />
+        <Route exact path='/quiz4/question4' component={Quiz4_4} />
+        <Route exact path='/quiz4/question5' component={Quiz4_5} />
+        <Route exact path='/quiz4/question6' component={Quiz4_6} />
+        <Route exact path='/quiz4/question7' component={Quiz4_7} />
+        <Route exact path='/quiz4/question8' component={Quiz4_8} />
+        <Route exact path='/quiz4/question9' component={Quiz4_9} />
+        <Route exact path='/quiz4/question10' component={Quiz4_10} />
+        <Route exact path='/quiz4/question11' component={Quiz4_11} />
+        <Route exact path='/quiz4/question12' component={Quiz4_12} />
+        <Route exact path='/quiz4/question13' component={Quiz4_13} />
+        <Route exact path='/quiz4/question14' component={Quiz4_14} />
+        <Route exact path='/quiz4/question15' component={Quiz4_15} />
         <Route exact path='/results' component={Results} />
       </Switch>
     </Router>

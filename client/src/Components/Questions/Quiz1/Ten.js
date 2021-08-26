@@ -9,7 +9,7 @@ const Ten = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const mainRef = useRef(null);
-
+  const servPath = 'https://self-growth-questionaire.herokuapp.com/quiz1';
   useEffect(() => {
     const token = localStorage.getItem("token");
  axios
@@ -40,8 +40,8 @@ const Ten = () => {
   });
 
   const handleRes = (ans) => {
-    const data = {ans: ans, result: parseInt(localStorage.getItem("result"))}
-    axios.post("https://self-growth-questionaire.herokuapp.com/quiz1", data,
+    const data = {ans: 'submit', result: parseInt(localStorage.getItem("result"))}
+    axios.post("http://localhost:5000/quiz1", data,
         {
           headers: {
             "x-access-token": localStorage.getItem("token"),
