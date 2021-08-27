@@ -9,7 +9,6 @@ const Ten = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const mainRef = useRef(null);
-  const servPath = 'https://self-growth-questionaire.herokuapp.com/quiz1';
   useEffect(() => {
     const token = localStorage.getItem("token");
  axios
