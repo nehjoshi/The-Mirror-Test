@@ -5,11 +5,14 @@ const Path = require('path');
 const Quiz1 = express.Router();
 
 Quiz1.post("/quiz1", async (req, res) => {
-    let { ans, result } = req.body;
+    let { ans, result, done } = req.body;
+    console.log(req.body);
     try {
 
-        if (ans === "submit") {
+        if (done === true) {
             console.log('submit');
+            result += ans;
+            return res.json({ success: true, result: result });
             const browser = await puppeteer.launch();
             const page = await browser.newPage();
             await page.setContent(`

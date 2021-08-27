@@ -39,7 +39,7 @@ const One = () => {
   });
 
   const handleRes = (ans) => {
-    const data = {ans: ans, result: 0}
+    const data = {ans: ans, result: 0, done: false}
     axios.post("https://self-growth-questionaire.herokuapp.com/quiz1", data,
         {
           headers: {

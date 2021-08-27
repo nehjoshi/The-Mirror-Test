@@ -40,7 +40,7 @@ const Nine = () => {
   });
 
   const handleRes = (ans) => {
-    const data = {ans: ans, result: parseInt(localStorage.getItem("result"))}
+    const data = {ans: ans, result: parseInt(localStorage.getItem("result")), done: false}
     axios.post("https://self-growth-questionaire.herokuapp.com/quiz1", data,
         {
           headers: {
