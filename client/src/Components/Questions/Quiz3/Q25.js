@@ -48,7 +48,7 @@ const Quiz3_25 = () => {
         const psg = localStorage.getItem('psg');
         const result = { pmb, pvb, psb, pmg, pvg, psg }
         const data = { type, value: ans, result, done: false }
-        axios.post("http://localhost:5000/quiz3", data)
+        axios.post("https://self-growth-questionaire.herokuapp.com/quiz3", data)
             .then((response) => {
                 if (response.data.success === true) {
                     const { pmb, pvb, psb, pmg, pvg, psg } = response.data.result;

@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz3_30 = () => {
+const Quiz4_17 = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const mainRef = useRef(null);
@@ -39,25 +39,18 @@ const Quiz3_30 = () => {
             });
     });
 
-    const handleRes = (type, ans) => {
-        const pmb = localStorage.getItem('pmb');
-        const pvb = localStorage.getItem('pvb');
-        const psb = localStorage.getItem('psb');
-        const pmg = localStorage.getItem('pmg');
-        const pvg = localStorage.getItem('pvg');
-        const psg = localStorage.getItem('psg');
-        const result = { pmb, pvb, psb, pmg, pvg, psg }
-        const data = { type, value: ans, result, done: false }
-        axios.post("https://self-growth-questionaire.herokuapp.com/quiz3", data)
+    const handleRes = (ans) => {
+        const result = { e:0, a:0, c:0, n:0, o:0 }
+        const data = { type: 'a', value: ans, result, done: false }
+        axios.post("https://self-growth-questionaire.herokuapp.com/quiz4", data)
             .then((response) => {
                 if (response.data.success === true) {
-                    const { pmb, pvb, psb, pmg, pvg, psg } = response.data.result;
-                    localStorage.setItem("pmb", pmb);
-                    localStorage.setItem("pvb", pvb);
-                    localStorage.setItem("psb", psb);
-                    localStorage.setItem("pmg", pmg);
-                    localStorage.setItem("pvg", pvg);
-                    localStorage.setItem("psg", psg);
+                    const { e, a, c, n, o } = response.data.result;
+                    localStorage.setItem("e", e);
+                    localStorage.setItem("a", a);
+                    localStorage.setItem("c", c);
+                    localStorage.setItem("n", n);
+                    localStorage.setItem("o", o);
                     gsap.to(mainRef.current, {
                         left: -1000,
                         duration: 0.5,
@@ -65,7 +58,7 @@ const Quiz3_30 = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/quiz3/question31");
+                        history.push("/quiz4/question18");
                     }, 250);
                 }
             })
@@ -83,17 +76,20 @@ const Quiz3_30 = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 30</h1>
+                <h1 className={classes.heading}>Question 17</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                    You ask someone to dance and he/she says no.
+                I sympathize with others' feelings.
                 </p>
                 <div className={classes.buttonWrapper}>
-                    <div className={classes.button} onClick={() => handleRes('psb', 1)}>A. I am not a good enough dancer.</div>
-                    <div className={classes.button} onClick={() => handleRes('psb', 0)}>B. I was lazy about getting my taxes done this year.</div>
+                    <div className={classes.button} onClick={() => handleRes(1)}>Disagree</div>
+                    <div className={classes.button} onClick={() => handleRes(2)}>Slightly disagree</div>
+                    <div className={classes.button} onClick={() => handleRes(3)}>Neutral</div>
+                    <div className={classes.button} onClick={() => handleRes(4)}>Slightly agree</div>
+                    <div className={classes.button} onClick={() => handleRes(5)}>Agree</div>
                 </div>
 
             </Grid>
         </Grid>
     );
 };
-export default Quiz3_30;
+export default Quiz4_17;

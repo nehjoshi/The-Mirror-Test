@@ -42,7 +42,7 @@ const Quiz4_3 = () => {
     const handleRes = (ans) => {
         const result = { e:0, a:0, c:0, n:0, o:0 }
         const data = { type: 'c', value: ans, result, done: false }
-        axios.post("http://localhost:5000/quiz4", data)
+        axios.post("https://self-growth-questionaire.herokuapp.com/quiz4", data)
             .then((response) => {
                 if (response.data.success === true) {
                     const { e, a, c, n, o } = response.data.result;
