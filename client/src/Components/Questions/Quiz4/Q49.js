@@ -40,7 +40,12 @@ const Quiz4_49 = () => {
     });
 
     const handleRes = (ans) => {
-        const result = { e:0, a:0, c:0, n:0, o:0 }
+        const e = parseInt(localStorage.getItem('e'));
+        const a = parseInt(localStorage.getItem('a'));
+        const c = parseInt(localStorage.getItem('c'));
+        const n = parseInt(localStorage.getItem('n'));
+        const o = parseInt(localStorage.getItem('o'));
+        const result = { e: e, a: a, c: c, n: n, o: o };
         const data = { type: 'n', value: ans, result, done: false }
         axios.post("https://self-growth-questionaire.herokuapp.com/quiz4", data)
             .then((response) => {
@@ -78,14 +83,14 @@ const Quiz4_49 = () => {
             <Grid className={classes.box} ref={mainRef}>
                 <h1 className={classes.heading}>Question 49</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                I often feel blue.
+                    I often feel blue.
                 </p>
                 <div className={classes.buttonWrapper}>
-                    <div className={classes.button} onClick={() => handleRes(1)}>Disagree</div>
-                    <div className={classes.button} onClick={() => handleRes(2)}>Slightly disagree</div>
-                    <div className={classes.button} onClick={() => handleRes(3)}>Neutral</div>
-                    <div className={classes.button} onClick={() => handleRes(4)}>Slightly agree</div>
-                    <div className={classes.button} onClick={() => handleRes(5)}>Agree</div>
+                    <div className={classes.button} onClick={() => handleRes(-1)}>Disagree</div>
+                    <div className={classes.button} onClick={() => handleRes(-2)}>Slightly disagree</div>
+                    <div className={classes.button} onClick={() => handleRes(-3)}>Neutral</div>
+                    <div className={classes.button} onClick={() => handleRes(-4)}>Slightly agree</div>
+                    <div className={classes.button} onClick={() => handleRes(-5)}>Agree</div>
                 </div>
 
             </Grid>

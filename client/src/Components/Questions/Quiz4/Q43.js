@@ -40,7 +40,12 @@ const Quiz4_43 = () => {
     });
 
     const handleRes = (ans) => {
-        const result = { e:0, a:0, c:0, n:0, o:0 }
+                const e = parseInt(localStorage.getItem('e'));
+        const a = parseInt(localStorage.getItem('a'));
+        const c = parseInt(localStorage.getItem('c'));
+        const n = parseInt(localStorage.getItem('n'));
+        const o = parseInt(localStorage.getItem('o'));
+const result={ e:e, a:a, c:c, n:n, o:o };
         const data = { type: 'c', value: ans, result, done: false }
         axios.post("https://self-growth-questionaire.herokuapp.com/quiz4", data)
             .then((response) => {

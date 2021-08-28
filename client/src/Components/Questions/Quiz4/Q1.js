@@ -40,7 +40,8 @@ const Quiz4_1 = () => {
     });
 
     const handleRes = (ans) => {
-        const result = { e:0, a:0, c:0, n:0, o:0 }
+
+        const result = { e: 0, a: 0, c: 0, n: 0, o: 0 };
         const data = { type: 'e', value: ans, result, done: false }
         axios.post("https://self-growth-questionaire.herokuapp.com/quiz4", data)
             .then((response) => {
