@@ -53,7 +53,7 @@ const Ten = () => {
 
   const handleRes = (ans) => {
     const data = { ans: ans, result: parseInt(localStorage.getItem("result")), done: true }
-    axios.post("http://localhost:5000/quiz1", data,
+    axios.post("https://self-growth-questionaire.herokuapp.com/quiz1", data,
       {
         headers: {
           "x-access-token": localStorage.getItem("token"),
