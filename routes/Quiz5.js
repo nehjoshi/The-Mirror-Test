@@ -32,7 +32,7 @@ Quiz5.post('/quiz5', (req, res) => {
             result.H += value;
             return res.json({ success: true, result: result });
         case 'LON':                   //Loneliness
-            result.L += value;
+            result.LON += value;
             return res.json({ success: true, result: result });
 
     }
