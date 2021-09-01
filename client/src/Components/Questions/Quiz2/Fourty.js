@@ -61,7 +61,7 @@ const Quiz2Fourty = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/instructions3");
+                        history.push("/");
                     }, 250);
                 }
             })

@@ -4,23 +4,13 @@ import axios from "axios";
 import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
-// import { jsPDF } from 'jspdf';
 
 const Ten = () => {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const mainRef = useRef(null);
 
-  // const genPdf = () => {
-  //   const doc = new jsPDF('landscape', 'px', 'a4', 'false');
-  //   doc.text(20, 20, 'Your ACE Score Results');
-  //   doc.line(20, 30, 600, 30);
-  //   doc.setFontSize(12)
-  //   doc.text(20, 40, `Your Adverse Childhood Experience (ACE) score is ${localStorage.getItem('result')}`);
-  //   doc.save("Results.pdf");
 
-    
-  // }
 
   useEffect(() => {
     const token = localStorage.getItem("token");

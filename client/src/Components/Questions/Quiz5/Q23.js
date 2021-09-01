@@ -65,6 +65,7 @@ const Quiz5_23 = () => {
                     localStorage.removeItem("A")
                     localStorage.removeItem("H")
                     localStorage.removeItem("HAP")
+                    localStorage.removeItem("N")
                     localStorage.removeItem("LON")
                     gsap.to(mainRef.current, {
                         left: -1000,
