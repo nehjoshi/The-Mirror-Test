@@ -8,23 +8,31 @@ Quiz5.post('/quiz5', (req, res) => {
     switch (type) {
         case 'P':
             result.P += value;      //Positive emotion
+            break;
         case 'E':                   //Engagement
             result.E += value;
+            break;
         case 'R':                   //Relationships
             result.R += value;
+            break;
         case 'M':                   //Meaning
             result.M += value;
+            break;
         case 'A':                      //Accomplishment
             result.A += value;
-            console.log(result);
+            break;
         case 'N':                   //Negative Emotions
             result.N += value;
+            break;
         case 'HAP':                 //Happiness
             result.HAP += value;
+            break;
         case 'H':                  //Health
             result.H += value;
+            break;
         case 'LON':                   //Loneliness
             result.LON += value;
+            break;
     }
     if (done === true) {
         result.P = result.P / 3;
