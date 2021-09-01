@@ -26,7 +26,7 @@ Quiz5.post('/quiz5', (req, res) => {
             result.N += value;
             return res.json({ success: true, result: result });
         case 'HAP':                 //Happiness
-            result.hap += value;
+            result.HAP += value;
             return res.json({ success: true, result: result });
         case 'H':                  //Health
             result.H += value;
