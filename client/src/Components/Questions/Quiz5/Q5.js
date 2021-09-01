@@ -5,7 +5,7 @@ import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 import { useStyles } from "./QuestionStyles.js";
 
-const Quiz5_1 = () => {
+const Quiz5_5 = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(true);
     const [sliderValue, setSliderValue] = useState(5);
@@ -42,7 +42,15 @@ const Quiz5_1 = () => {
 
     const handleRes = () => {
 
-        const result = { P: 0, E: 0, R: 0, M: 0, A: 0, N: 0, H: 0, LON: 0 };
+        const P = parseInt(localStorage.getItem("P"));
+        const E = parseInt(localStorage.getItem("E"));
+        const R = parseInt(localStorage.getItem("R"));
+        const M = parseInt(localStorage.getItem("M"));
+        const A = parseInt(localStorage.getItem("A"));
+        const N = parseInt(localStorage.getItem("N"));
+        const H = parseInt(localStorage.getItem("H"));
+        const LON = parseInt(localStorage.getItem("LON"));
+        const result = { P, E, R, M, A, N, H, LON };
         const data = { type: 'A', value: sliderValue, result, done: false }
         axios.post("http://localhost:5000/quiz5", data)
             .then((response) => {
@@ -63,7 +71,7 @@ const Quiz5_1 = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push('/quiz5/question2');
+                        history.push('/quiz5/question6');
                     }, 250);
                 }
             })
@@ -77,7 +85,7 @@ const Quiz5_1 = () => {
     const marks = [
         {
             value: 0,
-            label: 'Not at all',
+            label: 'Never',
         },
         {
             value: 1,
@@ -127,10 +135,9 @@ const Quiz5_1 = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid className={classes.box} ref={mainRef}>
-                <h1 className={classes.heading}>Question 1</h1>
+                <h1 className={classes.heading}>Question 5</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                    How	much	of	the	time	do	you	feel	you	are	making	progress	towards
-                    accomplishing	your	goals?
+                How often do you achieve the important goals you have set for yourself?
                 </p>
                 <Slider
                     defaultValue={5}
@@ -150,4 +157,4 @@ const Quiz5_1 = () => {
         </Grid>
     );
 };
-export default Quiz5_1;
+export default Quiz5_5;

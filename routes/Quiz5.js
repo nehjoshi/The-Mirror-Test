@@ -20,9 +20,11 @@ Quiz5.post('/quiz5', (req, res) => {
             return res.json({ success: true, result: result });
         case 'A':                      //Accomplishment
             result.A += value;
+            console.log(result);
             return res.json({ success: true, result: result });
         case 'N':                   //Negative Emotions
             result.N += value;
+            
             return res.json({ success: true, result: result });
         case 'hap':                 //Happiness
             result.hap += value;

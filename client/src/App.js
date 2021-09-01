@@ -157,6 +157,15 @@ import Quiz4_49 from "./Components/Questions/Quiz4/Q49.js";
 import Quiz4_50 from "./Components/Questions/Quiz4/Q50.js";
 import Intro5 from "./Components/Intro5.js";
 import Quiz5_1 from "./Components/Questions/Quiz5/Q1.js";
+import Quiz5_2 from "./Components/Questions/Quiz5/Q2.js";
+import Quiz5_3 from "./Components/Questions/Quiz5/Q3.js";
+import Quiz5_4 from "./Components/Questions/Quiz5/Q4.js";
+import Quiz5_5 from "./Components/Questions/Quiz5/Q5.js";
+import Quiz5_6 from "./Components/Questions/Quiz5/Q6.js";
+import Quiz5_7 from "./Components/Questions/Quiz5/Q7.js";
+import Quiz5_8 from "./Components/Questions/Quiz5/Q8.js";
+import Quiz5_9 from "./Components/Questions/Quiz5/Q9.js";
+import Quiz5_10 from "./Components/Questions/Quiz5/Q10.js";
 
 
 
@@ -322,6 +331,15 @@ const App = () => {
         <Route exact path='/quiz4/question49' component={Quiz4_49} />
         <Route exact path='/quiz4/question50' component={Quiz4_50} />
         <Route exact path='/quiz5/question1' component={Quiz5_1} /> 
+        <Route exact path='/quiz5/question2' component={Quiz5_2} /> 
+        <Route exact path='/quiz5/question3' component={Quiz5_3} /> 
+        <Route exact path='/quiz5/question4' component={Quiz5_4} /> 
+        <Route exact path='/quiz5/question5' component={Quiz5_5} /> 
+        <Route exact path='/quiz5/question6' component={Quiz5_6} /> 
+        <Route exact path='/quiz5/question7' component={Quiz5_7} /> 
+        <Route exact path='/quiz5/question8' component={Quiz5_8} /> 
+        <Route exact path='/quiz5/question9' component={Quiz5_9} /> 
+        <Route exact path='/quiz5/question10' component={Quiz5_10} /> 
         <Route exact path='/results' component={Results} />
       </Switch>
     </Router>
