@@ -50,12 +50,13 @@ const Quiz5_10 = () => {
         const N = parseInt(localStorage.getItem("N"));
         const H = parseInt(localStorage.getItem("H"));
         const LON = parseInt(localStorage.getItem("LON"));
-        const result = { P, E, R, M, A, N, H, LON };
+        const HAP = parseInt(localStorage.getItem("HAP"))
+        const result = { P, E, R, M, A, N, H, LON, HAP };
         const data = { type: 'E', value: sliderValue, result, done: false }
         axios.post("https://self-growth-questionaire.herokuapp.com/quiz5", data)
             .then((response) => {
                 if (response.data.success === true) {
-                    const { P, E, R, M, A, N, H, LON } = response.data.result;
+                    const { P, E, R, M, A, N, H, LON, HAP } = response.data.result;
                     localStorage.setItem("P", P);
                     localStorage.setItem("E", E);
                     localStorage.setItem("R", R);
@@ -64,6 +65,7 @@ const Quiz5_10 = () => {
                     localStorage.setItem("N", N);
                     localStorage.setItem("H", H);
                     localStorage.setItem("LON", LON);
+localStorage.setItem("HAP", HAP);
                     gsap.to(mainRef.current, {
                         left: -1000,
                         duration: 0.5,

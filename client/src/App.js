@@ -166,12 +166,21 @@ import Quiz5_7 from "./Components/Questions/Quiz5/Q7.js";
 import Quiz5_8 from "./Components/Questions/Quiz5/Q8.js";
 import Quiz5_9 from "./Components/Questions/Quiz5/Q9.js";
 import Quiz5_10 from "./Components/Questions/Quiz5/Q10.js";
-
-
-
+import Quiz5_11 from "./Components/Questions/Quiz5/Q11.js";
+import Quiz5_12 from "./Components/Questions/Quiz5/Q12.js";
+import Quiz5_13 from "./Components/Questions/Quiz5/Q13.js";
+import Quiz5_14 from "./Components/Questions/Quiz5/Q14.js";
+import Quiz5_15 from "./Components/Questions/Quiz5/Q15.js";
+import Quiz5_16 from "./Components/Questions/Quiz5/Q16.js";
+import Quiz5_17 from "./Components/Questions/Quiz5/Q17.js";
+import Quiz5_18 from "./Components/Questions/Quiz5/Q18.js";
+import Quiz5_19 from "./Components/Questions/Quiz5/Q19.js";
+import Quiz5_20 from "./Components/Questions/Quiz5/Q20.js";
+import Quiz5_21 from "./Components/Questions/Quiz5/Q21.js";
+import Quiz5_22 from "./Components/Questions/Quiz5/Q22.js";
+import Quiz5_23 from "./Components/Questions/Quiz5/Q23.js";
 
 const App = () => {
-
 
   return (
     <Router>
@@ -340,6 +349,19 @@ const App = () => {
         <Route exact path='/quiz5/question8' component={Quiz5_8} /> 
         <Route exact path='/quiz5/question9' component={Quiz5_9} /> 
         <Route exact path='/quiz5/question10' component={Quiz5_10} /> 
+        <Route exact path='/quiz5/question11' component={Quiz5_11} /> 
+        <Route exact path='/quiz5/question12' component={Quiz5_12} /> 
+        <Route exact path='/quiz5/question13' component={Quiz5_13} /> 
+        <Route exact path='/quiz5/question14' component={Quiz5_14} /> 
+        <Route exact path='/quiz5/question15' component={Quiz5_15} /> 
+        <Route exact path='/quiz5/question16' component={Quiz5_16} />
+        <Route exact path='/quiz5/question17' component={Quiz5_17} />
+        <Route exact path='/quiz5/question18' component={Quiz5_18} />
+        <Route exact path='/quiz5/question19' component={Quiz5_19} />
+        <Route exact path='/quiz5/question20' component={Quiz5_20} />
+        <Route exact path='/quiz5/question21' component={Quiz5_21} />
+        <Route exact path='/quiz5/question22' component={Quiz5_22} />
+        <Route exact path='/quiz5/question23' component={Quiz5_23} />
         <Route exact path='/results' component={Results} />
       </Switch>
     </Router>

@@ -3,9 +3,9 @@ const express = require("express");
 const Quiz5 = express.Router();
 
 Quiz5.post('/quiz5', (req, res) => {
-    const {type, value, result, done} = req.body;
+    const { type, value, result, done } = req.body;
 
-    switch(type){
+    switch (type) {
         case 'P':
             result.P += value;      //Positive emotion
             return res.json({ success: true, result: result });
@@ -24,16 +24,15 @@ Quiz5.post('/quiz5', (req, res) => {
             return res.json({ success: true, result: result });
         case 'N':                   //Negative Emotions
             result.N += value;
-            
             return res.json({ success: true, result: result });
-        case 'hap':                 //Happiness
+        case 'HAP':                 //Happiness
             result.hap += value;
             return res.json({ success: true, result: result });
-         case 'H':                  //Health
+        case 'H':                  //Health
             result.H += value;
-            return res.json({ success: true, result: result });   
-        case 'L':                   //Loneliness
-            result.L += value;  
+            return res.json({ success: true, result: result });
+        case 'LON':                   //Loneliness
+            result.L += value;
             return res.json({ success: true, result: result });
 
     }
