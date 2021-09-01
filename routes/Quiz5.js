@@ -3,38 +3,44 @@ const express = require("express");
 const Quiz5 = express.Router();
 
 Quiz5.post('/quiz5', (req, res) => {
-    const { type, value, result, done } = req.body;
+    let { type, value, result, done } = req.body;
 
     switch (type) {
         case 'P':
             result.P += value;      //Positive emotion
-            return res.json({ success: true, result: result });
         case 'E':                   //Engagement
             result.E += value;
-            return res.json({ success: true, result: result });
         case 'R':                   //Relationships
             result.R += value;
-            return res.json({ success: true, result: result });
         case 'M':                   //Meaning
             result.M += value;
-            return res.json({ success: true, result: result });
         case 'A':                      //Accomplishment
             result.A += value;
             console.log(result);
-            return res.json({ success: true, result: result });
         case 'N':                   //Negative Emotions
             result.N += value;
-            return res.json({ success: true, result: result });
         case 'HAP':                 //Happiness
             result.HAP += value;
-            return res.json({ success: true, result: result });
         case 'H':                  //Health
             result.H += value;
-            return res.json({ success: true, result: result });
         case 'LON':                   //Loneliness
             result.LON += value;
-            return res.json({ success: true, result: result });
+    }
+    if (done === true) {
+        result.P = result.P / 3;
+        result.E = result.E / 3;
+        result.R = result.R / 3;
+        result.M = result.M / 3;
+        result.A = result.A / 3;
+        result.N = result.N / 3;
+        result.H = result.H / 3;
+        let PERMA = (result.P + result.E + result.R + result.M + result.A + result.HAP) / 16;
+        return res.json({ success: true, PERMA: PERMA })
+    }
+    else {
+        return res.json({ success: true, result: result });
 
     }
+
 });
 module.exports = Quiz5;
