@@ -8,6 +8,7 @@ const Quiz1 = require("./routes/Quiz1.js");
 const Quiz2 = require("./routes/Quiz2.js");
 const Quiz3 = require("./routes/Quiz3.js");
 const Quiz4 = require("./routes/Quiz4.js");
+const Quiz5 = require("./routes/Quiz5.js");
 const path = require('path');
 
 app.use(express.json());
@@ -16,6 +17,7 @@ app.use('/', Quiz1);
 app.use('/', Quiz2);
 app.use('/', Quiz3);
 app.use('/', Quiz4);
+app.use('/', Quiz5);
 dotenv.config();
 port = process.env.PORT || 5000;
 

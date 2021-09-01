@@ -63,7 +63,7 @@ const result={ e:e, a:a, c:c, n:n, o:o };
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/quiz4/question50");
+                        history.push("/instructions5");
                     }, 250);
                 }
             })

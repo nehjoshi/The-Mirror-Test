@@ -65,7 +65,7 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-const Intro4 = () => {
+const Intro5 = () => {
     const theme = useTheme();
   const classes = useStyles(theme);;
     const [loading, setLoading] = useState(true);
@@ -91,7 +91,7 @@ const Intro4 = () => {
     });
 
     const Next = () => {
-        history.push("/quiz4/question1");
+        history.push("/quiz5/question1");
     };
 
     return loading ? (
@@ -101,19 +101,12 @@ const Intro4 = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid item className={classes.box}>
-                <h1 className={classes.heading}>Part 4</h1>
+                <h1 className={classes.heading}>Part 5</h1>
                 <p className={classes.text}>
-                This is a 50-item tool.
-Person answers questions on a scale of 1- 5.
-1 = Disagree
-2 = Slightly disagree
-3 = Neutral
-4 = Slightly agree
-5 = Agree
-Complete the scoring string for each personality type at
-the bottom of the form. Each personality type will have a
-score between 0-40. Higher scores equal stronger
-personality type.
+                The	measure	consists	of	23	items.	The	health,	
+negative	emotion,	loneliness,	and	overall	happiness	questions	act	as	filler	questions	and	provide	more	
+information;	for	briefness,	the	15	PERMA	questions	(3	per	PERMA	domain)	could	be	used,	but	we	
+recommend	using	the	full	measure.
                 </p>
                 <div className={classes.button} onClick={() => Next()}>
                     Start
@@ -122,4 +115,4 @@ personality type.
         </Grid>
     );
 };
-export default Intro4;
+export default Intro5;

@@ -154,6 +154,9 @@ import Quiz4_46 from "./Components/Questions/Quiz4/Q46.js";
 import Quiz4_47 from "./Components/Questions/Quiz4/Q47.js";
 import Quiz4_48 from "./Components/Questions/Quiz4/Q48.js";
 import Quiz4_49 from "./Components/Questions/Quiz4/Q49.js";
+import Quiz4_50 from "./Components/Questions/Quiz4/Q50.js";
+import Intro5 from "./Components/Intro5.js";
+import Quiz5_1 from "./Components/Questions/Quiz5/Q1.js";
 
 
 
@@ -169,6 +172,7 @@ const App = () => {
         <Route exact path='/instructions2' component={Intro2} />
         <Route exact path='/instructions3' component={Intro3} />
         <Route exact path='/instructions4' component={Intro4} />
+        <Route exact path='/instructions5' component={Intro5} />
         <Route exact path='/quiz1/question1' component={One} />
         <Route exact path='/quiz1/question2' component={Two} />
         <Route exact path='/quiz1/question3' component={Three} />
@@ -316,6 +320,8 @@ const App = () => {
         <Route exact path='/quiz4/question47' component={Quiz4_47} />
         <Route exact path='/quiz4/question48' component={Quiz4_48} />
         <Route exact path='/quiz4/question49' component={Quiz4_49} />
+        <Route exact path='/quiz4/question50' component={Quiz4_50} />
+        <Route exact path='/quiz5/question1' component={Quiz5_1} /> 
         <Route exact path='/results' component={Results} />
       </Switch>
     </Router>
