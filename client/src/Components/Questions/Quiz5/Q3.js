@@ -52,7 +52,7 @@ const Quiz5_3 = () => {
         const LON = parseInt(localStorage.getItem("LON"));
         const result = { P, E, R, M, A, N, H, LON };
         const data = { type: 'P', value: sliderValue, result, done: false }
-        axios.post("http://localhost:5000/quiz5", data)
+        axios.post("https://self-growth-questionaire.herokuapp.com/quiz5", data)
             .then((response) => {
                 if (response.data.success === true) {
                     const { P, E, R, M, A, N, H, LON } = response.data.result;

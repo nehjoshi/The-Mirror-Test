@@ -44,7 +44,7 @@ const Quiz5_1 = () => {
 
         const result = { P: 0, E: 0, R: 0, M: 0, A: 0, N: 0, H: 0, LON: 0 };
         const data = { type: 'A', value: sliderValue, result, done: false }
-        axios.post("http://localhost:5000/quiz5", data)
+        axios.post("https://self-growth-questionaire.herokuapp.com/quiz5", data)
             .then((response) => {
                 if (response.data.success === true) {
                     const { P, E, R, M, A, N, H, LON } = response.data.result;
