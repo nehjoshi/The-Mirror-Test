@@ -63,12 +63,12 @@ export const useStyles = makeStyles((theme) => ({
         },
     },
     slider: {
-      width: '350px',
-      margin: '50px auto',
-      display: 'block',
-      color: '#097969',
+      width: '350px !important',
+      margin: '50px auto !important',
+      display: 'block !important',
+      color: '#097969 !important',
       [theme.breakpoints.down("sm")]: {
-        width: '80%'
+        width: '80% !important'
       }
     }
 }));
