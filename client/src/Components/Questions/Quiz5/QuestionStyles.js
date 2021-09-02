@@ -68,7 +68,6 @@ export const useStyles = makeStyles((theme) => ({
       display: 'block',
       color: '#097969',
       fontSize: '4rem',
-      
       [theme.breakpoints.down("sm")]: {
         width: '80%'
       }
