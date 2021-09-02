@@ -90,7 +90,7 @@ const Results = () => {
 
   const handleClick = () => {
       const doc = new jsPDF('portrait', 'px', 'a4', 'false');
-      doc.text(20, 20, 'Your ACE Score Results');
+      doc.text(20, 20, 'Your Results');
       doc.line(20, 30, 600, 30);
       doc.setFontSize(12);
       doc.text(20, 40, `Your Adverse Childhood Experience (ACE) score is ${localStorage.getItem("result")}`);
