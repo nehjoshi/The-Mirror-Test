@@ -7,12 +7,16 @@ Quiz2.post("/quiz2", async (req, res) => {
     switch (type) {         //1: Secure; 2: Anxious; 3: Avoidant; 4: Disorganized
         case 1:     
             result.result1 += ans;
+            break;
         case 2:
             result.result2 += ans;
+            break;
         case 3:
             result.result3 += ans;
+            break;
         case 4:
             result.result4 += ans;
+            break;
     }
     if (done === true) {                     
         console.log('submit');
