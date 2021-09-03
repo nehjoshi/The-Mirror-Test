@@ -47,17 +47,23 @@ const Quiz3_48 = () => {
         const pvg = parseInt(localStorage.getItem('pvg'));
         const psg = parseInt(localStorage.getItem('psg'));
         const result = { pmb, pvb, psb, pmg, pvg, psg }
-        const data = { type, value: ans, result, done: false }
+        const data = { type, value: ans, result, done: true }
         axios.post("https://self-growth-questionaire.herokuapp.com/quiz3", data)
             .then((response) => {
                 if (response.data.success === true) {
-                    const { pmb, pvb, psb, pmg, pvg, psg } = response.data.result;
-                    localStorage.setItem("pmb", pmb);
-                    localStorage.setItem("pvb", pvb);
-                    localStorage.setItem("psb", psb);
-                    localStorage.setItem("pmg", pmg);
-                    localStorage.setItem("pvg", pvg);
-                    localStorage.setItem("psg", psg);
+                    const { optScore, optDesc, hopeScore, hopeDesc, esteemScore, esteemDesc } = response.data;
+                    localStorage.removeItem("pmb");
+                    localStorage.removeItem("pvb");
+                    localStorage.removeItem("psb");
+                    localStorage.removeItem("pmg");
+                    localStorage.removeItem("pvg");
+                    localStorage.removeItem("psg");
+                    localStorage.setItem("optScore", optScore);
+                    localStorage.setItem("hopeScore", hopeScore);
+                    localStorage.setItem("esteemScore", esteemScore);
+                    localStorage.setItem("optDesc", optDesc);
+                    localStorage.setItem("hopeDesc", hopeDesc);
+                    localStorage.setItem("esteemDesc", esteemDesc);
                     gsap.to(mainRef.current, {
                         left: -1000,
                         duration: 0.5,

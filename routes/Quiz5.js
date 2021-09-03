@@ -37,7 +37,8 @@ Quiz5.post('/quiz5', (req, res) => {
     if (done === true) {
 
         let PERMA = (result.P + result.E + result.R + result.M + result.A + result.HAP) / 16;
-        return res.json({ success: true, PERMA: PERMA })
+        let final = Math.round(PERMA * 100) / 100
+        return res.json({ success: true, PERMA: final })
     }
     else {
         return res.json({ success: true, result: result });
