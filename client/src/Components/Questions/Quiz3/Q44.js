@@ -40,12 +40,12 @@ const Quiz3_44 = () => {
     });
 
     const handleRes = (type, ans) => {
-        const pmb = localStorage.getItem('pmb');
-        const pvb = localStorage.getItem('pvb');
-        const psb = localStorage.getItem('psb');
-        const pmg = localStorage.getItem('pmg');
-        const pvg = localStorage.getItem('pvg');
-        const psg = localStorage.getItem('psg');
+        const pmb = parseInt(localStorage.getItem('pmb'));
+        const pvb = parseInt(localStorage.getItem('pvb'));
+        const psb = parseInt(localStorage.getItem('psb'));
+        const pmg = parseInt(localStorage.getItem('pmg'));
+        const pvg = parseInt(localStorage.getItem('pvg'));
+        const psg = parseInt(localStorage.getItem('psg'));
         const result = { pmb, pvb, psb, pmg, pvg, psg }
         const data = { type, value: ans, result, done: false }
         axios.post("https://self-growth-questionaire.herokuapp.com/quiz3", data)
