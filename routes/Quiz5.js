@@ -35,13 +35,7 @@ Quiz5.post('/quiz5', (req, res) => {
             break;
     }
     if (done === true) {
-        result.P = result.P / 3;
-        result.E = result.E / 3;
-        result.R = result.R / 3;
-        result.M = result.M / 3;
-        result.A = result.A / 3;
-        result.N = result.N / 3;
-        result.H = result.H / 3;
+
         let PERMA = (result.P + result.E + result.R + result.M + result.A + result.HAP) / 16;
         return res.json({ success: true, PERMA: PERMA })
     }
