@@ -179,7 +179,7 @@ import Quiz5_20 from "./Components/Questions/Quiz5/Q20.js";
 import Quiz5_21 from "./Components/Questions/Quiz5/Q21.js";
 import Quiz5_22 from "./Components/Questions/Quiz5/Q22.js";
 import Quiz5_23 from "./Components/Questions/Quiz5/Q23.js";
-import ResultPDF from "./Components/ResultPDF.js";
+// import ResultPDF from "./Components/ResultPDF.js";
 
 const App = () => {
 
@@ -364,7 +364,7 @@ const App = () => {
         <Route exact path='/quiz5/question22' component={Quiz5_22} />
         <Route exact path='/quiz5/question23' component={Quiz5_23} />
         <Route exact path='/results' component={Results} />
-        <Route exact path='/download' component={ResultPDF} />
+        {/* <Route exact path='/download' component={ResultPDF} /> */}
       </Switch>
     </Router>
   );
