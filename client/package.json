@@ -4,10 +4,12 @@
   "private": false,
   "dependencies": {
     "@material-ui/core": "^4.12.2",
+    "@react-pdf/renderer": "^2.0.19",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
+    "date-fns": "^2.23.0",
     "file-saver": "^2.0.5",
     "gsap": "^3.7.1",
     "jspdf": "^2.3.1",

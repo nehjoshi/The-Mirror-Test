@@ -119,12 +119,14 @@ const Home = () => {
       axios.post(`${url}/auth`, { name: "User" })
         .then((res) => {
           localStorage.setItem("token", res.data.token);
+          localStorage.setItem("name", "User")
           history.push("/instructions");
         });
     } else {
       axios.post(`${url}/auth`, { name: name })
         .then((res) => {
           localStorage.setItem("token", res.data.token);
+          localStorage.setItem("name", name)
           history.push("/instructions");
         });
     }
