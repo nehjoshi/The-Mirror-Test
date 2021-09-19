@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const cors = require("cors");
+const mongoose = require('mongoose');
 app.use(cors());
 const jwt = require("jsonwebtoken");
 const Quiz1 = require("./routes/Quiz1.js");
@@ -20,6 +21,16 @@ app.use('/', Quiz4);
 app.use('/', Quiz5);
 dotenv.config();
 port = process.env.PORT || 5000;
+
+mongoose.connect(process.env.DB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
+.then(() => {
+    console.log("Authentication successful");
+})
+.catch((e) => {
+    console.log(e);
+})
+
+
 
 app.get('/', (req, res) => {
   res.send("Hello!");

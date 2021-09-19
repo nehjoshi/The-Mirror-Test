@@ -126,7 +126,7 @@ const Home = () => {
       axios.post(`${url}/auth`, { name: name })
         .then((res) => {
           localStorage.setItem("token", res.data.token);
-          localStorage.setItem("name", name)
+          localStorage.setItem("name", (name.charAt(0).toUpperCase() + name.slice(1)))
           history.push("/instructions");
         });
     }
@@ -167,7 +167,7 @@ const Home = () => {
     <Grid container className={classes.wrapper}>
       <Grid item className={classes.box}>
         <h2 className={classes.heading} ref={headingRef}>
-          Welcome to the questionaire
+          Welcome to The Mirror Test
         </h2>
         <p className={classes.label} ref={labelRef}>
           Please enter your name to continue

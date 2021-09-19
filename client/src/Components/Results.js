@@ -1,15 +1,46 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Grid, useTheme } from "@material-ui/core";
+import { Grid, makeStyles, useTheme } from "@material-ui/core";
 import axios from "axios";
 import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
-import { useStyles } from "./Questions/Quiz5/QuestionStyles.js"; //We can just use the same question styles for the wrapper
+// import { useStyles } from "./Questions/Quiz5/QuestionStyles.js"; //We can just use the same question styles for the wrapper
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import ResultPDF from "./ResultPDF.js";
+import Bg from '../Images/bg.jpg';
+
+const useStyles = makeStyles((theme) => ({
+  wrapper: {
+    width: "100%",
+    height: "100vh",
+    backgroundImage: `url(${Bg})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center center",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    overflow: "hidden",
+  },
+  box: {
+    height: "650px",
+    width: "93%",
+    backgroundColor: "#f7f7f7",
+    borderRadius: "20px",
+    boxShadow: "0 0 7px  #7a7a7a",
+    color: "#333333",
+    padding: "10px 10px",
+    position: "relative",
+    left: '1000px',
+    opacity: 0,
+    [theme.breakpoints.down("sm")]: {
+      width: '90%'
+    }
+  },
+}))
 
 const Results = () => {
   const theme = useTheme();
-  const classes = useStyles(theme);;
+  const classes = useStyles(theme);
   const [loading, setLoading] = useState(true);
   const history = useHistory();
   const loadingRef1 = useRef(null);
@@ -89,8 +120,6 @@ const Results = () => {
 
   });
 
-
-
   return loading ? (
     <Grid container className={classes.wrapper}>
       <div ref={loadingRef1}>Loading...</div>
@@ -134,7 +163,6 @@ const Results = () => {
           Your Openess score is {localStorage.getItem("o")}<br />
           Your PERMA Score is {resultPERMA}.<br />
         </p>
-        {/* <div className={classes.button} onClick={handleClick}>Download Results</div> */}
         <PDFDownloadLink document={<ResultPDF />} fileName="Results.pdf">
           {({ blob, url, loading, error }) => (loading ? 'Loading document...' : <div className={classes.button} >Download Results</div>)}
         </PDFDownloadLink>
