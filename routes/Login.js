@@ -7,7 +7,6 @@ const Login = express.Router();
 
 Login.post('/login', async (req, res) => {
     const User = await mongoose.model('The Mirror Test', schema);
-    const user = new User;
     console.log('good');
     const { email, password } = req.body;
 

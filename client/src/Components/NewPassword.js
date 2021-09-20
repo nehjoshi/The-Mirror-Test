@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Bg from "../Images/bg.jpg";
-import axios from 'axios';
 import { makeStyles, Grid } from "@material-ui/core";
-import Loader from './Loader.js';
-import { useHistory } from "react-router";
+import axios from "axios";
+import { useHistory, useParams } from "react-router-dom";
+import Loader from "./Loader";
 
 const useStyles = makeStyles(() => ({
     wrapper: {
@@ -31,17 +31,17 @@ const useStyles = makeStyles(() => ({
     heading: {
         fontSize: "2rem",
         textAlign: "center",
-        marginBottom: "20px",
+        marginTop: "50px",
+        marginBottom: "50px",
         position: "relative",
         top: "20px",
-
     },
     label: {
         margin: "0 auto",
         position: "relative",
-        top: "20px",
-
+        top: "10px",
         width: "fit-content",
+        textAlign: 'center'
     },
     input: {
         height: "45px",
@@ -53,8 +53,6 @@ const useStyles = makeStyles(() => ({
         borderWidth: "2px",
         padding: "0px 25px",
         fontSize: "1.2rem",
-        // boxShadow: '0 0 5px  #7a7a7a',
-        // backgroundColor: '#ebbe42',
         backgroundColor: "transparent",
         borderBottom: "3px solid gray",
         color: "#333333",
@@ -73,10 +71,10 @@ const useStyles = makeStyles(() => ({
         height: "40px",
         borderRadius: "30px",
         width: "80%",
-        margin: "20px auto",
+        margin: "0 auto",
         textTransform: "uppercase",
         position: "relative",
-
+        marginTop: '40px',
         transition: "all 0.2s ease",
         "&:hover": {
             cursor: "pointer",
@@ -84,26 +82,43 @@ const useStyles = makeStyles(() => ({
             width: "83%",
         },
     },
+    skip: {
+        position: "absolute",
+        bottom: "15px",
+        right: "20px",
+        fontSize: "1.2rem",
+        "&:hover": {
+            cursor: "pointer",
+        },
+    },
 }));
 
-const Register = () => {
-    const [name, setName] = useState(null);
-    const [email, setEmail] = useState(null);
-    const [password, setPassword] = useState(null);
-    const [confPassword, setConfPassword] = useState(null);
+const NewPassword = () => {
+    const classes = useStyles();
+    const history = useHistory();
+    const [password, setPassword] = useState("");
+    const [confPassword, setConfPassword] = useState("");
+    const [mainLoading, setMainLoading] = useState(true);
+    const { resetToken } = useParams();
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [blankField, setBlankField] = useState(false);
     const [loginMessage, setLoginMessage] = useState(false);
     const [hideSubmit, setHideSubmit] = useState(false);
-    const history = useHistory();
 
-    const handleName = (e) => {
-        setName(e.target.value);
-    }
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-    }
+    useEffect(() => {
+        axios.get(`http://localhost:5000/verify_token/${resetToken}`)
+            .then(res => {
+                if (res.data.success === true) {
+                    setMainLoading(false);
+                    console.log('true');
+                }
+                else {
+                    history.push('/');
+                }
+            })
+    }, [history, resetToken]);
+
     const handlePassword = (e) => {
         setPassword(e.target.value);
     }
@@ -111,38 +126,26 @@ const Register = () => {
         setConfPassword(e.target.value);
     }
     const handleSubmit = () => {
-        setLoading(true);
-        setErrorMessage(false);
-        setHideSubmit(true);
-        if (name === null || name === "" || email === null || email === "" || password === null || password === "" ||
-            confPassword === null || confPassword === "") {
+        if (password === null || password === "" || confPassword === null || confPassword === "" || password !== confPassword) {
             setBlankField(true);
             setLoading(false);
             setHideSubmit(false);
         }
         else {
-            setBlankField(false);
-            const sendData = { email, name, password };
-            axios.post('http://localhost:5000/register', sendData)
-                .then(res => {
-                    if (res.data.success === true) {
-                        localStorage.setItem('token', res.data.token);
-                        setLoading(false);
-                        setLoginMessage(true);
-                        setTimeout(() => {
-                            history.push('/');
-                        }, 1000)
-                    }
-                    else {
-                        setErrorMessage(res.data.message);
-                        setLoading(false);
-                        setHideSubmit(false);
-                    }
-                })
-
+            axios.post(`http://localhost:5000/verify_token/${resetToken}`, {password: password})
+            .then(res => {
+                if (res.data.success===true){
+                    setLoading(false);
+                    setLoginMessage(true);
+                }
+                else {
+                    setErrorMessage(res.data.message);
+                    setLoading(false);
+                    setHideSubmit(false);
+                }
+            })
         }
     }
-    const classes = useStyles();
     const errorPassword = {
         marginLeft: '30px',
         marginTop: '5px',
@@ -163,50 +166,17 @@ const Register = () => {
     }
     return (
         <Grid container className={classes.wrapper}>
-            <Grid item className={classes.box}>
-                <h2 className={classes.heading} >
-                    Welcome to The Mirror Test
-                </h2>
-                <p className={classes.label} >
-                    Please enter your details to continue
-                </p>
-
-                <div
-                    style={{
-                        width: "100%",
-                        position: "relative",
-                        top: "30px",
-
-                    }}
-
-                >
-                    <i
-                        className="fas fa-envelope"
-                        style={{ position: "absolute", top: "17px", left: "40px" }}
-                    ></i>
-                    <input
-                        type="email"
-                        id="email"
-                        className={classes.input}
-                        placeholder="Email"
-                        autoComplete="on"
-                        onChange={handleEmail}
-                    />
-                    <i
-                        className="fas fa-user"
-                        style={{ position: "absolute", top: "65px", left: "40px" }}
-                    ></i>
-                    <input
-                        type="text"
-                        id="name"
-                        className={classes.input}
-                        placeholder="Name"
-                        autoComplete="off"
-                        onChange={handleName}
-                    />
+            {mainLoading ? <Loader /> :
+                <Grid item className={classes.box}>
+                    <h2 className={classes.heading}>
+                        Reset Password
+                    </h2>
+                    <p className={classes.label}>
+                        Please enter a new password
+                    </p>
                     <i
                         className="fas fa-key"
-                        style={{ position: "absolute", top: "118px", left: "40px" }}
+                        style={{ position: "absolute", top: "192px", left: "40px" }}
                     ></i>
                     <input
                         type="password"
@@ -218,7 +188,7 @@ const Register = () => {
                     />
                     <i
                         className="fas fa-lock"
-                        style={{ position: "absolute", top: "166px", left: "40px" }}
+                        style={{ position: "absolute", top: "240px", left: "40px" }}
                     ></i>
                     <input
                         type="password"
@@ -243,11 +213,9 @@ const Register = () => {
                     {errorMessage ? <span style={otherErrorStyle}>{errorMessage}</span> : null}
                     {blankField ? <span style={otherErrorStyle}>Please fill out all the fields</span> : null}
                     {loginMessage ? <span style={successStyle}>You can now login</span> : null}
-                </div>
-
-
-            </Grid>
+                </Grid>
+            }
         </Grid>
-    )
-}
-export default Register;
+    );
+};
+export default NewPassword;

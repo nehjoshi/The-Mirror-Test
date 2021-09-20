@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose = require('mongoose');
 const jwt = require("jsonwebtoken");
 const Register = require('./routes/Register.js');
+const ResetPassword = require('./routes/ResetPassword.js');
 const Login = require("./routes/Login.js");
 const Quiz1 = require("./routes/Quiz1.js");
 const Quiz2 = require("./routes/Quiz2.js");
@@ -25,6 +26,7 @@ app.use('/', Quiz4);
 app.use('/', Quiz5);
 app.use('/', Register);
 app.use('/', Login);
+app.use('/', ResetPassword);
 dotenv.config();
 port = process.env.PORT || 5000;
 

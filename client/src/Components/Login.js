@@ -126,9 +126,14 @@ const Login = () => {
     }
     const classes = useStyles();
     const registerLink = {
-        marginLeft: '30px',
+        position: 'absolute',
+        bottom: '20px',
+        margin: '0 auto',
+        left: 0,
+        right: 0,
+        textAlign: 'center',
         color: '#000',
-        fontSize: '0.8rem'
+        fontSize: '0.9rem',
     }
     const otherErrorStyle = {
         display: 'block',
@@ -179,8 +184,8 @@ const Login = () => {
                         autoComplete="off"
                         onChange={handlePassword}
                     />
-                    <Link to="/register" style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <span style={registerLink}>Don't have an account? Register here</span>
+                    <Link to='/reset_password'>
+                    <span style={{position: 'relative', top: '10px', left: '35px', color: '#787122'}}>Forgot Password?</span>
                     </Link>
                     {!hideSubmit ?
                         <div
@@ -193,7 +198,9 @@ const Login = () => {
                     {loading ? <Loader /> : null}
                     {errorMessage ? <span style={otherErrorStyle}>Invalid Email or Password</span> : null}
                 </div>
-
+                <Link to="/register" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <span style={registerLink}>Don't have an account? Register here</span>
+                    </Link>
 
             </Grid>
         </Grid>

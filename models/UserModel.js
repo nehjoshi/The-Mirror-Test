@@ -20,6 +20,11 @@ const schema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
+    },
+    resetToken: {
+        type: String,
+        required: false,
+        expires: 60
     }
 }, {timestamps: true, collection: 'The Mirror Test'});
 

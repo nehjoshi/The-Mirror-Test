@@ -181,7 +181,8 @@ import Quiz5_20 from "./Components/Questions/Quiz5/Q20.js";
 import Quiz5_21 from "./Components/Questions/Quiz5/Q21.js";
 import Quiz5_22 from "./Components/Questions/Quiz5/Q22.js";
 import Quiz5_23 from "./Components/Questions/Quiz5/Q23.js";
-// import ResultPDF from "./Components/ResultPDF.js";
+import ResetPassword from "./Components/ResetPassword.js";
+import NewPassword from "./Components/NewPassword.js";
 
 const App = () => {
 
@@ -191,6 +192,8 @@ const App = () => {
         <Route exact path='/' component={Login} />
         <Route exact path='/home' component={Home} />
         <Route exact path='/register' component={Register} />
+        <Route exact path='/reset_password' component={ResetPassword} />
+        <Route path ='/reset_password/:resetToken' component={NewPassword} />
         <Route exact path='/instructions' component={Intro} />
         <Route exact path='/instructions2' component={Intro2} />
         <Route exact path='/instructions3' component={Intro3} />
