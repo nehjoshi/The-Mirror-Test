@@ -3,15 +3,19 @@ const app = express();
 const dotenv = require("dotenv");
 const cors = require("cors");
 const mongoose = require('mongoose');
-app.use(cors());
 const jwt = require("jsonwebtoken");
+const Register = require('./routes/Register.js');
+const Login = require("./routes/Login.js");
 const Quiz1 = require("./routes/Quiz1.js");
 const Quiz2 = require("./routes/Quiz2.js");
 const Quiz3 = require("./routes/Quiz3.js");
 const Quiz4 = require("./routes/Quiz4.js");
 const Quiz5 = require("./routes/Quiz5.js");
+const helmet = require('helmet');
 const path = require('path');
 
+app.use(cors());
+app.use(helmet());
 app.use(express.json());
 app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use('/', Quiz1);
@@ -19,6 +23,8 @@ app.use('/', Quiz2);
 app.use('/', Quiz3);
 app.use('/', Quiz4);
 app.use('/', Quiz5);
+app.use('/', Register);
+app.use('/', Login);
 dotenv.config();
 port = process.env.PORT || 5000;
 
@@ -29,9 +35,6 @@ mongoose.connect(process.env.DB_URI, {useNewUrlParser: true, useUnifiedTopology:
 .catch((e) => {
     console.log(e);
 })
-
-
-
 app.get('/', (req, res) => {
   res.send("Hello!");
 })

@@ -4,6 +4,7 @@ import Home from './Components/Home.js';
 import "./App.css";
 import  Intro  from "./Components/Intro.js";
 import Register from './Components/Register.js';
+import Login from './Components/Login.js';
 import One from "./Components/Questions/Quiz1/One.js";
 import Two from "./Components/Questions/Quiz1/Two.js";
 import Three from "./Components/Questions/Quiz1/Three.js";
@@ -187,7 +188,8 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' component={Login} />
+        <Route exact path='/home' component={Home} />
         <Route exact path='/register' component={Register} />
         <Route exact path='/instructions' component={Intro} />
         <Route exact path='/instructions2' component={Intro2} />

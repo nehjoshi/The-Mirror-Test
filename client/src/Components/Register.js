@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Bg from "../Images/bg.jpg";
+import axios from 'axios';
 import { makeStyles, Grid } from "@material-ui/core";
+import Loader from './Loader.js';
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles(() => ({
     wrapper: {
@@ -88,7 +91,12 @@ const Register = () => {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [confPassword, setConfPassword] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
     const [blankField, setBlankField] = useState(false);
+    const [loginMessage, setLoginMessage] = useState(false);
+    const [hideSubmit, setHideSubmit] = useState(false);
+    const history = useHistory();
 
     const handleName = (e) => {
         setName(e.target.value);
@@ -103,12 +111,35 @@ const Register = () => {
         setConfPassword(e.target.value);
     }
     const handleSubmit = () => {
-        if (name===null || name==="" || email===null || email==="" || password===null || password==="" || 
-        confPassword===null || confPassword===""){
+        setLoading(true);
+        setErrorMessage(false);
+        setHideSubmit(true);
+        if (name === null || name === "" || email === null || email === "" || password === null || password === "" ||
+            confPassword === null || confPassword === "") {
             setBlankField(true);
+            setLoading(false);
+            setHideSubmit(false);
         }
         else {
             setBlankField(false);
+            const sendData = { email, name, password };
+            axios.post('https://self-growth-questionaire.herokuapp.com/register', sendData)
+                .then(res => {
+                    if (res.data.success === true) {
+                        localStorage.setItem('token', res.data.token);
+                        setLoading(false);
+                        setLoginMessage(true);
+                        setTimeout(() => {
+                            history.push('/');
+                        }, 1000)
+                    }
+                    else {
+                        setErrorMessage(res.data.message);
+                        setLoading(false);
+                        setHideSubmit(false);
+                    }
+                })
+
         }
     }
     const classes = useStyles();
@@ -118,10 +149,16 @@ const Register = () => {
         color: 'red',
         fontSize: '0.8rem'
     }
-    const blankFieldStyle = {
+    const otherErrorStyle = {
         display: 'block',
         color: 'red',
         fontSize: '0.8rem',
+        textAlign: 'center'
+    }
+    const successStyle = {
+        display: 'block',
+        color: 'green',
+        fontSize: '1rem',
         textAlign: 'center'
     }
     return (
@@ -152,7 +189,7 @@ const Register = () => {
                         id="email"
                         className={classes.input}
                         placeholder="Email"
-                        autoComplete="off"
+                        autoComplete="on"
                         onChange={handleEmail}
                     />
                     <i
@@ -192,16 +229,20 @@ const Register = () => {
                         onChange={handleConfPassword}
                     />
                     {password !== confPassword ? <span style={errorPassword}>Passwords do not match</span> :
-                    <span style={{opacity: 0}}>Passwords do not match</span>
-}
-                    <div
-                        className={classes.button}
-                        onClick={handleSubmit}
-                        type="submit"
-                    >
-                        Submit
-                    </div>
-                    {blankField ? <span style={blankFieldStyle}>Please fill out all the fields</span> : null}
+                        <span style={{ opacity: 0 }}>Passwords do not match</span>
+                    }
+                    {!hideSubmit ?
+                        <div
+                            className={classes.button}
+                            onClick={handleSubmit}
+                        >
+                            Submit
+                        </div> : null}
+
+                    {loading ? <Loader /> : null}
+                    {errorMessage ? <span style={otherErrorStyle}>{errorMessage}</span> : null}
+                    {blankField ? <span style={otherErrorStyle}>Please fill out all the fields</span> : null}
+                    {loginMessage ? <span style={successStyle}>You can now login</span> : null }
                 </div>
 
 
