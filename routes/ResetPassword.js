@@ -18,7 +18,7 @@ router.post('/reset_password', async (req, res) => {
             const resetToken = await crypto.randomBytes(32).toString("hex");
             const user = await User.findOne({ email: email });
             user.resetToken = resetToken;
-            const resetURL = `https://the-mirror-test.netlify.app/${resetToken}`;
+            const resetURL = `https://the-mirror-test.netlify.app/reset_password/${resetToken}`;
             await user.save()
                 .then(async resp => {
                     const transporter = nodemailer.createTransport({
