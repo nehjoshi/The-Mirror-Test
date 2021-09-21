@@ -112,6 +112,7 @@ const ResetPassword = () => {
           if (res.data.success===true){
             setSuccessMessage(true);
             setHideSubmit(true);
+            setErrorMsg(false);
             setLoader(false);
           }
           else {
