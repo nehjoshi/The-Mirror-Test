@@ -18,7 +18,7 @@ router.post('/reset_password', async (req, res) => {
             const resetToken = await crypto.randomBytes(32).toString("hex");
             const user = await User.findOne({ email: email });
             user.resetToken = resetToken;
-            const resetURL = `http://localhost:3000/reset_password/${resetToken}`;
+            const resetURL = `https://the-mirror-test.netlify.app/${resetToken}`;
             await user.save()
                 .then(async resp => {
                     const transporter = nodemailer.createTransport({
@@ -35,11 +35,15 @@ router.post('/reset_password', async (req, res) => {
                         to: email,
                         subject: 'Reset Password for your Jivan Safalya Account',
                         text: 'Jivan Safalya Password Reset',
-                        html: `Go to the following link to reset your password: ${resetURL}`
+                        html: `<h4>Dear User,</h4><br/>
+                        <p>Please visit the following link to change your password: ${resetURL}</p><br/>
+                        <strong>Jivan Safalya | The Mirror Test</strong>`
                     }
                     transporter.sendMail(mailData, (err, info) => {
-                        if (err) console.log(err);
-                        else console.log(info);
+                        if (err) return res.json({success: false});
+                        else {
+                            return res.json({success: true});
+                        }
                     })
                 })
                 .catch(err => {
@@ -66,7 +70,6 @@ router.post('/verify_token/:resetToken', async (req, res) => {
 
     await user.save()
     .then(resp => {
-        console.log('success');
         return res.json({success: true});
     })
     .catch(e => {

@@ -56,7 +56,7 @@ const useStyles = makeStyles(() => ({
         backgroundColor: "transparent",
         borderBottom: "3px solid gray",
         color: "#333333",
-        margin: "0 auto",
+        margin: "8px auto",
         "&:focus": {
             borderBottomColor: "#e6b635",
             transitionDuration: "0.2s",
@@ -107,7 +107,7 @@ const NewPassword = () => {
     const [hideSubmit, setHideSubmit] = useState(false);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/verify_token/${resetToken}`)
+        axios.get(`https://self-growth-questionaire.herokuapp.com/verify_token/${resetToken}`)
             .then(res => {
                 if (res.data.success === true) {
                     setMainLoading(false);
@@ -126,20 +126,26 @@ const NewPassword = () => {
         setConfPassword(e.target.value);
     }
     const handleSubmit = () => {
+        setHideSubmit(true);
+        setLoading(true);
+        setErrorMessage(false);
         if (password === null || password === "" || confPassword === null || confPassword === "" || password !== confPassword) {
             setBlankField(true);
             setLoading(false);
             setHideSubmit(false);
         }
         else {
-            axios.post(`http://localhost:5000/verify_token/${resetToken}`, {password: password})
+            axios.post(`https://self-growth-questionaire.herokuapp.com/verify_token/${resetToken}`, {password: password})
             .then(res => {
                 if (res.data.success===true){
                     setLoading(false);
                     setLoginMessage(true);
+                    setTimeout(() => {
+                        history.push('/');
+                    }, 2000)
                 }
                 else {
-                    setErrorMessage(res.data.message);
+                    setErrorMessage(true);
                     setLoading(false);
                     setHideSubmit(false);
                 }
@@ -156,13 +162,15 @@ const NewPassword = () => {
         display: 'block',
         color: 'red',
         fontSize: '0.8rem',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginTop: '10px'
     }
     const successStyle = {
         display: 'block',
         color: 'green',
         fontSize: '1rem',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginTop: '10px'
     }
     return (
         <Grid container className={classes.wrapper}>
@@ -176,7 +184,7 @@ const NewPassword = () => {
                     </p>
                     <i
                         className="fas fa-key"
-                        style={{ position: "absolute", top: "192px", left: "40px" }}
+                        style={{ position: "absolute", top: "200px", left: "40px" }}
                     ></i>
                     <input
                         type="password"
@@ -188,7 +196,7 @@ const NewPassword = () => {
                     />
                     <i
                         className="fas fa-lock"
-                        style={{ position: "absolute", top: "240px", left: "40px" }}
+                        style={{ position: "absolute", top: "255px", left: "40px" }}
                     ></i>
                     <input
                         type="password"
@@ -212,7 +220,7 @@ const NewPassword = () => {
                     {loading ? <Loader /> : null}
                     {errorMessage ? <span style={otherErrorStyle}>{errorMessage}</span> : null}
                     {blankField ? <span style={otherErrorStyle}>Please fill out all the fields</span> : null}
-                    {loginMessage ? <span style={successStyle}>You can now login</span> : null}
+                    {loginMessage ? <span style={successStyle}>Password changed successfully. You may now login.</span> : null}
                 </Grid>
             }
         </Grid>

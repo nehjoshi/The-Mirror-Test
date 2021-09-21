@@ -96,20 +96,50 @@ const ResetPassword = () => {
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [loader, setLoader] = useState(false);
+  const [hideSubmit, setHideSubmit] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(false);
 
   const handleChange = (e) => {
     setEmail(e.target.value);
   };
   const handleSubmit = () => {
     setLoader(true);
+    setHideSubmit(true);
 
-      axios.post(`http://localhost:5000/reset_password`, { email: email})
+      axios.post(`https://self-growth-questionaire.herokuapp.com/reset_password`, { email: email})
         .then((res) => {
-          
+          if (res.data.success===true){
+            setSuccessMessage(true);
+            setHideSubmit(true);
+            setLoader(false);
+          }
+          else {
+            setLoader(false);
+            setHideSubmit(false);
+            setErrorMsg(true);
+          }
           
         });
     
   };
+
+  const successStyle = {
+    textAlign: 'center',
+    display: 'block',
+    fontSize: '0.9rem',
+    color: 'green',
+    position: 'relative',
+    top: '50px'
+  }
+  const errorStyle = {
+    textAlign: 'center',
+    display: 'block',
+    fontSize: '0.9rem',
+    color: 'red',
+    position: 'relative',
+    top: '50px'
+  }
 
   return (
     <Grid container className={classes.wrapper}>
@@ -140,7 +170,7 @@ const ResetPassword = () => {
             onChange={handleChange}
           />
         </div>
-        {!loader ?
+        {!hideSubmit ?
           <div
             className={classes.button}
             
@@ -148,8 +178,11 @@ const ResetPassword = () => {
           >
             Next
           </div>
-          : <Loader />
+          : null
         }
+        {loader ? <Loader /> : null}
+        {successMessage ? <span style={successStyle}>Please check your email</span> : null}
+        {errorMsg ? <span style={errorStyle}>An unknown error occurred</span> : null}
       </Grid>
     </Grid>
   );
