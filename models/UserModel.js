@@ -21,6 +21,30 @@ const schema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    quiz1: {
+        type: Array,
+        required: false,
+    },
+    quiz2: {
+        type: Array,
+        required: false,
+    },
+    quiz3: {
+        type: Array,
+        required: false,
+    },
+    quiz4: {
+        type: Array,
+        required: false,
+    },
+    quiz5: {
+        type: Array,
+        required: false,
+    },
+    completed: {
+        type: Boolean,
+        required: false,
+    },
     resetToken: {
         type: String,
         required: false,
