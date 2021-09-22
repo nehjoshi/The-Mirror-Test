@@ -4,10 +4,10 @@ const schema = require('../models/UserModel.js');
 const Quiz1 = express.Router();
 
 Quiz1.post("/quiz1", async (req, res) => {
-    const { email } = req.body;
     const User = await mongoose.model("The Mirror Test", schema);
+    let { ans, result, done, email } = req.body;
     const user = await User.findOne({ email: email })
-    let { ans, result, done } = req.body;
+
 
     if (done === true) {
         console.log('submit');
@@ -18,9 +18,24 @@ Quiz1.post("/quiz1", async (req, res) => {
         if (ans === 1) {
             result += 1;
             console.log(result);
-            return res.json({ success: true, result: result });
+            user.quiz1.push(1);
+            await user.save()
+            .then(resp => {
+                return res.json({ success: true, result: result });
+            })
+            .catch(e => {
+                return res.json({ success: false});
+            })
+            
         } else {
-            return res.json({ success: true, result: result });
+            user.quiz1.push(0);
+            await user.save()
+            .then(resp => {
+                return res.json({ success: true, result: result });
+            })
+            .catch(e => {
+                return res.json({ success: false});
+            })
         }
     }
 
