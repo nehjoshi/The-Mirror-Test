@@ -8,35 +8,18 @@ Quiz1.post("/quiz1", async (req, res) => {
     let { ans, result, done, email } = req.body;
     const user = await User.findOne({ email: email })
 
-
+    result += ans;
+    user.quiz1 = result;
+    await user.save()
+        .then(resp => {
+            return res.json({ success: true, result: result });
+        })
+        .catch(e => {
+            return res.json({ success: false });
+        })
     if (done === true) {
         console.log('submit');
-        result += ans;
         return res.json({ success: true, result: result });
-    }
-    else {
-        if (ans === 1) {
-            result += 1;
-            console.log(result);
-            user.quiz1.push(1);
-            await user.save()
-            .then(resp => {
-                return res.json({ success: true, result: result });
-            })
-            .catch(e => {
-                return res.json({ success: false});
-            })
-            
-        } else {
-            user.quiz1.push(0);
-            await user.save()
-            .then(resp => {
-                return res.json({ success: true, result: result });
-            })
-            .catch(e => {
-                return res.json({ success: false});
-            })
-        }
     }
 
 });

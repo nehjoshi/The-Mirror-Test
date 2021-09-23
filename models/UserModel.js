@@ -5,6 +5,12 @@ const validateEmail = email => {
     return re.test(email)
 };
 
+const Quiz2Schema = new mongoose.Schema({
+    result1: Number,
+    result2: Number,
+    result3: Number,
+    result4: Number
+});
 const schema = new mongoose.Schema({
     email: {
         type: String,
@@ -22,13 +28,10 @@ const schema = new mongoose.Schema({
         required: true,
     },
     quiz1: {
-        type: Array,
+        type: Number,
         required: false,
     },
-    quiz2: {
-        type: Array,
-        required: false,
-    },
+    quiz2: Quiz2Schema, 
     quiz3: {
         type: Array,
         required: false,

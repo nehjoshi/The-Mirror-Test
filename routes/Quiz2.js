@@ -1,8 +1,12 @@
 const express = require("express");
 const Quiz2 = express.Router();
+const mongoose = require('mongoose');
+const schema = require('../models/UserModel.js');
 
 Quiz2.post("/quiz2", async (req, res) => {
-    let { ans, result, type, done } = req.body;       //Type will represent the type of personality:
+    let { ans, result, type, done, email } = req.body;       //Type will represent the type of personality:
+    const User = await mongoose.model("The Mirror Test", schema);
+    const user = await User.findOne({ email: email })
 
     switch (type) {         //1: Secure; 2: Anxious; 3: Avoidant; 4: Disorganized
         case 1:     
@@ -35,7 +39,15 @@ Quiz2.post("/quiz2", async (req, res) => {
         }
     }
     else {
-        return res.json({ success: true, result: result });
+        user.quiz2 = {result1: result.result1, result2: result.result2, result3: result.result3, result4: result.result4}
+        await user.save()
+        .then(resp => {
+            return res.json({ success: true, result: result });
+        })
+        .catch(e => {
+            return res.json({success: false});
+        })
+        
     }
 
 });
