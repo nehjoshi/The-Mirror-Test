@@ -1,9 +1,13 @@
 const express = require("express");
 const Quiz3 = express.Router();
+const mongoose = require('mongoose');
+const schema = require('../models/UserModel.js');
 
 Quiz3.post('/quiz3', async (req, res) => {
     //Let's accept type of the request, and value of the response (either 0 or 1)
-    let { type, value, result, done } = req.body;
+    let { type, value, result, done, email } = req.body;
+    const User = await mongoose.model("The Mirror Test", schema);
+    const user = await User.findOne({ email: email })
 
     switch (type) {
         case 'pmb':
@@ -25,6 +29,23 @@ Quiz3.post('/quiz3', async (req, res) => {
             result.psg += value;
             break;
     }
+    user.quiz3 = {
+        pmb: result.pmb,
+        pvb: result.pvb,
+        psb: result.psb,
+        pmg: result.pmg,
+        pvg: result.pvg,
+        psg: result.psg,
+        lastQ: user.quiz3.lastQ + 1,
+        finished: done ? true : false
+    }
+
+    await user.save()
+        .then()
+        .catch(e => {
+            return res.json({ success: false });
+        })
+
     if (done === true) {
         let B = result.pvb + result.psb + result.pmb;
         let G = result.pvg + result.psg + result.pmg;
@@ -85,8 +106,8 @@ Quiz3.post('/quiz3', async (req, res) => {
 
         return res.json({ success: true, optScore, optDesc, hopeScore, hopeDesc, esteemScore, esteemDesc });
     }
-    else {
-        return res.json({ success: true, result: result });
-    }
+
+    return res.json({ success: true, result: result });
+
 });
 module.exports = Quiz3;

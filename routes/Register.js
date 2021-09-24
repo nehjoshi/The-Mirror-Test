@@ -18,7 +18,29 @@ Register.post('/register', async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashed = await bcrypt.hash(password, salt);
     user.password = hashed;
-
+    user.quiz1 = {
+        result: 0,
+        lastQ: 0,
+        finished: false
+    }
+    user.quiz2 = {
+        result1: 0,
+        result2: 0,
+        result3: 0,
+        result4: 0,
+        lastQ: 0,
+        finished: false
+    }
+    user.quiz3 = {
+        pmb: 0,
+        pvb: 0,
+        psb: 0,
+        pmg: 0,
+        pvg: 0,
+        psg: 0,
+        lastQ: 0,
+        finished: false
+    }
     await user.save()
         .then(resp => {
             return res.json({ success: true });

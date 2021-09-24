@@ -4,13 +4,35 @@ const validateEmail = email => {
     const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return re.test(email)
 };
-
+const Quiz1Schema = new mongoose.Schema({
+    result: Number,
+    lastQ: {
+        type: Number,
+        default: 0
+    },
+    finished: Boolean
+});
 const Quiz2Schema = new mongoose.Schema({
     result1: Number,
     result2: Number,
     result3: Number,
-    result4: Number
+    result4: Number,
+    lastQ: {
+        type: Number,
+        default: 0
+    },
+    finished: Boolean
 });
+const Quiz3Schema = new mongoose.Schema({
+    pmb: Number,
+    pvb: Number,
+    psb: Number,
+    pmg: Number,
+    pvg: Number,
+    psg: Number,
+    lastQ: Number,
+    finished: Boolean
+})
 const schema = new mongoose.Schema({
     email: {
         type: String,
@@ -27,15 +49,9 @@ const schema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    quiz1: {
-        type: Number,
-        required: false,
-    },
+    quiz1: Quiz1Schema,
     quiz2: Quiz2Schema, 
-    quiz3: {
-        type: Array,
-        required: false,
-    },
+    quiz3: Quiz3Schema,
     quiz4: {
         type: Array,
         required: false,

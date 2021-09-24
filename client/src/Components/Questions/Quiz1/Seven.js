@@ -11,7 +11,7 @@ const Seven = () => {
   const mainRef = useRef(null);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
  axios
             .get("https://self-growth-questionaire.herokuapp.com/verify", {
         headers: {
@@ -40,7 +40,7 @@ const Seven = () => {
   });
 
   const handleRes = (ans) => {
-    const data = { ans: ans, result: parseInt(localStorage.getItem("result")), done: false, email: localStorage.getItem("email")}
+    const data = { ans: ans, result: parseInt(localStorage.getItem("result")), done: false, email: localStorage.getItem("email"), qno:7}
     axios.post("https://self-growth-questionaire.herokuapp.com/quiz1", data,
         {
           headers: {

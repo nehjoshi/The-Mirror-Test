@@ -12,7 +12,7 @@ const Quiz5_2 = () => {
     const mainRef = useRef(null);
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
+        const token = sessionStorage.getItem("token");
         axios
             .get("https://self-growth-questionaire.herokuapp.com/verify", {
                 headers: {
