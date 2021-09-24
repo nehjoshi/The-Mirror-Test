@@ -107,7 +107,7 @@ const ResetPassword = () => {
     setLoader(true);
     setHideSubmit(true);
 
-      axios.post(`https://self-growth-questionaire.herokuapp.com/reset_password`, { email: email})
+      axios.post(`https://self-growth-questionaire.herokuapp.comreset_password`, { email: email})
         .then((res) => {
           if (res.data.success===true){
             setSuccessMessage(true);

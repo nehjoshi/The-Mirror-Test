@@ -12,7 +12,7 @@ const Two = () => {
   useEffect(() => {
     const token = sessionStorage.getItem("token");
     axios
-      .get("https://self-growth-questionaire.herokuapp.com/verify", {
+      .get("https://self-growth-questionaire.herokuapp.comverify", {
         headers: {
           "x-access-token": token,
         },
@@ -40,7 +40,7 @@ const Two = () => {
 
   const handleRes = (ans) => {
     const data = { ans: ans, result: parseInt(localStorage.getItem("result")), done: false, email: localStorage.getItem("email"), qno:2}
-    axios.post("https://self-growth-questionaire.herokuapp.com/quiz1", data,
+    axios.post("https://self-growth-questionaire.herokuapp.comquiz1", data,
       {
         headers: {
           "x-access-token": localStorage.getItem("token"),

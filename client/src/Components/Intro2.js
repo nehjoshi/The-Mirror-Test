@@ -73,7 +73,7 @@ const Intro2 = () => {
     useEffect(() => {
         const token = sessionStorage.getItem("token");
         axios
-            .get("https://self-growth-questionaire.herokuapp.com/verify", {
+            .get("https://self-growth-questionaire.herokuapp.comverify", {
                 headers: {
                     "x-access-token": token,
                 },

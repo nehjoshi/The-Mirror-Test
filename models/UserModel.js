@@ -32,6 +32,28 @@ const Quiz3Schema = new mongoose.Schema({
     psg: Number,
     lastQ: Number,
     finished: Boolean
+});
+const Quiz4Schema = new mongoose.Schema({
+    E: Number,
+    A: Number,
+    C: Number,
+    N: Number,
+    O: Number,
+    lastQ: Number,
+    finished: Boolean
+});
+const Quiz5Schema = new mongoose.Schema({
+    P: Number,
+    E: Number,
+    R: Number,
+    M: Number,
+    A: Number,
+    N: Number,
+    HAP: Number,
+    H: Number,
+    LON: Number,
+    lastQ: Number,
+    finished: Boolean
 })
 const schema = new mongoose.Schema({
     email: {
@@ -52,14 +74,8 @@ const schema = new mongoose.Schema({
     quiz1: Quiz1Schema,
     quiz2: Quiz2Schema, 
     quiz3: Quiz3Schema,
-    quiz4: {
-        type: Array,
-        required: false,
-    },
-    quiz5: {
-        type: Array,
-        required: false,
-    },
+    quiz4: Quiz4Schema,
+    quiz5: Quiz5Schema,
     completed: {
         type: Boolean,
         required: false,

@@ -107,7 +107,7 @@ const NewPassword = () => {
     const [hideSubmit, setHideSubmit] = useState(false);
 
     useEffect(() => {
-        axios.get(`https://self-growth-questionaire.herokuapp.com/verify_token/${resetToken}`)
+        axios.get(`https://self-growth-questionaire.herokuapp.comverify_token/${resetToken}`)
             .then(res => {
                 if (res.data.success === true) {
                     setMainLoading(false);
@@ -135,7 +135,7 @@ const NewPassword = () => {
             setHideSubmit(false);
         }
         else {
-            axios.post(`https://self-growth-questionaire.herokuapp.com/verify_token/${resetToken}`, {password: password})
+            axios.post(`https://self-growth-questionaire.herokuapp.comverify_token/${resetToken}`, {password: password})
             .then(res => {
                 if (res.data.success===true){
                     setLoading(false);

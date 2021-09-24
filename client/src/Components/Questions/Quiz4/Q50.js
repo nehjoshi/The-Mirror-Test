@@ -13,7 +13,7 @@ const Quiz4_50 = () => {
     useEffect(() => {
         const token = sessionStorage.getItem("token");
         axios
-            .get("https://self-growth-questionaire.herokuapp.com/verify", {
+            .get("https://self-growth-questionaire.herokuapp.comverify", {
                 headers: {
                     "x-access-token": token,
                 },
@@ -40,14 +40,14 @@ const Quiz4_50 = () => {
     });
 
     const handleRes = (ans) => {
-                const e = parseInt(localStorage.getItem('e'));
+        const e = parseInt(localStorage.getItem('e'));
         const a = parseInt(localStorage.getItem('a'));
         const c = parseInt(localStorage.getItem('c'));
         const n = parseInt(localStorage.getItem('n'));
         const o = parseInt(localStorage.getItem('o'));
-const result={ e:e, a:a, c:c, n:n, o:o };
-        const data = { type: 'o', value: ans, result, done: true }
-        axios.post("https://self-growth-questionaire.herokuapp.com/quiz4", data)
+        const result = { e: e, a: a, c: c, n: n, o: o };
+        const data = { type: 'o', value: ans, result, done: true, email: localStorage.getItem("email") }
+        axios.post("https://self-growth-questionaire.herokuapp.comquiz4", data)
             .then((response) => {
                 if (response.data.success === true) {
                     const { e, a, c, n, o } = response.data.result;
@@ -83,7 +83,7 @@ const result={ e:e, a:a, c:c, n:n, o:o };
             <Grid className={classes.box} ref={mainRef}>
                 <h1 className={classes.heading}>Question 50</h1>
                 <p className={classes.text} style={{ marginTop: '30px' }}>
-                I am full of ideas.
+                    I am full of ideas.
                 </p>
                 <div className={classes.buttonWrapper}>
                     <div className={classes.button} onClick={() => handleRes(1)}>Disagree</div>

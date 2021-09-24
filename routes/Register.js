@@ -41,6 +41,28 @@ Register.post('/register', async (req, res) => {
         lastQ: 0,
         finished: false
     }
+    user.quiz4 = {
+        E: 0,
+        A: 0,
+        C: 0,
+        N: 0,
+        O: 0,
+        lastQ: 0,
+        finished: false
+    }
+    user.quiz5 = {
+        P: 0,
+        E: 0,
+        R: 0,
+        M: 0,
+        A: 0,
+        N: 0,
+        HAP: 0,
+        H: 0,
+        LON: 0,
+        lastQ: 0,
+        finished: false
+    }
     await user.save()
         .then(resp => {
             return res.json({ success: true });
