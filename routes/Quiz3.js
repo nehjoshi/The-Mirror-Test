@@ -100,7 +100,7 @@ Quiz3.post('/quiz3', async (req, res) => {
         else if (esteemScore >= 5 && esteemScore <= 6) {
             esteemDesc = 'Your have a moderately low self-esteem.';
         }
-        else if (esteemScore >= 7 && esteemScore <= 8) {
+        else if (esteemScore >= 7) {
             esteemDesc = 'Your have a very low self-esteem.';
         }
 

@@ -13,7 +13,7 @@ const One = () => {
     const token = sessionStorage.getItem("token");
     window.history.forward();
  axios
-            .get("https://self-growth-questionaire.herokuapp.comverify", {
+            .get("http://localhost:5000/verify", {
         headers: {
           "x-access-token": token,
         },
@@ -40,7 +40,7 @@ const One = () => {
 
   const handleRes = (ans) => {
     const data = {ans: ans, result: 0, done: false, email: localStorage.getItem("email"), qno:1}
-    axios.post("https://self-growth-questionaire.herokuapp.comquiz1", data,
+    axios.post("http://localhost:5000/quiz1", data,
         {
           headers: {
             "x-access-token": localStorage.getItem("token"),

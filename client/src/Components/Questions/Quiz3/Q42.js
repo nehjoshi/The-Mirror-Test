@@ -13,7 +13,7 @@ const Quiz3_42 = () => {
     useEffect(() => {
         const token = sessionStorage.getItem("token");
         axios
-            .get("https://self-growth-questionaire.herokuapp.comverify", {
+            .get("http://localhost:5000/verify", {
                 headers: {
                     "x-access-token": token,
                 },
@@ -48,7 +48,7 @@ const Quiz3_42 = () => {
         const psg = parseInt(localStorage.getItem('psg'));
         const result = { pmb, pvb, psb, pmg, pvg, psg }
         const data = { type, value: ans, result, done: false, email: localStorage.getItem("email")}
-        axios.post("https://self-growth-questionaire.herokuapp.comquiz3", data)
+        axios.post("http://localhost:5000/quiz3", data)
             .then((response) => {
                 if (response.data.success === true) {
                     const { pmb, pvb, psb, pmg, pvg, psg } = response.data.result;

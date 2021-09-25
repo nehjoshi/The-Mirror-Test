@@ -12,7 +12,7 @@ const Quiz2ThirtyThree = () => {
     useEffect(() => {
         const token = sessionStorage.getItem("token");
         axios
-            .get("https://self-growth-questionaire.herokuapp.comverify", {
+            .get("http://localhost:5000/verify", {
                 headers: {
                     "x-access-token": token,
                 },
@@ -45,7 +45,7 @@ const Quiz2ThirtyThree = () => {
         const result4 = parseInt(localStorage.getItem("result4"));
         const result = { result1, result2, result3, result4 }
         const data = { ans, result, type: 1, done: false, email: localStorage.getItem("email") }
-        axios.post("https://self-growth-questionaire.herokuapp.comquiz2", data)
+        axios.post("http://localhost:5000/quiz2", data)
             .then((response) => {
                 if (response.data.success === true) {
                     const { result1, result2, result3, result4 } = response.data.result;

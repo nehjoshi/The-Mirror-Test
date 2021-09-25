@@ -105,7 +105,6 @@ const Home = () => {
   const buttonRef = useRef(null);
   const inputRef = useRef(null);
   const history = useHistory();
-  const url = "https://self-growth-questionaire.herokuapp.com";
 
   const [name, setName] = useState("");
   const [loader, setLoader] = useState(false);
@@ -116,14 +115,14 @@ const Home = () => {
   const handleSubmit = (noName) => {
     setLoader(true);
     if (noName || name === "") {
-      axios.post(`${url}/auth`, { name: "User" })
+      axios.post(`http://localhost:5000/auth`, { name: "User" })
         .then((res) => {
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("name", "User")
           history.push("/instructions");
         });
     } else {
-      axios.post(`${url}/auth`, { name: name })
+      axios.post(`http://localhost:5000/auth`, { name: name })
         .then((res) => {
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("name", (name.charAt(0).toUpperCase() + name.slice(1)))

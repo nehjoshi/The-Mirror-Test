@@ -19,7 +19,8 @@
   border-top: 0.5em solid rgb(202, 202, 202);
   border-right: 0.5em solid rgb(202, 202, 202);
   border-bottom: 0.5em solid rgb(202, 202, 202);
-  border-left: 0.5em solid #fdbd0b;
+  /* border-left: 0.5em solid #fdbd0b; */
+  border-left: 0.5em solid #471aeb;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);

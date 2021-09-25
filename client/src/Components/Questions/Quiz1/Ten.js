@@ -15,7 +15,7 @@ const Ten = () => {
   useEffect(() => {
     const token = sessionStorage.getItem("token");
     axios
-      .get("https://self-growth-questionaire.herokuapp.comverify", {
+      .get("http://localhost:5000/verify", {
         headers: {
           "x-access-token": token,
         },
@@ -43,7 +43,7 @@ const Ten = () => {
 
   const handleRes = (ans) => {
     const data = { ans: ans, result: parseInt(localStorage.getItem("result")), done: true, email: localStorage.getItem("email"), qno:10}
-    axios.post("https://self-growth-questionaire.herokuapp.comquiz1", data,
+    axios.post("http://localhost:5000/quiz1", data,
       {
         headers: {
           "x-access-token": localStorage.getItem("token"),

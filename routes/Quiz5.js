@@ -1,9 +1,14 @@
 //PERMA Score
 const express = require("express");
 const Quiz5 = express.Router();
+const mongoose = require('mongoose');
+const schema = require('../models/UserModel.js');
 
-Quiz5.post('/quiz5', (req, res) => {
-    let { type, value, result, done } = req.body;
+Quiz5.post('/quiz5', async (req, res) => {
+    let { type, value, result, done, email } = req.body;
+    const User = await mongoose.model('The Mirror Test', schema);
+    const user = await User.findOne({ email: email });
+
 
     switch (type) {
         case 'P':
@@ -34,16 +39,36 @@ Quiz5.post('/quiz5', (req, res) => {
             result.LON += value;
             break;
     }
+    user.quiz5 = {
+        P: result.P,
+        E: result.E,
+        R: result.R,
+        M: result.M,
+        A: result.A,
+        N: result.N,
+        HAP: result.HAP,
+        H: result.H,
+        LON: result.LON,
+        lastQ: user.quiz5.lastQ + 1,
+        finished: done ? true : false
+    }
+
+    await user.save()
+        .then()
+        .catch(e => {
+            console.log(e);
+            return res.json({ success: false });
+        })
     if (done === true) {
 
         let PERMA = (result.P + result.E + result.R + result.M + result.A + result.HAP) / 16;
         let final = Math.round(PERMA * 100) / 100
         return res.json({ success: true, PERMA: final })
     }
-    else {
-        return res.json({ success: true, result: result });
 
-    }
+    return res.json({ success: true, result: result });
+
+
 
 });
 module.exports = Quiz5;

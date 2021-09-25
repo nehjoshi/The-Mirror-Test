@@ -107,7 +107,7 @@ const Login = () => {
         setHideSubmit(true);
         setLoading(true);
         setErrorMessage(null);
-        axios.post('https://self-growth-questionaire.herokuapp.comlogin', sendData)
+        axios.post('http://localhost:5000/login', sendData)
             .then(res => {
                 if (res.data.success === true) {
                     sessionStorage.setItem('token', res.data.token);
