@@ -115,14 +115,14 @@ const Home = () => {
   const handleSubmit = (noName) => {
     setLoader(true);
     if (noName || name === "") {
-      axios.post(`http://localhost:5000/auth`, { name: "User" })
+      axios.post(`https://self-growth-questionaire.herokuapp.com/auth`, { name: "User" })
         .then((res) => {
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("name", "User")
           history.push("/instructions");
         });
     } else {
-      axios.post(`http://localhost:5000/auth`, { name: name })
+      axios.post(`https://self-growth-questionaire.herokuapp.com/auth`, { name: name })
         .then((res) => {
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("name", (name.charAt(0).toUpperCase() + name.slice(1)))

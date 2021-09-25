@@ -56,7 +56,7 @@ const Results = () => {
     const token = sessionStorage.getItem("token");
 
     axios
-      .get("http://localhost:5000/verify", {
+      .get("https://self-growth-questionaire.herokuapp.com/verify", {
         headers: {
           "x-access-token": token,
         },

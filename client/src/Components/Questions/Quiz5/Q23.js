@@ -14,7 +14,7 @@ const Quiz5_23 = () => {
     useEffect(() => {
         const token = sessionStorage.getItem("token");
         axios
-            .get("http://localhost:5000/verify", {
+            .get("https://self-growth-questionaire.herokuapp.com/verify", {
                 headers: {
                     "x-access-token": token,
                 },
@@ -53,7 +53,7 @@ const Quiz5_23 = () => {
         const HAP = parseInt(localStorage.getItem("HAP"));
         const result = { P, E, R, M, A, N, H, LON, HAP };
         const data = { type: 'HAP', value: sliderValue, result, done: true, email: localStorage.getItem("email") }
-        axios.post("http://localhost:5000/quiz5", data)
+        axios.post("https://self-growth-questionaire.herokuapp.com/quiz5", data)
             .then((response) => {
                 if (response.data.success === true) {
                     const { PERMA } = response.data;
