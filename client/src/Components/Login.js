@@ -115,7 +115,7 @@ const Login = () => {
                     setLoading(false);
                     setHideSubmit(true);
                     setTimeout(() => {
-                        history.push('/instructions');
+                        history.push('/dashboard');
                     }, 200)
                 }
                 else {
