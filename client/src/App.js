@@ -196,7 +196,7 @@ const App = () => {
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/reset_password' component={ResetPassword} />
         <Route path ='/reset_password/:resetToken' component={NewPassword} />
-        <Route exact path='/instructions' component={Intro} />
+        <Route exact path='/instructions1' component={Intro} />
         <Route exact path='/instructions2' component={Intro2} />
         <Route exact path='/instructions3' component={Intro3} />
         <Route exact path='/instructions4' component={Intro4} />

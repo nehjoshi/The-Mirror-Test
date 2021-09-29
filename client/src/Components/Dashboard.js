@@ -8,6 +8,8 @@ import Ace from '../Images/ace.png';
 import Att_Style from '../Images/att_style.png';
 import TestInfo from './TestInfo';
 import Hope from '../Images/hope.png';
+import Bft from '../Images/bft.png';
+import Perma from '../Images/perma.png';
 
 const useStyles = makeStyles(() => ({
   wrapper: {
@@ -23,8 +25,16 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     overflow: "hidden",
   },
+  heading: {
+    margin: '20px',
+    fontSize: 'clamp(1.6rem, 2.6vw, 2.5rem)',
+    color: 'gray',
+    padding: '15px 15vw',
+    boxShadow: "0 0 7px  #7a7a7a",
+    background: '#f7f7f7',
+    borderRadius: '25px'
+  },
   testContainer: {
-    margin: '20px auto',
     justifyContent: 'center'
   },
 
@@ -61,30 +71,24 @@ const Dashboard = () => {
   }, [history])
   return loading ? <Grid className={classes.wrapper}><Loader /></Grid> : (
     <Grid className={classes.wrapper}>
-      <h1>The Mirror Test</h1>
+      <h1 className={classes.heading}>The Mirror Test</h1>
       <Grid container className={classes.testContainer}>
         <TestInfo heading="Adverse Childhood Experience (ACE) Test" imgSource={Ace} height='200px'
-          desc="Lorum ipsum dolor sir amet conesctier. 
-        Lorum ipsum dolor sir amet conesctier. 
-        Lorum ipsum dolor sir amet conesctier" progress={data.quiz1.percentage} />
-        <TestInfo heading="Attachment Style Test" imgSource={Att_Style} height="225px"
-          desc="Lorum ipsum dolor sir amet conesctier. 
-        Lorum ipsum dolor sir amet conesctier. 
-        Lorum ipsum dolor sir amet conesctier" progress={data.quiz2.percentage} />
+          desc="Adverse Childhood Experiences are what govern our 
+          lives and shape our future. Take this test to find out more" progress={data.quiz1.percentage} testNo={1} lastQ={data.quiz1.lastQ} />
+        <TestInfo heading="Attachment Style Test" imgSource={Att_Style} height="180px"
+          desc="How do you attach with your loved ones or your partner?
+           Out of the four attachment styles, secure, 
+           anxious, avoidant and disoranized, which one are you?" progress={data.quiz2.percentage} testNo={2} lastQ={data.quiz2.lastQ} />
         <TestInfo heading="Hope and Optimism Test" imgSource={Hope} height="220px"
-          desc="Lorum ipsum dolor sir amet conesctier. 
-        Lorum ipsum dolor sir amet conesctier. 
-        Lorum ipsum dolor sir amet conesctier" progress={data.quiz3.percentage} />
+          desc="How optimistic or pessimistic are you? And how does your level of hope affect your life? Take this test to gain further insights." progress={data.quiz3.percentage} testNo={3} lastQ={data.quiz3.lastQ} />
       </Grid>
       <Grid container className={classes.testContainer}>
-        <TestInfo heading="Adverse Childhood Experience (ACE) Test" imgSource={Ace} height='200px'
-          desc="Lorum ipsum dolor sir amet conesctier. 
-        Lorum ipsum dolor sir amet conesctier. 
-        Lorum ipsum dolor sir amet conesctier" progress={data.quiz4.percentage} />
-        <TestInfo heading="Adverse Childhood Experience (ACE) Test" imgSource={Ace} height='200px'
-          desc="Lorum ipsum dolor sir amet conesctier. 
-        Lorum ipsum dolor sir amet conesctier. 
-        Lorum ipsum dolor sir amet conesctier" progress={data.quiz5.percentage} />
+        <TestInfo heading="Big Five Personality Test" imgSource={Bft} height='200px'
+          desc="Out of the five big personality traits, which one suits you the best? Answer these 50 questions to find out more." progress={data.quiz4.percentage} testNo={4} lastQ={data.quiz4.lastQ} />
+        <TestInfo heading="Wellbeing (PERMA) Test" imgSource={Perma} height='200px'
+          desc="How do you feel about your overall wellbeing, quality of life and your general health?
+          Take the wellbeing test to know more about this." progress={data.quiz5.percentage} testNo={5} lastQ={data.quiz5.lastQ} />
       </Grid>
     </Grid>
   )

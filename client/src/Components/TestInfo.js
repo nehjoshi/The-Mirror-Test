@@ -1,18 +1,19 @@
 import React from 'react';
 import { Grid, makeStyles, useTheme } from '@material-ui/core';
+import { useHistory } from 'react-router';
 
 const useStyles = makeStyles(() => ({
     testWrapper: {
-        height: '350px',
+        height: '450px',
         position: 'relative',
         backgroundColor: "#f7f7f7",
-        margin: '0px 20px',
+        margin: '20px 20px',
         boxShadow: "0 0 7px  #7a7a7a",
         borderRadius: '10px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: '10px 10px',
+        padding: '20px 20px',
         border: '2px solid transparent',
         transition: '0.2s all ease',
         '&:hover': {
@@ -35,14 +36,40 @@ const useStyles = makeStyles(() => ({
     },
     progress: {
         position: 'absolute',
-        right: '2px',
-        top: '2px',
+        right: '5px',
+        top: '5px',
         fontSize: '0.7rem'
+    },
+    button: {
+        display: 'flex',
+        margin: '10px',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: '20px',
+        padding: '5px 50px',
+        textTransform: 'uppercase',
+        backgroundColor: '#ffcb3b',
+        color: 'black',
+        fontSize: '1.4rem',
+        "&:hover": {
+            cursor: "pointer",
+            backgroundColor: "#e6b635",
+            
+          },
     }
 }));
 const TestInfo = (props) => {
     const theme = useTheme();
     const classes = useStyles(theme);
+    const history = useHistory();
+
+    const handleStart = () => {
+        history.push(`/instructions${props.testNo}`);
+    }
+    const handleResume = () => {
+        history.push(`/quiz${props.testNo}/question${props.lastQ+1}`);
+    }
+
     return (
         <Grid item sm={12} md={3} className={classes.testWrapper}>
             <p className={classes.progress}>Progress: {props.progress}%</p>
@@ -50,6 +77,9 @@ const TestInfo = (props) => {
             <hr className={classes.divider}></hr>
             <img style={{height: props.height}} src={props.imgSource} alt="" />
             <p className={classes.testDesc}>{props.desc}</p>
+            {props.progress === 0 ? <div className={classes.button} onClick={handleStart}>Start</div>: null}
+            {props.progress === 100 ? <div className={classes.button} style={{backgroundColor: '#4BB543'}}>Completed</div>: null}
+            {(props.progress > 0 && props.progress < 100) ? <div className={classes.button} onClick={handleResume}>Continue</div>: null}
         </Grid>
     )
 }
