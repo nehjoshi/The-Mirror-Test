@@ -22,7 +22,7 @@ Login.post('/login', async (req, res) => {
                 }
               );
               
-              return res.json({ success: true, token: token });
+              return res.json({ success: true, token: token, name: emailExists.name });
         }
         else return res.json({success: false});
     }

@@ -5,8 +5,11 @@ import { makeStyles, Grid } from "@material-ui/core";
 import Loader from './Loader.js';
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
+import "../App.css";
+import MainImg from '../Images/main.png';
+// import Wave from '../Images/wave.png';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     wrapper: {
         width: "100%",
         height: "100vh",
@@ -28,6 +31,17 @@ const useStyles = makeStyles(() => ({
         color: "#333333",
         padding: "10px 10px",
         position: "relative",
+    },
+    leftBox: {
+        display: 'flex',
+        flexDirection: 'column',
+        margin: '0px 0px',
+        marginLeft: '-100px',
+        marginRight: '50px',
+        [theme.breakpoints.down("md")]: {
+            margin: '0px 0px'
+        }
+        
     },
     heading: {
         fontSize: "2rem",
@@ -87,6 +101,11 @@ const useStyles = makeStyles(() => ({
             width: "83%",
         },
     },
+    mainImg: {
+        [theme.breakpoints.down("md")]: {
+            display: 'none'
+        }
+    }
 }));
 
 const Login = () => {
@@ -112,6 +131,7 @@ const Login = () => {
                 if (res.data.success === true) {
                     sessionStorage.setItem('token', res.data.token);
                     localStorage.setItem('email', email);
+                    localStorage.setItem("name", res.data.name);
                     setLoading(false);
                     setHideSubmit(true);
                     setTimeout(() => {
@@ -144,6 +164,10 @@ const Login = () => {
     }
     return (
         <Grid container className={classes.wrapper}>
+            <Grid item className={classes.leftBox}>
+                {/* <img src={Wave} style={{position: 'absolute', height: '250px', left: '150px', bottom: '190px'}}/> */}
+                <img src={MainImg} style={{height: '400px', zIndex: '100'}} alt="" className={classes.mainImg}/>
+            </Grid>
             <Grid item className={classes.box}>
                 <h2 className={classes.heading} >
                     Welcome to The Mirror Test
@@ -152,56 +176,51 @@ const Login = () => {
                     Please login to continue
                 </p>
 
-                <div
-                    style={{
-                        width: "100%",
-                        position: "relative",
-                        top: "30px",
-
-                    }}
-
-                >
+                <div style={{ width: "100%", position: "relative", top: "30px" }}>
                     <i
                         className="fas fa-envelope"
                         style={{ position: "absolute", top: "17px", left: "40px" }}
                     ></i>
-                    <input
-                        type="email"
-                        id="email"
-                        className={classes.input}
-                        placeholder="Email"
-                        autoComplete="on"
-                        onChange={handleEmail}
-                    />
-                    <i
-                        className="fas fa-key"
-                        style={{ position: "absolute", top: "65px", left: "40px" }}
-                    ></i>
-                    <input
-                        type="password"
-                        id="password"
-                        className={classes.input}
-                        placeholder="Password"
-                        autoComplete="off"
-                        onChange={handlePassword}
-                    />
-                    <Link to='/reset_password'>
-                    <span style={{position: 'relative', top: '10px', left: '35px', color: '#787122'}}>Forgot Password?</span>
-                    </Link>
-                    {!hideSubmit ?
-                        <div
-                            className={classes.button}
-                            onClick={handleSubmit}
-                        >
-                            Submit
-                        </div> : null}
+                    <form>
+                        <input
+                            type="email"
+                            id="email"
+                            className={classes.input}
+                            placeholder="Email"
+                            autoComplete="on"
+                            onChange={handleEmail}
+                        />
+                        <i
+                            className="fas fa-key"
+                            style={{ position: "absolute", top: "65px", left: "40px" }}
+                        ></i>
+                        <input
+                            type="password"
+                            id="password"
+                            className={classes.input}
+                            placeholder="Password"
+                            autoComplete="off"
+                            onChange={handlePassword}
+                        />
+                        <Link to='/reset_password'>
+                            <span style={{ position: 'relative', top: '10px', left: '35px', color: '#787122' }}>Forgot Password?</span>
+                        </Link>
+                        {!hideSubmit ?
+                            <button
+                                className={classes.button}
+                                onClick={handleSubmit}
+                                type="submit"
+                            >
+                                Submit
+                            </button> : null}
 
-                    {loading ? <Loader /> : null}
-                    {errorMessage ? <span style={otherErrorStyle}>Invalid Email or Password</span> : null}
+                        {loading ? <Loader /> : null}
+                        {errorMessage ? <span style={otherErrorStyle}>Invalid Email or Password</span> : null}
+                    </form>
                 </div>
                 <Link to="/register" style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <span style={registerLink}>Don't have an account? Register here</span>
-                    </Link>
+                    <span style={registerLink}>Don't have an account? Register here</span>
+                </Link>
 
             </Grid>
         </Grid>

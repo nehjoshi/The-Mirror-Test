@@ -5,6 +5,11 @@
     list-style-type: none;
     font-family: 'Nunito', sans-serif;
 }
+button {
+  outline: none !important;
+  font-family: inherit !important;
+  border-color: transparent !important;
+}
 .loader,
 .loader:after {
   border-radius: 50%;

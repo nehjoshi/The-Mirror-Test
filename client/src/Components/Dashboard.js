@@ -24,6 +24,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
+    position: 'relative'
   },
   heading: {
     margin: '20px',
@@ -37,6 +38,24 @@ const useStyles = makeStyles(() => ({
   testContainer: {
     justifyContent: 'center'
   },
+  profile: {
+    position: 'absolute',
+    top: 20,
+    right: 20,
+    width: '40px',
+    height: '40px',
+    borderRadius: '50%',
+    background: '#003840',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: '1.2rem',
+    color: '#fff',
+    fontWeight: '900',
+    '&:hover': {
+      cursor: 'pointer',  
+    }
+  }
 
 }))
 const Dashboard = () => {
@@ -72,6 +91,7 @@ const Dashboard = () => {
   return loading ? <Grid className={classes.wrapper}><Loader /></Grid> : (
     <Grid className={classes.wrapper}>
       <h1 className={classes.heading}>The Mirror Test</h1>
+      <div className={classes.profile}>{localStorage.getItem("name").charAt(0)}</div>
       <Grid container className={classes.testContainer}>
         <TestInfo heading="Adverse Childhood Experience (ACE) Test" imgSource={Ace} height='200px'
           desc="Adverse Childhood Experiences are what govern our 

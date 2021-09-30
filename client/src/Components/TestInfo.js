@@ -14,10 +14,11 @@ const useStyles = makeStyles(() => ({
         flexDirection: 'column',
         alignItems: 'center',
         padding: '20px 20px',
-        border: '2px solid transparent',
+        border: '5px outset transparent',
         transition: '0.2s all ease',
         '&:hover': {
-            borderColor: 'blue'
+            // borderColor: 'blue'
+            borderColor: '#017c8c'
         }
     },
     testHeading: {
@@ -54,7 +55,6 @@ const useStyles = makeStyles(() => ({
         "&:hover": {
             cursor: "pointer",
             backgroundColor: "#e6b635",
-            
           },
     }
 }));
