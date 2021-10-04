@@ -106,8 +106,34 @@ const Dashboard = () => {
         if (res.data.auth === true) {
           axios.get(`https://self-growth-questionaire.herokuapp.com/fetch/${localStorage.getItem("email")}`)
             .then(res => {
-              
               setData(res.data);
+              localStorage.setItem("result", res.data.quiz1.result);
+              localStorage.setItem("result1", res.data.quiz2.result1);
+              localStorage.setItem("result2", res.data.quiz2.result2);
+              localStorage.setItem("result3", res.data.quiz2.result3);
+              localStorage.setItem("result4", res.data.quiz2.result4);
+              localStorage.setItem("result1", res.data.quiz3.result1);
+              localStorage.setItem("pmb", res.data.quiz3.pmb);
+              localStorage.setItem("pvb", res.data.quiz3.pvb);
+              localStorage.setItem("psb", res.data.quiz3.psb);
+              localStorage.setItem("pmg", res.data.quiz3.pmg);
+              localStorage.setItem("pvg", res.data.quiz3.pvg);
+              localStorage.setItem("psg", res.data.quiz3.psg);
+              localStorage.setItem("e", res.data.quiz4.E);
+              localStorage.setItem("a", res.data.quiz4.A);
+              localStorage.setItem("c", res.data.quiz4.C);
+              localStorage.setItem("n", res.data.quiz4.N);
+              localStorage.setItem("o", res.data.quiz4.O);
+              localStorage.setItem("P", res.data.quiz5.P);
+              localStorage.setItem("E", res.data.quiz5.E);
+              localStorage.setItem("R", res.data.quiz5.R);
+              localStorage.setItem("M", res.data.quiz5.M);
+              localStorage.setItem("A", res.data.quiz5.A);
+              localStorage.setItem("N", res.data.quiz5.N);
+              localStorage.setItem("H", res.data.quiz5.H);
+              localStorage.setItem("LON", res.data.quiz5.LON);
+              localStorage.setItem("HAP", res.data.quiz5.HAP);
+
               setLoading(false);
             })
         } else {
