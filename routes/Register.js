@@ -3,6 +3,13 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const Register = express.Router();
+const rateLimit = require('express-rate-limit');
+
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 60,
+    max: 100
+})
+Register.use(limiter);
 
 Register.post('/register', async (req, res) => {
     const User = await mongoose.model('The Mirror Test', schema);
@@ -10,8 +17,8 @@ Register.post('/register', async (req, res) => {
 
     const { email, name, password } = req.body;
 
-    const emailExists = await User.findOne({email: email});
-    if (emailExists) return res.json({success: false, message: 'This email already exists!'});
+    const emailExists = await User.findOne({ email: email });
+    if (emailExists) return res.json({ success: false, message: 'This email already exists!' });
 
     user.email = email;
     user.name = name;
@@ -68,7 +75,7 @@ Register.post('/register', async (req, res) => {
             return res.json({ success: true });
         })
         .catch(e => {
-            return res.json({success: false, message: 'Please double check all the fields.'});
+            return res.json({ success: false, message: 'Please double check all the fields.' });
         })
 });
 module.exports = Register;

@@ -4,6 +4,13 @@ const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const Login = express.Router();
+const rateLimit = require('express-rate-limit');
+
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 60,
+    max: 100
+})
+Login.use(limiter);
 
 Login.post('/login', async (req, res) => {
     const User = await mongoose.model('The Mirror Test', schema);

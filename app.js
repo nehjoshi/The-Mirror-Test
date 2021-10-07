@@ -18,6 +18,7 @@ const path = require('path');
 
 app.use(cors());
 app.use(helmet());
+
 app.use(express.json());
 app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use('/', Quiz1);
