@@ -54,7 +54,7 @@ router.post('/reset_password', async (req, res) => {
                     })
                 })
                 .catch(err => {
-                    console.log(err);
+                    
                 })
         }
     }

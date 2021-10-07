@@ -34,7 +34,7 @@ const One = () => {
         }
       })
       .catch((e) => {
-        console.log(e);
+        
       });
   });
 
@@ -63,7 +63,7 @@ const One = () => {
         }
       })
       .catch((e) => {
-        console.log(e);
+        
       });
   };
   const theme = useTheme();

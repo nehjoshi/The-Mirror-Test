@@ -35,7 +35,7 @@ const Three = () => {
         }
       })
       .catch((e) => {
-        console.log(e);
+        
       });
   });
 
@@ -64,7 +64,7 @@ const Three = () => {
         }
       })
       .catch((e) => {
-        console.log(e);
+        
       });
   };
 

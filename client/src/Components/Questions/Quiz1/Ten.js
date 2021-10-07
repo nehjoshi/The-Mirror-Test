@@ -37,7 +37,7 @@ const Ten = () => {
         }
       })
       .catch((e) => {
-        console.log(e);
+        
       });
   });
 
@@ -66,7 +66,7 @@ const Ten = () => {
         }
       })
       .catch((e) => {
-        console.log(e);
+        
       });
   };
 

@@ -14,7 +14,7 @@ Login.use(limiter);
 
 Login.post('/login', async (req, res) => {
     const User = await mongoose.model('The Mirror Test', schema);
-    console.log('good');
+    
     const { email, password } = req.body;
 
     const emailExists = await User.findOne({email: email});

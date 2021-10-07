@@ -35,10 +35,10 @@ port = process.env.PORT || 5000;
 
 mongoose.connect(process.env.DB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
 .then(() => {
-    console.log("Authentication successful");
+    
 })
 .catch((e) => {
-    console.log(e);
+    
 })
 app.get('/', (req, res) => {
   res.send("Hello!");
@@ -74,5 +74,5 @@ const verifyToken = async (req, res, next) => {
 app.get("/verify", verifyToken, (req, res) => {});
 
 app.listen(port, () => {
-  console.log("Server is up and running!");
+  
 });

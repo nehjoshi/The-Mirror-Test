@@ -56,7 +56,7 @@ Quiz5.post('/quiz5', async (req, res) => {
     await user.save()
         .then()
         .catch(e => {
-            console.log(e);
+            
             return res.json({ success: false });
         })
     if (done === true) {

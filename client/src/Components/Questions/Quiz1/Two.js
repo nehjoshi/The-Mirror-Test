@@ -34,7 +34,7 @@ const Two = () => {
         }
       })
       .catch((e) => {
-        console.log(e);
+        
       });
   });
 
@@ -62,7 +62,7 @@ const Two = () => {
         }
       })
       .catch((e) => {
-        console.log(e);
+        
       });
   };
 

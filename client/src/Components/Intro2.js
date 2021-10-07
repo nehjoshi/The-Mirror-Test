@@ -86,7 +86,7 @@ const Intro2 = () => {
                 }
             })
             .catch((e) => {
-                console.log(e);
+                
             });
     });
 

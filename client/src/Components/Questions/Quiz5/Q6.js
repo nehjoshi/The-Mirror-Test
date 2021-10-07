@@ -36,7 +36,7 @@ const Quiz5_6 = () => {
                 }
             })
             .catch((e) => {
-                console.log(e);
+                
             });
     });
 
@@ -78,7 +78,7 @@ localStorage.setItem("HAP", HAP);
                 }
             })
             .catch((e) => {
-                console.log(e);
+                
             });
     };
 

@@ -115,7 +115,7 @@ const Results = () => {
         }
       })
       .catch((e) => {
-        console.log(e);
+        
       });
 
   });

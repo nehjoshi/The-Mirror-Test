@@ -38,7 +38,7 @@ Quiz2.post("/quiz2", async (req, res) => {
         })
 
     if (done === true) {
-        console.log('submit');
+        
         const { result1, result2, result3, result4 } = result;
         if (result1 > result2 && result1 > result3 && result1 > result4) {
             return res.json({ success: true, result: 'Secure' });

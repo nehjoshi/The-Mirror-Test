@@ -35,7 +35,7 @@ const Quiz2One = () => {
                 }
             })
             .catch((e) => {
-                console.log(e);
+                
             });
     });
 
@@ -62,7 +62,7 @@ const Quiz2One = () => {
                 }
             })
             .catch((e) => {
-                console.log(e);
+                
             });
     };
 

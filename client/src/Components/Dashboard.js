@@ -141,7 +141,7 @@ const Dashboard = () => {
         }
       })
       .catch((e) => {
-        console.log(e);
+        
       });
   }, [history])
 

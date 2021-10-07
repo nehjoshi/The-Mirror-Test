@@ -35,7 +35,7 @@ const Quiz3_3 = () => {
                 }
             })
             .catch((e) => {
-                console.log(e);
+                
             });
     });
 
@@ -46,7 +46,7 @@ const Quiz3_3 = () => {
         const pmg = parseInt(localStorage.getItem('pmg'));
         const pvg = parseInt(localStorage.getItem('pvg'));
         const psg = parseInt(localStorage.getItem('psg'));
-        console.log("Hello");
+        
         const result = { pmb, pvb, psb, pmg, pvg, psg }
         const data = {type, value: ans, result, done: false, email: localStorage.getItem("email")}
         axios.post("https://self-growth-questionaire.herokuapp.com/quiz3", data)
@@ -59,7 +59,7 @@ const Quiz3_3 = () => {
                     localStorage.setItem("pmg", pmg);
                     localStorage.setItem("pvg", pvg);
                     localStorage.setItem("psg", psg);
-                    console.log(response);
+                    
                     gsap.to(mainRef.current, {
                         left: -1000,
                         duration: 0.5,
@@ -67,13 +67,13 @@ const Quiz3_3 = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        console.log("Everything good!");
+                        
                         history.push("/quiz3/question4");
                     }, 250);
                 }
             })
             .catch((e) => {
-                console.log(e);
+                
             });
     };
 

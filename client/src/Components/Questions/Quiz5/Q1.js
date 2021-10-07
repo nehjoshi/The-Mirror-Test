@@ -36,7 +36,7 @@ const Quiz5_1 = () => {
                 }
             })
             .catch((e) => {
-                console.log(e);
+                
             });
     });
 
@@ -69,7 +69,7 @@ const Quiz5_1 = () => {
                 }
             })
             .catch((e) => {
-                console.log(e);
+                
             });
     };
 

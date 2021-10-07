@@ -34,7 +34,7 @@ const Quiz2Thirteen = () => {
                 }
             })
             .catch((e) => {
-                console.log(e);
+                
             });
     });
 
@@ -65,7 +65,7 @@ const Quiz2Thirteen = () => {
                 }
             })
             .catch((e) => {
-                console.log(e);
+                
             });
     };
 

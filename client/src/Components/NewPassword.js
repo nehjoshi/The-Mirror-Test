@@ -111,7 +111,7 @@ const NewPassword = () => {
             .then(res => {
                 if (res.data.success === true) {
                     setMainLoading(false);
-                    console.log('true');
+                    
                 }
                 else {
                     history.push('/');
