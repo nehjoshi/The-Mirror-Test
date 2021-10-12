@@ -4,6 +4,7 @@
     text-decoration: none;
     list-style-type: none;
     font-family: 'Nunito', sans-serif;
+    scroll-behavior: smooth;
 }
 button {
   outline: none !important;

@@ -8,13 +8,13 @@ const useStyles = makeStyles(() => ({
         position: 'relative',
         backgroundColor: "#f7f7f7",
         margin: '20px 20px',
-        boxShadow: "0 0 7px  #7a7a7a",
-        borderRadius: '10px',
+        boxShadow: "1px 2px 13px 0px #272727",
+        borderRadius: '5px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         padding: '20px 20px',
-        border: '5px outset transparent',
+        borderBottom: '5px outset transparent',
         transition: '0.2s all ease',
         '&:hover': {
             // borderColor: 'blue'

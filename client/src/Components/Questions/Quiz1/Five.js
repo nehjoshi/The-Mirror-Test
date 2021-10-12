@@ -69,7 +69,7 @@ const Five = () => {
   };
 
   const theme = useTheme();
-  const classes = useStyles(theme);;
+  const classes = useStyles(theme);
   return loading ? (
         <Grid container className={classes.wrapper}>
             Loading...
