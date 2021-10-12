@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 import Bg from "../Images/bg.jpg";
+import BgBlue from "../Images/bgblue.jpg";
 
 export const useStyles = makeStyles((theme) => ({
     // wrapper: {
@@ -27,6 +28,15 @@ export const useStyles = makeStyles((theme) => ({
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
+    },
+    mainLogo: {
+        position: 'absolute',
+        top: 20,
+        left: 20,
+        fontSize: 'clamp(1.6rem, 2.1vw, 2rem)',
+        color: '#4E4637',
+        fontFamily: 'Merriweather Sans, sans-serif',
+
     },
     heading: {
         fontSize: 'clamp(2.6rem, 6.1vw, 6rem)',
@@ -73,6 +83,10 @@ export const useStyles = makeStyles((theme) => ({
     testContainer: {
         justifyContent: 'center'
     },
+    tests: {
+        backgroundImage: `url(${BgBlue})`,
+        width: '100%',
+    },
     profile: {
         position: 'absolute',
         top: 20,
@@ -80,7 +94,7 @@ export const useStyles = makeStyles((theme) => ({
         width: '40px',
         height: '40px',
         borderRadius: '50%',
-        background: '#003840',
+        background: '#2F4858',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -95,7 +109,8 @@ export const useStyles = makeStyles((theme) => ({
             borderColor: 'gray',
         },
         [theme.breakpoints.down("md")]: {
-            display: 'none'
+            width: '30px',
+            height: '30px'
         }
     },
     profileWrapper: {
@@ -112,6 +127,9 @@ export const useStyles = makeStyles((theme) => ({
         borderRadius: '10px',
         top: 70,
         color: '#fff'
+    },
+    [theme.breakpoints.down("md")]: {
+        
     },
     logOut: {
         '&:hover': {

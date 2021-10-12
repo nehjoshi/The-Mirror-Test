@@ -91,6 +91,7 @@ const Dashboard = () => {
       <div className={classes.profile} onClick={() => handleProfileSection('toggle')}>{localStorage.getItem("name").charAt(0)}</div>
       <Grid className={classes.wrapper} onClick={() => handleProfileSection('hide')}>
         <Grid container className={classes.landing}>
+          <h2 className={classes.mainLogo}>Jivan Safalya</h2>
           <h1 className={classes.heading}>The Mirror Test</h1>
           <p className={classes.subheading}>A test to provide a true reflection of who you are.</p>
           <a href="#tests" style={{margin: '10px 0px'}}><div className={classes.navButton}>Start your journey</div></a>

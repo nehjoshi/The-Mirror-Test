@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
         transition: '0.2s all ease',
         '&:hover': {
             // borderColor: 'blue'
-            borderColor: '#017c8c'
+            borderColor: '#008A7D'
         }
     },
     testHeading: {
@@ -78,7 +78,7 @@ const TestInfo = (props) => {
             <img style={{height: props.height}} src={props.imgSource} alt="" />
             <p className={classes.testDesc}>{props.desc}</p>
             {props.progress === 0 ? <div className={classes.button} onClick={handleStart}>Start</div>: null}
-            {props.progress === 100 ? <div className={classes.button} style={{backgroundColor: '#4BB543'}}>Completed</div>: null}
+            {props.progress === 100 ? <div className={classes.button} style={{backgroundColor: '#9DC04A'}}>Completed</div>: null}
             {(props.progress > 0 && props.progress < 100) ? <div className={classes.button} onClick={handleResume}>Continue</div>: null}
         </Grid>
     )
