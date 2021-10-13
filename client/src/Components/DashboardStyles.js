@@ -24,7 +24,7 @@ export const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundImage: `url(${Bg})`,
+        backgroundImage: `url(${BgBlue})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
@@ -33,15 +33,19 @@ export const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         top: 20,
         left: 20,
-        fontSize: 'clamp(1.6rem, 2.1vw, 2rem)',
-        color: '#4E4637',
-        fontFamily: 'Merriweather Sans, sans-serif',
-
+        width: '100px',
+        [theme.breakpoints.down("sm")]: {
+            width: '70px'
+        }
+        
     },
     heading: {
         fontSize: 'clamp(2.6rem, 6.1vw, 6rem)',
         margin: '0px 10px',
         color: '#2F4858',
+        position: 'relative',
+        opacity: 0,
+        top: -20,
         fontWeight: '900',
         fontFamily: 'Merriweather Sans, sans-serif',
     },
@@ -63,6 +67,9 @@ export const useStyles = makeStyles((theme) => ({
         boxShadow: "1px 2px 5px 0px #272727",
         fontSize: 'clamp(1rem, 1.3vw, 1.2rem)', 
         textTransform: 'uppercase',
+        position: 'relative',
+        opacity: 0,
+        top: 20,
         '&:hover': {
             backgroundColor: '#2F4858',
             color: '#fff',
@@ -84,7 +91,11 @@ export const useStyles = makeStyles((theme) => ({
         justifyContent: 'center'
     },
     tests: {
-        backgroundImage: `url(${BgBlue})`,
+        backgroundImage: `url(${Bg})`,
+        minHeight: '100vh',
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center center",
         width: '100%',
     },
     profile: {

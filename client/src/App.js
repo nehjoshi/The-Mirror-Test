@@ -184,13 +184,15 @@ import Quiz5_23 from "./Components/Questions/Quiz5/Q23.js";
 import ResetPassword from "./Components/ResetPassword.js";
 import NewPassword from "./Components/NewPassword.js";
 import Dashboard from "./Components/Dashboard.js";
+import Landing from "./Components/Landing.js";
 
 const App = () => {
 
   return (
     <Router>
       <Switch>
-        <Route exact path='/' component={Login} />
+        <Route exact path="/" component={Landing} />
+        <Route exact path='/login' component={Login} />
         <Route exact path='/home' component={Home} />
         <Route exact path='/register' component={Register} />
         <Route exact path='/dashboard' component={Dashboard} />
