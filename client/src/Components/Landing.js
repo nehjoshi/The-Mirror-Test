@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Grid, useTheme } from '@material-ui/core';
-import { useStyles } from "./DashboardStyles.js";
+import { useStyles } from "./Styles/DashboardStyles.js";
 import { Link } from 'react-router-dom';
 import { gsap, Power2 } from "gsap";
 import Logo from "../Images/logo4.png";

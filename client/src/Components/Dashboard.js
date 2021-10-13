@@ -9,7 +9,7 @@ import TestInfo from './TestInfo';
 import Hope from '../Images/hope.png';
 import Bft from '../Images/bft.png';
 import Perma from '../Images/perma.png';
-import { useStyles } from "./DashboardStyles.js";
+import { useStyles } from "./Styles/DashboardStyles.js";
 
 const Dashboard = () => {
   const theme = useTheme();

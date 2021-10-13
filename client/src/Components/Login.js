@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         overflow: "hidden",
     },
     box: {
-        height: "550px",
+        height: "400px",
         width: "320px",
         backgroundColor: "#f7f7f7",
         borderRadius: "20px",
@@ -46,7 +46,6 @@ const useStyles = makeStyles((theme) => ({
     heading: {
         fontSize: "2rem",
         textAlign: "center",
-        marginBottom: "20px",
         position: "relative",
         top: "20px",
 
@@ -169,11 +168,8 @@ const Login = () => {
                 <img src={MainImg} style={{height: '400px', zIndex: '100'}} alt="" className={classes.mainImg}/>
             </Grid>
             <Grid item className={classes.box}>
-                <h2 className={classes.heading} >
-                    Welcome to The Mirror Test
-                </h2>
-                <p className={classes.label} >
-                    Please login to continue
+                <p className={classes.heading} >
+                    Login to Continue
                 </p>
 
                 <div style={{ width: "100%", position: "relative", top: "30px" }}>

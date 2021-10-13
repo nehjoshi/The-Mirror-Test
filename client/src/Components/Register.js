@@ -164,11 +164,8 @@ const Register = () => {
     return (
         <Grid container className={classes.wrapper}>
             <Grid item className={classes.box}>
-                <h2 className={classes.heading} >
-                    Welcome to The Mirror Test
-                </h2>
-                <p className={classes.label} >
-                    Please enter your details to continue
+                <p className={classes.heading} >
+                    Create a new Account
                 </p>
 
                 <div

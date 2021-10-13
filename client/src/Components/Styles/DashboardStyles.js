@@ -1,22 +1,8 @@
 import { makeStyles } from '@material-ui/core';
-import Bg from "../Images/bg.jpg";
-import BgBlue from "../Images/bgblue.jpg";
+import Bg from "../../Images/bg.jpg";
+import BgBlue from "../../Images/bgblue.jpg";
 
 export const useStyles = makeStyles((theme) => ({
-    // wrapper: {
-    //   width: "100%",
-    //   minHeight: '100vh',
-
-    //   backgroundSize: "cover",
-    //   backgroundRepeat: "no-repeat",
-    //   backgroundPosition: "center center",
-    //   display: "flex",
-    //   flexDirection: 'column',
-    //   justifyContent: "center",
-    //   alignItems: "center",
-    //   overflow: "hidden",
-    //   position: 'relative'
-    // },
     landing: {
         position: 'relative',
         height: '100vh',
