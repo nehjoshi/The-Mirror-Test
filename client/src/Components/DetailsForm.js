@@ -7,13 +7,23 @@ import { KeyboardDatePicker, MuiPickersUtilsProvider } from "@material-ui/picker
 const DetailsForm = () => {
     const theme = useTheme();
     const classes = useStyles(theme);
-    const [selectedDate, handleDateChange] = useState(new Date());
+    const [selectedDate, setDateChange] = useState(null);
+    const [weight, setWeight] = useState(null);
+    const [height, setHeight] = useState(null);
+    const [glasses, setGlasses] = useState(null);
+    const [nat, setNat] = useState("Indian");
+    const [rel, setRel] = useState("Hindu");
+    // const [phyCon, setPhyCon] = useState(null);
+    // const [smoke, setSmoke] = useState(null);
+    // const [drink, setDrink] = useState(null);
+    // const [hobbies, setHobbies] = useState(null);
+    // const [diag, setDiag] = useState(null);
 
     const generateNationalities = () => {
         let listOfNats = [];
         const nats = ['Afghan', 'Albanian', 'Algerian', 'American', 'Andorran', 'Angolan', 'Antiguans', 'Argentinean', 'Armenian', 'Australian', 'Austrian', 'Azerbaijani', 'Bahamian', 'Bahraini', 'Bangladeshi', 'Barbadian', 'Barbudans', 'Batswana', 'Belarusian', 'Belgian', 'Belizean', 'Beninese', 'Bhutanese', 'Bolivian', 'Bosnian', 'Brazilian', 'British', 'Bruneian', 'Bulgarian', 'Burkinabe', 'Burmese', 'Burundian', 'Cambodian', 'Cameroonian', 'Canadian', 'Cape Verdean', 'Central African', 'Chadian', 'Chilean', 'Chinese', 'Colombian', 'Comoran', 'Congolese', 'Costa Rican', 'Croatian', 'Cuban', 'Cypriot', 'Czech', 'Danish', 'Djibouti', 'Dominican', 'Dutch', 'East Timorese', 'Ecuadorean', 'Egyptian', 'Emirian', 'Equatorial Guinean', 'Eritrean', 'Estonian', 'Ethiopian', 'Fijian', 'Filipino', 'Finnish', 'French', 'Gabonese', 'Gambian', 'Georgian', 'German', 'Ghanaian', 'Greek', 'Grenadian', 'Guatemalan', 'Guinea-Bissauan', 'Guinean', 'Guyanese', 'Haitian', 'Herzegovinian', 'Honduran', 'Hungarian', 'I-Kiribati', 'Icelander', 'Indian', 'Indonesian', 'Iranian', 'Iraqi', 'Irish', 'Israeli', 'Italian', 'Ivorian', 'Jamaican', 'Japanese', 'Jordanian', 'Kazakhstani', 'Kenyan', 'Kittian and Nevisian', 'Kuwaiti', 'Kyrgyz', 'Laotian', 'Latvian', 'Lebanese', 'Liberian', 'Libyan', 'Liechtensteiner', 'Lithuanian', 'Luxembourger', 'Macedonian', 'Malagasy', 'Malawian', 'Malaysian', 'Maldivan', 'Malian', 'Maltese', 'Marshallese', 'Mauritanian', 'Mauritian', 'Mexican', 'Micronesian', 'Moldovan', 'Monacan', 'Mongolian', 'Moroccan', 'Mosotho', 'Motswana', 'Mozambican', 'Namibian', 'Nauruan', 'Nepalese', 'New Zealander', 'Nicaraguan', 'Nigerian', 'Nigerien', 'North Korean', 'Northern Irish', 'Norwegian', 'Omani', 'Pakistani', 'Palauan', 'Panamanian', 'Papua New Guinean', 'Paraguayan', 'Peruvian', 'Polish', 'Portuguese', 'Qatari', 'Romanian', 'Russian', 'Rwandan', 'Saint Lucian', 'Salvadoran', 'Samoan', 'San Marinese', 'Sao Tomean', 'Saudi', 'Scottish', 'Senegalese', 'Serbian', 'Seychellois', 'Sierra Leonean', 'Singaporean', 'Slovakian', 'Slovenian', 'Solomon Islander', 'Somali', 'South African', 'South Korean', 'Spanish', 'Sri Lankan', 'Sudanese', 'Surinamer', 'Swazi', 'Swedish', 'Swiss', 'Syrian', 'Taiwanese', 'Tajik', 'Tanzanian', 'Thai', 'Togolese', 'Tongan', 'Trinidadian/Tobagonian', 'Tunisian', 'Turkish', 'Tuvaluan', 'Ugandan', 'Ukrainian', 'Uruguayan', 'Uzbekistani', 'Venezuelan', 'Vietnamese', 'Welsh', 'Yemenite', 'Zambian', 'Zimbabwean'];
         nats.forEach(nat => {
-            listOfNats.push(<MenuItem value={nat}>{nat}</MenuItem>)
+            listOfNats.push(<MenuItem onClick={() => setNat(rel)} value={nat}>{nat}</MenuItem>)
         })
         return listOfNats;
     }
@@ -21,9 +31,16 @@ const DetailsForm = () => {
         let listOfRels = [];
         const rels = ['Hindu', 'Muslim', 'Christian', 'Sikh', 'Buddhist', 'Jewish', 'Jain'];
         rels.forEach(rel => {
-            listOfRels.push(<MenuItem value={rel}>{rel}</MenuItem>)
+            listOfRels.push(<MenuItem value={rel} onClick={() => setRel(rel)}key={rel}>{rel}</MenuItem>)
         });
         return listOfRels;
+    }
+    const submitForm = () => {
+        console.log(weight);
+        console.log(selectedDate.toString());
+        console.log(height);
+        console.log(glasses);
+        console.log(nat);
     }
 
     return (
@@ -43,15 +60,15 @@ const DetailsForm = () => {
                                     clearable
                                     value={selectedDate}
                                     placeholder="10/10/2018"
-                                    onChange={date => handleDateChange(date)}
-                                    minDate={new Date()}
-                                    format="MM/dd/yyyy"
+                                    onChange={date => setDateChange(date)}
+                                    minDate={new Date("1910-01-01")}
+                                    format="dd/MM/yyyy"
                                 /></div><br /><br />
-                            <p className={classes.subheading}>Weight (in Kg)</p>
+                            <p className={classes.subheading}>Weight (in kg)</p>
                             <OutlinedInput
                                 id="outlined-adornment-weight"
-                                // value={values.weight}
-                                // onChange={handleChange('weight')}
+                                value={weight}
+                                onChange={e => setWeight(e.target.value)}
                                 className={classes.weight}
                             /><br /><br />
 
@@ -59,15 +76,16 @@ const DetailsForm = () => {
 
                             <OutlinedInput
                                 id="outlined-adornment-weight"
+                                value={height}
                                 className={classes.weight}
-                            // value={values.weight}
+                                onChange={e => setHeight(e.target.value)}
                             /><br /><br />
 
                             <p className={classes.subheading}>Do you have glasses?</p>
                             <div className={classes.dob}>
-                                <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
-                                    <FormControlLabel value="female" control={<Radio />} label="Yes" />
-                                    <FormControlLabel value="male" control={<Radio />} label="No" />
+                                <RadioGroup row aria-label="gender" name="row-radio-buttons-group" onChange={e => setGlasses(e.target.value)}>
+                                    <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
+                                    <FormControlLabel value="No" control={<Radio />} label="No" />
                                 </RadioGroup>
                             </div>
 
@@ -80,10 +98,10 @@ const DetailsForm = () => {
                                 <Select
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
-                                    value={"British"}
+                                    value={nat}
                                     label="Nationality"
-                                    className={classes.nats}
-                                // onChange={handleChange}
+                                    onChange={e => setNat(e.target.value)}
+                                    className={classes.nats} 
                                 >
                                     {generateNationalities()}
                                 </Select></div><br /><br />
@@ -92,10 +110,10 @@ const DetailsForm = () => {
                                 <Select
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
-                                    value={"Hindu"}
+                                    value={rel}
                                     label="Religion"
+                                    onChange={e => setRel(e.target.value)}
                                     className={classes.nats}
-                                // onChange={handleChange}
                                 >
                                     {generateReligions()}
                                 </Select></div><br /><br />
@@ -133,7 +151,7 @@ const DetailsForm = () => {
                                 </RadioGroup>
                             </div><br/><br/>
 
-                        <div className={classes.button}>
+                        <div className={classes.button} onClick={submitForm}>
                             Part 2 &nbsp;<i class="fas fa-chevron-right" className={classes.arrow}></i>
                         </div>
 
