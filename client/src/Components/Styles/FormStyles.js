@@ -48,6 +48,7 @@ export const useStyles = makeStyles((theme) => ({
         height: 'fit-content',
         display: 'block',
         width: '33%',
+        padding: '0px 10px',
         [theme.breakpoints.down("sm")]: {
             width: '100%',
             margin: '10px auto'

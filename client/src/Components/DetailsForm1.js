@@ -3,8 +3,10 @@ import { Grid, useTheme, OutlinedInput, FormControlLabel, Radio, RadioGroup, Sel
 import { useStyles } from "./Styles/FormStyles.js";
 import DateFnsUtils from '@date-io/date-fns';
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
+import Loader from "./Loader.js";
+import { Link, useHistory } from "react-router-dom";
 
-const DetailsForm = () => {
+const DetailsForm1 = () => {
     const theme = useTheme();
     const classes = useStyles(theme);
     const [selectedDate, setDateChange] = useState(null);
@@ -13,11 +15,14 @@ const DetailsForm = () => {
     const [glasses, setGlasses] = useState(null);
     const [nat, setNat] = useState("Indian");
     const [rel, setRel] = useState("Hindu");
-    // const [phyCon, setPhyCon] = useState(null);
-    // const [smoke, setSmoke] = useState(null);
-    // const [drink, setDrink] = useState(null);
-    // const [hobbies, setHobbies] = useState(null);
-    // const [diag, setDiag] = useState(null);
+    const [phyCon, setPhyCon] = useState(null);
+    const [smoke, setSmoke] = useState(null);
+    const [drink, setDrink] = useState(null);
+    const [hobbies, setHobbies] = useState(null);
+    const [illness, setIllness] = useState(null);
+    const [listOfIllnesses, setListOfIllnesses] = useState(null);
+    const [loader, setLoader] = useState(false);
+    const history = useHistory();
 
     const generateNationalities = () => {
         let listOfNats = [];
@@ -31,7 +36,7 @@ const DetailsForm = () => {
         let listOfRels = [];
         const rels = ['Hindu', 'Muslim', 'Christian', 'Sikh', 'Buddhist', 'Jewish', 'Jain'];
         rels.forEach(rel => {
-            listOfRels.push(<MenuItem value={rel} onClick={() => setRel(rel)}key={rel}>{rel}</MenuItem>)
+            listOfRels.push(<MenuItem value={rel} onClick={() => setRel(rel)} key={rel}>{rel}</MenuItem>)
         });
         return listOfRels;
     }
@@ -41,6 +46,15 @@ const DetailsForm = () => {
         console.log(height);
         console.log(glasses);
         console.log(nat);
+        console.log(phyCon);
+        console.log(hobbies);
+        console.log(smoke);
+        console.log(drink);
+        console.log(listOfIllnesses);
+        setLoader(true);
+        setTimeout(() => {
+            history.push("/details2");
+        }, 500)
     }
 
     return (
@@ -48,9 +62,9 @@ const DetailsForm = () => {
             <Grid container className={classes.wrapper}>
                 <Grid container className={classes.box}>
                     <h1 className={classes.heading}>
-                        More Details
+                        Your Details
                     </h1>
-                    <p className={classes.subheading}>This section is optional. You can skip it here.</p><br /><br />
+                    <p className={classes.subheading}>This section is optional. <Link to="/dashboard">You can skip it here.</Link></p><br /><br />
 
                     <div className={classes.inputFields}>
                         <div className={classes.col}>     {/*Column 1*/}
@@ -69,6 +83,7 @@ const DetailsForm = () => {
                                 id="outlined-adornment-weight"
                                 value={weight}
                                 onChange={e => setWeight(e.target.value)}
+                                autoComplete="off"
                                 className={classes.weight}
                             /><br /><br />
 
@@ -79,6 +94,7 @@ const DetailsForm = () => {
                                 value={height}
                                 className={classes.weight}
                                 onChange={e => setHeight(e.target.value)}
+                                autoComplete="off"
                             /><br /><br />
 
                             <p className={classes.subheading}>Do you have glasses?</p>
@@ -101,7 +117,7 @@ const DetailsForm = () => {
                                     value={nat}
                                     label="Nationality"
                                     onChange={e => setNat(e.target.value)}
-                                    className={classes.nats} 
+                                    className={classes.nats}
                                 >
                                     {generateNationalities()}
                                 </Select></div><br /><br />
@@ -118,42 +134,70 @@ const DetailsForm = () => {
                                     {generateReligions()}
                                 </Select></div><br /><br />
 
+
+                            <p className={classes.subheading}>Do you smoke?</p>
+                            <div className={classes.dob}>
+                                <RadioGroup row aria-label="gender" name="row-radio-buttons-group" onChange={e => setSmoke(e.target.value)}>
+                                    <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
+                                    <FormControlLabel value="No" control={<Radio />} label="No" />
+                                </RadioGroup>
+                            </div><br/>
+
+
+                            <p className={classes.subheading}>Do you drink?</p>
+                            <div className={classes.dob}>
+                                <RadioGroup row aria-label="gender" name="row-radio-buttons-group" onChange={e => setDrink(e.target.value)}>
+                                    <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
+                                    <FormControlLabel value="No" control={<Radio />} label="No" />
+                                </RadioGroup>
+                            </div><br />
+
+                        </div>
+
+                        <div className={classes.col}>         {/*Column 3*/}
+
+                            <p className={classes.subheading}>List out some of your hobbies </p>
+                            <OutlinedInput
+                                id="outlined-adornment-weight"
+                                className={classes.weight}
+                                placeholder="E.g. Music, Sports"
+                                autoComplete="off"
+                                onChange={e => setHobbies(e.target.value)}
+                            /><br /><br />
+
                             <p className={classes.subheading}>Any physical conditions? (Leave empty if none)</p>
 
                             <OutlinedInput
                                 id="outlined-adornment-weight"
                                 className={classes.weight}
-                            // value={values.weight}
+                                onChange={e => setPhyCon(e.target.value)}
+                                placeholder="E.g. Allergies, Diabetes"
+                                autoComplete="off"
                             /><br /><br />
 
-                            <p className={classes.subheading}>Do you smoke or drink?</p>
+                            <p className={classes.subheading}>Were you diagnosed with any illnesses during your childhood?</p>
                             <div className={classes.dob}>
-                                <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
-                                    <FormControlLabel value="female" control={<Radio />} label="Yes" />
-                                    <FormControlLabel value="male" control={<Radio />} label="No" />
+                                <RadioGroup row aria-label="gender" name="row-radio-buttons-group" onChange={e => setIllness(e.target.value)}>
+                                    <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
+                                    <FormControlLabel value="No" control={<Radio />} label="No" />
                                 </RadioGroup>
                             </div>
 
-                        </div>
+                            {illness === "Yes" &&
+                                <OutlinedInput
+                                    id="outlined-adornment-weight"
+                                    className={classes.weight}
+                                    placeholder="E.g. Autism, ADHD"
+                                    onChange={e => setListOfIllnesses(e.target.value)}
+                                    autoComplete="off"
+                                />}<br /><br />
 
-                        <div className={classes.col}>         {/*Column 3*/}
-                            <p className={classes.subheading}>List out some of your hobbies </p>
-                            <OutlinedInput
-                                id="outlined-adornment-weight"
-                                className={classes.weight}
-                            // value={values.weight}
-                            /><br /><br />
-                            <p className={classes.subheading}>Were you diagnosed with any illnesses during your childhood?</p>
-                            <div className={classes.dob}>
-                                <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
-                                    <FormControlLabel value="female" control={<Radio />} label="Yes" />
-                                    <FormControlLabel value="male" control={<Radio />} label="No" />
-                                </RadioGroup>
-                            </div><br/><br/>
-
-                        <div className={classes.button} onClick={submitForm}>
-                            Part 2 &nbsp;<i class="fas fa-chevron-right" className={classes.arrow}></i>
-                        </div>
+                            {!loader &&
+                                <div className={classes.button} onClick={submitForm}>
+                                    Part 2 &nbsp;<i class="fas fa-chevron-right" className={classes.arrow}></i>
+                                </div>
+                            }
+                            {loader && <Loader />}
 
                         </div>
                     </div>
@@ -163,4 +207,4 @@ const DetailsForm = () => {
         </MuiPickersUtilsProvider>
     )
 }
-export default DetailsForm;
+export default DetailsForm1;
