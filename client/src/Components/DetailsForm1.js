@@ -52,10 +52,12 @@ const DetailsForm1 = () => {
         console.log(drink);
         console.log(listOfIllnesses);
         setLoader(true);
+
         setTimeout(() => {
             history.push("/details2");
         }, 500)
     }
+
 
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -141,7 +143,7 @@ const DetailsForm1 = () => {
                                     <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
                                     <FormControlLabel value="No" control={<Radio />} label="No" />
                                 </RadioGroup>
-                            </div><br/>
+                            </div><br />
 
 
                             <p className={classes.subheading}>Do you drink?</p>
@@ -194,7 +196,7 @@ const DetailsForm1 = () => {
 
                             {!loader &&
                                 <div className={classes.button} onClick={submitForm}>
-                                    Part 2 &nbsp;<i class="fas fa-chevron-right" className={classes.arrow}></i>
+                                    Go to Part 2 &nbsp;<i class="fas fa-chevron-right" className={classes.arrow}></i>
                                 </div>
                             }
                             {loader && <Loader />}

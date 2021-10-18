@@ -18,7 +18,7 @@ button {
   height: 4em;
 }
 .loader {
-  margin: 60px auto;
+  margin: 24px auto;
   font-size: 10px;
   position: relative;
   text-indent: -9999em;
@@ -51,5 +51,14 @@ button {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+}
+.reg-icon{
+  position: absolute;
+  top: 30px;
+}
+@media screen and (max-width: 960px){
+  .reg-icon{
+    top: 20px
   }
 }

@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 import Bg from "../../Images/bg.jpg";
-import BgBlue from "../../Images/bgblue.jpg";
+import BgBlue from "../../Images/bgLake.jpg";
 
 export const useStyles = makeStyles((theme) => ({
     landing: {
@@ -10,7 +10,7 @@ export const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundImage: `url(${BgBlue})`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${BgBlue})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
@@ -19,6 +19,7 @@ export const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         top: 20,
         left: 20,
+        display: 'none',
         width: '100px',
         [theme.breakpoints.down("sm")]: {
             width: '70px'
@@ -28,7 +29,7 @@ export const useStyles = makeStyles((theme) => ({
     heading: {
         fontSize: 'clamp(2.6rem, 6.1vw, 6rem)',
         margin: '0px 10px',
-        color: '#2F4858',
+        color: '#FFEACE',
         position: 'relative',
         opacity: 0,
         top: -20,
@@ -38,10 +39,10 @@ export const useStyles = makeStyles((theme) => ({
     subheading: {
         fontSize: 'clamp(0.9rem, 2.1vw, 2rem)',
         margin: '0px 10px',
-        color: '#2F4858'
+        color: '#D8E9E3'
     },
     navButton: {
-        backgroundColor: '#DFE0DF',
+        backgroundColor: '#fff',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -57,7 +58,7 @@ export const useStyles = makeStyles((theme) => ({
         opacity: 0,
         top: 20,
         '&:hover': {
-            backgroundColor: '#2F4858',
+            backgroundColor: '#F59432',
             color: '#fff',
             cursor: 'pointer',
         },
@@ -66,7 +67,7 @@ export const useStyles = makeStyles((theme) => ({
         }
     },
     mainHr: {
-        border: '0.2px solid #2F4858',
+        border: '0.2px solid #fff',
         width: '50%',
         margin: '10px 0px',
         [theme.breakpoints.down("sm")]: {

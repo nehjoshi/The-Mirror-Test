@@ -37,6 +37,9 @@ export const useStyles = makeStyles((theme) => ({
             textAlign: 'center'
         }
     },
+    label: {
+        color: 'black',
+    },
     inputFields: {
         display: 'flex',
         flexDirection: 'row',
@@ -104,5 +107,7 @@ export const useStyles = makeStyles((theme) => ({
             border: '1px solid transparent'
         }
     },
-
+    sliderWrapper: {
+        width: '80%'
+    }
 }))

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Grid, makeStyles, useTheme } from '@material-ui/core';
 import { useHistory } from 'react-router';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 const useStyles = makeStyles(() => ({
     testWrapper: {
-        height: '450px',
+        height: '550px',
         position: 'relative',
         backgroundColor: "#f7f7f7",
         margin: '20px 20px',
@@ -55,7 +57,7 @@ const useStyles = makeStyles(() => ({
         "&:hover": {
             cursor: "pointer",
             backgroundColor: "#e6b635",
-          },
+        },
     }
 }));
 const TestInfo = (props) => {
@@ -67,7 +69,7 @@ const TestInfo = (props) => {
         history.push(`/instructions${props.testNo}`);
     }
     const handleResume = () => {
-        history.push(`/quiz${props.testNo}/question${props.lastQ+1}`);
+        history.push(`/quiz${props.testNo}/question${props.lastQ + 1}`);
     }
 
     return (
@@ -75,11 +77,22 @@ const TestInfo = (props) => {
             <p className={classes.progress}>Progress: {props.progress}%</p>
             <h2 className={classes.testHeading}>{props.heading}</h2>
             <hr className={classes.divider}></hr>
-            <img style={{height: props.height}} src={props.imgSource} alt="" />
+            <img style={{ height: props.height }} src={props.imgSource} alt="" />
+            {props.testNo === 2 && <br />}
             <p className={classes.testDesc}>{props.desc}</p>
-            {props.progress === 0 ? <div className={classes.button} onClick={handleStart}>Start</div>: null}
-            {props.progress === 100 ? <div className={classes.button} style={{backgroundColor: '#9DC04A'}}>Completed</div>: null}
-            {(props.progress > 0 && props.progress < 100) ? <div className={classes.button} onClick={handleResume}>Continue</div>: null}
+            {props.progress === 0 ? <div className={classes.button} onClick={handleStart}>Start</div> : null}
+            {props.progress === 100 ? <div className={classes.button} style={{ backgroundColor: '#9DC04A' }}>Completed</div> : null}
+            {(props.progress > 0 && props.progress < 100) ? <div className={classes.button} onClick={handleResume}>Continue</div> : null}
+            <p className={classes.testDesc}>{props.numberOfQ} Questions</p><br/>
+            <div style={{ width: 75, height: 75 }}>
+                <CircularProgressbar value={props.progress} text={`${props.progress}%`} 
+                styles={buildStyles({
+                    rotation: 0.25,
+                    strokeLinecap: 'butt',
+                    textColor: props.progress===100 ? '#9DC04A' : '#7a7a7a',
+                    pathColor: props.progress===100 ? '#9DC04A' : '#006977',
+                })}/>
+            </div>
         </Grid>
     )
 }

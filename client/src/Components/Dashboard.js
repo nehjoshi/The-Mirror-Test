@@ -79,7 +79,7 @@ const Dashboard = () => {
     history.push('/');
   }
 
-  return loading ? <Grid className={classes.wrapper}><Loader /></Grid> : (
+  return loading ? <div style={{height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><Loader /></div> : (
     <>
       {profileOpen &&
         <div className={classes.profileWrapper}>
@@ -94,20 +94,20 @@ const Dashboard = () => {
           <Grid container className={classes.testContainer}>
             <TestInfo heading="Adverse Childhood Experience (ACE) Test" imgSource={Ace} height='200px'
               desc="Adverse Childhood Experiences are what govern our 
-          lives and shape our future. Take this test to find out more" progress={data.quiz1.percentage} testNo={1} lastQ={data.quiz1.lastQ} />
+          lives and shape our future. Take this test to find out more" progress={data.quiz1.percentage} testNo={1} lastQ={data.quiz1.lastQ} numberOfQ={10}/>
             <TestInfo heading="Attachment Style Test" imgSource={Att_Style} height="180px"
               desc="How do you attach with your loved ones or your partner?
            Out of the four attachment styles, secure, 
-           anxious, avoidant and disoranized, which one are you?" progress={data.quiz2.percentage} testNo={2} lastQ={data.quiz2.lastQ} />
+           anxious, avoidant and disoranized, which one are you?" progress={data.quiz2.percentage} testNo={2} lastQ={data.quiz2.lastQ} numberOfQ={40}/>
             <TestInfo heading="Hope and Optimism Test" imgSource={Hope} height="220px"
-              desc="How optimistic or pessimistic are you? And how does your level of hope affect your life? Take this test to gain further insights." progress={data.quiz3.percentage} testNo={3} lastQ={data.quiz3.lastQ} />
+              desc="How optimistic or pessimistic are you? And how does your level of hope affect your life? Take this test to gain further insights." progress={data.quiz3.percentage} testNo={3} lastQ={data.quiz3.lastQ} numberOfQ={48}/>
           </Grid>
           <Grid container className={classes.testContainer}>
             <TestInfo heading="Big Five Personality Test" imgSource={Bft} height='200px'
-              desc="Out of the five big personality traits, which one suits you the best? Answer these 50 questions to find out more." progress={data.quiz4.percentage} testNo={4} lastQ={data.quiz4.lastQ} />
+              desc="Out of the five big personality traits, which one suits you the best? Answer these 50 questions to find out more." progress={data.quiz4.percentage} testNo={4} lastQ={data.quiz4.lastQ} numberOfQ={50}/>
             <TestInfo heading="Wellbeing (PERMA) Test" imgSource={Perma} height='200px'
               desc="How do you feel about your overall wellbeing, quality of life and your general health?
-          Take the wellbeing test to know more about this." progress={data.quiz5.percentage} testNo={5} lastQ={data.quiz5.lastQ} />
+          Take the wellbeing test to know more about this." progress={data.quiz5.percentage} testNo={5} lastQ={data.quiz5.lastQ} numberOfQ={23}/>
           </Grid>
         </Grid>
       </Grid>
