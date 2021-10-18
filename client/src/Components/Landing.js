@@ -12,6 +12,9 @@ const Landing = () => {
     const buttonRef = useRef(null);
     const lineRef = useRef(null);
     useEffect(() => {
+
+        document.querySelector(".loading").style.display="none";
+
         gsap.to(headingRef.current, {
             opacity: 1,
             top: 0,
