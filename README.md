@@ -13,5 +13,5 @@ Outside the client folder, use ``` npm install ``` to install the required serve
 client/package.json.**
 
 ## Future Goals
-Node.js will be connected to a MongoDB database using Mongoose, to store responses of users (anonymously), for research and to obtain statistical information.
+Node.js will be connected to a MongoDB database using Mongoose, to store responses of users to implement autosave and auto-reminder features.
 
