@@ -64,7 +64,7 @@ const DetailsForm1 = () => {
             .then(res => {
                 if (res.data.success === true) {
                     setLoader(false);
-                    history.push('/register-details2');
+                    history.push('/details2');
                 }
             })
             .catch(e => {
