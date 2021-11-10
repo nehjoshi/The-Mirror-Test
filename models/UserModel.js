@@ -54,7 +54,20 @@ const Quiz5Schema = new mongoose.Schema({
     LON: Number,
     lastQ: Number,
     finished: Boolean
-})
+});
+const reg1Schema = new mongoose.Schema({
+    dob: String,
+    weight: Number,
+    height: Number,
+    glasses: String,
+    nationality: String,
+    religion: String,
+    smoke: String,
+    drink: String,
+    hobbies: String,
+    physicalConditions: String,
+    childhoodIllnesses: String
+});
 const schema = new mongoose.Schema({
     email: {
         type: String,
@@ -76,6 +89,7 @@ const schema = new mongoose.Schema({
     quiz3: Quiz3Schema,
     quiz4: Quiz4Schema,
     quiz5: Quiz5Schema,
+    reg1: reg1Schema,
     completed: {
         type: Boolean,
         required: false,

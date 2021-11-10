@@ -70,6 +70,19 @@ Register.post('/register', async (req, res) => {
         lastQ: 0,
         finished: false
     }
+    user.reg1 = {
+        dob: null,
+        weight: null,
+        height: null,
+        glasses: null,
+        nationality: null,
+        religion: null,
+        smoke: null,
+        drink: null,
+        hobbies: null,
+        physicalConditions: null,
+        childhoodIllnesses: null
+    }
     await user.save()
         .then(resp => {
             return res.json({ success: true });

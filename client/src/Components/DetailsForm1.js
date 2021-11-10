@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, useTheme, OutlinedInput, FormControlLabel, Radio, RadioGroup, Select, MenuItem } from "@material-ui/core";
-import { useStyles } from "./Styles/FormStyles.js";
+import { useStyles } from "./Styles/FormStyles1.js";
 import DateFnsUtils from '@date-io/date-fns';
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import Loader from "./Loader.js";
+import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 
 const DetailsForm1 = () => {
@@ -40,22 +41,35 @@ const DetailsForm1 = () => {
         });
         return listOfRels;
     }
+    useEffect(() => {
+        document.querySelector(".loading").style.display = "none";
+    }, [])
     const submitForm = () => {
-        console.log(weight);
-        console.log(selectedDate.toString());
-        console.log(height);
-        console.log(glasses);
-        console.log(nat);
-        console.log(phyCon);
-        console.log(hobbies);
-        console.log(smoke);
-        console.log(drink);
-        console.log(listOfIllnesses);
         setLoader(true);
-
-        setTimeout(() => {
-            history.push("/details2");
-        }, 500)
+        let data = {
+            email: localStorage.getItem("email"),
+            dob: selectedDate.toString(),
+            weight,
+            height,
+            glasses,
+            nationality: nat,
+            religion: rel,
+            smoke,
+            drink,
+            hobbies,
+            physicalConditions: phyCon,
+            childhoodIllnesses: listOfIllnesses
+        }
+        axios.post('http://localhost:5000/register-details1', data)
+            .then(res => {
+                if (res.data.success === true) {
+                    setLoader(false);
+                    history.push('/register-details2');
+                }
+            })
+            .catch(e => {
+                console.log(e);
+            })
     }
 
 

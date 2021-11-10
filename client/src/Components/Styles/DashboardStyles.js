@@ -122,7 +122,8 @@ export const useStyles = makeStyles((theme) => ({
         fontSize: '1.3rem',
         padding: '20px 20px',
         zIndex: '100',
-        borderRadius: '10px',
+        borderRadius: '10px 5px 5px 10px',
+        boxShadow: "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
         top: 70,
         color: '#fff'
     },

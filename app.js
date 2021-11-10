@@ -13,6 +13,7 @@ const Quiz3 = require("./routes/Quiz3.js");
 const Quiz4 = require("./routes/Quiz4.js");
 const Quiz5 = require("./routes/Quiz5.js");
 const Dashboard = require('./routes/Dashboard.js');
+const RegisterDetails1 = require('./routes/RegDetails1');
 const helmet = require('helmet');
 const path = require('path');
 
@@ -29,7 +30,8 @@ app.use('/', Quiz5);
 app.use('/', Register);
 app.use('/', Login);
 app.use('/', ResetPassword);
-app.use('/', Dashboard)
+app.use('/', Dashboard);
+app.use('/', RegisterDetails1);
 dotenv.config();
 port = process.env.PORT || 5000;
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { Grid } from "@material-ui/core";
 import Loader from './Loader.js';
@@ -17,6 +17,10 @@ const Register = () => {
     const [loginMessage, setLoginMessage] = useState(false);
     const [hideSubmit, setHideSubmit] = useState(false);
     const history = useHistory();
+
+    useEffect(() => {
+        document.querySelector(".loading").style.display="none";
+    }, [])
 
     const handleName = (e) => {
         setName(e.target.value);
@@ -43,10 +47,11 @@ const Register = () => {
         else {
             setBlankField(false);
             const sendData = { email, name, password };
-            axios.post('https://self-growth-questionaire.herokuapp.com/register', sendData)
+            axios.post('http://localhost:5000/register', sendData)
                 .then(res => {
                     if (res.data.success === true) {
                         localStorage.setItem('token', res.data.token);
+                        localStorage.setItem('email', email);
                         setLoading(false);
                         setLoginMessage(true);
                         setTimeout(() => {

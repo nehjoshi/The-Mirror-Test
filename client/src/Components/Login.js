@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { Grid } from "@material-ui/core";
 import Loader from './Loader.js';
@@ -15,6 +15,11 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const [hideSubmit, setHideSubmit] = useState(false);
     const history = useHistory();
+
+    useEffect(() => {
+        document.querySelector(".loading").style.display="none";
+    }, []);
+
     const handleEmail = (e) => {
         setEmail(e.target.value);
     }
