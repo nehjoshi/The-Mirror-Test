@@ -7,6 +7,16 @@ const DetailsForm2 = () => {
     const classes = useStyles(theme);
     const [q1, setQ1] = useState(5);
     const [q2, setQ2] = useState(5);
+    const [q3, setQ3] = useState(5);
+    const [q4, setQ4] = useState(5);
+    const [q5, setQ5] = useState(5);
+    const [q6, setQ6] = useState(5);
+    const [q7, setQ7] = useState(5);
+    const [q8, setQ8] = useState(5);
+    const [q9, setQ9] = useState(5);
+    const [q10, setQ10] = useState(5);
+    const [q11, setQ11] = useState(5);
+    const [q12, setQ12] = useState(5);
 
     useEffect(() => {
         document.querySelector(".loading").style.display = "none";
@@ -15,6 +25,16 @@ const DetailsForm2 = () => {
     const submitForm = () => {
         console.log(q1);
         console.log(q2);
+        console.log(q3);
+        console.log(q4);
+        console.log(q5);
+        console.log(q6);
+        console.log(q7);
+        console.log(q8);
+        console.log(q9);
+        console.log(q10);
+        console.log(q11);
+        console.log(q12);
     }
     const marks = [
         {
@@ -64,6 +84,36 @@ const DetailsForm2 = () => {
             case 2:
                 setQ2(value);
                 break;
+            case 3:
+                setQ3(value);
+                break;
+            case 4:
+                setQ4(value);
+                break;
+            case 5:
+                setQ5(value);
+                break;
+            case 6:
+                setQ6(value);
+                break;
+            case 7:
+                setQ7(value);
+                break;
+            case 8:
+                setQ8(value);
+                break;
+            case 9:
+                setQ9(value);
+                break;
+            case 10:
+                setQ10(value);
+                break;
+            case 11:
+                setQ11(value);
+                break;
+            case 12:
+                setQ12(value);
+                break;
             default:
                 break;
         }
@@ -103,52 +153,52 @@ const DetailsForm2 = () => {
 
                     <p className={`${classes.subheading} ${classes.label}`}>I have weaknesses.</p>
                     <div className={classes.sliderWrapper}>
-                        {GenSlider()}
+                        {GenSlider(3)}
                     </div><br />
 
                     <p className={`${classes.subheading} ${classes.label}`}>I never lie</p>
                     <div className={classes.sliderWrapper}>
-                        {GenSlider()}
+                        {GenSlider(4)}
                     </div><br />
 
                     <p className={`${classes.subheading} ${classes.label}`}>I would rather go out than read a book.</p>
                     <div className={classes.sliderWrapper}>
-                        {GenSlider()}
+                        {GenSlider(5)}
                     </div><br />
 
                     <p className={`${classes.subheading} ${classes.label}`}>I have issues in paying attention/concentrating on things. </p>
                     <div className={classes.sliderWrapper}>
-                        {GenSlider()}
+                        {GenSlider(6)}
                     </div><br />
 
                     <p className={`${classes.subheading} ${classes.label}`}>I like to sit quietly.</p>
                     <div className={classes.sliderWrapper}>
-                        {GenSlider()}
+                        {GenSlider(7)}
                     </div><br />
 
                     <p className={`${classes.subheading} ${classes.label}`}>Reading books (other than academics) has played a major role in my life. </p>
                     <div className={classes.sliderWrapper}>
-                        {GenSlider()}
+                        {GenSlider(8)}
                     </div><br />
 
                     <p className={`${classes.subheading} ${classes.label}`}>I believe everything is fair in love and getting success.</p>
                     <div className={classes.sliderWrapper}>
-                        {GenSlider()}
+                        {GenSlider(9)}
                     </div><br />
 
                     <p className={`${classes.subheading} ${classes.label}`}>I value relationships more than my self-esteem.</p>
                     <div className={classes.sliderWrapper}>
-                        {GenSlider()}
+                        {GenSlider(10)}
                     </div><br />
 
                     <p className={`${classes.subheading} ${classes.label}`}>Destiny decides everything, we are merely its tools.</p>
                     <div className={classes.sliderWrapper}>
-                        {GenSlider()}
+                        {GenSlider(11)}
                     </div><br />
 
                     <p className={`${classes.subheading} ${classes.label}`}>My life will be filled with happiness forever after finding my soulmate.</p>
                     <div className={classes.sliderWrapper}>
-                        {GenSlider()}
+                        {GenSlider(12)}
                     </div>
 
                     <div className={classes.button} onClick={submitForm}>

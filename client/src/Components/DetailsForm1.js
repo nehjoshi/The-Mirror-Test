@@ -22,6 +22,7 @@ const DetailsForm1 = () => {
     const [hobbies, setHobbies] = useState(null);
     const [illness, setIllness] = useState(null);
     const [listOfIllnesses, setListOfIllnesses] = useState(null);
+    const [errorMessage, setErrorMessage] = useState(false);
     const [loader, setLoader] = useState(false);
     const history = useHistory();
 
@@ -46,9 +47,10 @@ const DetailsForm1 = () => {
     }, [])
     const submitForm = () => {
         setLoader(true);
+        setErrorMessage(false);
         let data = {
             email: localStorage.getItem("email"),
-            dob: selectedDate.toString(),
+            dob: selectedDate,
             weight,
             height,
             glasses,
@@ -60,7 +62,14 @@ const DetailsForm1 = () => {
             physicalConditions: phyCon,
             childhoodIllnesses: listOfIllnesses
         }
-        axios.post('http://localhost:5000/register-details1', data)
+        for (let key in data) {
+            if (data[key] === null && key !== "physicalConditions" && key !== "childhoodIllnesses") {
+                setLoader(false);
+                setErrorMessage(true);
+                return;
+            }
+        }
+        axios.post('https://self-growth-questionaire.herokuapp.com/register-details1', data)
             .then(res => {
                 if (res.data.success === true) {
                     setLoader(false);
@@ -213,6 +222,7 @@ const DetailsForm1 = () => {
                                     Go to Part 2 &nbsp;<i class="fas fa-chevron-right" className={classes.arrow}></i>
                                 </div>
                             }
+                            {errorMessage && <p className={classes.error}>Please fill out all the fields</p>}
                             {loader && <Loader />}
 
                         </div>

@@ -28,7 +28,7 @@ router.post('/register-details1', async (req, res) => {
     } = req.body;
 
     user.reg1 = {
-        dob,
+        dob: dob.toString(),
         weight,
         height,
         glasses,

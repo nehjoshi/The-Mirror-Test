@@ -18,6 +18,7 @@ export const useStyles = makeStyles((theme) => ({
         minHeight: '80vh',
         width: '85%',
         background: "#fff",
+        boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
         display: 'flex',
         flexDirection: 'column',
         padding: '50px 50px',
@@ -109,5 +110,10 @@ export const useStyles = makeStyles((theme) => ({
     },
     sliderWrapper: {
         width: '80%'
+    },
+    error: {
+        color: 'red',
+        textAlign: 'center',
+        marginTop: '10px'
     }
 }))
