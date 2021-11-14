@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Grid, useTheme, Slider } from "@material-ui/core";
 import { useStyles } from "./Styles/FormStyles2.js";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const DetailsForm2 = () => {
     const theme = useTheme();
@@ -17,24 +19,20 @@ const DetailsForm2 = () => {
     const [q10, setQ10] = useState(5);
     const [q11, setQ11] = useState(5);
     const [q12, setQ12] = useState(5);
+    const history = useHistory();
 
     useEffect(() => {
         document.querySelector(".loading").style.display = "none";
     }, [])
 
     const submitForm = () => {
-        console.log(q1);
-        console.log(q2);
-        console.log(q3);
-        console.log(q4);
-        console.log(q5);
-        console.log(q6);
-        console.log(q7);
-        console.log(q8);
-        console.log(q9);
-        console.log(q10);
-        console.log(q11);
-        console.log(q12);
+        const data = { q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, email: localStorage.getItem("email") };
+        axios.post("https://self-growth-questionaire.herokuapp.com/register-details2", data)
+            .then(res => {
+                if (res.data.success) {
+                    history.push("/dashboard");
+                }
+            })
     }
     const marks = [
         {

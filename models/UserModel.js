@@ -68,6 +68,20 @@ const reg1Schema = new mongoose.Schema({
     physicalConditions: String,
     childhoodIllnesses: String
 });
+const reg2Schema = new mongoose.Schema({
+    q1: Number,
+    q2: Number,
+    q3: Number,
+    q4: Number,
+    q5: Number,
+    q6: Number,
+    q7: Number,
+    q8: Number,
+    q9: Number,
+    q10: Number,
+    q11: Number,
+    q12: Number,
+})
 const schema = new mongoose.Schema({
     email: {
         type: String,
@@ -90,6 +104,7 @@ const schema = new mongoose.Schema({
     quiz4: Quiz4Schema,
     quiz5: Quiz5Schema,
     reg1: reg1Schema,
+    reg2: reg2Schema,
     completed: {
         type: Boolean,
         required: false,

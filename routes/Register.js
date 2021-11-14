@@ -82,7 +82,21 @@ Register.post('/register', async (req, res) => {
         hobbies: null,
         physicalConditions: null,
         childhoodIllnesses: null
-    }
+    };
+    user.reg2 = {
+        q1: null,
+        q2: null,
+        q3: null,
+        q4: null,
+        q5: null,
+        q6: null,
+        q7: null,
+        q8: null,
+        q9: null,
+        q10: null,
+        q11: null,
+        q12: null
+    };
     await user.save()
         .then(resp => {
             return res.json({ success: true });
