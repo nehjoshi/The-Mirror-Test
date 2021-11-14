@@ -29,7 +29,7 @@ const Dashboard = () => {
       })
       .then((res) => {
         if (res.data.auth === true) {
-          axios.get(`http://localhost:5000/fetch/${localStorage.getItem("email")}`)
+          axios.get(`https://self-growth-questionaire.herokuapp.com/fetch/${localStorage.getItem("email")}`)
             .then(res => {
               console.log(res.data);
               setData(res.data);
