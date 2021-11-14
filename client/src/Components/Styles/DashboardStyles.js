@@ -136,5 +136,70 @@ export const useStyles = makeStyles((theme) => ({
             textDecoration: 'underline'
         }
     },
+    hr: {
+        border: '0.1px solid #DFE0DF',
+        width: '100%',
+        margin: "10px auto"
+    },
+    result: {
+        backgroundColor: "#FFF9EE",
+        width: "80%",
+        display: 'flex',
+        flexDirection: 'column',
+        margin: '0 auto',
+        marginBottom: '20px',
+        boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+        borderRadius: '5px',
+        [theme.breakpoints.down("sm")]: {
+            width: '90%'
+        }
+    },
+    resultHeading: {
+        fontSize: '3.5rem',
+        fontWeight: '900',
+        margin: '10px auto',
+        textAlign: 'center',
+        color: "#006977"
+    },
+    resultP: {
+        fontSize: '1.5rem',
+        width: '80%',
+        margin: '10px auto',
+        color: "#212121",
+        [theme.breakpoints.down("sm")]: {
+            width: '90%',
+            fontSize: '1.2rem'
+        }
+    },
+    resultBtn: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#006977',
+        width: "fit-content",
+        margin: '10px auto',
+        marginBottom: "20px",
+        fontSize: '1.5rem',
+        padding: '8px 40px',
+        boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
+        color: '#fff',
+        cursor: "pointer",
+        borderRadius: '40px',
+        transition: '0.2s all ease',
+        "&:hover": {
+            backgroundColor: '#003840',
+        },
+        [theme.breakpoints.down("sm")]: {
+            fontSize: '1.2rem',
+        }
+    },
+    resultBtnDisabled: {
+        backgroundColor: '#006977',
+        cursor: 'not-allowed',
+        opacity: '0.5',
+        "&:hover": {
+            backgroundColor: '#006977',
+        },
+    }
 
 }))

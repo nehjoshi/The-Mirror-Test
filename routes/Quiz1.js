@@ -10,7 +10,7 @@ Quiz1.post("/quiz1", async (req, res) => {
     result += ans;
     user.quiz1 = {
         result: result,
-        lastQ: user.quiz1.lastQ+1,
+        lastQ: qno,
         finished: done ? true : false
     }
     await user.save()

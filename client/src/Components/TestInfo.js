@@ -49,9 +49,10 @@ const useStyles = makeStyles(() => ({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: '20px',
-        padding: '5px 50px',
+        padding: '5px 60px',
         textTransform: 'uppercase',
         backgroundColor: '#ffcb3b',
+        boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         color: 'black',
         fontSize: '1.4rem',
         "&:hover": {

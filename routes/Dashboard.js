@@ -14,7 +14,7 @@ router.get("/fetch/:email", async (req, res) => {
     const done4 = user.quiz4.finished;
     const done5 = user.quiz5.finished;
     let finished = false;
-    if (done1===done2===done3===done4===done5===true){
+    if (done1===true && done2===true && done3===true && done4===true && done5===true) {
         finished = true;
     }
     const dataToSend = {

@@ -74,7 +74,7 @@ const Quiz5_23 = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push('/results');
+                        history.push('/dashboard');
                     }, 250);
                 }
             })

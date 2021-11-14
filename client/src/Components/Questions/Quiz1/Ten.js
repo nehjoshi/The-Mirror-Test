@@ -61,7 +61,7 @@ const Ten = () => {
             ease: Power2.easeOut,
           });
           setTimeout(() => {
-            history.push("/instructions2");
+            history.push("/dashboard");
           }, 250);
         }
       })

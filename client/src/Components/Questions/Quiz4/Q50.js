@@ -63,7 +63,7 @@ const Quiz4_50 = () => {
                         ease: Power2.easeOut,
                     });
                     setTimeout(() => {
-                        history.push("/instructions5");
+                        history.push("/dashboard");
                     }, 250);
                 }
             })
