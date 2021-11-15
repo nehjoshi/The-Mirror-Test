@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Grid, makeStyles, useTheme } from "@material-ui/core";
 import axios from "axios";
-import { gsap, Power2 } from "gsap";
+// import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
 // import { useStyles } from "./Questions/Quiz5/QuestionStyles.js"; //We can just use the same question styles for the wrapper
 import { PDFDownloadLink } from '@react-pdf/renderer';
@@ -66,50 +66,49 @@ const Results = () => {
           setResultACE(localStorage.getItem("result"));
           setResultOpt(localStorage.getItem("result2"));
           setResultPERMA(localStorage.getItem("PERMA"));
-          gsap.to(loadingRef1.current, {
-            top: -50,
-            position: "relative",
-            opacity: 0,
-            ease: Power2.easeIn,
-            delay: 0.5,
-            display: "none",
-            duration: 0.2,
-          });
-          gsap.to(loadingRef2.current, {
-            top: 0,
-            opacity: 1,
-            display: "block",
-            duration: 0.2,
-            delay: 0.7,
-          });
-          gsap.to(loadingRef2.current, {
-            top: -50,
-            opacity: 0,
-            duration: 0.2,
-            delay: 2.7,
-            display: "none",
-            ease: Power2.easeIn,
-          });
-          gsap.to(loadingRef3.current, {
-            top: 0,
-            opacity: 1,
-            duration: 0.2,
-            delay: 2.9,
-            display: "block",
-            ease: Power2.easeIn,
-          });
-
-          gsap.to(loadingRef3.current, {
-            top: -50,
-            opacity: 0,
-            duration: 0.2,
-            display: "none",
-            delay: 5,
-            ease: Power2.easeIn,
-          });
+          // gsap.to(loadingRef1.current, {
+          //   top: -50,
+          //   position: "relative",
+          //   opacity: 0,
+          //   ease: Power2.easeIn,
+          //   delay: 0.5,
+          //   display: "none",
+          //   duration: 0.2,
+          // });
+          // gsap.to(loadingRef2.current, {
+          //   top: 0,
+          //   opacity: 1,
+          //   display: "block",
+          //   duration: 0.2,
+          //   delay: 0.7,
+          // });
+          // gsap.to(loadingRef2.current, {
+          //   top: -50,
+          //   opacity: 0,
+          //   duration: 0.2,
+          //   delay: 2.7,
+          //   display: "none",
+          //   ease: Power2.easeIn,
+          // });
+          // gsap.to(loadingRef3.current, {
+          //   top: 0,
+          //   opacity: 1,
+          //   duration: 0.2,
+          //   delay: 2.9,
+          //   display: "block",
+          //   ease: Power2.easeIn,
+          // });
+          // gsap.to(loadingRef3.current, {
+          //   top: -50,
+          //   opacity: 0,
+          //   duration: 0.2,
+          //   display: "none",
+          //   delay: 5,
+          //   ease: Power2.easeIn,
+          // });
           setTimeout(() => {
             setLoading(false);
-          }, 6000)
+          }, 100)
         } else {
           history.push("/");
         }
@@ -164,7 +163,7 @@ const Results = () => {
           Your PERMA Score is {resultPERMA}.<br />
         </p>
         <PDFDownloadLink document={<ResultPDF />} fileName="Results.pdf">
-          {({ blob, url, loading, error }) => (loading ? 'Loading document...' : <div className={classes.button} >Download Results</div>)}
+          {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}
         </PDFDownloadLink>
       </Grid>
     </Grid>

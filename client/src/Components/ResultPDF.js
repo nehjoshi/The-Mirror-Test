@@ -1,15 +1,18 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet, Image, Font } from '@react-pdf/renderer';
-import Buddha from '../Images/buddha.png'
+import { Page, Text, View, Document, StyleSheet, Font } from '@react-pdf/renderer';
 import font from '../fonts/Lato-Regular.ttf';
+import fontBlack from '../fonts/Lato-Black.ttf';
 
-Font.register({family: 'Lato', src: font});
+Font.register({ family: 'Lato', src: font });
+Font.register({ family: 'LatoBlack', src: fontBlack });
 const styles = StyleSheet.create({
     page: {
         fontFamily: 'Lato'
     },
     section: {
         width: '100%',
+        height: "10%",
+        backgroundColor: "#320488",
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -19,121 +22,76 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: '20px',
         top: '20px'
-    },  
+    },
     heading: {
         fontSize: '25px',
         textAlign: 'center',
         marginTop: '10px',
-        fontWeight: '900',
+        fontFamily: 'LatoBlack',
+        color: "#fff"
     },
-    hr: {
-        width: '400px',
-        height: '1px',
-        marginTop: '10',
-        display: 'block',
-        backgroundColor: 'gray'
+    details: {
+        width: '100%',
+        padding: "30px 20px"
     },
-    date: {
-        position: 'absolute',
-        right: '20px',
-        top: '60px',
-        fontSize: '10px'
+    detailsHeading: {
+        fontSize: '20px',
+        color: "#121212",
+        fontFamily: 'LatoBlack'
     },
-    name: {
-        position: 'absolute',
-        right: '20px',
-        top: '80px',
-        fontSize: '10px'
-    },  
-    gender: {
-        position: 'absolute',
-        right: '20px',
-        top: '100px',
-        fontSize: '10px'
-    },  
-    nation: {
-        position: 'absolute',
-        right: '20px',
-        top: '120px',
-        fontSize: '10px'
-    },  
-    part: {
+    detailsBox: {
+        width: '90%',
+        // border: '1px solid #320488',
         display: 'flex',
         flexDirection: 'column',
-        marginLeft: '20px',
-        border: '1px solid #e0e0d1',
-        borderRadius: '5px',
-        width: '400px',
-        marginTop: '5px',
-        marginBottom: '5px'
+        marginLeft: 30,
+        marginRight: 20,
+        marginTop: 20
     },
-    headingPart1: {
-        marginTop: '40px',
-        marginLeft: '20px'
+    boxRow: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: "5px 5px",
+        borderBottom: '1px solid #cccccc'
     },
-    headingPart: {
-        marginTop: '20px',
-        marginLeft: '20px'
+    boxField: {
+        fontSize: '15px',
+        fontFamily: 'LatoBlack',
+        color: "#121212"
     },
-    score: {
-        fontSize: '14px',
-        marginLeft: '20px',
-        color: '#636363',
-        marginTop: '5px'
-    },
-    imgLogo: {
-        height: '40px',
-        position: 'absolute',
-        left: '20px',
+    boxValue: {
+        fontSize: '15px',
     }
 });
-
-const getDate = () => {
-    let today = new Date().toLocaleDateString()
-    return today;
-}
 
 const ResultPDF = () => (
     <Document>
         <Page size="A4" style={styles.page}>
             <View style={styles.section}>
-                <Image src={Buddha} style={styles.imgLogo} />
                 <Text style={styles.heading}>Jivan Safalya | The Mirror Test</Text>
-                <Text style={styles.date}>Date of Test: {getDate()}</Text>
-                <Text style={styles.name}>Name: {localStorage.getItem("name")}</Text>
-                <Text style={styles.gender}>Gender: Male</Text>
-                <Text style={styles.nation}>Nationality: British</Text>
-                <View style={styles.hr}></View>
             </View>
-            <View style={styles.part}>
-                <Text style={styles.headingPart1}>Part 1: Adverse Childhood Experience (ACE)</Text>
-                <Text style={styles.score}>Your ACE Score is: {localStorage.getItem("result")}</Text>
-            </View>
-            <View style={styles.part}>
-                <Text style={styles.headingPart}>Part 2: Attachment Style</Text>
-                <Text style={styles.score}>Your attachment style is: {localStorage.getItem("result2")}</Text>
-            </View>
-            <View style={styles.part}>
-                <Text style={styles.headingPart}>Part 3: Optimism</Text>
-                <Text style={styles.score}>Your optimism Score is: {localStorage.getItem("optScore")}</Text>
-                <Text style={styles.score}>{localStorage.getItem("optDesc")}</Text>
-                <Text style={styles.score}>Your hope Score is: {localStorage.getItem("hopeScore")}</Text>
-                <Text style={styles.score}>{localStorage.getItem("hopeDesc")}</Text>
-                <Text style={styles.score}>Your self-esteem Score is: {localStorage.getItem("esteemScore")}</Text>
-                <Text style={styles.score}>{localStorage.getItem("esteemDesc")}</Text>
-            </View>
-            <View style={styles.part}>
-                <Text style={styles.headingPart}>Part 4: Big Five Personality (BFT) Test</Text>
-                <Text style={styles.score}>Your extraversion score is: {localStorage.getItem("e")}</Text>
-                <Text style={styles.score}>Your agreeableness score is: {localStorage.getItem("a")}</Text>
-                <Text style={styles.score}>Your conscientiousness score is: {localStorage.getItem("c")}</Text>
-                <Text style={styles.score}>Your neuroticism score is: {localStorage.getItem("n")}</Text>
-                <Text style={styles.score}>Your openess score is: {localStorage.getItem("o")}</Text>
-            </View>
-            <View style={styles.part}>
-                <Text style={styles.headingPart}>Part 5: PERMA Profiler Test</Text>
-                <Text style={styles.score}>Your PERMA score is: {localStorage.getItem("PERMA")}</Text>
- 
+            <View style={styles.details}>
+                <Text style={styles.detailsHeading}>Basic Details</Text>
+                <View style={styles.detailsBox}>
+                    <View style={styles.boxRow}>
+                        <Text style={styles.boxField}>Name</Text>
+                        <Text style={styles.boxValue}>Neh Samir Joshi</Text>
+                    </View>
+                    <View style={styles.boxRow}>
+                        <Text style={styles.boxField}>Nationality</Text>
+                        <Text style={styles.boxValue}>British</Text>
+                    </View>
+                    <View style={styles.boxRow}>
+                        <Text style={styles.boxField}>Religion</Text>
+                        <Text style={styles.boxValue}>Hindu</Text>
+                    </View>
+                    <View style={styles.boxRow}>
+                        <Text style={styles.boxField}>Date of Birth</Text>
+                        <Text style={styles.boxValue}>05/03/2002</Text>
+                    </View>
+                    
+                </View>
             </View>
         </Page>
     </Document>
