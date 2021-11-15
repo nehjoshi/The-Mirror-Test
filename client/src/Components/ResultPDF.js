@@ -94,6 +94,27 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderTop: '0.5px solid #cccccc',
     },
+    smallHeading: {
+        fontSize: '14px',
+        fontFamily: 'LatoBlack',
+        color: "#121212",
+    },
+    result: {
+        color: "#090069",
+        fontFamily: 'LatoBlack',
+        fontSize: '13px',
+        marginTop: '10px',
+        marginLeft: '10px',
+        textDecoration: 'underline'
+    },
+    resultDesc: {
+        color: "#4a4a4a",
+        fontFamily: 'Lato',
+        fontSize: '13px',
+        marginTop: '10px',
+        marginLeft: '10px',
+        marginBottom: "20px"
+    },
     footerText: {
         fontSize: '8px',
         fontFamily: 'Lato',
@@ -153,7 +174,7 @@ const ResultPDF = () => (
                     <Text style={styles.answer}>No</Text>
                 </View>
             </View>
-            <View style = {styles.footer} fixed>
+            <View style={styles.footer} fixed>
                 <Text style={styles.footerText}>Jivan Safalya | The Mirror Test</Text>
             </View>
             <View style={styles.details} break>
@@ -186,7 +207,23 @@ const ResultPDF = () => (
                     <Text style={styles.answer}>10</Text>
                 </View>
             </View>
-            
+            <View style={styles.details} break>
+                <Text style={styles.detailsHeading}>Your Test Results</Text>
+                <View style={styles.detailsBox}>
+                    <Text style={styles.smallHeading}>Part 1: Adverse Childhood Experience (ACE) Score</Text>
+                    <Text style={styles.result}>Your Adverse Childhood Experience Score is 0</Text>
+                    <Text style={styles.resultDesc}>Your ACE score indicates that you have a secure childhood. People with ACE scores
+                        greater than 4 are more likely to commit to drugs and alcohol and have unsuccessful relationships. They are also more prone to committing suicide.</Text>
+
+                    <Text style={styles.smallHeading}>Part 2: Attachment Style</Text>
+                    <Text style={styles.result}>Your Attachment Style is Secure</Text>
+                    <Text style={styles.resultDesc}>A secure attachment style refers to the ability to form secure, loving relationships with others. A securely attached person can trust others and be trusted, love and accept love, and get close to others with relative ease.</Text>
+
+                    <Text style={styles.smallHeading}>Part 3: Optimism</Text>
+                    <Text style={styles.result}>Your optimism score is 5</Text>
+                    <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
+                </View>
+            </View>
         </Page>
     </Document>
 );
