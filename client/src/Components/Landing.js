@@ -3,7 +3,7 @@ import { Grid, useTheme } from '@material-ui/core';
 import { useStyles } from "./Styles/DashboardStyles.js";
 import { Link } from 'react-router-dom';
 import { gsap, Power2 } from "gsap";
-import Logo from "../Images/logo4.png";
+// import Logo from "../Images/logo4.png";
 
 const Landing = () => {
     const theme = useTheme();
@@ -37,7 +37,6 @@ const Landing = () => {
     return (
         <Grid className={classes.wrapper}>
             <Grid container className={classes.landing}>
-                <img src={Logo} className={classes.mainLogo} alt=""/>
                 <h1 className={classes.heading} ref={headingRef}>The Mirror Test</h1>
                 <p className={classes.subheading}>A test to provide a reflection of who you are.</p>
                 <Link to="/login" style={{ margin: '10px 0px' }}><div className={classes.navButton} ref={buttonRef}>Start your journey</div></Link>

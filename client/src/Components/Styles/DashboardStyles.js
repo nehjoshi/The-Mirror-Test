@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 import Bg from "../../Images/bg.jpg";
-import BgBlue from "../../Images/bgLake.jpg";
+import BgBlue from "../../Images/bgLake.webp";
 
 export const useStyles = makeStyles((theme) => ({
     landing: {

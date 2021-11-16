@@ -1,195 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './Components/Home.js';
 import "./App.css";
-import  Intro  from "./Components/Intro.js";
-import Register from './Components/Register.js';
-import Login from './Components/Login.js';
-import One from "./Components/Questions/Quiz1/One.js";
-import Two from "./Components/Questions/Quiz1/Two.js";
-import Three from "./Components/Questions/Quiz1/Three.js";
-import Four from "./Components/Questions/Quiz1/Four.js";
-import Five from "./Components/Questions/Quiz1/Five.js";
-import Six from "./Components/Questions/Quiz1/Six.js";
-import Seven from "./Components/Questions/Quiz1/Seven.js";
-import Eight from "./Components/Questions/Quiz1/Eight.js";
-import Nine from "./Components/Questions/Quiz1/Nine.js";
-import Ten from "./Components/Questions/Quiz1/Ten.js";
-import Results from "./Components/Results.js";
-import Intro2 from "./Components/Intro2.js";
-import Quiz2One from "./Components/Questions/Quiz2/One.js";
-import Quiz2Two from "./Components/Questions/Quiz2/Two.js";
-import Quiz2Three from "./Components/Questions/Quiz2/Three.js";
-import Quiz2Four from "./Components/Questions/Quiz2/Four.js";
-import Quiz2Five from "./Components/Questions/Quiz2/Five.js";
-import Quiz2Six from "./Components/Questions/Quiz2/Six.js";
-import Quiz2Seven from "./Components/Questions/Quiz2/Seven.js";
-import Quiz2Eight from "./Components/Questions/Quiz2/Eight.js";
-import Quiz2Nine from "./Components/Questions/Quiz2/Nine.js";
-import Quiz2Ten from "./Components/Questions/Quiz2/Ten.js";
-import Quiz2Eleven from "./Components/Questions/Quiz2/Eleven.js";
-import Quiz2Twelve from "./Components/Questions/Quiz2/Twelve.js";
-import Quiz2Thirteen from "./Components/Questions/Quiz2/Thirteen.js";
-import Quiz2Fourteen from "./Components/Questions/Quiz2/Fourteen.js";
-import Quiz2Fifteen from "./Components/Questions/Quiz2/Fifteen.js";
-import Quiz2Sixteen from "./Components/Questions/Quiz2/Sixteen.js";
-import Quiz2Seventeen from "./Components/Questions/Quiz2/Seventeen.js";
-import Quiz2Eighteen from "./Components/Questions/Quiz2/Eighteen.js";
-import Quiz2Nineteen from "./Components/Questions/Quiz2/Nineteen.js";
-import Quiz2Twenty from "./Components/Questions/Quiz2/Twenty.js";
-import Quiz2TwentyOne from "./Components/Questions/Quiz2/TwentyOne.js";
-import Quiz2TwentyTwo from "./Components/Questions/Quiz2/TwentyTwo.js";
-import Quiz2TwentyThree from "./Components/Questions/Quiz2/TwentyThree.js";
-import Quiz2TwentyFour from "./Components/Questions/Quiz2/TwentyFour.js";
-import Quiz2TwentyFive from "./Components/Questions/Quiz2/TwentyFive.js";
-import Quiz2TwentySix from "./Components/Questions/Quiz2/TwentySix.js";
-import Quiz2TwentySeven from "./Components/Questions/Quiz2/TwentySeven.js";
-import Quiz2TwentyEight from "./Components/Questions/Quiz2/TwentyEight.js";
-import Quiz2TwentyNine from "./Components/Questions/Quiz2/TwentyNine.js";
-import Quiz2Thirty from "./Components/Questions/Quiz2/Thirty.js";
-import Quiz2ThirtyOne from "./Components/Questions/Quiz2/ThirtyOne.js";
-import Quiz2ThirtyTwo from "./Components/Questions/Quiz2/ThirtyTwo.js";
-import Quiz2ThirtyThree from "./Components/Questions/Quiz2/ThirtyThree.js";
-import Quiz2ThirtyFour from "./Components/Questions/Quiz2/ThirtyFour.js";
-import Quiz2ThirtyFive from "./Components/Questions/Quiz2/ThirtyFive.js";
-import Quiz2ThirtySix from "./Components/Questions/Quiz2/ThirtySix.js";
-import Quiz2ThirtySeven from "./Components/Questions/Quiz2/ThirtySeven.js";
-import Quiz2ThirtyEight from "./Components/Questions/Quiz2/ThirtyEight.js";
-import Quiz2ThirtyNine from "./Components/Questions/Quiz2/ThirtyNine.js";
-import Quiz2Fourty from "./Components/Questions/Quiz2/Fourty.js";
-import Intro3 from './Components/Intro3.js';
-import Quiz3_1 from "./Components/Questions/Quiz3/Q1.js";
-import Quiz3_2 from "./Components/Questions/Quiz3/Q2.js";
-import Quiz3_3 from "./Components/Questions/Quiz3/Q3.js";
-import Quiz3_4 from "./Components/Questions/Quiz3/Q4.js";
-import Quiz3_5 from "./Components/Questions/Quiz3/Q5.js";
-import Quiz3_6 from "./Components/Questions/Quiz3/Q6.js";
-import Quiz3_7 from "./Components/Questions/Quiz3/Q7.js";
-import Quiz3_8 from "./Components/Questions/Quiz3/Q8.js";
-import Quiz3_9 from "./Components/Questions/Quiz3/Q9.js";
-import Quiz3_10 from "./Components/Questions/Quiz3/Q10.js";
-import Quiz3_11 from "./Components/Questions/Quiz3/Q11.js";
-import Quiz3_12 from "./Components/Questions/Quiz3/Q12.js";
-import Quiz3_13 from "./Components/Questions/Quiz3/Q13.js";
-import Quiz3_14 from "./Components/Questions/Quiz3/Q14.js";
-import Quiz3_15 from "./Components/Questions/Quiz3/Q15.js";
-import Quiz3_16 from "./Components/Questions/Quiz3/Q16.js";
-import Quiz3_17 from "./Components/Questions/Quiz3/Q17.js";
-import Quiz3_18 from "./Components/Questions/Quiz3/Q18.js";
-import Quiz3_19 from "./Components/Questions/Quiz3/Q19.js";
-import Quiz3_20 from "./Components/Questions/Quiz3/Q20.js";
-import Quiz3_21 from "./Components/Questions/Quiz3/Q21.js";
-import Quiz3_22 from "./Components/Questions/Quiz3/Q22.js";
-import Quiz3_23 from "./Components/Questions/Quiz3/Q23.js";
-import Quiz3_24 from "./Components/Questions/Quiz3/Q24.js";
-import Quiz3_25 from "./Components/Questions/Quiz3/Q25.js";
-import Quiz3_26 from "./Components/Questions/Quiz3/Q26.js";
-import Quiz3_27 from "./Components/Questions/Quiz3/Q27.js";
-import Quiz3_28 from "./Components/Questions/Quiz3/Q28.js";
-import Quiz3_29 from "./Components/Questions/Quiz3/Q29.js";
-import Quiz3_30 from "./Components/Questions/Quiz3/Q30.js";
-import Quiz3_31 from "./Components/Questions/Quiz3/Q31.js";
-import Quiz3_32 from "./Components/Questions/Quiz3/Q32.js";
-import Quiz3_33 from "./Components/Questions/Quiz3/Q33.js";
-import Quiz3_34 from "./Components/Questions/Quiz3/Q34.js";
-import Quiz3_35 from "./Components/Questions/Quiz3/Q35.js";
-import Quiz3_36 from "./Components/Questions/Quiz3/Q36.js";
-import Quiz3_37 from "./Components/Questions/Quiz3/Q37.js";
-import Quiz3_38 from "./Components/Questions/Quiz3/Q38.js";
-import Quiz3_39 from "./Components/Questions/Quiz3/Q39.js";
-import Quiz3_40 from "./Components/Questions/Quiz3/Q40.js";
-import Quiz3_41 from "./Components/Questions/Quiz3/Q41.js";
-import Quiz3_42 from "./Components/Questions/Quiz3/Q42.js";
-import Quiz3_43 from "./Components/Questions/Quiz3/Q43.js";
-import Quiz3_44 from "./Components/Questions/Quiz3/Q44.js";
-import Quiz3_45 from "./Components/Questions/Quiz3/Q45.js";
-import Quiz3_46 from "./Components/Questions/Quiz3/Q46.js";
-import Quiz3_47 from "./Components/Questions/Quiz3/Q47.js";
-import Quiz3_48 from "./Components/Questions/Quiz3/Q48.js";
-import Intro4 from "./Components/Intro4.js";
-import Quiz4_1 from "./Components/Questions/Quiz4/Q1.js";
-import Quiz4_2 from "./Components/Questions/Quiz4/Q2.js";
-import Quiz4_3 from "./Components/Questions/Quiz4/Q3.js";
-import Quiz4_4 from "./Components/Questions/Quiz4/Q4.js";
-import Quiz4_5 from "./Components/Questions/Quiz4/Q5.js";
-import Quiz4_6 from "./Components/Questions/Quiz4/Q6.js";
-import Quiz4_7 from "./Components/Questions/Quiz4/Q7.js";
-import Quiz4_8 from "./Components/Questions/Quiz4/Q8.js";
-import Quiz4_9 from "./Components/Questions/Quiz4/Q9.js";
-import Quiz4_10 from "./Components/Questions/Quiz4/Q10.js";
-import Quiz4_11 from "./Components/Questions/Quiz4/Q11.js";
-import Quiz4_12 from "./Components/Questions/Quiz4/Q12.js";
-import Quiz4_13 from "./Components/Questions/Quiz4/Q13.js";
-import Quiz4_14 from "./Components/Questions/Quiz4/Q14.js";
-import Quiz4_15 from "./Components/Questions/Quiz4/Q15.js";
-import Quiz4_16 from "./Components/Questions/Quiz4/Q16.js";
-import Quiz4_17 from "./Components/Questions/Quiz4/Q17.js";
-import Quiz4_18 from "./Components/Questions/Quiz4/Q18.js";
-import Quiz4_19 from "./Components/Questions/Quiz4/Q19.js";
-import Quiz4_20 from "./Components/Questions/Quiz4/Q20.js";
-import Quiz4_21 from "./Components/Questions/Quiz4/Q21.js";
-import Quiz4_22 from "./Components/Questions/Quiz4/Q22.js";
-import Quiz4_23 from "./Components/Questions/Quiz4/Q23.js";
-import Quiz4_24 from "./Components/Questions/Quiz4/Q24.js";
-import Quiz4_25 from "./Components/Questions/Quiz4/Q25.js";
-import Quiz4_26 from "./Components/Questions/Quiz4/Q26.js";
-import Quiz4_27 from "./Components/Questions/Quiz4/Q27.js";
-import Quiz4_28 from "./Components/Questions/Quiz4/Q28.js";
-import Quiz4_29 from "./Components/Questions/Quiz4/Q29.js";
-import Quiz4_30 from "./Components/Questions/Quiz4/Q30.js";
-import Quiz4_31 from "./Components/Questions/Quiz4/Q31.js";
-import Quiz4_32 from "./Components/Questions/Quiz4/Q32.js";
-import Quiz4_33 from "./Components/Questions/Quiz4/Q33.js";
-import Quiz4_34 from "./Components/Questions/Quiz4/Q34.js";
-import Quiz4_35 from "./Components/Questions/Quiz4/Q35.js";
-import Quiz4_36 from "./Components/Questions/Quiz4/Q36.js";
-import Quiz4_37 from "./Components/Questions/Quiz4/Q37.js";
-import Quiz4_38 from "./Components/Questions/Quiz4/Q38.js";
-import Quiz4_39 from "./Components/Questions/Quiz4/Q39.js";
-import Quiz4_40 from "./Components/Questions/Quiz4/Q40.js";
-import Quiz4_41 from "./Components/Questions/Quiz4/Q41.js";
-import Quiz4_42 from "./Components/Questions/Quiz4/Q42.js";
-import Quiz4_43 from "./Components/Questions/Quiz4/Q43.js";
-import Quiz4_44 from "./Components/Questions/Quiz4/Q44.js";
-import Quiz4_45 from "./Components/Questions/Quiz4/Q45.js";
-import Quiz4_46 from "./Components/Questions/Quiz4/Q46.js";
-import Quiz4_47 from "./Components/Questions/Quiz4/Q47.js";
-import Quiz4_48 from "./Components/Questions/Quiz4/Q48.js";
-import Quiz4_49 from "./Components/Questions/Quiz4/Q49.js";
-import Quiz4_50 from "./Components/Questions/Quiz4/Q50.js";
-import Intro5 from "./Components/Intro5.js";
-import Quiz5_1 from "./Components/Questions/Quiz5/Q1.js";
-import Quiz5_2 from "./Components/Questions/Quiz5/Q2.js";
-import Quiz5_3 from "./Components/Questions/Quiz5/Q3.js";
-import Quiz5_4 from "./Components/Questions/Quiz5/Q4.js";
-import Quiz5_5 from "./Components/Questions/Quiz5/Q5.js";
-import Quiz5_6 from "./Components/Questions/Quiz5/Q6.js";
-import Quiz5_7 from "./Components/Questions/Quiz5/Q7.js";
-import Quiz5_8 from "./Components/Questions/Quiz5/Q8.js";
-import Quiz5_9 from "./Components/Questions/Quiz5/Q9.js";
-import Quiz5_10 from "./Components/Questions/Quiz5/Q10.js";
-import Quiz5_11 from "./Components/Questions/Quiz5/Q11.js";
-import Quiz5_12 from "./Components/Questions/Quiz5/Q12.js";
-import Quiz5_13 from "./Components/Questions/Quiz5/Q13.js";
-import Quiz5_14 from "./Components/Questions/Quiz5/Q14.js";
-import Quiz5_15 from "./Components/Questions/Quiz5/Q15.js";
-import Quiz5_16 from "./Components/Questions/Quiz5/Q16.js";
-import Quiz5_17 from "./Components/Questions/Quiz5/Q17.js";
-import Quiz5_18 from "./Components/Questions/Quiz5/Q18.js";
-import Quiz5_19 from "./Components/Questions/Quiz5/Q19.js";
-import Quiz5_20 from "./Components/Questions/Quiz5/Q20.js";
-import Quiz5_21 from "./Components/Questions/Quiz5/Q21.js";
-import Quiz5_22 from "./Components/Questions/Quiz5/Q22.js";
-import Quiz5_23 from "./Components/Questions/Quiz5/Q23.js";
-import ResetPassword from "./Components/ResetPassword.js";
-import NewPassword from "./Components/NewPassword.js";
-import Dashboard from "./Components/Dashboard.js";
-import Landing from "./Components/Landing.js";
-import DetailsForm1 from "./Components/DetailsForm1.js";
-import DetailsForm2 from "./Components/DetailsForm2.js";
-
+import { One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten } from "./Components/Questions/Quiz1";
+import { Quiz2One, Quiz2Two, Quiz2Three, Quiz2Four, Quiz2Five, Quiz2Six, Quiz2Seven, Quiz2Eight, Quiz2Nine, Quiz2Ten, Quiz2Eleven, Quiz2Twelve, Quiz2Thirteen, Quiz2Fourteen, Quiz2Fifteen, Quiz2Sixteen, Quiz2Seventeen, Quiz2Eighteen, Quiz2Nineteen, Quiz2Twenty, Quiz2TwentyOne, Quiz2TwentyTwo, Quiz2TwentyThree, Quiz2TwentyFour, Quiz2TwentyFive, Quiz2TwentySix, Quiz2TwentySeven, Quiz2TwentyEight, Quiz2TwentyNine, Quiz2Thirty, Quiz2ThirtyOne, Quiz2ThirtyTwo, Quiz2ThirtyThree, Quiz2ThirtyFour, Quiz2ThirtyFive, Quiz2ThirtySix, Quiz2ThirtySeven, Quiz2ThirtyEight, Quiz2ThirtyNine, Quiz2Fourty } from "./Components/Questions/Quiz2";
+import { Quiz3_1, Quiz3_2, Quiz3_3, Quiz3_4, Quiz3_5, Quiz3_6, Quiz3_7, Quiz3_8, Quiz3_9, Quiz3_10, Quiz3_11, Quiz3_12, Quiz3_13, Quiz3_14, Quiz3_15, Quiz3_16, Quiz3_17, Quiz3_18, Quiz3_19, Quiz3_20, Quiz3_21, Quiz3_22, Quiz3_23, Quiz3_24, Quiz3_25, Quiz3_26, Quiz3_27, Quiz3_28, Quiz3_29, Quiz3_30, Quiz3_31, Quiz3_32, Quiz3_33, Quiz3_34, Quiz3_35, Quiz3_36, Quiz3_37, Quiz3_38, Quiz3_39, Quiz3_40, Quiz3_41, Quiz3_42, Quiz3_43, Quiz3_44, Quiz3_45, Quiz3_46, Quiz3_47, Quiz3_48 } from "./Components/Questions/Quiz3";
+import { Quiz4_1, Quiz4_2, Quiz4_3, Quiz4_4, Quiz4_5, Quiz4_6, Quiz4_7, Quiz4_8, Quiz4_9, Quiz4_10, Quiz4_11, Quiz4_12, Quiz4_13, Quiz4_14, Quiz4_15, Quiz4_16, Quiz4_17, Quiz4_18, Quiz4_19, Quiz4_20, Quiz4_21, Quiz4_22, Quiz4_23, Quiz4_24, Quiz4_25, Quiz4_26, Quiz4_27, Quiz4_28, Quiz4_29, Quiz4_30, Quiz4_31, Quiz4_32, Quiz4_33, Quiz4_34, Quiz4_35, Quiz4_36, Quiz4_37, Quiz4_38, Quiz4_39, Quiz4_40, Quiz4_41, Quiz4_42, Quiz4_43, Quiz4_44, Quiz4_45, Quiz4_46, Quiz4_47, Quiz4_48, Quiz4_49, Quiz4_50 } from "./Components/Questions/Quiz4/index.js";
+import { Quiz5_1, Quiz5_2, Quiz5_3, Quiz5_4, Quiz5_5, Quiz5_6, Quiz5_7, Quiz5_8, Quiz5_9, Quiz5_10, Quiz5_11, Quiz5_12, Quiz5_13, Quiz5_14, Quiz5_15, Quiz5_16, Quiz5_17, Quiz5_18, Quiz5_19, Quiz5_20, Quiz5_21, Quiz5_22, Quiz5_23 } from "./Components/Questions/Quiz5/index.js";
+import { Home, Intro, Register, Login, Results, Intro2, Intro3, Intro4, Intro5, ResetPassword, NewPassword, Dashboard, Landing, DetailsForm1, DetailsForm2 } from "./Components/index.js";
 const App = () => {
-
   return (
     <Router>
       <Switch>
@@ -201,7 +19,7 @@ const App = () => {
         <Route exact path='/register' component={Register} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/reset_password' component={ResetPassword} />
-        <Route path ='/reset_password/:resetToken' component={NewPassword} />
+        <Route path='/reset_password/:resetToken' component={NewPassword} />
         <Route exact path='/instructions1' component={Intro} />
         <Route exact path='/instructions2' component={Intro2} />
         <Route exact path='/instructions3' component={Intro3} />
@@ -234,7 +52,7 @@ const App = () => {
         <Route exact path='/quiz2/question15' component={Quiz2Fifteen} />
         <Route exact path='/quiz2/question16' component={Quiz2Sixteen} />
         <Route exact path='/quiz2/question17' component={Quiz2Seventeen} />
-        <Route exact path='/quiz2/question18' component={Quiz2Eighteen} /> 
+        <Route exact path='/quiz2/question18' component={Quiz2Eighteen} />
         <Route exact path='/quiz2/question19' component={Quiz2Nineteen} />
         <Route exact path='/quiz2/question20' component={Quiz2Twenty} />
         <Route exact path='/quiz2/question21' component={Quiz2TwentyOne} />
@@ -355,21 +173,21 @@ const App = () => {
         <Route exact path='/quiz4/question48' component={Quiz4_48} />
         <Route exact path='/quiz4/question49' component={Quiz4_49} />
         <Route exact path='/quiz4/question50' component={Quiz4_50} />
-        <Route exact path='/quiz5/question1' component={Quiz5_1} /> 
-        <Route exact path='/quiz5/question2' component={Quiz5_2} /> 
-        <Route exact path='/quiz5/question3' component={Quiz5_3} /> 
-        <Route exact path='/quiz5/question4' component={Quiz5_4} /> 
-        <Route exact path='/quiz5/question5' component={Quiz5_5} /> 
-        <Route exact path='/quiz5/question6' component={Quiz5_6} /> 
-        <Route exact path='/quiz5/question7' component={Quiz5_7} /> 
-        <Route exact path='/quiz5/question8' component={Quiz5_8} /> 
-        <Route exact path='/quiz5/question9' component={Quiz5_9} /> 
-        <Route exact path='/quiz5/question10' component={Quiz5_10} /> 
-        <Route exact path='/quiz5/question11' component={Quiz5_11} /> 
-        <Route exact path='/quiz5/question12' component={Quiz5_12} /> 
-        <Route exact path='/quiz5/question13' component={Quiz5_13} /> 
-        <Route exact path='/quiz5/question14' component={Quiz5_14} /> 
-        <Route exact path='/quiz5/question15' component={Quiz5_15} /> 
+        <Route exact path='/quiz5/question1' component={Quiz5_1} />
+        <Route exact path='/quiz5/question2' component={Quiz5_2} />
+        <Route exact path='/quiz5/question3' component={Quiz5_3} />
+        <Route exact path='/quiz5/question4' component={Quiz5_4} />
+        <Route exact path='/quiz5/question5' component={Quiz5_5} />
+        <Route exact path='/quiz5/question6' component={Quiz5_6} />
+        <Route exact path='/quiz5/question7' component={Quiz5_7} />
+        <Route exact path='/quiz5/question8' component={Quiz5_8} />
+        <Route exact path='/quiz5/question9' component={Quiz5_9} />
+        <Route exact path='/quiz5/question10' component={Quiz5_10} />
+        <Route exact path='/quiz5/question11' component={Quiz5_11} />
+        <Route exact path='/quiz5/question12' component={Quiz5_12} />
+        <Route exact path='/quiz5/question13' component={Quiz5_13} />
+        <Route exact path='/quiz5/question14' component={Quiz5_14} />
+        <Route exact path='/quiz5/question15' component={Quiz5_15} />
         <Route exact path='/quiz5/question16' component={Quiz5_16} />
         <Route exact path='/quiz5/question17' component={Quiz5_17} />
         <Route exact path='/quiz5/question18' component={Quiz5_18} />
