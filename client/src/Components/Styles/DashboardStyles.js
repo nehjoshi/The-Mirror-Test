@@ -17,9 +17,6 @@ export const useStyles = makeStyles((theme) => ({
     },
     mainLogo: {
         position: 'absolute',
-        top: 20,
-        left: 20,
-        display: 'none',
         width: '100px',
         [theme.breakpoints.down("sm")]: {
             width: '70px'
@@ -30,9 +27,6 @@ export const useStyles = makeStyles((theme) => ({
         fontSize: 'clamp(2.6rem, 6.1vw, 6rem)',
         margin: '0px 10px',
         color: '#FFEACE',
-        position: 'relative',
-        opacity: 0,
-        top: -20,
         fontWeight: '900',
         fontFamily: 'Merriweather Sans, sans-serif',
     },
@@ -54,9 +48,7 @@ export const useStyles = makeStyles((theme) => ({
         boxShadow: "1px 2px 5px 0px #272727",
         fontSize: 'clamp(1rem, 1.3vw, 1.2rem)', 
         textTransform: 'uppercase',
-        position: 'relative',
-        opacity: 0,
-        top: 20,
+
         '&:hover': {
             backgroundColor: '#F59432',
             color: '#fff',

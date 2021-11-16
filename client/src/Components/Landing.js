@@ -2,8 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { Grid, useTheme } from '@material-ui/core';
 import { useStyles } from "./Styles/DashboardStyles.js";
 import { Link } from 'react-router-dom';
-import { gsap, Power2 } from "gsap";
-// import Logo from "../Images/logo4.png";
 
 const Landing = () => {
     const theme = useTheme();
@@ -12,27 +10,7 @@ const Landing = () => {
     const buttonRef = useRef(null);
     const lineRef = useRef(null);
     useEffect(() => {
-
         document.querySelector(".loading").style.display="none";
-
-        gsap.to(headingRef.current, {
-            opacity: 1,
-            top: 0,
-            ease: Power2.easeIn,
-            duration: 0.4
-        })
-        gsap.to(buttonRef.current, {
-            opacity: 1,
-            top: 0,
-            ease: Power2.easeIn,
-            duration: 0.4,
-            delay: 0.4
-        })
-        gsap.from(lineRef.current, {
-            width: '10%',
-            duration: 0.4,
-            ease: Power2.easeIn 
-        })
     }, [])
     return (
         <Grid className={classes.wrapper}>
