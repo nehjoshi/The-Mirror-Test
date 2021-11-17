@@ -91,5 +91,4 @@ const verifyToken = async (req, res, next) => {
 app.get("/verify", verifyToken, (req, res) => {});
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
 });
