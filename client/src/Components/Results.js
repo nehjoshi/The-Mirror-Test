@@ -46,66 +46,17 @@ const Results = () => {
   const loadingRef1 = useRef(null);
   const loadingRef2 = useRef(null);
   const loadingRef3 = useRef(null);
-  const [resultACE, setResultACE] = useState(null);
-  const [resultOpt, setResultOpt] = useState(null);
-  const [resultPERMA, setResultPERMA] = useState(null);
-
-
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
 
-    axios
-      .get("https://self-growth-questionaire.herokuapp.com/verify", {
+    axios.get(`https://self-growth-questionaire.herokuapp.com/fetch-result?email=${localStorage.getItem("email")}`, {
         headers: {
           "x-access-token": token,
         },
       })
       .then((res) => {
         if (res.data.auth === true) {
-          setResultACE(localStorage.getItem("result"));
-          setResultOpt(localStorage.getItem("result2"));
-          setResultPERMA(localStorage.getItem("PERMA"));
-          // gsap.to(loadingRef1.current, {
-          //   top: -50,
-          //   position: "relative",
-          //   opacity: 0,
-          //   ease: Power2.easeIn,
-          //   delay: 0.5,
-          //   display: "none",
-          //   duration: 0.2,
-          // });
-          // gsap.to(loadingRef2.current, {
-          //   top: 0,
-          //   opacity: 1,
-          //   display: "block",
-          //   duration: 0.2,
-          //   delay: 0.7,
-          // });
-          // gsap.to(loadingRef2.current, {
-          //   top: -50,
-          //   opacity: 0,
-          //   duration: 0.2,
-          //   delay: 2.7,
-          //   display: "none",
-          //   ease: Power2.easeIn,
-          // });
-          // gsap.to(loadingRef3.current, {
-          //   top: 0,
-          //   opacity: 1,
-          //   duration: 0.2,
-          //   delay: 2.9,
-          //   display: "block",
-          //   ease: Power2.easeIn,
-          // });
-          // gsap.to(loadingRef3.current, {
-          //   top: -50,
-          //   opacity: 0,
-          //   duration: 0.2,
-          //   display: "none",
-          //   delay: 5,
-          //   ease: Power2.easeIn,
-          // });
           setTimeout(() => {
             setLoading(false);
           }, 100)
@@ -117,7 +68,7 @@ const Results = () => {
         
       });
 
-  });
+  }, [history])
 
   return loading ? (
     <Grid container className={classes.wrapper}>
@@ -150,8 +101,8 @@ const Results = () => {
       <Grid item className={classes.box} style={{ opacity: 1, top: 0, left: 0 }}>
         <h1 className={classes.heading}>Results</h1>
         <p className={classes.text}>
-          Your ACE score is {resultACE}.<br />
-          Your Attachment Style is {resultOpt}.<br />
+          Your ACE score is .<br />
+          Your Attachment Style is.<br />
           Your Optimism Score is {localStorage.getItem("optScore")}<br />
           Your Hope Score is {localStorage.getItem("hopeScore")}<br />
           Your Self-esteem score is {localStorage.getItem("esteemScore")}<br />
@@ -160,7 +111,7 @@ const Results = () => {
           Your Conscientiousness score is {localStorage.getItem("c")}<br />
           Your Neuroticism score is {localStorage.getItem("n")}<br />
           Your Openess score is {localStorage.getItem("o")}<br />
-          Your PERMA Score is {resultPERMA}.<br />
+          Your PERMA Score is.<br />
         </p>
         <PDFDownloadLink document={<ResultPDF />} fileName="Results.pdf">
           {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}

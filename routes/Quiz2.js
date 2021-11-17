@@ -28,6 +28,7 @@ Quiz2.post("/quiz2", async (req, res) => {
         result2: result.result2,
         result3: result.result3,
         result4: result.result4,
+        result: "",
         lastQ: user.quiz2.lastQ + 1,
         finished: done ? true : false
     }
@@ -38,18 +39,67 @@ Quiz2.post("/quiz2", async (req, res) => {
         })
 
     if (done === true) {
-        
+        console.log("Finished!")
         const { result1, result2, result3, result4 } = result;
         if (result1 > result2 && result1 > result3 && result1 > result4) {
+            console.log("Secure!");
+            user.quiz2.result = "Secure";
+            await user.save()
+                .then()
+                .catch(e => {
+                    return res.json({ success: false });
+                })
             return res.json({ success: true, result: 'Secure' });
         }
         else if (result2 > result1 && result2 > result3 && result2 > result4) {
+            user.quiz2 = {
+                result1: result.result1,
+                result2: result.result2,
+                result3: result.result3,
+                result4: result.result4,
+                lastQ: user.quiz2.lastQ,
+                result: "Anxious",
+                finished: true
+            }
+            await user.save()
+                .then()
+                .catch(e => {
+                    return res.json({ success: false });
+                })
             return res.json({ success: true, result: 'Anxious' });
         }
         else if (result3 > result1 && result3 > result2 && result3 > result4) {
+            user.quiz2 = {
+                result1: result.result1,
+                result2: result.result2,
+                result3: result.result3,
+                result4: result.result4,
+                lastQ: user.quiz2.lastQ,
+                result: "Avoidant",
+                finished: true
+            }
+            await user.save()
+                .then()
+                .catch(e => {
+                    return res.json({ success: false });
+                })
             return res.json({ success: true, result: 'Avoidant' });
         }
         else if (result4 > result1 && result4 > result3 && result4 > result2) {
+            user.quiz2 = {
+                result1: result.result1,
+                result2: result.result2,
+                result3: result.result3,
+                result4: result.result4,
+                lastQ: user.quiz2.lastQ,
+                result: "Disorganized",
+                finished: true
+            }
+            await user.save()
+                .then()
+                .catch(e => {
+                    return res.json({ success: false });
+                })
             return res.json({ success: true, result: 'Disorganied' });
         }
     }

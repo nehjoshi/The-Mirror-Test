@@ -15,6 +15,7 @@ const Quiz5 = require("./routes/Quiz5.js");
 const Dashboard = require('./routes/Dashboard.js');
 const RegisterDetails1 = require('./routes/RegDetails1');
 const RegisterDetails2 = require('./routes/RegDetails2');
+const FetchResults = require('./routes/FetchResults');
 const helmet = require('helmet');
 const path = require('path');
 
@@ -34,6 +35,7 @@ app.use('/', ResetPassword);
 app.use('/', Dashboard);
 app.use('/', RegisterDetails1);
 app.use('/', RegisterDetails2);
+app.use('/', FetchResults);
 dotenv.config();
 port = process.env.PORT || 5000;
 

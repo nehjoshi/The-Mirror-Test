@@ -103,7 +103,22 @@ Quiz3.post('/quiz3', async (req, res) => {
         else if (esteemScore >= 7) {
             esteemDesc = 'Your have a very low self-esteem.';
         }
-
+        user.quiz3 = {
+            pmb: result.pmb,
+            pvb: result.pvb,
+            psb: result.psb,
+            pmg: result.pmg,
+            pvg: result.pvg,
+            psg: result.psg,
+            optScore, optDesc, hopeScore, hopeDesc, esteemScore, esteemDesc,
+            lastQ: user.quiz3.lastQ,
+            finished: done ? true : false
+        }
+        await user.save()
+        .then()
+        .catch(e => {
+            return res.json({ success: false });
+        })
         return res.json({ success: true, optScore, optDesc, hopeScore, hopeDesc, esteemScore, esteemDesc });
     }
 

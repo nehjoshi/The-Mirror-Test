@@ -17,6 +17,7 @@ const Quiz2Schema = new mongoose.Schema({
     result2: Number,
     result3: Number,
     result4: Number,
+    result: String,
     lastQ: {
         type: Number,
         default: 0

@@ -35,6 +35,7 @@ Register.post('/register', async (req, res) => {
         result2: 0,
         result3: 0,
         result4: 0,
+        result: "",
         lastQ: 0,
         finished: false
     }

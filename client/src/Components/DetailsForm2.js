@@ -29,7 +29,7 @@ const DetailsForm2 = () => {
         const data = { q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, email: localStorage.getItem("email") };
         axios.post("https://self-growth-questionaire.herokuapp.com/register-details2", data)
             .then(res => {
-                if (res.data.success) {
+                if (res.data.success===true) {
                     history.push("/dashboard");
                 }
             })

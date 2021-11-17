@@ -61,7 +61,26 @@ Quiz5.post('/quiz5', async (req, res) => {
     if (done === true) {
 
         let PERMA = (result.P + result.E + result.R + result.M + result.A + result.HAP) / 16;
-        let final = Math.round(PERMA * 100) / 100
+        let final = Math.round(PERMA * 100) / 100;
+        user.quiz5 = {
+            P: result.P,
+            E: result.E,
+            R: result.R,
+            M: result.M,
+            A: result.A,
+            N: result.N,
+            HAP: result.HAP,
+            H: result.H,
+            LON: result.LON,
+            lastQ: user.quiz5.lastQ + 1,
+            finished: done ? true : false,
+            PERMA: final
+        }
+        await user.save()
+            .then()
+            .catch(e => {
+                return res.json({ success: false });
+            })
         return res.json({ success: true, PERMA: final })
     }
 
