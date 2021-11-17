@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const schema = require("../models/UserModel");
 const router = require("express").Router();
-const verifyToken = require("./middleware/VerifyToken");
+const verifyToken = require("../middleware/VerifyToken");
 
 router.get('/fetch-result', verifyToken, async (req, res) => {
     const { email } = req.query;
