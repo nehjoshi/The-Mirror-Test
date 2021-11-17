@@ -44,7 +44,7 @@ const Quiz2Fourty = () => {
         const result3 = parseInt(localStorage.getItem("result3"));
         const result4 = parseInt(localStorage.getItem("result4"));
         const result = { result1, result2, result3, result4 }
-        const data = { ans, result, type: 4, done: true, email: localStorage.getItem("email") }
+        const data = { ans, result, type: 4, done: true, email: localStorage.getItem("email"), qno: 40 }
         axios.post("https://self-growth-questionaire.herokuapp.com/quiz2", data)
             .then((response) => {
                 if (response.data.success === true) {

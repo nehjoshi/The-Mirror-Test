@@ -147,7 +147,8 @@ const ResultPDF = () => {
             });
 
     }, [history]);
-    return loading ? null : (
+    return loading ? null : 
+    (
         <Document>
             <Page size="A4" style={styles.page}>
                 <View style={styles.section} fixed>
@@ -240,22 +241,21 @@ const ResultPDF = () => {
                     <View style={styles.detailsBox}>
                         <Text style={styles.smallHeading}>Part 1: Adverse Childhood Experience (ACE) Score</Text>
                         <Text style={styles.result}>Your Adverse Childhood Experience Score is {data.result.quiz1.result}</Text>
-                        <Text style={styles.resultDesc}>Your ACE score indicates that you have a secure childhood. People with ACE scores
-                            greater than 4 are more likely to commit to drugs and alcohol and have unsuccessful relationships. They are also more prone to committing suicide.</Text>
+                        <Text style={styles.resultDesc}>{data.result.quiz1.resultDesc}</Text>
 
                         <Text style={styles.smallHeading}>Part 2: Attachment Style</Text>
                         <Text style={styles.result}>Your Attachment Style is {data.result.quiz2.result}</Text>
-                        <Text style={styles.resultDesc}>A secure attachment style refers to the ability to form secure, loving relationships with others. A securely attached person can trust others and be trusted, love and accept love, and get close to others with relative ease.</Text>
+                        <Text style={styles.resultDesc}>{data.result.quiz2.resultDesc}</Text>
 
                         <Text style={styles.smallHeading}>Part 3: Optimism</Text>
-                        <Text style={styles.result}>Your optimism score is 5</Text>
-                        <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
+                        <Text style={styles.result}>Your optimism score is {data.result.quiz3.optScore}</Text>
+                        <Text style={styles.resultDesc}>{data.result.quiz3.optDesc}</Text>
 
-                        <Text style={styles.result}>Your hope score is 5</Text>
-                        <Text style={styles.resultDesc}>Your hope score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
+                        <Text style={styles.result}>Your hope score is {data.result.quiz3.hopeScore}</Text>
+                        <Text style={styles.resultDesc}>{data.result.quiz3.hopeDesc}</Text>
 
-                        <Text style={styles.result}>Your self-esteem score is 5</Text>
-                        <Text style={styles.resultDesc}>Your self-esteem score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
+                        <Text style={styles.result}>Your self-esteem score is {data.result.quiz3.esteemScore}</Text>
+                        <Text style={styles.resultDesc}>{data.result.quiz3.esteemDesc}</Text>
 
                         <Text style={[styles.smallHeading, { marginTop: 20 }]} break >Part 4: Big Five Personality Test</Text>
                         <Text style={styles.result}>Your extraversion score is 5</Text>

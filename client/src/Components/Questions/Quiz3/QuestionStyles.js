@@ -55,6 +55,7 @@ export const useStyles = makeStyles((theme) => ({
         width: "90%",
         margin: "25px auto",
         padding: '10px 10px',
+        boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         transition: "all 0.2s ease",
         [theme.breakpoints.down("sm")]: {
           fontSize: '0.8rem'

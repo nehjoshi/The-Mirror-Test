@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const schema = require('../models/UserModel.js');
 
 Quiz2.post("/quiz2", async (req, res) => {
-    let { ans, result, type, done, email } = req.body;       //Type will represent the type of personality:
+    let { ans, result, type, done, email, qno } = req.body;       //Type will represent the type of personality:
     const User = await mongoose.model("The Mirror Test", schema);
     const user = await User.findOne({ email: email })
 
@@ -29,7 +29,8 @@ Quiz2.post("/quiz2", async (req, res) => {
         result3: result.result3,
         result4: result.result4,
         result: "",
-        lastQ: user.quiz2.lastQ + 1,
+        resultDesc: "",
+        lastQ: qno,
         finished: done ? true : false
     }
     await user.save()
@@ -44,64 +45,26 @@ Quiz2.post("/quiz2", async (req, res) => {
         if (result1 > result2 && result1 > result3 && result1 > result4) {
             console.log("Secure!");
             user.quiz2.result = "Secure";
-            await user.save()
-                .then()
-                .catch(e => {
-                    return res.json({ success: false });
-                })
-            return res.json({ success: true, result: 'Secure' });
+            user.quiz2.resultDesc = "A secure attachment style refers to the ability to form secure, loving relationships with others. A securely attached person can trust others and be trusted, love and accept love, and get close to others with relative ease.";
         }
         else if (result2 > result1 && result2 > result3 && result2 > result4) {
-            user.quiz2 = {
-                result1: result.result1,
-                result2: result.result2,
-                result3: result.result3,
-                result4: result.result4,
-                lastQ: user.quiz2.lastQ,
-                result: "Anxious",
-                finished: true
-            }
-            await user.save()
-                .then()
-                .catch(e => {
-                    return res.json({ success: false });
-                })
-            return res.json({ success: true, result: 'Anxious' });
+            user.quiz2.result = "Anxious";
+            user.quiz2.resultDesc = "An anxious attachment style is a form of insecure attachment style marked by a deep fear of abandonment. Anxiously attached people tend to be very insecure about their relationships, often worrying that their partner will leave them and thus always hungry for validation.";
         }
         else if (result3 > result1 && result3 > result2 && result3 > result4) {
-            user.quiz2 = {
-                result1: result.result1,
-                result2: result.result2,
-                result3: result.result3,
-                result4: result.result4,
-                lastQ: user.quiz2.lastQ,
-                result: "Avoidant",
-                finished: true
-            }
-            await user.save()
-                .then()
-                .catch(e => {
-                    return res.json({ success: false });
-                })
-            return res.json({ success: true, result: 'Avoidant' });
+            user.quiz2.result = "Avoidant";
+            user.quiz2.resultDesc = "An avoidant attachment style is a form of insecure attachment style marked by a fear of intimacy. People with avoidant attachment style tend to have trouble getting close to others or trusting others in relationships, and relationships can make them feel suffocated.";
         }
         else if (result4 > result1 && result4 > result3 && result4 > result2) {
-            user.quiz2 = {
-                result1: result.result1,
-                result2: result.result2,
-                result3: result.result3,
-                result4: result.result4,
-                lastQ: user.quiz2.lastQ,
-                result: "Disorganized",
-                finished: true
-            }
-            await user.save()
-                .then()
-                .catch(e => {
-                    return res.json({ success: false });
-                })
-            return res.json({ success: true, result: 'Disorganied' });
+            user.quiz2.result = "Disorganized";
+            user.quiz2.resultDesc = "A disorganized attachment style is a combination of both the anxious and avoidant attachment styles. People with fearful-avoidant attachment both desperately crave affection and want to avoid it at all costs.";
         }
+        await user.save()
+            .then()
+            .catch(e => {
+                return res.json({ success: false });
+            });
+        return res.json({ success: true });
     }
     else {
         return res.json({ success: true, result: result });

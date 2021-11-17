@@ -46,6 +46,12 @@ Register.post('/register', async (req, res) => {
         pmg: 0,
         pvg: 0,
         psg: 0,
+        optScore: 0,
+        hopeScore: 0,
+        esteemScore: 0,
+        optDesc: "",
+        hopeDesc: "",
+        esteemDesc: "",
         lastQ: 0,
         finished: false
     }

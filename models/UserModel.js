@@ -10,6 +10,7 @@ const Quiz1Schema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+    resultDesc: String,
     finished: Boolean
 });
 const Quiz2Schema = new mongoose.Schema({
@@ -18,6 +19,7 @@ const Quiz2Schema = new mongoose.Schema({
     result3: Number,
     result4: Number,
     result: String,
+    resultDesc: String,
     lastQ: {
         type: Number,
         default: 0
@@ -31,6 +33,12 @@ const Quiz3Schema = new mongoose.Schema({
     pmg: Number,
     pvg: Number,
     psg: Number,
+    optScore: Number,
+    hopeScore: Number,
+    esteemScore: Number,
+    optDesc: String,
+    hopeDesc: String,
+    esteemDesc: String,
     lastQ: Number,
     finished: Boolean
 });

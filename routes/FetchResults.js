@@ -13,10 +13,12 @@ router.get('/fetch-result', verifyToken, async (req, res) => {
     const dataToSend = {
             result: {
                 quiz1: {
-                    result: user.quiz1.result
+                    result: user.quiz1.result,
+                    resultDesc: user.quiz1.resultDesc
                 },
                 quiz2: {
-                    result: user.quiz2.result
+                    result: user.quiz2.result,
+                    resultDesc: user.quiz2.resultDesc
                 },
                 quiz3: {
                     optScore: user.quiz3.optScore,

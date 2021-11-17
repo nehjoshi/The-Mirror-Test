@@ -41,7 +41,7 @@ const Quiz2One = () => {
 
     const handleRes = (ans) => {
         const result = { result1: 0, result2: 0, result3: 0, result4: 0 }
-        const data = { ans, result, type: 1, done: false, email: localStorage.getItem("email") }
+        const data = { ans, result, type: 1, done: false, email: localStorage.getItem("email"), qno: 1 }
         axios.post("https://self-growth-questionaire.herokuapp.com/quiz2", data)
             .then((response) => {
                 if (response.data.success === true) {
