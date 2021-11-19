@@ -5,7 +5,7 @@ const schema = require('../models/UserModel.js');
 
 Quiz3.post('/quiz3', async (req, res) => {
     //Let's accept type of the request, and value of the response (either 0 or 1)
-    let { type, value, result, done, email } = req.body;
+    let { type, value, result, done, email, qno } = req.body;
     const User = await mongoose.model("The Mirror Test", schema);
     const user = await User.findOne({ email: email })
 
@@ -36,7 +36,7 @@ Quiz3.post('/quiz3', async (req, res) => {
         pmg: result.pmg,
         pvg: result.pvg,
         psg: result.psg,
-        lastQ: user.quiz3.lastQ + 1,
+        lastQ: qno,
         finished: done ? true : false
     }
 
