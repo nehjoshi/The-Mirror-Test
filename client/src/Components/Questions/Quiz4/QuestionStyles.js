@@ -56,6 +56,7 @@ export const useStyles = makeStyles((theme) => ({
         margin: "5px auto",
         textTransform: "uppercase",
         transition: "all 0.2s ease",
+        boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 3px 3px",
         "&:hover": {
           cursor: "pointer",
           backgroundColor: "#e6b635",

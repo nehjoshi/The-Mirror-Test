@@ -47,7 +47,7 @@ const Register = () => {
         else {
             setBlankField(false);
             const sendData = { email, name, password };
-            axios.post('https://self-growth-questionaire.herokuapp.com/register', sendData)
+            axios.post('http://localhost:5000/register', sendData)
                 .then(res => {
                     if (res.data.success === true) {
                         sessionStorage.setItem('token', res.data.token);

@@ -1,4 +1,5 @@
 const schema = require('../models/UserModel');
+const jwt = require('jsonwebtoken');
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
@@ -105,8 +106,15 @@ Register.post('/register', async (req, res) => {
         q12: null
     };
     await user.save()
-        .then(resp => {
-            return res.json({ success: true });
+        .then(async resp => {
+            const token = await jwt.sign(
+                { id: name, result: 0 },
+                process.env.SECRET_KEY,
+                {
+                  expiresIn: 10800,
+                }
+              ); 
+            return res.json({ success: true, token: token, name: req.body.name });
         })
         .catch(e => {
             return res.json({ success: false, message: 'Please double check all the fields.' });

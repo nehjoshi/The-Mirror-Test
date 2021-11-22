@@ -5,7 +5,7 @@ import DateFnsUtils from '@date-io/date-fns';
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import Loader from "./Loader.js";
 import axios from "axios";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const DetailsForm1 = () => {
     const theme = useTheme();
@@ -89,7 +89,7 @@ const DetailsForm1 = () => {
                     <h1 className={classes.heading}>
                         Your Details
                     </h1>
-                    <p className={classes.subheading}>This section is optional. <Link to="/dashboard">You can skip it here.</Link></p><br /><br />
+                    <p className={classes.subheading}>Please fill out the following details.</p><br /><br />
 
                     <div className={classes.inputFields}>
                         <div className={classes.col}>     {/*Column 1*/}

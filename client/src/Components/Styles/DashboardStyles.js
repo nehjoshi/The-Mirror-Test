@@ -100,7 +100,8 @@ export const useStyles = makeStyles((theme) => ({
         },
         [theme.breakpoints.down("md")]: {
             width: '30px',
-            height: '30px'
+            height: '30px',
+            display: 'none'
         }
     },
     profileWrapper: {
