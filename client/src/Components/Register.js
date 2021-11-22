@@ -50,7 +50,7 @@ const Register = () => {
             axios.post('https://self-growth-questionaire.herokuapp.com/register', sendData)
                 .then(res => {
                     if (res.data.success === true) {
-                        localStorage.setItem('token', res.data.token);
+                        sessionStorage.setItem('token', res.data.token);
                         localStorage.setItem('email', email);
                         setLoading(false);
                         setLoginMessage(true);
@@ -167,7 +167,7 @@ const Register = () => {
                     {loading ? <Loader /> : null}
                     {errorMessage ? <span style={otherErrorStyle}>{errorMessage}</span> : null}
                     {blankField ? <span style={otherErrorStyle}>Please fill out all the fields</span> : null}
-                    {loginMessage ? <span style={successStyle}>You can now login</span> : null}
+                    {loginMessage ? <span style={successStyle}>Registration Successful!</span> : null}
 
 
                 </Grid>
