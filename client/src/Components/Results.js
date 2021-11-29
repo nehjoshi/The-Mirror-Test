@@ -59,7 +59,6 @@ const Results = () => {
         if (res.data.auth === true) {
           setTimeout(() => {
             setSkipped(res.data.completeData.skippedDetails);
-            console.log(res.data.completeData.skippedDetails);
             setLoading(false);
           }, 100)
         } else {
