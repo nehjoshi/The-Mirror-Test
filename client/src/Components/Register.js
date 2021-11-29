@@ -52,6 +52,7 @@ const Register = () => {
                     if (res.data.success === true) {
                         sessionStorage.setItem('token', res.data.token);
                         localStorage.setItem('email', email);
+                        localStorage.setItem('name', name);
                         setLoading(false);
                         setLoginMessage(true);
                         setTimeout(() => {

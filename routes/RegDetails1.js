@@ -13,37 +13,47 @@ router.use(limiter);
 router.post('/register-details1', async (req, res) => {
     const User = await mongoose.model('The Mirror Test', schema);
     const user = await User.findOne({ email: req.body.email });
-    const {
-        dob,
-        weight,
-        height,
-        glasses,
-        nationality,
-        religion,
-        smoke,
-        drink,
-        hobbies,
-        physicalConditions,
-        childhoodIllnesses
-    } = req.body;
+    if (req.body.skipped === true) {
+        user.choseToSkipDetails = true;
+        await user.save()
+            .then(response => {
+                return res.json({ success: true })
+            })
+    }
+    else {
+        const {
+            dob,
+            weight,
+            height,
+            glasses,
+            nationality,
+            religion,
+            smoke,
+            drink,
+            hobbies,
+            physicalConditions,
+            childhoodIllnesses
+        } = req.body;
 
-    user.reg1 = {
-        dob: dob.toString(),
-        weight,
-        height,
-        glasses,
-        nationality,
-        religion,
-        smoke,
-        drink,
-        hobbies,
-        physicalConditions,
-        childhoodIllnesses
-    };
+        user.reg1 = {
+            dob: dob.toString(),
+            weight,
+            height,
+            glasses,
+            nationality,
+            religion,
+            smoke,
+            drink,
+            hobbies,
+            physicalConditions,
+            childhoodIllnesses
+        };
 
-    await user.save()
-        .then(response => {
-            return res.json({ success: true })
-        })
+        await user.save()
+            .then(response => {
+                return res.json({ success: true })
+            })
+    }
 });
+
 module.exports = router;

@@ -90,7 +90,7 @@ const Dashboard = () => {
           <h6 className={classes.logOut} onClick={handleLogOut}>Log Out</h6>
         </div>
       }
-      <div className={classes.profile} onClick={() => handleProfileSection('toggle')}>{localStorage.getItem("name").charAt(0)}</div>
+      <div className={classes.profile} onClick={() => handleProfileSection('toggle')}>{localStorage.getItem("name").charAt(0).toUpperCase()}</div>
       <Grid className={classes.wrapper} onClick={() => handleProfileSection('hide')}>
         <Grid container className={classes.tests} id="tests">
           <Grid container className={classes.testContainer}>
@@ -116,7 +116,7 @@ const Dashboard = () => {
             <h1 className={classes.resultHeading}>Your Results</h1>
             <p className={classes.resultP}>You can view your results once you complete all the five tests given above. You will be able to download a pdf version
               of your results. The button below will be activated as soon as you complete all the tests!</p>
-              {data.finished === true ?
+              {!data.finished === true ?
             <button className={classes.resultBtn} onClick={() => history.push('/results')}>View Results</button> :
             <button className={`${classes.resultBtn} ${classes.resultBtnDisabled}`}>View Results</button>
               }

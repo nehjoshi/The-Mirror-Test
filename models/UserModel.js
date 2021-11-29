@@ -114,6 +114,7 @@ const schema = new mongoose.Schema({
     quiz5: Quiz5Schema,
     reg1: reg1Schema,
     reg2: reg2Schema,
+    choseToSkipDetails: Boolean,
     completed: {
         type: Boolean,
         required: false,

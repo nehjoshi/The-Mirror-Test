@@ -51,9 +51,11 @@ router.get('/fetch-result', verifyToken, async (req, res) => {
                 hobbies: user.reg1.hobbies,
                 physicalConditions: user.reg1.physicalConditions,
                 childhoodIllnesses: user.reg1.childhoodIllnesses,
-                dob: user.reg1.dob
+                dob: user.reg1.dob,
+                email: user.email
             },
             reg2: user.reg2,
+            skippedDetails: user.choseToSkipDetails,
         
     }
     return res.json({ auth: true, completeData: dataToSend });

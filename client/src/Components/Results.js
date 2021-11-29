@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Grid, makeStyles, useTheme } from "@material-ui/core";
 import axios from "axios";
-// import { gsap, Power2 } from "gsap";
 import { useHistory } from "react-router-dom";
-// import { useStyles } from "./Questions/Quiz5/QuestionStyles.js"; //We can just use the same question styles for the wrapper
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import ResultPDF from "./ResultPDF.js";
+import ResultPDFWithoutDetails from "./ResultPDFWithoutDetails";
 import Bg from '../Images/bg.jpg';
 
 const useStyles = makeStyles((theme) => ({
@@ -42,6 +41,7 @@ const Results = () => {
   const theme = useTheme();
   const classes = useStyles(theme);
   const [loading, setLoading] = useState(true);
+  const [skipped, setSkipped] = useState(false);
   const history = useHistory();
   const loadingRef1 = useRef(null);
   const loadingRef2 = useRef(null);
@@ -51,13 +51,15 @@ const Results = () => {
     const token = sessionStorage.getItem("token");
 
     axios.get(`https://self-growth-questionaire.herokuapp.com/fetch-result?email=${localStorage.getItem("email")}`, {
-        headers: {
-          "x-access-token": token,
-        },
-      })
+      headers: {
+        "x-access-token": token,
+      },
+    })
       .then((res) => {
         if (res.data.auth === true) {
           setTimeout(() => {
+            setSkipped(res.data.completeData.skippedDetails);
+            console.log(res.data.completeData.skippedDetails);
             setLoading(false);
           }, 100)
         } else {
@@ -65,7 +67,7 @@ const Results = () => {
         }
       })
       .catch((e) => {
-        
+
       });
 
   }, [history])
@@ -113,9 +115,15 @@ const Results = () => {
           Your Openess score is {localStorage.getItem("o")}<br />
           Your PERMA Score is.<br />
         </p>
-        <PDFDownloadLink document={<ResultPDF />} fileName="Results.pdf">
+        {skipped===false ?
+          <PDFDownloadLink document={<ResultPDF />} fileName="Results.pdf">
+            {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}
+          </PDFDownloadLink>
+          :
+          <PDFDownloadLink document={<ResultPDFWithoutDetails />} fileName="Results.pdf">
           {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}
         </PDFDownloadLink>
+        }
       </Grid>
     </Grid>
   );

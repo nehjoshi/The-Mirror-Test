@@ -26,6 +26,7 @@ Register.post('/register', async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashed = await bcrypt.hash(password, salt);
     user.password = hashed;
+    user.choseToSkipDetails = false;
     user.quiz1 = {
         result: 0,
         lastQ: 0,
