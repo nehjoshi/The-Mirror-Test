@@ -42,8 +42,9 @@ router.post('/reset_password', async (req, res) => {
                         to: email,
                         subject: 'Reset Password for your Jivan Safalya Account',
                         text: 'Jivan Safalya Password Reset',
-                        html: `<h4>Dear User,</h4><br/>
-                        <p>Please visit the following link to change your password: ${resetURL}</p><br/>
+                        html: `<h4>Dear User,</h4>
+                        <p>Please visit the following link to change your password: </p>
+                        <p>${resetURL}</p><br/>
                         <strong>Jivan Safalya | The Mirror Test</strong>`
                     }
                     transporter.sendMail(mailData, (err, info) => {

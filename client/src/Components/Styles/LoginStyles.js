@@ -24,9 +24,8 @@ export const useStyles = makeStyles((theme) => ({
         height: "400px",
         width: "320px",
         backgroundColor: "#f7f7f7",
-        // backgroundColor: '#FFEECA',
-        borderRadius: "2px",
-        boxShadow: "0 0 7px  #7a7a7a",
+        borderRadius: "20px",
+        boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         color: "#333333",
         padding: "10px 10px",
         position: "relative",
@@ -91,7 +90,7 @@ export const useStyles = makeStyles((theme) => ({
         marginBottom: '10px',
         textTransform: "uppercase",
         position: "relative",
-
+        boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         transition: "all 0.2s ease",
         "&:hover": {
             cursor: "pointer",
