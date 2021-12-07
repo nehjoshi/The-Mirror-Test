@@ -1,41 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Grid, makeStyles, useTheme } from "@material-ui/core";
+import { Grid, useTheme } from "@material-ui/core";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import ResultPDF from "./ResultPDF.js";
 import ResultPDFWithoutDetails from "./ResultPDFWithoutDetails";
-import Bg from '../Images/bg.jpg';
-
-const useStyles = makeStyles((theme) => ({
-  wrapper: {
-    width: "100%",
-    height: "100vh",
-    backgroundImage: `url(${Bg})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center center",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    overflow: "hidden",
-  },
-  box: {
-    height: "650px",
-    width: "93%",
-    backgroundColor: "#f7f7f7",
-    borderRadius: "20px",
-    boxShadow: "0 0 7px  #7a7a7a",
-    color: "#333333",
-    padding: "10px 10px",
-    position: "relative",
-    left: '1000px',
-    opacity: 0,
-    [theme.breakpoints.down("sm")]: {
-      width: '90%'
-    }
-  },
-}))
+import {Table, TableCell, TableContainer, TableHead, TableRow, Paper} from '@material-ui/core';
+import { useStyles } from "./Styles/ResultStyles";
 
 const Results = () => {
   const theme = useTheme();
@@ -44,8 +15,6 @@ const Results = () => {
   const [skipped, setSkipped] = useState(false);
   const history = useHistory();
   const loadingRef1 = useRef(null);
-  const loadingRef2 = useRef(null);
-  const loadingRef3 = useRef(null);
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
@@ -74,54 +43,45 @@ const Results = () => {
   return loading ? (
     <Grid container className={classes.wrapper}>
       <div ref={loadingRef1}>Loading...</div>
-      <p
-        ref={loadingRef2}
-        style={{
-          display: "none",
-          opacity: 0,
-          position: "relative",
-          top: "50px",
-        }}
-      >
-        Consolidating Results...
-      </p>
-      <p
-        ref={loadingRef3}
-        style={{
-          display: "none",
-          opacity: 0,
-          position: "relative",
-          top: "50px",
-        }}
-      >
-        Finishing Up...
-      </p>
     </Grid>
   ) : (
     <Grid container className={classes.wrapper}>
       <Grid item className={classes.box} style={{ opacity: 1, top: 0, left: 0 }}>
-        <h1 className={classes.heading}>Results</h1>
-        <p className={classes.text}>
-          Your ACE score is .<br />
-          Your Attachment Style is.<br />
-          Your Optimism Score is {localStorage.getItem("optScore")}<br />
-          Your Hope Score is {localStorage.getItem("hopeScore")}<br />
-          Your Self-esteem score is {localStorage.getItem("esteemScore")}<br />
-          Your Extraversion score is {localStorage.getItem("e")}<br />
-          Your Agreeableness score is {localStorage.getItem("a")}<br />
-          Your Conscientiousness score is {localStorage.getItem("c")}<br />
-          Your Neuroticism score is {localStorage.getItem("n")}<br />
-          Your Openess score is {localStorage.getItem("o")}<br />
-          Your PERMA Score is.<br />
-        </p>
-        {skipped===false ?
+        <Grid className={classes.boxHeader}>
+          <h1 className={classes.logo}>The Mirror Test</h1>
+          <h1 className={classes.heading}>Results</h1>
+        </Grid>
+        <Grid className={classes.section1}>
+          <Grid className={classes.section1Header}>
+            <h1 className={classes.section1Heading}>Basic Information</h1>
+          </Grid>
+          <TableContainer component={Paper} style={{width: '80%', margin: '20px auto'}}>
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell><strong style={{fontSize: '1.5rem', color: "#005751"}}>Name</strong></TableCell>
+                  <TableCell align="right"><strong style={{fontSize: '1.5rem'}}>Neh Samir Joshi</strong></TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><strong style={{fontSize: '1.5rem', color: "#005751"}}>Email</strong></TableCell>
+                  <TableCell align="right"><strong style={{fontSize: '1.5rem'}}>nehjoshi5@gmail.com</strong></TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell><strong style={{fontSize: '1.5rem', color: "#005751"}}>Nationality</strong></TableCell>
+                  <TableCell align="right"><strong style={{fontSize: '1.5rem'}}>British</strong></TableCell>
+                </TableRow>
+              </TableHead>
+            </Table>
+          </TableContainer>
+        </Grid>
+        {skipped === false ?
           <PDFDownloadLink document={<ResultPDF />} fileName="Results.pdf">
             {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}
           </PDFDownloadLink>
           :
           <PDFDownloadLink document={<ResultPDFWithoutDetails />} fileName="Results.pdf">
-          {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}
-        </PDFDownloadLink>
+            {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}
+          </PDFDownloadLink>
         }
       </Grid>
     </Grid>
