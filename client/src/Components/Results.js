@@ -100,11 +100,35 @@ const Results = () => {
           <h2 className={classes.subHeading}>Part 2 - Attachment Style</h2>
           <Grid className={classes.resultBox}>
             <Grid className={classes.resultBoxHeader}>
-              <h1 style={{ fontSize: '3rem' }}>Your attachment style is: </h1>
-                <h1 style={{ fontSize: '3rem' }}>{result.quiz2.result}</h1>
+              <h1 style={{ fontSize: '2.5rem' }}>Your attachment style is: </h1>
+                <h1 style={{ fontSize: '2.5rem' }}>{result.quiz2.result}</h1>
             </Grid>
             <p style={{ fontSize: '1.2rem' }}>An ACE score is a tally of different types of abuse, neglect, and other hallmarks of a rough childhood. According to the Adverse Childhood Experiences study, the rougher your childhood, the higher your score is likely to be and the higher your risk for later health problems. </p>
           </Grid>
+
+          <h2 className={classes.subHeading}>Part 3 - Optimism</h2>
+          <Grid className={classes.resultBox}>
+            <Grid className={classes.resultBoxHeader}>
+              <h1 style={{ fontSize: '2.5rem' }}>Your optimism score is: </h1>
+                <h1 style={{ fontSize: '2.5rem' }}>{result.quiz3.optScore}</h1>
+            </Grid>
+            <p style={{ fontSize: '1.2rem' }}>An ACE score is a tally of different types of abuse, neglect, and other hallmarks of a rough childhood. According to the Adverse Childhood Experiences study, the rougher your childhood, the higher your score is likely to be and the higher your risk for later health problems. </p>
+          </Grid>
+          <Grid className={classes.resultBox}>
+            <Grid className={classes.resultBoxHeader}>
+              <h1 style={{ fontSize: '2.5rem' }}>Your hope score is: </h1>
+                <h1 style={{ fontSize: '2.5rem' }}>{result.quiz3.hopeScore}</h1>
+            </Grid>
+            <p style={{ fontSize: '1.2rem' }}>An ACE score is a tally of different types of abuse, neglect, and other hallmarks of a rough childhood. According to the Adverse Childhood Experiences study, the rougher your childhood, the higher your score is likely to be and the higher your risk for later health problems. </p>
+          </Grid>
+          <Grid className={classes.resultBox}>
+            <Grid className={classes.resultBoxHeader}>
+              <h1 style={{ fontSize: '2.5rem' }}>Your self-esteem score is: </h1>
+                <h1 style={{ fontSize: '2.5rem' }}>{result.quiz3.esteemScore}</h1>
+            </Grid>
+            <p style={{ fontSize: '1.2rem' }}>An ACE score is a tally of different types of abuse, neglect, and other hallmarks of a rough childhood. According to the Adverse Childhood Experiences study, the rougher your childhood, the higher your score is likely to be and the higher your risk for later health problems. </p>
+          </Grid>
+          
 
         </Grid>
 
