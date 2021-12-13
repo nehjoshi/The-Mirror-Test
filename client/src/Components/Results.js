@@ -134,7 +134,7 @@ const Results = () => {
 
 
 
-        {skipped === false ?
+        {!skipped === false ?
           <PDFDownloadLink document={<ResultPDF />} fileName="Results.pdf">
             {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}
           </PDFDownloadLink>
