@@ -1,5 +1,5 @@
 # The Mirror Test
-## A test that provides a deeper understanding of who you are.
+## A test that provides a deeper understanding of who you are
 This is a full-stack project, soon to be hosted on a custom domain, aimed to provide a series of five questionnaires, for people to better understand their personality
 and their views.
 
