@@ -75,7 +75,6 @@ const TestInfo = (props) => {
 
     return (
         <Grid item sm={12} md={3} className={classes.testWrapper}>
-            <p className={classes.progress}>Progress: {props.progress}%</p>
             <h2 className={classes.testHeading}>{props.heading}</h2>
             <hr className={classes.divider}></hr>
             <img style={{ height: props.height }} src={props.imgSource} alt="" />

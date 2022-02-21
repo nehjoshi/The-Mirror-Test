@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Grid } from "@material-ui/core";
 import Loader from './Loader.js';
 import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "../App.css";
 import MainImg from '../Images/main.png';
 import { useStyles } from "./Styles/LoginStyles.js";
@@ -67,7 +67,7 @@ const Login = () => {
         fontSize: '0.8rem',
         textAlign: 'center'
     }
-    return (
+    return sessionStorage.getItem("token") ? <Redirect to="/dashboard" /> :(
         <Grid container className={classes.wrapper}>
             {/* <div className={classes.container}> */}
             <Grid item className={classes.leftBox}>

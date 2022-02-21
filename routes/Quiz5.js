@@ -72,7 +72,7 @@ Quiz5.post('/quiz5', async (req, res) => {
             HAP: result.HAP,
             H: result.H,
             LON: result.LON,
-            lastQ: user.quiz5.lastQ + 1,
+            lastQ: user.quiz5.lastQ,
             finished: done ? true : false,
             PERMA: final
         }
