@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Grid, useTheme } from '@material-ui/core';
 import { useStyles } from "./Styles/DashboardStyles.js";
 import { Link } from 'react-router-dom';
+import { Snackbar } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 
 const Landing = () => {
     const theme = useTheme();
@@ -9,8 +11,13 @@ const Landing = () => {
     const headingRef = useRef(null);
     const buttonRef = useRef(null);
     const lineRef = useRef(null);
+    const [snack, setSnack] = useState(false);
     useEffect(() => {
-        document.querySelector(".loading").style.display="none";
+        document.querySelector(".loading").style.display = "none";
+        if (sessionStorage.getItem("logout")) {
+            setSnack(true);
+            sessionStorage.removeItem("logout");
+        }
     }, [])
     return (
         <Grid className={classes.wrapper}>
@@ -20,6 +27,11 @@ const Landing = () => {
                 <Link to="/login" style={{ margin: '10px 0px' }}><div className={classes.navButton} ref={buttonRef}>Start your journey</div></Link>
                 <hr className={classes.mainHr} ref={lineRef}></hr>
             </Grid>
+            <Snackbar open={snack} autoHideDuration={6000} onClose={() => setSnack(false)}>
+                <Alert onClose={() => setSnack(false)} severity="success">
+                    Logged out successfully!
+                </Alert>
+            </Snackbar>
         </Grid>
     )
 }

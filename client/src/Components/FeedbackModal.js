@@ -16,7 +16,7 @@ const style = {
     p: 4,
 };
 
-function FeedbackModal({ open, handleClose }) {
+function FeedbackModal({ open, handleClose, openSnack }) {
 
     const [feedback, setFeedback] = useState('');
     const [loading, setLoading] = useState(false);
@@ -31,6 +31,7 @@ function FeedbackModal({ open, handleClose }) {
                 if (res.data.success) {
                     setLoading(false);
                     handleClose();
+                    openSnack();
                 }
             })
     }
