@@ -16,6 +16,7 @@ const Dashboard = require('./routes/Dashboard.js');
 const RegisterDetails1 = require('./routes/RegDetails1');
 const RegisterDetails2 = require('./routes/RegDetails2');
 const FetchResults = require('./routes/FetchResults');
+const Feedback = require('./routes/Feedback');
 const helmet = require('helmet');
 const path = require('path');
 
@@ -36,6 +37,7 @@ app.use('/', Dashboard);
 app.use('/', RegisterDetails1);
 app.use('/', RegisterDetails2);
 app.use('/', FetchResults);
+app.use('/', Feedback);
 dotenv.config();
 port = process.env.PORT || 5000;
 

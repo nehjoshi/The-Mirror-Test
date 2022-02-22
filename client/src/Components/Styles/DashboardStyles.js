@@ -193,6 +193,20 @@ export const useStyles = makeStyles((theme) => ({
         "&:hover": {
             backgroundColor: '#006977',
         },
+    },
+    footer: {
+        backgroundColor: '#003840',
+        color: '#fff',
+        padding: '20px 0px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    feedback: {
+        color: '#2697bd',
+        cursor: 'pointer',
+        textDecoration: 'underline',
     }
 
 }))
