@@ -1,8 +1,9 @@
 export { default as Home } from './Home';
-export { default as Intro } from './Intro';
+export { default as Intro1 } from './Intro1';
 export { default as Register } from './Register';
 export { default as Login } from './Login';
-export { default as Results } from './Results';
+export { default as Result1 } from './Result1';
+export { default as Result2 } from './Result2';
 export { default as Intro2 } from './Intro2';
 export { default as Intro3 } from './Intro3';
 export { default as Intro4 } from './Intro4';

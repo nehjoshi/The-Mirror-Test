@@ -58,7 +58,7 @@ export const useStyles = makeStyles((theme) => ({
         margin: "30px auto"
     },
     resultBox: {
-        width: "60%",
+        width: "80%",
         padding: "10px 10px",
         boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         margin: "20px auto",
@@ -75,5 +75,32 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex', 
         justifyContent: 'center', 
         alignItems: 'center'
+    },
+    paragraph: {
+        fontSize: "1.2rem",
+        marginBottom: "20px",
+        lineHeight: "28px",
+    },
+    conditionHeading: {
+        fontSize: "2rem",
+        marginTop: "10px",
+        fontWeight: 900,
+        textDecoration: "underline",
+    },
+    nextButton: {
+        margin: "0 auto",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "10px 20px",
+        backgroundColor: "#005751",
+        color: "#fff",
+        borderRadius: "2px",
+        fontSize: "1.4rem",
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+        "&:hover": {
+            backgroundColor: "#002926",
+        }
     }
 }))

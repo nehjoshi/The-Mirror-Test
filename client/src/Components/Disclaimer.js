@@ -65,7 +65,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Intro = () => {
+const Disclaimer = () => {
   const theme = useTheme();
   const classes = useStyles(theme);
   const [loading, setLoading] = useState(true);
@@ -136,4 +136,4 @@ const Intro = () => {
     </Grid>
   );
 };
-export default Intro;
+export default Disclaimer;

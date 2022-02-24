@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Grid, useTheme } from "@material-ui/core";
+import { Grid, useTheme, Step, StepLabel, Stepper } from "@material-ui/core";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { PDFDownloadLink } from '@react-pdf/renderer';
@@ -8,7 +8,7 @@ import ResultPDFWithoutDetails from "./ResultPDFWithoutDetails";
 import { Table, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
 import { useStyles } from "./Styles/ResultStyles";
 
-const Results = () => {
+const Result1 = () => {
   const theme = useTheme();
   const classes = useStyles(theme);
   const [loading, setLoading] = useState(true);
@@ -16,6 +16,7 @@ const Results = () => {
   const [result, setResult] = useState([]);
   const history = useHistory();
   const loadingRef1 = useRef(null);
+  const steps = ["ACE", "Attachment Style", "Optimism", "Big Five Personality", "Wellbeing"]
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
@@ -83,56 +84,47 @@ const Results = () => {
               </TableHead>
             </Table>
           </TableContainer>
+          <Stepper activeStep={0} alternativeLabel style={{background: 'transparent'}}>
+            {steps.map((label) => (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
         </Grid>
         <Grid className={classes.section}>
           <h1 className={classes.heading}>Your Results</h1>
           <h2 className={classes.subHeading}>Part 1 - Adverse Childhood Experience (ACE)</h2>
           <Grid className={classes.resultBox}>
+            <p className={classes.paragraph}>ACEs stand for Adverse Childhood Experiences. They are negative experiences
+              a child may go through before the age of 18. Examples include: physical or
+              sexual abuse, violence with a child or to a family member, child neglect by
+              caregivers or a death of a family member. These kind of traumatic experiences (ACEs)
+              are linked to chronic health issues, mental illness and substance abuse in adulthood.
+              They can also negatively impact education, job opportunities, earning potential and relationships. </p>
             <Grid className={classes.resultBoxHeader}>
               <h1 style={{ fontSize: '3rem' }}>Your ACE score is: </h1>
               <div className={classes.numCircle} style={result.quiz1.result >= 4 ? red : green}>
                 <h1 style={{ fontSize: '3rem', color: "#fff" }}>{result.quiz1.result}</h1>
               </div>
             </Grid>
-            <p style={{ fontSize: '1.2rem' }}>An ACE score is a tally of different types of abuse, neglect, and other hallmarks of a rough childhood. According to the Adverse Childhood Experiences study, the rougher your childhood, the higher your score is likely to be and the higher your risk for later health problems. </p>
-          </Grid>
-
-          <h2 className={classes.subHeading}>Part 2 - Attachment Style</h2>
-          <Grid className={classes.resultBox}>
-            <Grid className={classes.resultBoxHeader}>
-              <h1 style={{ fontSize: '2.5rem' }}>Your attachment style is: </h1>
-                <h1 style={{ fontSize: '2.5rem' }}>{result.quiz2.result}</h1>
-            </Grid>
-            <p style={{ fontSize: '1.2rem' }}>An ACE score is a tally of different types of abuse, neglect, and other hallmarks of a rough childhood. According to the Adverse Childhood Experiences study, the rougher your childhood, the higher your score is likely to be and the higher your risk for later health problems. </p>
-          </Grid>
-
-          <h2 className={classes.subHeading}>Part 3 - Optimism</h2>
-          <Grid className={classes.resultBox}>
-            <Grid className={classes.resultBoxHeader}>
-              <h1 style={{ fontSize: '2.5rem' }}>Your optimism score is: </h1>
-                <h1 style={{ fontSize: '2.5rem' }}>{result.quiz3.optScore}</h1>
-            </Grid>
-            <p style={{ fontSize: '1.2rem' }}>An ACE score is a tally of different types of abuse, neglect, and other hallmarks of a rough childhood. According to the Adverse Childhood Experiences study, the rougher your childhood, the higher your score is likely to be and the higher your risk for later health problems. </p>
-          </Grid>
-          <Grid className={classes.resultBox}>
-            <Grid className={classes.resultBoxHeader}>
-              <h1 style={{ fontSize: '2.5rem' }}>Your hope score is: </h1>
-                <h1 style={{ fontSize: '2.5rem' }}>{result.quiz3.hopeScore}</h1>
-            </Grid>
-            <p style={{ fontSize: '1.2rem' }}>An ACE score is a tally of different types of abuse, neglect, and other hallmarks of a rough childhood. According to the Adverse Childhood Experiences study, the rougher your childhood, the higher your score is likely to be and the higher your risk for later health problems. </p>
-          </Grid>
-          <Grid className={classes.resultBox}>
-            <Grid className={classes.resultBoxHeader}>
-              <h1 style={{ fontSize: '2.5rem' }}>Your self-esteem score is: </h1>
-                <h1 style={{ fontSize: '2.5rem' }}>{result.quiz3.esteemScore}</h1>
-            </Grid>
-            <p style={{ fontSize: '1.2rem' }}>An ACE score is a tally of different types of abuse, neglect, and other hallmarks of a rough childhood. According to the Adverse Childhood Experiences study, the rougher your childhood, the higher your score is likely to be and the higher your risk for later health problems. </p>
+            <h2 className={classes.conditionHeading}>Case 1: If your ACE score is 0</h2>
+            <p className={classes.paragraph}>This is a very good score. </p>
+            <p className={classes.paragraph}>However, not everyone is as lucky as you are! Around 64%
+              of people have ACE score of at least 1 and and 12.5% (6 in 1 people) have ACE score 4 or more.
+              Because a higher is score is linked to chronic diseases, mental illness, risky behaviours and early death,
+              you can help your family, friends and people you know, by spreading awareness about ACEs.</p>
+            <h2 className={classes.conditionHeading}>Case 2: If your ACE score is more than 0 but less than 4</h2>
+            <p className={classes.paragraph}>If you don't have any associated health conditions, you fall into low risk category.</p>
+            <p className={classes.paragraph}>If you have any associated health conditions as well, you should seek medical help.</p>
+            <h2 className={classes.conditionHeading}>Case 3: If your ACE score is 4 or more</h2>
+            <p className={classes.paragraph}>Unfortunately, you fall into high risk category for toxic stress
+              and its consequences. Because an ACE score like this is linked to chronic diseases, mental illness,
+              risky behaviours and early death, you should seek medical help as soon as possible.</p>
           </Grid>
           
-
+            <button className={classes.nextButton} onClick={() => history.push('/results/attachment-style')}>Next Result</button>
         </Grid>
-
-
 
         {skipped === false ?
           <PDFDownloadLink document={<ResultPDF />} fileName="Results.pdf">
@@ -147,4 +139,4 @@ const Results = () => {
     </Grid>
   );
 };
-export default Results;
+export default Result1;
