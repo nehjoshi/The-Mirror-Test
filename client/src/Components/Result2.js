@@ -43,13 +43,6 @@ const Result2 = () => {
 
   }, [history])
 
-  const green = {
-    backgroundColor: '#00cc30',
-  }
-  const red = {
-    backgroundColor: '#FFBF00',
-  }
-
   return loading ? (
     <Grid container className={classes.wrapper}>
       <div ref={loadingRef1}>Loading...</div>
@@ -73,31 +66,16 @@ const Result2 = () => {
         <Grid className={classes.section}>
           <h2 className={classes.subHeading}>Part 2 - Attachment Style</h2>
           <Grid className={classes.resultBox}>
-            <p className={classes.paragraph}>ACEs stand for Adverse Childhood Experiences. They are negative experiences
-              a child may go through before the age of 18. Examples include: physical or
-              sexual abuse, violence with a child or to a family member, child neglect by
-              caregivers or a death of a family member. These kind of traumatic experiences (ACEs)
-              are linked to chronic health issues, mental illness and substance abuse in adulthood.
-              They can also negatively impact education, job opportunities, earning potential and relationships. </p>
+            <p className={classes.paragraph}>An attachment style is a specific way a person connects with others in 
+            relationships. According to John Bowlby, a distinguished psychologist, an attachment style is a lasting
+            psychological connectedness between human beings. Our early attachment styles are established in childhood 
+            through the infant - caregiver relationships. However, adult romantic attachments may or may not be identical to our
+            childhood attachment styles. This is due to the fact that our experiences also play an important role in shaping our 
+            attachment styles. </p>
             <Grid className={classes.resultBoxHeader}>
-              <h1 style={{ fontSize: '3rem' }}>Your ACE score is: </h1>
-              <div className={classes.numCircle} style={result.quiz1.result >= 4 ? red : green}>
-                <h1 style={{ fontSize: '3rem', color: "#fff" }}>{result.quiz1.result}</h1>
-              </div>
+              <h1 style={{ fontSize: '3rem' }}>Your attachment style is: {result.quiz2.result} </h1>
             </Grid>
-            <h2 className={classes.conditionHeading}>Case 1: If your ACE score is 0</h2>
-            <p className={classes.paragraph}>This is a very good score. </p>
-            <p className={classes.paragraph}>However, not everyone is as lucky as you are! Around 64%
-              of people have ACE score of at least 1 and and 12.5% (6 in 1 people) have ACE score 4 or more.
-              Because a higher is score is linked to chronic diseases, mental illness, risky behaviours and early death,
-              you can help your family, friends and people you know, by spreading awareness about ACEs.</p>
-            <h2 className={classes.conditionHeading}>Case 2: If your ACE score is more than 0 but less than 4</h2>
-            <p className={classes.paragraph}>If you don't have any associated health conditions, you fall into low risk category.</p>
-            <p className={classes.paragraph}>If you have any associated health conditions as well, you should seek medical help.</p>
-            <h2 className={classes.conditionHeading}>Case 3: If your ACE score is 4 or more</h2>
-            <p className={classes.paragraph}>Unfortunately, you fall into high risk category for toxic stress
-              and its consequences. Because an ACE score like this is linked to chronic diseases, mental illness,
-              risky behaviours and early death, you should seek medical help as soon as possible.</p>
+            <p className={classes.paragraph}><strong>{result.quiz2.resultDesc}</strong></p>
           </Grid>
           
             <button className={classes.nextButton} onClick={() => history.push('/results/optimism')}>Next Result</button>

@@ -16,11 +16,14 @@ Quiz1.post("/quiz1", async (req, res) => {
     }
 
     if (done) {
-        if (result >= 4) {
-            user.quiz1.resultDesc = "Having an ACE score of 4 increases the risk of emphysema or chronic bronchitis by nearly 400 percent, and attempted suicide by 1200 percent. People with high ACE scores are more likely to be violent, to have more marriages, more broken bones, more drug prescriptions, more depression, and more autoimmune diseases. People with an ACE score of 6 or higher are at risk of their lifespan being shortened by 20 years.";
+        if (result === 0) {
+            user.quiz1.resultDesc = "This is a very good score. However, not everyone is as lucky as you are! Around 64% of people have ACE score of at least 1 and and 12.5% (6 in 1 people) have ACE score 4 or more. Because a higher is score is linked to chronic diseases, mental illness, risky behaviours and early death, you can help your family, friends and people you know, by spreading awareness about ACEs.";
+        }
+        else if (result > 0 && result < 4) {
+            user.quiz1.resultDesc = "If you don't have any associated health conditions, you fall into a low risk category. If you have any associated health conditions as well, you should seek medical help.";
         }
         else {
-            user.quiz1.resultDesc = "Your ACE score indicates that you have a secure childhood. People with ACE scores greater than 4 are more likely to commit to drugs and alcohol and have unsuccessful relationships. They are also more prone to committing suicide.";
+            user.quiz1.resultDesc = "Unfortunately, you fall into high risk category for toxic stress and its consequences. Because an ACE score like this is linked to chronic diseases, mental illness, risky behaviours and early death, you should seek medical help as soon as possible.";
         }
     }
     await user.save()

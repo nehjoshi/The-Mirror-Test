@@ -57,19 +57,19 @@ Quiz3.post('/quiz3', async (req, res) => {
         let esteemDesc = '';
 
         if (optScore > 8) {
-            optDesc = 'You are very optimistic across the board.';
+            optDesc = "You are a very optimistic person. You are full of hope. You would rather look at the bright side of life than the dark side.";
         }
         else if (optScore >= 6 && optScore <= 8) {
-            optDesc = 'You are moderately optimistic.';
+            optDesc = "You are a moderately optimistic person. By increasing your level of optimism, you can reap all the benefits of optimism. To do this, you can read books and/or material available on the internet. A few resources are also listed below.";
         }
         else if (optScore > 3 && optScore <= 5) {
-            optDesc = 'Your level of optimism is average.';
+            optDesc = "On the optimism scale, you fall into the average category. What this means is you are not neither an optimist nor a pessimist. By increasing your level of optimism, you can get more benefits with health, longevity, achievements, relationships and wellbeing. The books and resources listed below may help you increase your optimism score.";
         }
         else if (optScore == 1 || optScore == 2) {
-            optDesc = 'You are moderately pessimistic.';
+            optDesc = "You have a moderately pessimistic score. You should seek a councillor or a medical professional to improve your score. By improving your score, you will not only have health benefits, you will also have improved relationships, and a happier life.";
         }
         else {
-            optDesc = 'Your score indicates extreme pessimism';
+            optDesc = "You have a very pessimistic score. You should seek a counsellor or a medical professional's help as soon as possible. ";
         }
 
         if (hopeScore >= 0 && hopeScore <= 2) {

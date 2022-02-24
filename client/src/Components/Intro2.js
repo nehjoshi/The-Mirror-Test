@@ -53,7 +53,7 @@ const useStyles = makeStyles(() => ({
         height: "40px",
         borderRadius: "30px",
         width: "80%",
-
+        boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         margin: "25px auto",
         textTransform: "uppercase",
         transition: "all 0.2s ease",
@@ -101,10 +101,13 @@ const Intro2 = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid item className={classes.box}>
-                <h1 className={classes.heading}>Part 2</h1>
+                <h1 className={classes.heading}>Part 2: Attachment Style</h1>
                 <p className={classes.text}>
-                    The second part of this questionaire aims to determine your attachment style using 40 carefully framed questions.
-                    There are four attachment styles: Secure, Anxious, Avoidant and Disorganized. This questionaire will hopefully give you some insight into your attachment style.
+                An attachment style is a specific way a person connects with others in 
+            relationships. Our early attachment styles are established in childhood 
+            through the infant - caregiver relationships. However, adult romantic attachments may or may not be identical to our
+            childhood attachment styles. This is due to the fact that our experiences also play an important role in shaping our 
+            attachment styles.
                 </p>
                 <div className={classes.button} onClick={() => Next()}>
                     Start

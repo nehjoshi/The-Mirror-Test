@@ -67,6 +67,7 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-evenly',
+        marginBottom: "20px"
     },
     numCircle: {
         width: "100px",

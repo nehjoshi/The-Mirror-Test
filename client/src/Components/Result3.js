@@ -5,10 +5,9 @@ import { useHistory } from "react-router-dom";
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import ResultPDF from "./ResultPDF.js";
 import ResultPDFWithoutDetails from "./ResultPDFWithoutDetails";
-import { Table, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
 import { useStyles } from "./Styles/ResultStyles";
 
-const Result1 = () => {
+const Result3 = () => {
   const theme = useTheme();
   const classes = useStyles(theme);
   const [loading, setLoading] = useState(true);
@@ -44,13 +43,6 @@ const Result1 = () => {
 
   }, [history])
 
-  const green = {
-    backgroundColor: '#00cc30',
-  }
-  const red = {
-    backgroundColor: '#FFBF00',
-  }
-
   return loading ? (
     <Grid container className={classes.wrapper}>
       <div ref={loadingRef1}>Loading...</div>
@@ -63,28 +55,7 @@ const Result1 = () => {
           <h1 className={classes.heading}>Results</h1>
         </Grid>
         <Grid className={classes.section}>
-          <Grid className={classes.section1Header}>
-            <h1 className={classes.heading}>Basic Information</h1>
-          </Grid>
-          <TableContainer component={Paper} style={{ width: '80%', margin: '20px auto' }}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell><strong style={{ fontSize: '1.5rem', color: "#005751" }}>Name</strong></TableCell>
-                  <TableCell align="right"><strong style={{ fontSize: '1.5rem' }}>Neh Samir Joshi</strong></TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell><strong style={{ fontSize: '1.5rem', color: "#005751" }}>Email</strong></TableCell>
-                  <TableCell align="right"><strong style={{ fontSize: '1.5rem' }}>nehjoshi5@gmail.com</strong></TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell><strong style={{ fontSize: '1.5rem', color: "#005751" }}>Nationality</strong></TableCell>
-                  <TableCell align="right"><strong style={{ fontSize: '1.5rem' }}>British</strong></TableCell>
-                </TableRow>
-              </TableHead>
-            </Table>
-          </TableContainer>
-          <Stepper activeStep={0} alternativeLabel style={{background: 'transparent'}}>
+          <Stepper activeStep={1} alternativeLabel style={{background: 'transparent'}}>
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
@@ -93,25 +64,18 @@ const Result1 = () => {
           </Stepper>
         </Grid>
         <Grid className={classes.section}>
-          <h1 className={classes.heading}>Your Results</h1>
-          <h2 className={classes.subHeading}>Part 1 - Adverse Childhood Experience (ACE)</h2>
+          <h2 className={classes.subHeading}>Part 3 - Hope and Optimism</h2>
           <Grid className={classes.resultBox}>
-            <p className={classes.paragraph}>ACEs stand for Adverse Childhood Experiences. They are negative experiences
-              a child may go through before the age of 18. Examples include: physical or
-              sexual abuse, violence with a child or to a family member, child neglect by
-              caregivers or a death of a family member. These kind of traumatic experiences (ACEs)
-              are linked to chronic health issues, mental illness and substance abuse in adulthood.
-              They can also negatively impact education, job opportunities, earning potential and relationships. </p>
+            <p className={classes.paragraph}>Dr. Martin Seligman defines optimisn as reacting to problems with 
+            a sense of confidence and high personal ability. Optimistic people believe that negative events are temporary,
+            limited in scope (instead of pervading every aspect of life) and manageable. </p>
             <Grid className={classes.resultBoxHeader}>
-              <h1 style={{ fontSize: '3rem' }}>Your ACE score is: </h1>
-              <div className={classes.numCircle} style={result.quiz1.result >= 4 ? red : green}>
-                <h1 style={{ fontSize: '3rem', color: "#fff" }}>{result.quiz1.result}</h1>
-              </div>
+              <h1 style={{ fontSize: '3rem' }}>Your attachment style is: {result.quiz2.result} </h1>
             </Grid>
-            <p className={classes.paragraph}><strong>{result.quiz1.resultDesc}</strong></p>
+            <p className={classes.paragraph}>{result.quiz2.resultDesc}</p>
           </Grid>
           
-            <button className={classes.nextButton} onClick={() => history.push('/results/attachment-style')}>Next Result</button>
+            <button className={classes.nextButton} onClick={() => history.push('/results/optimism')}>Next Result</button>
         </Grid>
 
         {skipped === false ?
@@ -127,4 +91,4 @@ const Result1 = () => {
     </Grid>
   );
 };
-export default Result1;
+export default Result3;

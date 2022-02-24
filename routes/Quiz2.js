@@ -45,19 +45,19 @@ Quiz2.post("/quiz2", async (req, res) => {
         if (result1 > result2 && result1 > result3 && result1 > result4) {
             console.log("Secure!");
             user.quiz2.result = "Secure";
-            user.quiz2.resultDesc = "A secure attachment style refers to the ability to form secure, loving relationships with others. A securely attached person can trust others and be trusted, love and accept love, and get close to others with relative ease.";
+            user.quiz2.resultDesc = "People with a secure attachment style have an ability to form trusting, loving and lasting relationships. They tend to have good self-esteem and it is easier for them to share feelings with partners and friends.";
         }
         else if (result2 > result1 && result2 > result3 && result2 > result4) {
             user.quiz2.result = "Anxious";
-            user.quiz2.resultDesc = "An anxious attachment style is a form of insecure attachment style marked by a deep fear of abandonment. Anxiously attached people tend to be very insecure about their relationships, often worrying that their partner will leave them and thus always hungry for validation.";
+            user.quiz2.resultDesc = "People with an anxious attachment style tend to be insecure in and about their relationsips. Because they are concerned with the uncerctainty of relationships, they are normally hungry for validation from their partners. They also display needy or clingy behaviour.";
         }
         else if (result3 > result1 && result3 > result2 && result3 > result4) {
             user.quiz2.result = "Avoidant";
-            user.quiz2.resultDesc = "An avoidant attachment style is a form of insecure attachment style marked by a fear of intimacy. People with avoidant attachment style tend to have trouble getting close to others or trusting others in relationships, and relationships can make them feel suffocated.";
+            user.quiz2.resultDesc = "An adult with this attachment style prefers to avoid intimacy and close relationships with others. This helps them retain a sense of independence and invulnerability.";
         }
         else if (result4 > result1 && result4 > result3 && result4 > result2) {
             user.quiz2.result = "Disorganized";
-            user.quiz2.resultDesc = "A disorganized attachment style is a combination of both the anxious and avoidant attachment styles. People with fearful-avoidant attachment both desperately crave affection and want to avoid it at all costs.";
+            user.quiz2.resultDesc = "An adult with this attachment style generally makes efforts to avoid their feelings so that they don't get overwhelmed by them. This style is a combination of both anxious and avoidant attachment styles.";
         }
         await user.save()
             .then()

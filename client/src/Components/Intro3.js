@@ -53,7 +53,7 @@ const useStyles = makeStyles(() => ({
         height: "40px",
         borderRadius: "30px",
         width: "80%",
-
+        boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         margin: "25px auto",
         textTransform: "uppercase",
         transition: "all 0.2s ease",
@@ -101,11 +101,11 @@ const Intro3 = () => {
     ) : (
         <Grid container className={classes.wrapper}>
             <Grid item className={classes.box}>
-                <h1 className={classes.heading}>Part 3</h1>
+                <h1 className={classes.heading}>Part 3: Optimism</h1>
                 <p className={classes.text}>
-                    The third part of The Mirror Test will determine your level of optimism and hope. Read the description
-                    of each situation and vividly imagine it happening it to you. You have probably not experienced some of the
-                    situations, but that doesn't matter. If none of the two options seem to fit, select either one.
+                    Dr. Martin Seligman defines optimisn as reacting to problems with a sense of confidence and
+                    high personal ability. Optimistic people believe that negative events are temporary,
+                    limited in scope (instead of pervading every aspect of life) and manageable.
                 </p>
                 <div className={classes.button} onClick={() => Next()}>
                     Start
