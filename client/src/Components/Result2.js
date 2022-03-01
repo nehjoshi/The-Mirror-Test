@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Grid, useTheme, Step, StepLabel, Stepper } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import { Grid, useTheme, Step, StepLabel, Stepper, CircularProgress } from "@material-ui/core";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { PDFDownloadLink } from '@react-pdf/renderer';
@@ -14,7 +14,6 @@ const Result2 = () => {
   const [skipped, setSkipped] = useState(false);
   const [result, setResult] = useState([]);
   const history = useHistory();
-  const loadingRef1 = useRef(null);
   const steps = ["ACE", "Attachment Style", "Optimism", "Big Five Personality", "Wellbeing"]
 
   useEffect(() => {
@@ -44,8 +43,8 @@ const Result2 = () => {
   }, [history])
 
   return loading ? (
-    <Grid container className={classes.wrapper}>
-      <div ref={loadingRef1}>Loading...</div>
+    <Grid container className={classes.wrapper} style={{height: '100vh', alignItems: 'center'}}>
+      <CircularProgress />
     </Grid>
   ) : (
     <Grid container className={classes.wrapper}>

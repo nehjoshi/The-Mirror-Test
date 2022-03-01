@@ -5,6 +5,7 @@ export { default as Login } from './Login';
 export { default as Result1 } from './Result1';
 export { default as Result2 } from './Result2';
 export { default as Result3 } from './Result3';
+export { default as Result4 } from './Result4';
 export { default as Intro2 } from './Intro2';
 export { default as Intro3 } from './Intro3';
 export { default as Intro4 } from './Intro4';

@@ -7,7 +7,7 @@ import ResultPDF from "./ResultPDF.js";
 import ResultPDFWithoutDetails from "./ResultPDFWithoutDetails";
 import { useStyles } from "./Styles/ResultStyles";
 
-const Result3 = () => {
+const Result4 = () => {
   const theme = useTheme();
   const classes = useStyles(theme);
   const [loading, setLoading] = useState(true);
@@ -55,7 +55,7 @@ const Result3 = () => {
           <h1 className={classes.heading}>Results</h1>
         </Grid>
         <Grid className={classes.section}>
-          <Stepper activeStep={2} alternativeLabel style={{ background: 'transparent' }}>
+          <Stepper activeStep={3} alternativeLabel style={{ background: 'transparent' }}>
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
@@ -64,7 +64,7 @@ const Result3 = () => {
           </Stepper>
         </Grid>
         <Grid className={classes.section}>
-          <h2 className={classes.subHeading}>Part 3 - Hope and Optimism</h2>
+          <h2 className={classes.subHeading}>Part 4 - Big Five Personality Test</h2>
           <Grid className={classes.resultBox}>
             <h3 className={classes.subHeading}>What is Optimism?</h3>
             <p className={classes.paragraph}>Dr. Martin Seligman defines optimisn as reacting to problems with
@@ -93,7 +93,7 @@ const Result3 = () => {
             </Grid>
           </Grid>
 
-          <button className={classes.nextButton} onClick={() => history.push('/results/bfpt')}>Next Result</button>
+          <button className={classes.nextButton} onClick={() => history.push('/results/bpt')}>Next Result</button>
         </Grid>
 
         {skipped === false ?
@@ -109,4 +109,4 @@ const Result3 = () => {
     </Grid>
   );
 };
-export default Result3;
+export default Result4;

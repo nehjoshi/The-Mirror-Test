@@ -66,7 +66,7 @@ Quiz3.post('/quiz3', async (req, res) => {
             optDesc = "On the optimism scale, you fall into the average category. What this means is you are not neither an optimist nor a pessimist. By increasing your level of optimism, you can get more benefits with health, longevity, achievements, relationships and wellbeing. The books and resources listed below may help you increase your optimism score.";
         }
         else if (optScore == 1 || optScore == 2) {
-            optDesc = "You have a moderately pessimistic score. You should seek a councillor or a medical professional to improve your score. By improving your score, you will not only have health benefits, you will also have improved relationships, and a happier life.";
+            optDesc = "You have a moderately pessimistic score. You should seek a counsellor or a medical professional to improve your score. By improving your score, you will not only have health benefits, you will also have improved relationships, and a happier life.";
         }
         else {
             optDesc = "You have a very pessimistic score. You should seek a counsellor or a medical professional's help as soon as possible. ";
