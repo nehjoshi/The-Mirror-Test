@@ -11,31 +11,31 @@ Quiz3.post('/quiz3', async (req, res) => {
 
     switch (type) {
         case 'pmb':
-            result.pmb += value;
+            user.quiz3.pmb += value;
             break;
         case 'pvb':
-            result.pvb += value;
+            user.quiz3.pvb += value;
             break;
         case 'psb':
-            result.psb += value;
+            user.quiz3.psb += value;
             break;
         case 'pmg':
-            result.pmg += value;
+            user.quiz3.pmg += value;
             break;
         case 'pvg':
-            result.pvg += value;
+            user.quiz3.pvg += value;
             break;
         case 'psg':
-            result.psg += value;
+            user.quiz3.psg += value;
             break;
     }
     user.quiz3 = {
-        pmb: result.pmb,
-        pvb: result.pvb,
-        psb: result.psb,
-        pmg: result.pmg,
-        pvg: result.pvg,
-        psg: result.psg,
+        pmb: user.quiz3.pmb,
+        pvb: user.quiz3.pvb,
+        psb: user.quiz3.psb,
+        pmg: user.quiz3.pmg,
+        pvg: user.quiz3.pvg,
+        psg: user.quiz3.psg,
         lastQ: qno,
         finished: done ? true : false
     }
@@ -47,13 +47,13 @@ Quiz3.post('/quiz3', async (req, res) => {
         })
 
     if (done === true) {
-        let B = result.pvb + result.psb + result.pmb;
-        let G = result.pvg + result.psg + result.pmg;
+        let B = user.quiz3.pvb + user.quiz3.psb + user.quiz3.pmb;
+        let G = user.quiz3.pvg + user.quiz3.psg + user.quiz3.pmg;
         let optScore = G - B;
         let optDesc = '';
-        let hopeScore = result.pvb + result.pmb;
+        let hopeScore = user.quiz3.pvb + user.quiz3.pmb;
         let hopeDesc = '';
-        let esteemScore = result.psb;
+        let esteemScore = user.quiz3.psb;
         let esteemDesc = '';
 
         if (optScore > 8) {
@@ -104,12 +104,12 @@ Quiz3.post('/quiz3', async (req, res) => {
             esteemDesc = 'Your have a very low self-esteem.';
         }
         user.quiz3 = {
-            pmb: result.pmb,
-            pvb: result.pvb,
-            psb: result.psb,
-            pmg: result.pmg,
-            pvg: result.pvg,
-            psg: result.psg,
+            pmb: user.quiz3.pmb,
+            pvb: user.quiz3.pvb,
+            psb: user.quiz3.psb,
+            pmg: user.quiz3.pmg,
+            pvg: user.quiz3.pvg,
+            psg: user.quiz3.psg,
             optScore, optDesc, hopeScore, hopeDesc, esteemScore, esteemDesc,
             lastQ: user.quiz3.lastQ,
             finished: done ? true : false

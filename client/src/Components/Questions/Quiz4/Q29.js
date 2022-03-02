@@ -40,22 +40,12 @@ const Quiz4_29 = () => {
     });
 
     const handleRes = (ans) => {
-        const e = parseInt(localStorage.getItem('e'));
-        const a = parseInt(localStorage.getItem('a'));
-        const c = parseInt(localStorage.getItem('c'));
-        const n = parseInt(localStorage.getItem('n'));
-        const o = parseInt(localStorage.getItem('o'));
-        const result = { e: e, a: a, c: c, n: n, o: o };
-        const data = { type: 'n', value: ans, result, done: false, email: localStorage.getItem("email") }
+
+        const data = { type: 'n', value: ans, done: false, email: localStorage.getItem("email") }
         axios.post("https://self-growth-questionaire.herokuapp.com/quiz4", data)
             .then((response) => {
                 if (response.data.success === true) {
-                    const { e, a, c, n, o } = response.data.result;
-                    localStorage.setItem("e", e);
-                    localStorage.setItem("a", a);
-                    localStorage.setItem("c", c);
-                    localStorage.setItem("n", n);
-                    localStorage.setItem("o", o);
+                    
                     gsap.to(mainRef.current, {
                         left: -1000,
                         duration: 0.5,

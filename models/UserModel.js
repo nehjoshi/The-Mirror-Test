@@ -48,6 +48,16 @@ const Quiz4Schema = new mongoose.Schema({
     C: Number,
     N: Number,
     O: Number,
+    E_score: Number,
+    A_score: Number,
+    C_score: Number,
+    N_score: Number,
+    O_score: Number,
+    E_desc: String,
+    A_desc: String,
+    C_desc: String,
+    N_desc: String,
+    O_desc: String,
     lastQ: Number,
     finished: Boolean
 });

@@ -34,6 +34,16 @@ router.get('/fetch-result', verifyToken, async (req, res) => {
                     C: user.quiz4.C,
                     N: user.quiz4.N,
                     O: user.quiz4.O,
+                    E_desc: user.quiz4.E_desc,
+                    A_desc: user.quiz4.A_desc,
+                    C_desc: user.quiz4.C_desc,
+                    N_desc: user.quiz4.N_desc,
+                    O_desc: user.quiz4.O_desc,
+                    E_score: user.quiz4.E_score,
+                    A_score: user.quiz4.A_score,
+                    C_score: user.quiz4.C_score,
+                    N_score: user.quiz4.N_score,
+                    O_score: user.quiz4.O_score,
                 },
                 quiz5: {
                     result: user.quiz5.PERMA

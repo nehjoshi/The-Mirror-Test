@@ -7,7 +7,7 @@ import ResultPDF from "./ResultPDF.js";
 import ResultPDFWithoutDetails from "./ResultPDFWithoutDetails";
 import { useStyles } from "./Styles/ResultStyles";
 
-const Result4 = () => {
+const Result5 = () => {
   const theme = useTheme();
   const classes = useStyles(theme);
   const [loading, setLoading] = useState(true);
@@ -54,7 +54,7 @@ const Result4 = () => {
           <h1 className={classes.heading}>Results</h1>
         </Grid>
         <Grid className={classes.section}>
-          <Stepper activeStep={3} alternativeLabel style={{ background: 'transparent' }}>
+          <Stepper activeStep={4} alternativeLabel style={{ background: 'transparent' }}>
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
@@ -63,7 +63,7 @@ const Result4 = () => {
           </Stepper>
         </Grid>
         <Grid className={classes.section}>
-          <h2 className={classes.subHeading}>Part 4 - Big Five Personality Test</h2>
+          <h2 className={classes.subHeading}>Part 5 - PERMA Wellbeing Test</h2>
           <Grid className={classes.resultBox}>
             <h3 className={classes.subHeading}>What is a personality?</h3>
             <p className={classes.paragraph}>In the simplest of terms, the way you feel, think and behave is your personality.
@@ -116,7 +116,7 @@ const Result4 = () => {
           
           </Grid>
 
-          <button className={classes.nextButton} onClick={() => history.push('/results/perma')}>Next Result</button>
+          <button className={classes.nextButton} onClick={() => history.push('/dashboard')}>Back to Dashboard</button>
         </Grid>
 
         {skipped === false ?
@@ -132,4 +132,4 @@ const Result4 = () => {
     </Grid>
   );
 };
-export default Result4;
+export default Result5;

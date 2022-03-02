@@ -41,17 +41,10 @@ const Quiz4_1 = () => {
 
     const handleRes = (ans) => {
 
-        const result = { e: 0, a: 0, c: 0, n: 0, o: 0 };
-        const data = { type: 'e', value: ans, result, done: false, email: localStorage.getItem("email") }
+        const data = { type: 'e', value: ans, done: false, email: localStorage.getItem("email") }
         axios.post("https://self-growth-questionaire.herokuapp.com/quiz4", data)
             .then((response) => {
                 if (response.data.success === true) {
-                    const { e, a, c, n, o } = response.data.result;
-                    localStorage.setItem("e", e);
-                    localStorage.setItem("a", a);
-                    localStorage.setItem("c", c);
-                    localStorage.setItem("n", n);
-                    localStorage.setItem("o", o);
                     gsap.to(mainRef.current, {
                         left: -1000,
                         duration: 0.5,

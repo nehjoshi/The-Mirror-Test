@@ -63,6 +63,16 @@ Register.post('/register', async (req, res) => {
         C: 0,
         N: 0,
         O: 0,
+        E_score: 0,
+        A_score: 0,
+        C_score: 0,
+        N_score: 0,
+        O_score: 0,
+        E_desc: "",
+        A_desc: "",
+        C_desc: "",
+        N_desc: "",
+        O_desc: "",
         lastQ: 0,
         finished: false
     }
@@ -112,9 +122,9 @@ Register.post('/register', async (req, res) => {
                 { id: name, result: 0 },
                 process.env.SECRET_KEY,
                 {
-                  expiresIn: 10800,
+                    expiresIn: 10800,
                 }
-              ); 
+            );
             return res.json({ success: true, token: token, name: req.body.name });
         })
         .catch(e => {
