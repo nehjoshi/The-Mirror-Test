@@ -43,7 +43,7 @@ const Result5 = () => {
   }, [history])
 
   return loading ? (
-    <Grid container className={classes.wrapper} style={{height: '100vh', alignItems: 'center'}}>
+    <Grid container className={classes.wrapper} style={{ height: '100vh', alignItems: 'center' }}>
       <CircularProgress />
     </Grid>
   ) : (
@@ -65,55 +65,29 @@ const Result5 = () => {
         <Grid className={classes.section}>
           <h2 className={classes.subHeading}>Part 5 - PERMA Wellbeing Test</h2>
           <Grid className={classes.resultBox}>
-            <h3 className={classes.subHeading}>What is a personality?</h3>
-            <p className={classes.paragraph}>In the simplest of terms, the way you feel, think and behave is your personality.
-              As per the BFPT model, personality can be measured using five personal characteristics. They are: </p>
-            <p className={classes.paragraph}><strong>1. Extraversion: </strong>This is the personality trait of seeking
-              fulfillment from sources outside the self or in the community. People with high scores tend to be very social
-              while low scorers prefer to work on their own.</p>
+            <h3 className={classes.subHeading}>What is wellbeing?</h3>
+            <p className={classes.paragraph}>In simple terms, wellbeing is about feeling good and functioning well.
+              Wellbeing comprises a person's experience of life and a comparison of life circumstances with social norms
+              and values.</p>
+            <p className={classes.paragraph}>As per research in positive psychology, wellbeing has five main pillars. They are: </p>
+            <p className={classes.paragraph}><strong>1. Positive/Negative Emotions: These are the emotions we feel. Joy and
+              satisfaction are examples of positive emotions whereas anger and sadness are examples of negative emotions.</strong></p>
+
+             <p className={classes.paragraph}><strong>2. Engagement: Engagement refers to being absorbed, interested and involved
+               in an activity or the world itself.</strong></p> 
+            <p className={classes.paragraph}><strong>3. Relationships: Relationships refer to feeling loved, supported and being
+              valued by others.</strong></p>
+            <p className={classes.paragraph}><strong>4. Meaning: Meaning refers to having a sense of purpose in life, a direction
+              where life is going, connecting to something greater than ourselves, such as religious faith, charity, or a personal
+              meaninful goal.</strong></p>
+            <p className={classes.paragraph}><strong>5. Accomplishment: Accomplishment refers to something that has been 
+              successfully achieved.</strong></p>
 
             <Grid className={classes.resultBoxHeader}>
-              <h1 style={{ fontSize: '3rem' }}>Your extraversion score is: {result.quiz4.E_score.toFixed(2)} </h1>
+              <h1 style={{ fontSize: '3rem' }}>Your PERMA score is: {result.quiz5.result} </h1>
             </Grid>
-            <p className={classes.paragraph} style={{ textAlign: 'center' }}><strong>{result.quiz4.E_desc}</strong></p>
-            <p className={classes.paragraph}><strong>2. Agreeableness: </strong>This reflects how much individuals adjust their
-              behaviour to suit others. High scorers are typically polite and like people. Low scorers tend to be more blunt.</p>
+            
 
-            <Grid className={classes.resultBoxHeader}>
-              <h1 style={{ fontSize: '3rem' }}>Your agreeableness score is: {result.quiz4.A_score.toFixed(2)} </h1>
-            </Grid>
-            <p className={classes.paragraph} style={{ textAlign: 'center' }}><strong>{result.quiz4.A_desc}</strong></p>
-
-            <p className={classes.paragraph}><strong>3. Conscientiousness: </strong>Conscientiousness is the personality trait
-              of being honest and hard working. High scorers tend to follow rules and prefer clean homes. Low scorers may be messy
-              and may cheat others.</p>
-
-            <Grid className={classes.resultBoxHeader}>
-              <h1 style={{ fontSize: '3rem' }}>Your conscientiousness score is: {result.quiz4.C_score.toFixed(2)} </h1>
-            </Grid>
-            <p className={classes.paragraph} style={{ textAlign: 'center' }}><strong>{result.quiz4.C_desc}</strong></p>
-
-            <p className={classes.paragraph}><strong>4. Neuroticism: </strong>Neuroticism is the personality trait of being
-            emotional. High scorers tend to have high emotional reactions to stress. They may perceive situations as
-            threatening and be more likely to feel moody, depressed, angry and axious and may experience mood swings. Low scorers
-            tend to be more emotionally stable and less reactive to stress.</p>
-
-            <Grid className={classes.resultBoxHeader}>
-              <h1 style={{ fontSize: '3rem' }}>Your neuroticism score is: {result.quiz4.N_score.toFixed(2)} </h1>
-            </Grid>
-            <p className={classes.paragraph} style={{ textAlign: 'center' }}><strong>{result.quiz4.N_desc}</strong></p>
-
-            <p className={classes.paragraph}><strong>5. Openness: </strong>Openness to experience is the personality trait of
-            seeking new experiences and intellectual pursuits. High scorers may day dream a lot (enjoy thinking about new and
-            different things). Low scorers tend to be very down to earth (more of a "here and now" way of thinking). 
-            Consequently, it is thought that people with higher scores might be more creative, flexible, curious and
-            adventurous, whereas people with lower scores might tend to enjoy routines, predictability and structure.</p>
-
-            <Grid className={classes.resultBoxHeader}>
-              <h1 style={{ fontSize: '3rem' }}>Your openness score is: {result.quiz4.O_score.toFixed(2)} </h1>
-            </Grid>
-            <p className={classes.paragraph} style={{ textAlign: 'center' }}><strong>{result.quiz4.O_desc}</strong></p>
-          
           </Grid>
 
           <button className={classes.nextButton} onClick={() => history.push('/dashboard')}>Back to Dashboard</button>

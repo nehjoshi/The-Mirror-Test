@@ -42,30 +42,12 @@ const Quiz5_22 = () => {
 
     const handleRes = () => {
 
-        const P = parseInt(localStorage.getItem("P"));
-        const E = parseInt(localStorage.getItem("E"));
-        const R = parseInt(localStorage.getItem("R"));
-        const M = parseInt(localStorage.getItem("M"));
-        const A = parseInt(localStorage.getItem("A"));
-        const N = parseInt(localStorage.getItem("N"));
-        const H = parseInt(localStorage.getItem("H"));
-        const LON = parseInt(localStorage.getItem("LON"));
-        const HAP = parseInt(localStorage.getItem("HAP"))
-        const result = { P, E, R, M, A, N, H, LON, HAP };
-        const data = { type: 'P', value: sliderValue, result, done: false, email: localStorage.getItem("email") }
+        
+        const data = { type: 'P', value: sliderValue, done: false, email: localStorage.getItem("email") }
         axios.post("https://self-growth-questionaire.herokuapp.com/quiz5", data)
             .then((response) => {
                 if (response.data.success === true) {
-                    const { P, E, R, M, A, N, H, LON, HAP } = response.data.result;
-                    localStorage.setItem("P", P);
-                    localStorage.setItem("E", E);
-                    localStorage.setItem("R", R);
-                    localStorage.setItem("M", M);
-                    localStorage.setItem("A", A);
-                    localStorage.setItem("N", N);
-                    localStorage.setItem("H", H);
-                    localStorage.setItem("LON", LON);
-localStorage.setItem("HAP", HAP);
+                    
                     gsap.to(mainRef.current, {
                         left: -1000,
                         duration: 0.5,

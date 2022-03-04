@@ -86,6 +86,7 @@ Register.post('/register', async (req, res) => {
         HAP: 0,
         H: 0,
         LON: 0,
+        PERMA: 0,
         lastQ: 0,
         finished: false
     }

@@ -41,32 +41,10 @@ const Quiz5_23 = () => {
     });
 
     const handleRes = () => {
-
-        const P = parseInt(localStorage.getItem("P"));
-        const E = parseInt(localStorage.getItem("E"));
-        const R = parseInt(localStorage.getItem("R"));
-        const M = parseInt(localStorage.getItem("M"));
-        const A = parseInt(localStorage.getItem("A"));
-        const N = parseInt(localStorage.getItem("N"));
-        const H = parseInt(localStorage.getItem("H"));
-        const LON = parseInt(localStorage.getItem("LON"));
-        const HAP = parseInt(localStorage.getItem("HAP"));
-        const result = { P, E, R, M, A, N, H, LON, HAP };
-        const data = { type: 'HAP', value: sliderValue, result, done: true, email: localStorage.getItem("email") }
+        const data = { type: 'HAP', value: sliderValue, done: true, email: localStorage.getItem("email") }
         axios.post("https://self-growth-questionaire.herokuapp.com/quiz5", data)
             .then((response) => {
                 if (response.data.success === true) {
-                    const { PERMA } = response.data;
-                    localStorage.setItem("PERMA", PERMA);
-                    localStorage.removeItem("P")
-                    localStorage.removeItem("E")
-                    localStorage.removeItem("R")
-                    localStorage.removeItem("M")
-                    localStorage.removeItem("A")
-                    localStorage.removeItem("H")
-                    localStorage.removeItem("HAP")
-                    localStorage.removeItem("N")
-                    localStorage.removeItem("LON")
                     gsap.to(mainRef.current, {
                         left: -1000,
                         duration: 0.5,

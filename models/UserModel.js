@@ -72,6 +72,7 @@ const Quiz5Schema = new mongoose.Schema({
     H: Number,
     LON: Number,
     lastQ: Number,
+    PERMA: Number,
     finished: Boolean
 });
 const reg1Schema = new mongoose.Schema({
