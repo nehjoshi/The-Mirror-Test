@@ -43,13 +43,6 @@ const Result1 = () => {
 
   }, [history])
 
-  const green = {
-    backgroundColor: '#00cc30',
-  }
-  const red = {
-    backgroundColor: '#FFBF00',
-  }
-
   return loading ? (
     <Grid container className={classes.wrapper} style={{height: '100vh', alignItems: 'center'}}>
       <CircularProgress />
@@ -65,36 +58,37 @@ const Result1 = () => {
           <Grid className={classes.section1Header}>
             <h1 className={classes.heading}>Basic Information</h1>
           </Grid>
-          <TableContainer component={Paper} style={{ width: '80%', margin: '20px auto' }}>
+          <TableContainer component={Paper} className={classes.tableWrapper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell><strong style={{ fontSize: '1.5rem', color: "#005751" }}>Name</strong></TableCell>
-                  <TableCell align="right"><strong style={{ fontSize: '1.5rem' }}>Neh Samir Joshi</strong></TableCell>
+                  <TableCell><strong className={classes.tableLeft}>Name</strong></TableCell>
+                  <TableCell align="right"><strong className={classes.tableRight}>Neh Samir Joshi</strong></TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell><strong style={{ fontSize: '1.5rem', color: "#005751" }}>Email</strong></TableCell>
-                  <TableCell align="right"><strong style={{ fontSize: '1.5rem' }}>nehjoshi5@gmail.com</strong></TableCell>
+                  <TableCell><strong className={classes.tableLeft}>Email</strong></TableCell>
+                  <TableCell align="right"><strong className={classes.tableRight}>nehjoshi5@gmail.com</strong></TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell><strong style={{ fontSize: '1.5rem', color: "#005751" }}>Nationality</strong></TableCell>
-                  <TableCell align="right"><strong style={{ fontSize: '1.5rem' }}>British</strong></TableCell>
+                  <TableCell><strong className={classes.tableLeft}>Nationality</strong></TableCell>
+                  <TableCell align="right"><strong className={classes.tableRight}>British</strong></TableCell>
                 </TableRow>
               </TableHead>
             </Table>
           </TableContainer>
-          <Stepper activeStep={0} alternativeLabel style={{background: 'transparent'}}>
+        </Grid>
+        <Stepper activeStep={0} alternativeLabel className={classes.stepper}>
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
               </Step>
             ))}
           </Stepper>
-        </Grid>
         <Grid className={classes.section}>
-          <h1 className={classes.heading}>Your Results</h1>
+          <h1 className={classes.heading} style={{margin: '0 auto'}}>Your Results</h1>
           <h2 className={classes.subHeading}>Part 1 - Adverse Childhood Experience (ACE)</h2>
           <Grid className={classes.resultBox}>
+            <h3 className={classes.heading}>What is ACE?</h3>
             <p className={classes.paragraph}>ACEs stand for Adverse Childhood Experiences. They are negative experiences
               a child may go through before the age of 18. Examples include: physical or
               sexual abuse, violence with a child or to a family member, child neglect by
@@ -103,9 +97,7 @@ const Result1 = () => {
               They can also negatively impact education, job opportunities, earning potential and relationships. </p>
             <Grid className={classes.resultBoxHeader}>
               <h1 style={{ fontSize: '3rem' }}>Your ACE score is: </h1>
-              <div className={classes.numCircle} style={result.quiz1.result >= 4 ? red : green}>
                 <h1 style={{ fontSize: '3rem', color: "#fff" }}>{result.quiz1.result}</h1>
-              </div>
             </Grid>
             <p className={classes.paragraph}><strong>{result.quiz1.resultDesc}</strong></p>
           </Grid>

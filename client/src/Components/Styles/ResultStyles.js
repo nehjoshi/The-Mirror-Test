@@ -23,17 +23,51 @@ export const useStyles = makeStyles((theme) => ({
         left: '1000px',
         opacity: 0,
         [theme.breakpoints.down("sm")]: {
-            width: '90%'
+            width: '95%',
+            padding: "0px 0px"
         }
     },
     boxHeader: {
         width: "100%",
         height: '60px',
-        padding: "10px 10px `10px 10px",
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         borderBottom: "1px solid #e0e0e0",
+    },
+    tableWrapper: {
+        width: "80%",
+        margin: "20px auto",
+        [theme.breakpoints.down("sm")]: {
+            width: '100%'
+        }
+    },
+    tableLeft: {
+        fontSize: '1.5rem', 
+        color: "#005751",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: '1.2rem'
+        },
+        [theme.breakpoints.down("xs")]: {
+            fontSize: '1rem'
+        }
+    },
+    tableRight: {
+        fontSize: '1.5rem',
+        [theme.breakpoints.down("sm")]: {
+            fontSize: '1.2rem'
+        },
+        [theme.breakpoints.down("xs")]: {
+            fontSize: '1rem'
+        }
+    },
+    stepper: {
+        background: 'transparent',
+        [theme.breakpoints.down("sm")]: {
+            width: '100%',
+            margin: '0 auto',
+            marginLeft: '-20px',
+        }
     },
     logo: {
         fontSize: "1.5rem",
@@ -62,6 +96,10 @@ export const useStyles = makeStyles((theme) => ({
         padding: "10px 10px",
         boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         margin: "20px auto",
+        [theme.breakpoints.down("sm")]: {
+            width: '100%',
+            padding: "10px 10px",
+        }
     },
     resultBoxHeader: {
         display: 'flex',
