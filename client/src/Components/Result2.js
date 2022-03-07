@@ -81,16 +81,17 @@ const Result2 = () => {
             <button className={classes.nextButton} onClick={() => history.push('/results/optimism')}>Next Result</button>
           </Grid>
         </Grid>
-
-        {skipped === false ?
-          <PDFDownloadLink document={<ResultPDF />} fileName="Results.pdf">
-            {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}
-          </PDFDownloadLink>
-          :
-          <PDFDownloadLink document={<ResultPDFWithoutDetails />} fileName="Results.pdf">
-            {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}
-          </PDFDownloadLink>
-        }
+        <Grid className={classes.tempWrapper}>
+          {skipped === false ?
+            <PDFDownloadLink document={<ResultPDF />} fileName="Results.pdf">
+              {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}
+            </PDFDownloadLink>
+            :
+            <PDFDownloadLink document={<ResultPDFWithoutDetails />} fileName="Results.pdf">
+              {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}
+            </PDFDownloadLink>
+          }
+        </Grid>
       </Grid>
     </Grid>
   );

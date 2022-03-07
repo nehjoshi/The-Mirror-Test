@@ -44,7 +44,7 @@ const Result1 = () => {
   }, [history])
 
   return loading ? (
-    <Grid container className={classes.wrapper} style={{height: '100vh', alignItems: 'center'}}>
+    <Grid container className={classes.wrapper} style={{ height: '100vh', alignItems: 'center' }}>
       <CircularProgress />
     </Grid>
   ) : (
@@ -78,14 +78,14 @@ const Result1 = () => {
           </TableContainer>
         </Grid>
         <Stepper activeStep={0} alternativeLabel className={classes.stepper}>
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
         <Grid className={classes.section}>
-          <h1 className={classes.heading} style={{margin: '0 auto'}}>Your Results</h1>
+          <h1 className={classes.heading} style={{ margin: '0 auto' }}>Your Results</h1>
           <h2 className={classes.subHeading}>Part 1 - Adverse Childhood Experience (ACE)</h2>
           <Grid className={classes.resultBox}>
             <h3 className={classes.heading}>What is ACE?</h3>
@@ -96,24 +96,26 @@ const Result1 = () => {
               are linked to chronic health issues, mental illness and substance abuse in adulthood.
               They can also negatively impact education, job opportunities, earning potential and relationships. </p>
             <Grid className={classes.resultBoxHeader}>
-              <h1 className={classes.subHeading} style={{color: "black", textDecoration: 'none'}}>Your ACE score is: </h1>
-                <h1 style={{ fontSize: '3rem', color: "#fff" }}>{result.quiz1.result}</h1>
+              <h1 className={classes.subHeading} style={{ color: "black", textDecoration: 'none' }}>Your ACE score is: </h1>
+              <h1 style={{ fontSize: '3rem', color: "#fff" }}>{result.quiz1.result}</h1>
             </Grid>
             <p className={classes.paragraph}><strong>{result.quiz1.resultDesc}</strong></p>
           </Grid>
-          
-            <button className={classes.nextButton} onClick={() => history.push('/results/attachment-style')}>Next Result</button>
+
+          <button className={classes.nextButton} onClick={() => history.push('/results/attachment-style')}>Next Result</button>
         </Grid>
 
-        {skipped === false ?
-          <PDFDownloadLink document={<ResultPDF />} fileName="Results.pdf">
-            {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}
-          </PDFDownloadLink>
-          :
-          <PDFDownloadLink document={<ResultPDFWithoutDetails />} fileName="Results.pdf">
-            {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}
-          </PDFDownloadLink>
-        }
+        <Grid className={classes.tempWrapper}>
+          {skipped === false ?
+            <PDFDownloadLink document={<ResultPDF />} fileName="Results.pdf">
+              {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}
+            </PDFDownloadLink>
+            :
+            <PDFDownloadLink document={<ResultPDFWithoutDetails />} fileName="Results.pdf">
+              {({ blob, url, loading, error }) => (loading ? "Loading..." : <div className={classes.button} >Download Results</div>)}
+            </PDFDownloadLink>
+          }
+        </Grid>
       </Grid>
     </Grid>
   );

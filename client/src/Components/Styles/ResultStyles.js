@@ -149,5 +149,14 @@ export const useStyles = makeStyles((theme) => ({
         display: "flex",
         justifyContent: "space-between",
         marginTop: "20px"
+    },
+    tempWrapper: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%'
+    },
+    button: {
+        margin: '0 auto',
     }
 }))
