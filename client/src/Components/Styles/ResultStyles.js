@@ -84,6 +84,9 @@ export const useStyles = makeStyles((theme) => ({
         color: "#005751",
         textDecoration: "underline",
         marginTop: "10px",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: "1rem"
+        }
     },
     section: {
         width: '80%',
@@ -141,5 +144,10 @@ export const useStyles = makeStyles((theme) => ({
         "&:hover": {
             backgroundColor: "#002926",
         }
+    },
+    buttonBox: {
+        display: "flex",
+        justifyContent: "space-between",
+        marginTop: "20px"
     }
 }))

@@ -116,7 +116,10 @@ const Result4 = () => {
           
           </Grid>
 
-          <button className={classes.nextButton} onClick={() => history.push('/results/perma')}>Next Result</button>
+          <Grid className={classes.buttonBox}>
+            <button className={classes.nextButton} onClick={() => history.push('/results/optimism')}>Previous Result</button>
+            <button className={classes.nextButton} onClick={() => history.push('/results/perma')}>Next Result</button>
+          </Grid>
         </Grid>
 
         {skipped === false ?

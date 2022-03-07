@@ -92,7 +92,10 @@ const Result3 = () => {
             </Grid>
           </Grid>
 
-          <button className={classes.nextButton} onClick={() => history.push('/results/bfpt')}>Next Result</button>
+          <Grid className={classes.buttonBox}>
+            <button className={classes.nextButton} onClick={() => history.push('/results/attachment-style')}>Previous Result</button>
+            <button className={classes.nextButton} onClick={() => history.push('/results/bfpt')}>Next Result</button>
+          </Grid>
         </Grid>
 
         {skipped === false ?

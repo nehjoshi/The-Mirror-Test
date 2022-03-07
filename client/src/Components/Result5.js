@@ -90,7 +90,10 @@ const Result5 = () => {
 
           </Grid>
 
-          <button className={classes.nextButton} onClick={() => history.push('/dashboard')}>Back to Dashboard</button>
+          <Grid className={classes.buttonBox}>
+            <button className={classes.nextButton} onClick={() => history.push('/results/bfpt')}>Previous Result</button>
+            <button className={classes.nextButton} onClick={() => history.push('/dashboard')}>Back to Dashboard</button>
+          </Grid>
         </Grid>
 
         {skipped === false ?
