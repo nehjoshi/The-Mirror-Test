@@ -10,6 +10,7 @@ export const useStyles = makeStyles((theme) => ({
         backgroundPosition: "center center",
         display: "flex",
         justifyContent: "center",
+        minHeight: "100vh"
     },
     box: {
         marginTop: "30px",
