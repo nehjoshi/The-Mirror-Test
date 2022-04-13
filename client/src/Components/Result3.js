@@ -71,8 +71,8 @@ const Result3 = () => {
               limited in scope (instead of pervading every aspect of life) and manageable. </p>
             <Grid className={classes.resultBoxHeader}>
               <h1 style={{ fontSize: '3rem' }}>Your optimism score is: {result.quiz3.optScore} </h1>
-              <p className={classes.paragraph}><strong>{result.quiz3.optDesc}</strong></p>
             </Grid>
+            <p className={classes.paragraph} style={{textAlign: 'center'}}><strong>{result.quiz3.optDesc}</strong></p>
             <h3 className={classes.subHeading}>What is Hope?</h3>
             <p className={classes.paragraph}>As per the Oxford Dictionary, hope is a belief that something you want will happen.
               This belief is tested in times of misfortune. If we have a tendency to find specific and temporary causes for
@@ -80,16 +80,16 @@ const Result3 = () => {
               permanent causes for our failures or misfortunes, dispair will be a big part of our lives.</p>
             <Grid className={classes.resultBoxHeader}>
               <h1 style={{ fontSize: '3rem' }}>Your hope score is: {result.quiz3.hopeScore} </h1>
-              <p className={classes.paragraph}><strong>{result.quiz3.hopeDesc}</strong></p>
             </Grid>
+            <p className={classes.paragraph} style={{textAlign: 'center'}}><strong>{result.quiz3.hopeDesc}</strong></p>
             <h3 className={classes.subHeading}>What is Self-Esteem?</h3>
             <p className={classes.paragraph}>Self esteem is your opinion about yourself. It describes a person's overall subjective
               sense of personal worth or value. Because this subjective sense can be positive or negative, self esteem can be high,
               moderate or low.</p>
             <Grid className={classes.resultBoxHeader}>
               <h1 style={{ fontSize: '3rem' }}>Your self-esteem score is: {result.quiz3.esteemScore} </h1>
-              <p className={classes.paragraph}><strong>{result.quiz3.esteemDesc}</strong></p>
             </Grid>
+            <p className={classes.paragraph} style={{textAlign: 'center'}}><strong>{result.quiz3.esteemDesc}</strong></p>
           </Grid>
 
           <Grid className={classes.buttonBox}>

@@ -182,7 +182,7 @@ const ResultPDFWithoutDetails = () => {
                         <Text style={styles.result}>Your Attachment Style is {data.result.quiz2.result}</Text>
                         <Text style={styles.resultDesc}>{data.result.quiz2.resultDesc}</Text>
 
-                        <Text style={styles.smallHeading}>Part 3: Optimism</Text>
+                        <Text style={styles.smallHeading} break>Part 3: Optimism</Text>
                         <Text style={styles.result}>Your optimism score is {data.result.quiz3.optScore}</Text>
                         <Text style={styles.resultDesc}>{data.result.quiz3.optDesc}</Text>
 
@@ -209,7 +209,7 @@ const ResultPDFWithoutDetails = () => {
                         <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
 
                         <Text style={[styles.smallHeading, { marginTop: 20 }]} break >Part 5: PERMA Profiler Test</Text>
-                        <Text style={styles.result}>Your PERMA score is 11.23</Text>
+                        <Text style={styles.result}>Your PERMA score is {data.result.quiz5.result}</Text>
                         <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
                     </View>
                 </View>

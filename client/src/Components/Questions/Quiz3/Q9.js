@@ -88,7 +88,7 @@ const Quiz3_9 = () => {
                 You run for a community office position and you lose.
                 </p>
                 <div className={classes.buttonWrapper}>
-                    <div className={classes.button} onClick={() => handleRes('psb', 1)}>A. I dind't campaign hard enough.</div>
+                    <div className={classes.button} onClick={() => handleRes('psb', 1)}>A. I didn't campaign hard enough.</div>
                     <div className={classes.button} onClick={() => handleRes('psb', 0)}>B. The person who won knew more people.</div>
                 </div>
 

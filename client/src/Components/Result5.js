@@ -86,6 +86,7 @@ const Result5 = () => {
             <Grid className={classes.resultBoxHeader}>
               <h1 style={{ fontSize: '3rem' }}>Your PERMA score is: {result.quiz5.result} </h1>
             </Grid>
+            <center><p className={classes.paragraph}><b>The average PERMA score is 6.82</b></p></center>
             
 
           </Grid>

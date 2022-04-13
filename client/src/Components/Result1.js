@@ -97,7 +97,7 @@ const Result1 = () => {
               They can also negatively impact education, job opportunities, earning potential and relationships. </p>
             <Grid className={classes.resultBoxHeader}>
               <h1 className={classes.subHeading} style={{ color: "black", textDecoration: 'none' }}>Your ACE score is: </h1>
-              <h1 style={{ fontSize: '3rem', color: "#fff" }}>{result.quiz1.result}</h1>
+              <h1 style={{ fontSize: '3rem' }}>{result.quiz1.result}</h1>
             </Grid>
             <p className={classes.paragraph}><strong>{result.quiz1.resultDesc}</strong></p>
           </Grid>
