@@ -181,7 +181,6 @@ const ResultPDFWithoutDetails = () => {
                         <Text style={styles.smallHeading}>Part 2: Attachment Style</Text>
                         <Text style={styles.result}>Your Attachment Style is {data.result.quiz2.result}</Text>
                         <Text style={styles.resultDesc}>{data.result.quiz2.resultDesc}</Text>
-
                         <Text style={styles.smallHeading} break>Part 3: Optimism</Text>
                         <Text style={styles.result}>Your optimism score is {data.result.quiz3.optScore}</Text>
                         <Text style={styles.resultDesc}>{data.result.quiz3.optDesc}</Text>

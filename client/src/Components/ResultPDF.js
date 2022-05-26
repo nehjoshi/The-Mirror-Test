@@ -162,12 +162,12 @@ const ResultPDF = () => {
                             <Text style={styles.boxValue}>{data.userDetails.name}</Text>
                         </View>
                         <View style={styles.boxRow}>
-                            <Text style={styles.boxField}>{data.userDetails.nationality}</Text>
-                            <Text style={styles.boxValue}>British</Text>
+                            <Text style={styles.boxField}>Nationality</Text>
+                            <Text style={styles.boxValue}>{data.userDetails.nationality}</Text>
                         </View>
                         <View style={styles.boxRow}>
-                            <Text style={styles.boxField}>{data.userDetails.religion}</Text>
-                            <Text style={styles.boxValue}>Hindu</Text>
+                            <Text style={styles.boxField}>Religion</Text>
+                            <Text style={styles.boxValue}>{data.userDetails.religion}</Text>
                         </View>
                         <View style={styles.boxRow}>
                             <Text style={styles.boxField}>Date of Birth</Text>

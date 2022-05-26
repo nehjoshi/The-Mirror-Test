@@ -75,10 +75,16 @@ export const useStyles = makeStyles((theme) => ({
         color: "#333333",
         position: 'absolute',
         top: 20,
-        left: 20
+        left: 20,
+        [theme.breakpoints.down("sm")]: {
+            fontSize: '1.1rem'
+        }
     },
     heading: {
         fontSize: "2.2rem",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: '2rem'
+        }
     },
     subHeading: {
         fontSize: "1.6rem",
@@ -93,17 +99,39 @@ export const useStyles = makeStyles((theme) => ({
         width: '80%',
         display: "flex",
         flexDirection: "column",
-        margin: "30px auto"
+        margin: "30px auto",
+        [theme.breakpoints.down("sm")]: {
+            width: '100%',
+            margin: '0 auto',
+            padding: '5px 5px'
+        }
+        
+    },
+    backButton: {
+        position: 'absolute',
+        top: '15px',
+        right: '20px',
+        fontSize: '1.5rem',
+        color: '#005751',
+        border: '1px solid #005751',
+        padding: '5px 10px',
+        borderRadius: '5px',
+        transition: "0.2s all ease",
+        cursor: 'pointer',
+        [theme.breakpoints.down("sm")]: {
+            fontSize: '1.2rem',
+            padding: '3px 5px'
+        },
+        "&:hover": {
+            background: '#005751',
+            color: '#fff'
+        }
     },
     resultBox: {
-        width: "80%",
+        width: "90%",
         padding: "10px 10px",
         boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         margin: "20px auto",
-        [theme.breakpoints.down("sm")]: {
-            width: '100%',
-            padding: "10px 10px",
-        }
     },
     resultBoxHeader: {
         display: 'flex',
@@ -144,6 +172,10 @@ export const useStyles = makeStyles((theme) => ({
         transition: "all 0.3s ease",
         "&:hover": {
             backgroundColor: "#002926",
+        },
+        [theme.breakpoints.down("sm")]: {
+            fontSize: '1.1rem',
+            padding: "10px 15px"
         }
     },
     buttonBox: {

@@ -52,6 +52,7 @@ const Result3 = () => {
         <Grid className={classes.boxHeader}>
           <h1 className={classes.logo}>The Mirror Test</h1>
           <h1 className={classes.heading}>Results</h1>
+          <h1 className={classes.backButton} onClick={() => history.push('/dashboard')}>Dashboard</h1>
         </Grid>
         <Grid className={classes.section}>
           <Stepper activeStep={2} alternativeLabel style={{ background: 'transparent' }}>

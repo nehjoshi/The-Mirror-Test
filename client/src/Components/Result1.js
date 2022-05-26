@@ -29,7 +29,7 @@ const Result1 = () => {
         if (res.data.auth === true) {
           setTimeout(() => {
             setSkipped(res.data.completeData.skippedDetails);
-            setResult(res.data.completeData.result);
+            setResult(res.data.completeData);
             console.log(res.data.completeData);
             setLoading(false);
           }, 100)
@@ -53,6 +53,7 @@ const Result1 = () => {
         <Grid className={classes.boxHeader}>
           <h1 className={classes.logo}>The Mirror Test</h1>
           <h1 className={classes.heading}>Results</h1>
+          <h1 className={classes.backButton} onClick={() => history.push('/dashboard')}>Dashboard</h1>
         </Grid>
         <Grid className={classes.section}>
           <Grid className={classes.section1Header}>
@@ -63,7 +64,7 @@ const Result1 = () => {
               <TableHead>
                 <TableRow>
                   <TableCell><strong className={classes.tableLeft}>Name</strong></TableCell>
-                  <TableCell align="right"><strong className={classes.tableRight}>Neh Samir Joshi</strong></TableCell>
+                  <TableCell align="right"><strong className={classes.tableRight}>{result.userDetails.name}</strong></TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell><strong className={classes.tableLeft}>Email</strong></TableCell>
@@ -97,9 +98,9 @@ const Result1 = () => {
               They can also negatively impact education, job opportunities, earning potential and relationships. </p>
             <Grid className={classes.resultBoxHeader}>
               <h1 className={classes.subHeading} style={{ color: "black", textDecoration: 'none' }}>Your ACE score is: </h1>
-              <h1 style={{ fontSize: '3rem' }}>{result.quiz1.result}</h1>
+              <h1 style={{ fontSize: '3rem' }}>{result.result.quiz1.result}</h1>
             </Grid>
-            <p className={classes.paragraph}><strong>{result.quiz1.resultDesc}</strong></p>
+            <p className={classes.paragraph}><strong>{result.result.quiz1.resultDesc}</strong></p>
           </Grid>
 
           <button className={classes.nextButton} onClick={() => history.push('/results/attachment-style')}>Next Result</button>

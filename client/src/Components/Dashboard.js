@@ -102,7 +102,7 @@ const Dashboard = () => {
             <h1 className={classes.resultHeading}>Your Results</h1>
             <p className={classes.resultP}>You can view your results once you complete all the five tests given above. You will be able to download a pdf version
               of your results. The button below will be activated as soon as you complete all the tests!</p>
-            {!data.finished === true ?
+            {data.finished === true ?
               <button className={classes.resultBtn} onClick={() => history.push('/results/ace')}>View Results</button> :
               <button className={`${classes.resultBtn} ${classes.resultBtnDisabled}`}>View Results</button>
             }
@@ -110,9 +110,12 @@ const Dashboard = () => {
         </Grid>
         <Grid className={classes.footer}>
           <p>Jivan Safalya | The Mirror Test</p>
-          <p className={classes.feedback} onClick={() => setFeedback(true)}>Provide Feedback</p>
+          <Grid className={classes.footerBottom}>
+            <p className={classes.feedback} onClick={() => setFeedback(true)}>Provide Feedback</p>
+            <p className={classes.feedback} onClick={() => history.push('/credits')}> View Credits</p>
+          </Grid>
         </Grid>
-        <FeedbackModal open={feedback} handleClose={handleClose} openSnack={openSnack}/>
+        <FeedbackModal open={feedback} handleClose={handleClose} openSnack={openSnack} />
         <Snackbar open={snackOpen} autoHideDuration={6000} onClose={() => setSnackOpen(false)}>
           <Alert onClose={() => setSnackOpen(false)} severity="success">
             Thank you for your valuable feedback!

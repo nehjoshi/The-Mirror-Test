@@ -203,10 +203,16 @@ export const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    footerBottom: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     feedback: {
         color: '#2697bd',
         cursor: 'pointer',
         textDecoration: 'underline',
+        margin: "0px 5px"
     }
 
 }))
