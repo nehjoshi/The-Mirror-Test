@@ -16,7 +16,7 @@ Register.post('/register', async (req, res) => {
     const User = await mongoose.model('The Mirror Test', schema);
     const user = new User;
 
-    const { email, name, password } = req.body;
+    const { email, name, password, userAgreesWithPrivacyPolicy } = req.body;
 
     const emailExists = await User.findOne({ email: email });
     if (emailExists) return res.json({ success: false, message: 'This email already exists!' });
@@ -27,6 +27,7 @@ Register.post('/register', async (req, res) => {
     const hashed = await bcrypt.hash(password, salt);
     user.password = hashed;
     user.choseToSkipDetails = false;
+    user.userAgreesWithPrivacyPolicy = userAgreesWithPrivacyPolicy;
     user.quiz1 = {
         result: 0,
         lastQ: 0,

@@ -36,7 +36,7 @@ const DetailsForm1 = () => {
     }
     const generateReligions = () => {
         let listOfRels = [];
-        const rels = ['Hindu', 'Muslim', 'Christian', 'Sikh', 'Buddhist', 'Jewish', 'Jain'];
+        const rels = ['Hindu', 'Muslim', 'Christian', 'Sikh', 'Buddhist', 'Jewish', 'Jain', 'None'];
         rels.forEach(rel => {
             listOfRels.push(<MenuItem value={rel} onClick={() => setRel(rel)} key={rel}>{rel}</MenuItem>)
         });

@@ -105,7 +105,7 @@ const Login = () => {
                             onChange={handlePassword}
                         />
                         <Link to='/reset_password'>
-                            <span style={{ position: 'relative', top: '10px', left: '35px', color: '#787122' }}>Forgot Password?</span>
+                            <span style={{ position: 'relative', top: '10px', left: '35px', color: '#000' }}>Forgot Password?</span>
                         </Link>
                         {!hideSubmit ?
                             <button

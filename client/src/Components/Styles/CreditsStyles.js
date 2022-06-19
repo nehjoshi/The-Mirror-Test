@@ -1,71 +1,92 @@
 import { makeStyles } from '@material-ui/core';
-import lib from "../../Images/library.jpg";
 export const useStyles = makeStyles((theme) => ({
+    container: {
+        width: "100%",
+        backgroundColor: "#f7f7f7",
+        // backgroundColor: "red",
+        margin: 0,
+        overflowX: "hidden",
+        padding: 0,
+        position: 'relative',
+    },
+    backButton: {
+        position: 'absolute',
+        top: 10,
+        left: 10,
+        zIndex: 1,
+        fontSize: '1.1rem'
+    },
     wrapper: {
-        height: '100vh',
-        width: '100%',
-        backgroundImage: `url(${lib})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center center',
+        height: '50vh',
+        width: "100%",
+        position: "relative",
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'relative'
+    },
+    smallDivider: {
+        width: "150px",
+        border: "5px solid #dbdbdb",
+        borderRadius: "5px",
+        marginBottom: "10px"
     },
     heading: {
-        fontSize: 'clamp(2.6rem, 5.1vw, 5rem)',
-        color: '#fff',
-        fontWeight: '900',
-    },
-    subHeading: {
-        fontSize: 'clamp(0.9rem, 2.1vw, 2rem)',
-        color: '#fff',
-    },
-    button: {
-        backgroundColor: '#fff',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        padding: '10px 25px',
-        borderRadius: '5px',
-        margin: '10px 10px',
-        color: '#000',
-        transition: '0.2s all ease',
-        boxShadow: "1px 2px 5px 0px #272727",
-        fontSize: 'clamp(1rem, 1.5vw, 1.4rem)',
-        textTransform: 'uppercase',
-        '&:hover': {
-            backgroundColor: '#F59432',
-            color: '#fff',
-            cursor: 'pointer',
-        },
-    },
-    section2: {
-        height: '100vh',
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        paddingTop: '40px',
-        backgroundColor: "#e0e0e0"
-    },
-    card: {
-        height: "500px",
-        width: "400px",
-        padding: "5px 5px",
-        backgroundColor: "#fff",
-        borderRadius: "5px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        margin: "0px 20px",
-        boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
-        '&:hover': {
-            cursor: 'pointer',
+        fontSize: "2.5rem",
+        marginBottom: "80px",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "2.1rem",
+            textAlign: "center",
+            padding: "10px 10px"
         }
     },
-    cardImage: {
-        height: "200px"
-    }
+    divider: {
+        width: "100%",
+        border: "2px solid #dbdbdb",
+    },
+    row: {
+        display: 'flex',
+        flexDirection: 'row',
+        width: "100%",
+        alignItems: 'center',
+        minHeight: "200px",
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column',
+        }
+    },
+    column: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: "50%",
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: "100px 30px",
+        [theme.breakpoints.down('sm')]: {
+            width: "95%",
+            padding: "5px 5px"
+        }
+    },
+    subHeading: {
+        color: "#9c9c9c",
+        fontFamily: "Nunito",
+        fontSize: "1.6rem",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "1.2rem",
+        }
+    },
+    smallHeading: {
+        color: "#383838",
+        fontSize: "1.8rem",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "1.4rem",
+            textAlign: "center",
+        }
+    },
+    text: {
+        color: "#383838",
+        fontSize: "1.4rem",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "1.1rem",
+        }
+    },
 }))

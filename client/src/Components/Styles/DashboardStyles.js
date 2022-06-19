@@ -213,6 +213,11 @@ export const useStyles = makeStyles((theme) => ({
         cursor: 'pointer',
         textDecoration: 'underline',
         margin: "0px 5px"
+    },
+    responsiveLogout: {
+        display: 'none',
+        [theme.breakpoints.down("sm")]: {
+            display: 'block',
+        }
     }
-
 }))

@@ -118,6 +118,10 @@ const schema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    userAgreesWithPrivacyPolicy: {
+        type: Boolean,
+        default: false
+    },
     quiz1: Quiz1Schema,
     quiz2: Quiz2Schema, 
     quiz3: Quiz3Schema,

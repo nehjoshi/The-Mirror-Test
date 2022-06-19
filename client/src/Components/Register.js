@@ -17,9 +17,10 @@ const Register = () => {
     const [loginMessage, setLoginMessage] = useState(false);
     const [hideSubmit, setHideSubmit] = useState(false);
     const history = useHistory();
+    const [userAgreesWithPrivacyPolicy, setUserAgreesWithPrivacyPolicy] = useState(false);
 
     useEffect(() => {
-        document.querySelector(".loading").style.display="none";
+        document.querySelector(".loading").style.display = "none";
     }, [])
 
     const handleName = (e) => {
@@ -46,7 +47,7 @@ const Register = () => {
         }
         else {
             setBlankField(false);
-            const sendData = { email, name, password };
+            const sendData = { email, name, password, userAgreesWithPrivacyPolicy };
             axios.post('https://self-growth-questionaire.herokuapp.com/register', sendData)
                 .then(res => {
                     if (res.data.success === true) {
@@ -101,7 +102,7 @@ const Register = () => {
                 </Grid>
                 <Grid item className={classes.boxRight} md={8} sm={12} xs={12}>
 
-                    <div style={{ position: 'relative', width: '100%',  }}>
+                    <div style={{ position: 'relative', width: '100%', }}>
                         <i class="fas fa-envelope reg-icon" ></i>
                         <input
                             type="email"
@@ -126,9 +127,9 @@ const Register = () => {
                             onChange={handleName}
                         />
                     </div>
-                    <div style={{ position: 'relative', width: '100%'}}>
+                    <div style={{ position: 'relative', width: '100%' }}>
                         <i
-                            class="fas fa-key reg-icon" 
+                            class="fas fa-key reg-icon"
                         >
                         </i>
                         <input
@@ -154,16 +155,22 @@ const Register = () => {
                             onChange={handleConfPassword}
                         />
                     </div>
+                    <div className={classes.noticeWrapper}>
+                        <input className={classes.checkbox} type="checkbox" checked={userAgreesWithPrivacyPolicy} onClick={() => setUserAgreesWithPrivacyPolicy(!userAgreesWithPrivacyPolicy)} />
+                        <p className={classes.noticeText}>The Mirror Test collects data for generating your results and for research purposes. Your details are not sent to any third-party applications. By clicking submit, you consent to providing your data.</p>
+                    </div>
+
                     {password !== confPassword ? <span style={errorPassword}>Passwords do not match</span> :
                         <span style={{ opacity: 0 }}>Passwords do not match</span>
                     }
                     {!hideSubmit ?
-                        <div
+                        <button
                             className={classes.button}
                             onClick={handleSubmit}
+                            disabled={!userAgreesWithPrivacyPolicy}
                         >
                             Submit
-                        </div> : null}
+                        </button> : null}
 
                     {loading ? <Loader /> : null}
                     {errorMessage ? <span style={otherErrorStyle}>{errorMessage}</span> : null}

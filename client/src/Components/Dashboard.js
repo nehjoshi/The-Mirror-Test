@@ -80,13 +80,13 @@ const Dashboard = () => {
       <Grid className={classes.wrapper} onClick={() => handleProfileSection('hide')}>
         <Grid container className={classes.tests} id="tests">
           <Grid container className={classes.testContainer}>
-            <TestInfo heading="Adverse Childhood Experience (ACE) Test" imgSource={Ace} height='200px'
+            <TestInfo heading="Adverse Childhood Experiences (ACE) Test" imgSource={Ace} height='200px'
               desc="Adverse Childhood Experiences are what govern our 
-          lives and shape our future. Take this test to find out more" progress={data.quiz1.percentage} testNo={1} lastQ={data.quiz1.lastQ} numberOfQ={10} />
+          lives and shape our future. Take this test to find out more." progress={data.quiz1.percentage} testNo={1} lastQ={data.quiz1.lastQ} numberOfQ={10} />
             <TestInfo heading="Attachment Style Test" imgSource={Att_Style} height="180px"
               desc="How do you attach with your loved ones or your partner?
            Out of the four attachment styles, secure, 
-           anxious, avoidant and disoranized, which one are you?" progress={data.quiz2.percentage} testNo={2} lastQ={data.quiz2.lastQ} numberOfQ={40} />
+           anxious, avoidant and disorganized, which one are you?" progress={data.quiz2.percentage} testNo={2} lastQ={data.quiz2.lastQ} numberOfQ={40} />
             <TestInfo heading="Hope and Optimism Test" imgSource={Hope} height="220px"
               desc="How optimistic or pessimistic are you? And how does your level of hope affect your life? Take this test to gain further insights." progress={data.quiz3.percentage} testNo={3} lastQ={data.quiz3.lastQ} numberOfQ={48} />
           </Grid>
@@ -113,6 +113,7 @@ const Dashboard = () => {
           <Grid className={classes.footerBottom}>
             <p className={classes.feedback} onClick={() => setFeedback(true)}>Provide Feedback</p>
             <p className={classes.feedback} onClick={() => history.push('/credits')}> View Credits</p>
+            <p className={`${classes.feedback} ${classes.responsiveLogout}`} onClick={handleLogOut}>Log Out</p>
           </Grid>
         </Grid>
         <FeedbackModal open={feedback} handleClose={handleClose} openSnack={openSnack} />

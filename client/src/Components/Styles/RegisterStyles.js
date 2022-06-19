@@ -15,7 +15,7 @@ export const useStyles = makeStyles((theme) => ({
         overflow: "hidden",
     },
     box: {
-        height: "550px",
+        minHeight: "550px",
         width: '55%',
         [theme.breakpoints.down("sm")]: {
             width: '95%',
@@ -120,6 +120,24 @@ export const useStyles = makeStyles((theme) => ({
         },
         "&:active": {
             backgroundColor: "#005249"
+        },
+        "&:disabled": {
+            backgroundColor: "#4E4637",
+            color: "#fff",
+            cursor: "not-allowed",
+            width: "40%",
+            opacity: 0.2
         }
     },
+    noticeWrapper: {
+        display: "flex",
+        alignItems: "center",
+        marginTop: "20px"
+    },
+    checkbox: {
+        transform: "scale(1.5)",
+    },
+    noticeText: {
+        marginLeft: "10px"
+    }
 }));
