@@ -52,6 +52,28 @@ export const Credits = () => {
                     </p>
                 </div>
             </div>
+            <hr className={classes.divider} />
+            <div className={classes.row}>
+                <div className={classes.column}>
+                    <p className={classes.subHeading}>Big Five Personality Test</p>
+                    <h3 className={classes.smallHeading}>D.W. Fiske et al.</h3>
+                </div>
+                <div className={classes.column}>
+                    <p className={classes.text}>The Big 5 Personality Traits is a theory that was originally developed by D.W. Fiske and later expanded upon by researchers such as Norman (1967), Smith (1967) and Goldberg (1981).
+                    </p>
+                </div>
+            </div>
+            <hr className={classes.divider} />
+            <div className={classes.row}>
+                <div className={classes.column}>
+                    <p className={classes.subHeading}>The PERMA Profiler</p>
+                    <h3 className={classes.smallHeading}>Martin Seligman</h3>
+                </div>
+                <div className={classes.column}>
+                    <p className={classes.text}>The PERMA Model was created by Martin Seligman, an American psychologist and educator. As a psychologist, Seligman recognises how natural it is for people to seek out what makes them happy, regardless of their age, sexual orientation, or social status.
+                    The five basic parts of the model are: Positive Emotion, Engagement, Relationships, Meaning, and Accomplishments.</p>
+                </div>
+            </div>
         </div>
     )
 }

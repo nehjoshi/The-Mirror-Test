@@ -21,7 +21,7 @@ export const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down("sm")]: {
             width: '70px'
         }
-        
+
     },
     heading: {
         fontSize: 'clamp(2.6rem, 6.1vw, 6rem)',
@@ -46,7 +46,7 @@ export const useStyles = makeStyles((theme) => ({
         color: '#000',
         transition: '0.2s all ease',
         boxShadow: "1px 2px 5px 0px #272727",
-        fontSize: 'clamp(1rem, 1.3vw, 1.2rem)', 
+        fontSize: 'clamp(1rem, 1.3vw, 1.2rem)',
         textTransform: 'uppercase',
 
         '&:hover': {
@@ -121,7 +121,7 @@ export const useStyles = makeStyles((theme) => ({
         color: '#fff'
     },
     [theme.breakpoints.down("md")]: {
-        
+
     },
     logOut: {
         '&:hover': {
@@ -218,6 +218,56 @@ export const useStyles = makeStyles((theme) => ({
         display: 'none',
         [theme.breakpoints.down("sm")]: {
             display: 'block',
+        }
+    },
+    landingInfo: {
+        height: "80vh",
+        // backgroundColor: "#ededed"
+        // backgroundColor: "#e5e5f7",
+        backgroundImage: "linear-gradient(to right top, #f9f9f9, #f1f1f1, #e9e9e9, #e2e2e2, #dadada)",
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+
+        
+    },
+    landingInfoHeading: {
+        fontSize: '3.5rem',
+        opacity: 20,
+        marginTop: "40px",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: '2rem',
+        }
+    },
+    landingInfoText: {
+        fontSize: '1.5rem',
+        [theme.breakpoints.down("sm")]: {
+            fontSize: '1.2rem',
+            textAlign: 'center',
+        }
+    },
+    swiperText: {
+        fontSize: '2rem',
+        fontWeight: '900',
+        color: "#fff",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: '1.2rem',
+        }
+    },
+    swiperSlide: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    swiperSmall: {
+        fontSize: '1.5rem',
+        color: "#0079a8",
+        width: "90%",
+        color: "#fff",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: '1.1rem',
+            width: "80%",
         }
     }
 }))
