@@ -46,6 +46,7 @@ const Landing = () => {
                 <h1 className={classes.heading} ref={headingRef}>The Mirror Test</h1>
                 <p className={classes.subheading}>A test that offers a reflection of who you really are.</p>
                 <Link to="/login" style={{ margin: '10px 0px' }}><div className={classes.navButton} ref={buttonRef}>Start your journey</div></Link>
+                <a href="#info" ><div className={classes.navButton} style={{backgroundColor: "#878cf5"}} ref={buttonRef}>Read More</div></a>
                 <hr className={classes.mainHr} ref={lineRef}></hr>
             </Grid>
             <Snackbar open={snack} autoHideDuration={6000} onClose={() => setSnack(false)}>
@@ -53,7 +54,7 @@ const Landing = () => {
                     Logged out successfully!
                 </Alert>
             </Snackbar>
-            <Grid className={classes.landingInfo}>
+            <Grid className={classes.landingInfo} id="info">
 
                 <h3 className={classes.landingInfoHeading}>What is The Mirror Test?</h3>
                 <p className={classes.landingInfoText}>The Mirror Test is a way to measure five important pillars of our life. These are:</p>
