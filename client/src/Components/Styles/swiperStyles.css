@@ -24,6 +24,9 @@
     -webkit-align-items: center;
     align-items: center;
 }
+.swiper-button-next, .swiper-button-prev {
+    color: #fff;
+}
 @media screen and (max-width: 760px){
     .swiper {
         width: 100%;
