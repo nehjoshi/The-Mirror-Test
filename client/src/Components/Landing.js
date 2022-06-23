@@ -83,6 +83,7 @@ const Landing = () => {
                         <p className={classes.swiperSmall}>The state of being comfortable, healthy, or happy emotionally and physically.</p>
                     </SwiperSlide>
                 </Swiper>
+                <p className={classes.backToTop} onClick={() => window.scrollTo(0, 0)}>Back to top</p>
 
             </Grid>
         </Grid>

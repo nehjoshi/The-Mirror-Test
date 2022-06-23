@@ -271,5 +271,15 @@ export const useStyles = makeStyles((theme) => ({
             fontSize: '1.1rem',
             width: "80%",
         }
+    },
+    backToTop: {
+        fontSize: '1.4rem',
+        textAlign: 'center',
+        marginTop: '20px',
+        color: "#34aeeb",
+        cursor: 'pointer',
+        "&:hover": {
+            color: "#0079a8",
+        }
     }
 }))
