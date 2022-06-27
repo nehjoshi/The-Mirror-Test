@@ -4,7 +4,7 @@ import font from '../fonts/Lato-Regular.ttf';
 import fontBlack from '../fonts/Lato-Black.ttf';
 import fontItalic from '../fonts/Lato-Italic.ttf';
 import axios from 'axios';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 Font.register({ family: 'Lato', src: font });
 Font.register({ family: 'LatoBlack', src: fontBlack });
@@ -147,73 +147,77 @@ const ResultPDFWithoutDetails = () => {
             });
 
     }, [history]);
-    return loading ? null : 
-    (
-        <Document>
-            <Page size="A4" style={styles.page}>
-                <View style={styles.section} fixed>
-                    <Text style={styles.heading}>Jivan Safalya | The Mirror Test</Text>
-                </View>
-                <View style={styles.details}>
-                    <Text style={styles.detailsHeading}>Personal Details</Text>
-                    <View style={styles.detailsBox}>
-                        <View style={styles.boxRow}>
-                            <Text style={styles.boxField}>Name</Text>
-                            <Text style={styles.boxValue}>{data.userDetails.name}</Text>
-                        </View>
-                        <View style={styles.boxRow}>
-                            <Text style={styles.boxField}>Email</Text>
-                            <Text style={styles.boxValue}>{data.userDetails.email}</Text>
+    return loading ? null :
+        (
+            <Document>
+                <Page size="A4" style={styles.page}>
+                    <View style={styles.section} fixed>
+                        <Text style={styles.heading}>Jivan Safalya | The Mirror Test</Text>
+                    </View>
+                    <View style={styles.details}>
+                        <Text style={styles.detailsHeading}>Personal Details</Text>
+                        <View style={styles.detailsBox}>
+                            <View style={styles.boxRow}>
+                                <Text style={styles.boxField}>Name</Text>
+                                <Text style={styles.boxValue}>{data.userDetails.name}</Text>
+                            </View>
+                            <View style={styles.boxRow}>
+                                <Text style={styles.boxField}>Email</Text>
+                                <Text style={styles.boxValue}>{data.userDetails.email}</Text>
+                            </View>
                         </View>
                     </View>
-                </View>
 
-                <View style={styles.footer} fixed>
-                    <Text style={styles.footerText}>Jivan Safalya | The Mirror Test</Text>
-                </View>
-                <View style={styles.details}>
-                    <Text style={styles.detailsHeading}>Your Test Results</Text>
-                    <View style={styles.detailsBox}>
-                        <Text style={styles.smallHeading}>Part 1: Adverse Childhood Experience (ACE) Score</Text>
-                        <Text style={styles.result}>Your Adverse Childhood Experience Score is {data.result.quiz1.result}</Text>
-                        <Text style={styles.resultDesc}>{data.result.quiz1.resultDesc}</Text>
-
-                        <Text style={styles.smallHeading}>Part 2: Attachment Style</Text>
-                        <Text style={styles.result}>Your Attachment Style is {data.result.quiz2.result}</Text>
-                        <Text style={styles.resultDesc}>{data.result.quiz2.resultDesc}</Text>
-                        <Text style={styles.smallHeading} break>Part 3: Optimism</Text>
-                        <Text style={styles.result}>Your optimism score is {data.result.quiz3.optScore}</Text>
-                        <Text style={styles.resultDesc}>{data.result.quiz3.optDesc}</Text>
-
-                        <Text style={styles.result}>Your hope score is {data.result.quiz3.hopeScore}</Text>
-                        <Text style={styles.resultDesc}>{data.result.quiz3.hopeDesc}</Text>
-
-                        <Text style={styles.result}>Your self-esteem score is {data.result.quiz3.esteemScore}</Text>
-                        <Text style={styles.resultDesc}>{data.result.quiz3.esteemDesc}</Text>
-
-                        <Text style={[styles.smallHeading, { marginTop: 20 }]} break >Part 4: Big Five Personality Test</Text>
-                        <Text style={styles.result}>Your extraversion score is 5</Text>
-                        <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
-
-                        <Text style={styles.result}>Your agreeableness score is 5</Text>
-                        <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
-
-                        <Text style={styles.result}>Your conscientiousness score is 5</Text>
-                        <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
-
-                        <Text style={styles.result}>Your neuroticism score is 5</Text>
-                        <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
-
-                        <Text style={styles.result}>Your openess score is 5</Text>
-                        <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
-
-                        <Text style={[styles.smallHeading, { marginTop: 20 }]} break >Part 5: PERMA Profiler Test</Text>
-                        <Text style={styles.result}>Your PERMA score is {data.result.quiz5.result}</Text>
-                        <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
+                    <View style={styles.footer} fixed>
+                        <Text style={styles.footerText}>Jivan Safalya | The Mirror Test</Text>
                     </View>
-                </View>
-            </Page>
-        </Document>
-    )
+                    <View style={styles.details}>
+                        <Text style={styles.detailsHeading}>Your Test Results</Text>
+                        <View style={styles.detailsBox}>
+                            <Text style={styles.smallHeading}>Part 1: Adverse Childhood Experience (ACE) Score</Text>
+                            <Text style={styles.result}>Your Adverse Childhood Experience Score is {data.result.quiz1.result}</Text>
+                            <Text style={styles.resultDesc}>{data.result.quiz1.resultDesc}</Text>
+
+                            <Text style={styles.smallHeading}>Part 2: Attachment Style</Text>
+                            <Text style={styles.result}>Your Attachment Style is {data.result.quiz2.result}</Text>
+                            <Text style={styles.resultDesc}>{data.result.quiz2.resultDesc}</Text>
+
+                            <Text style={styles.smallHeading}>Part 3: Optimism</Text>
+                            <Text style={styles.result}>Your optimism score is {data.result.quiz3.optScore}</Text>
+                            <Text style={styles.resultDesc}>{data.result.quiz3.optDesc}</Text>
+
+                            <Text style={styles.result}>Your hope score is {data.result.quiz3.hopeScore}</Text>
+                            <Text style={styles.resultDesc}>{data.result.quiz3.hopeDesc}</Text>
+
+                            <Text style={styles.result}>Your self-esteem score is {data.result.quiz3.esteemScore}</Text>
+                            <Text style={styles.resultDesc}>{data.result.quiz3.esteemDesc}</Text>
+
+                            <Text style={[styles.smallHeading, { marginTop: 20 }]} break >Part 4: Big Five Personality Test</Text>
+                            <Text style={styles.result}>Your extraversion score is {data.result.quiz4.E_score}</Text>
+                            <Text style={styles.resultDesc}>{data.result.quiz4.E_desc}</Text>
+
+                            <Text style={styles.result}>Your agreeableness score is {data.result.quiz4.A_score}</Text>
+                            <Text style={styles.resultDesc}>{data.result.quiz4.A_desc}</Text>
+
+                            <Text style={styles.result}>Your conscientiousness score is {data.result.quiz4.C_score}</Text>
+                            <Text style={styles.resultDesc}>{data.result.quiz4.C_desc}</Text>
+
+                            <Text style={styles.result}>Your neuroticism score is {data.result.quiz4.N_score}</Text>
+                            <Text style={styles.resultDesc}>{data.result.quiz4.N_desc}</Text>
+
+                            <Text style={styles.result}>Your openess score is {data.result.quiz4.O_score}</Text>
+                            <Text style={styles.resultDesc}>{data.result.quiz4.O_desc}</Text>
+
+                            <Text style={[styles.smallHeading, { marginTop: 20 }]} break >Part 5: PERMA Profiler Test</Text>
+                            <Text style={styles.result}>Your PERMA score is {data.result.quiz5.result}</Text>
+                            <Text style={styles.resultDesc}>In simple terms, wellbeing is about feeling good and functioning well.
+                                Wellbeing comprises a person's experience of life and a comparison of life circumstances with social norms
+                                and values. <b>The average PERMA Wellbeing score is 6.82</b></Text>
+                            
+                        </View>
+                    </View>
+                </Page>
+            </Document>
+        )
 }
 export default ResultPDFWithoutDetails;

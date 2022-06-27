@@ -258,24 +258,27 @@ const ResultPDF = () => {
                         <Text style={styles.resultDesc}>{data.result.quiz3.esteemDesc}</Text>
 
                         <Text style={[styles.smallHeading, { marginTop: 20 }]} break >Part 4: Big Five Personality Test</Text>
-                        <Text style={styles.result}>Your extraversion score is 5</Text>
-                        <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
+                        <Text style={styles.result}>Your extraversion score is {data.result.quiz4.E_score}</Text>
+                        <Text style={styles.resultDesc}>{data.result.quiz4.E_desc}</Text>
 
-                        <Text style={styles.result}>Your agreeableness score is 5</Text>
-                        <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
+                        <Text style={styles.result}>Your agreeableness score is {data.result.quiz4.A_score}</Text>
+                        <Text style={styles.resultDesc}>{data.result.quiz4.A_desc}</Text>
 
-                        <Text style={styles.result}>Your conscientiousness score is 5</Text>
-                        <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
+                        <Text style={styles.result}>Your conscientiousness score is {data.result.quiz4.C_score}</Text>
+                        <Text style={styles.resultDesc}>{data.result.quiz4.C_desc}</Text>
 
-                        <Text style={styles.result}>Your neuroticism score is 5</Text>
-                        <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
+                        <Text style={styles.result}>Your neuroticism score is {data.result.quiz4.N_score}</Text>
+                        <Text style={styles.resultDesc}>{data.result.quiz4.N_desc}</Text>
 
-                        <Text style={styles.result}>Your openess score is 5</Text>
-                        <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
+                        <Text style={styles.result}>Your openess score is {data.result.quiz4.O_score}</Text>
+                        <Text style={styles.resultDesc}>{data.result.quiz4.O_desc}</Text>
 
                         <Text style={[styles.smallHeading, { marginTop: 20 }]} break >Part 5: PERMA Profiler Test</Text>
-                        <Text style={styles.result}>Your PERMA score is 11.23</Text>
-                        <Text style={styles.resultDesc}>Your optimism score shows that you are mildly optimistic. In most situations throughout life, you are able to stay hopeful and calm. Although tough or intense circumstances may temporarily disorient you from your level optimism, nevertheless, you remain rested and hopeful. </Text>
+                        <Text style={styles.result}>Your PERMA score is {data.result.quiz5.result}</Text>
+                        <Text style={styles.resultDesc}>In simple terms, wellbeing is about feeling good and functioning well.
+              Wellbeing comprises a person's experience of life and a comparison of life circumstances with social norms
+              and values. <b>The average PERMA Wellbeing score is 6.82</b></Text>
+              
                     </View>
                 </View>
             </Page>

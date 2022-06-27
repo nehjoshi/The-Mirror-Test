@@ -89,7 +89,7 @@ const Quiz3_30 = () => {
                 </p>
                 <div className={classes.buttonWrapper}>
                     <div className={classes.button} onClick={() => handleRes('psb', 1)}>A. I am not a good enough dancer.</div>
-                    <div className={classes.button} onClick={() => handleRes('psb', 0)}>B. I was lazy about getting my taxes done this year.</div>
+                    <div className={classes.button} onClick={() => handleRes('psb', 0)}>B. He/She doesn't like to dance.</div>
                 </div>
 
             </Grid>
