@@ -88,8 +88,8 @@ const Quiz3_16 = () => {
                     You fail an important examination.
                 </p>
                 <div className={classes.buttonWrapper}>
-                    <div className={classes.button} onClick={() => handleRes('pvb', 1)}>A. I wasn't as smart as the other people in the exam.</div>
-                    <div className={classes.button} onClick={() => handleRes('pvb', 0)}>B. I didn't prepare for it well.</div>
+                    <div className={classes.button} onClick={() => handleRes('psb', 1)}>A. I wasn't as smart as the other people in the exam.</div>
+                    <div className={classes.button} onClick={() => handleRes('psb', 0)}>B. I didn't prepare for it well.</div>
                 </div>
 
             </Grid>
