@@ -99,6 +99,10 @@ const Dashboard = () => {
           </Grid>
           <hr className={classes.hr}></hr>
           <Grid container className={classes.result}>
+            <h1 className={classes.resultHeading}>Auto Save Information</h1>
+            <p className={classes.resultP}>Your responses to the questions will be automatically saved, which means you don't have to complete a test in a single sitting. You can come back to it in your free time - the test will resume from where you left off.</p>
+          </Grid><hr />
+          <Grid container className={classes.result}>
             <h1 className={classes.resultHeading}>Your Results</h1>
             <p className={classes.resultP}>You can view your results once you complete all the five tests given above. You will be able to download a pdf version
               of your results. The button below will be activated as soon as you complete all the tests!</p>
