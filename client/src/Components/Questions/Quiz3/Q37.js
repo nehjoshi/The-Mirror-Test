@@ -88,7 +88,7 @@ const Quiz3_37 = () => {
                     Your doctor tells you that you are in good physical shape.
                 </p>
                 <div className={classes.buttonWrapper}>
-                    <div className={classes.button} onClick={() => handleRes('pvg', 0)}>A. I make sure I exercise frequenyly.</div>
+                    <div className={classes.button} onClick={() => handleRes('pvg', 0)}>A. I make sure I exercise frequently.</div>
                     <div className={classes.button} onClick={() => handleRes('pvg', 1)}>B. I am very health-conscious.</div>
                 </div>
 
